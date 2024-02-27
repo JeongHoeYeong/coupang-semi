@@ -1,0 +1,29 @@
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd" >
+<configuration>
+	<properties resource="driver.properties"/>
+
+	<settings>
+		<setting name="jdbcTypeForNull" value="NULL" />
+	</settings>
+
+	<typeAliases>
+		<typeAlias type="com.semi.gold.vo.TourPlace" alias="TourPlace" />
+	</typeAliases>
+
+	<environments default="develop">
+		<environment id="develop">
+			<transactionManager type="JDBC" />
+			<!-- value값 driver.properties 참고 -->
+			<dataSource type="UNPOOLED">
+				<property name="driver" value="${db.driver}" />
+				<property name="url" value="${db.url}" />
+				<property name="username" value="${db.username}" />
+				<property name="password" value="${db.password}" />
+			</dataSource>
+		</environment>
+	</environments>
+
+	<mappers>
+		<mapper resource="mappers/tourplace-mapper.xml" />
+	</mappers>
+</configuration>
