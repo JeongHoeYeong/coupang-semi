@@ -5,7 +5,7 @@
 	</settings>
 	
 	<typeAliases>
-		<typeAlias type="com.kh.semi.model.vo.Member" alias="Member"/>
+		<typeAlias type="com.kh.security.model.vo.Member" alias="Member"/>
 	</typeAliases>
 	
 	<mappers>

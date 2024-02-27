@@ -1,10 +1,10 @@
-package com.kh.semi.model.dao;
+package com.kh.security.model.dao;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.kh.semi.model.vo.Member;
+import com.kh.security.model.vo.Member;
 
 @Repository
 public class MemberDAO {

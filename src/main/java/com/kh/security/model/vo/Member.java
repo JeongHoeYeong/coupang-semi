@@ -1,4 +1,4 @@
-package com.kh.semi.model.vo;
+package com.kh.security.model.vo;
 
 import java.util.ArrayList;
 import java.util.Arrays;

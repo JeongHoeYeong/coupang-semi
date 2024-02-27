@@ -20,9 +20,6 @@
 				<li><a href="/register">회원가입</a></li>
 			</c:when>
 			<c:otherwise>
-				<sec:authorize access="hasRole('ROLE_ADMIN') and isAuthenticated()">
-				<li><a href="/admin">관리자 페이지</a></li>
-				</sec:authorize>
 				<li><a href="/member">회원 페이지</a>
 				<li><a href="/logout">로그아웃</a></li>
 			</c:otherwise>

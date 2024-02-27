@@ -1,4 +1,4 @@
-package com.kh.semi.service;
+package com.kh.security.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -7,8 +7,8 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.kh.semi.model.dao.MemberDAO;
-import com.kh.semi.model.vo.Member;
+import com.kh.security.model.dao.MemberDAO;
+import com.kh.security.model.vo.Member;
 
 // Spring Security에서 제공하는 UserDetailsService 인터페이스 상속
 @Service
@@ -23,8 +23,9 @@ public class MemberService implements UserDetailsService {
 	// -> 로그인 시 자동으로 이곳으로 온다.
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		System.out.println("service : " + username);
-		return dao.getMemberById(username);
+		Member member = dao.getMemberById(username);
+		System.out.println("로그인 성공 : " + member);
+		return member;
 	}
 	
 	// 회원가입

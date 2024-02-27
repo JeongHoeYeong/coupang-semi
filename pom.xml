@@ -7,11 +7,7 @@
 	<name>gold-semi</name>
 	<packaging>war</packaging>
 	<version>1.0.0-BUILD-SNAPSHOT</version>
-<<<<<<< Updated upstream
-		<properties>
-=======
-<properties>
->>>>>>> Stashed changes
+	<properties>
 		<java-version>11</java-version>
 		<org.springframework-version>5.2.9.RELEASE</org.springframework-version>
 		<org.aspectj-version>1.6.10</org.aspectj-version>
