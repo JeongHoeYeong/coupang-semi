@@ -303,7 +303,7 @@ footer a {
       <div class="overlay-panel overlay-right">
         <h1>Hello, Friend!</h1>
         <p>Enter your personal details and start journey with us</p>
-        <button class="ghost" id="signUp">Sign Up</button>
+        <button class="ghost" id="signUp"><a href="/register">Sign Up</a></button>
       </div>
     </div>
   </div>
