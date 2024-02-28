@@ -232,31 +232,6 @@ input {
   height: 40px;
   width: 40px;
 }
-
-footer {
-    background-color: #222;
-    color: #fff;
-    font-size: 14px;
-    bottom: 0;
-    position: fixed;
-    left: 0;
-    right: 0;
-    text-align: center;
-    z-index: 999;
-}
-
-footer p {
-    margin: 10px 0;
-}
-
-footer i {
-    color: red;
-}
-
-footer a {
-    color: #3c97bf;
-    text-decoration: none;
-}
 </style>
 </head>
 <body>
@@ -271,9 +246,6 @@ footer a {
         <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
       </div>
       <span>or use your email for registration</span>
-      <input type="text" placeholder="Name" />
-      <input type="email" placeholder="Email" />
-      <input type="password" placeholder="password" />
       <button>Sign Up</button>
     </form>
   </div>
@@ -287,7 +259,7 @@ footer a {
         <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
       </div>
       <span>or use your account</span>
-      <input type="test" name="username" placeholder="username" />
+      <input type="text" name="username" placeholder="id" />
       <input type="password" name="password" placeholder="password" />
       <a href="#">Forgot your password?</a>
       <button>Sign In</button>
