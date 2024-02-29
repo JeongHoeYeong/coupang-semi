@@ -1,8 +1,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="memberMapper">
 	<insert id="registerMember" parameterType="Member">
-		INSERT INTO member(id, password, name, email, address, phone, nickname, resident)
-		VALUES(#{id}, #{password}, #{name}, #{email}, #{address}, #{phone}, #{nickname}, #{resident})
+		INSERT INTO member(id, password, name, email, address, phone, nickname, gender, resident)
+		VALUES(#{id}, #{password}, #{name}, #{email}, #{address}, #{phone}, #{nickname}, #{gender}, #{resident})
 	</insert>
 	
 	<select id="getMemberById" parameterType="String" resultType="Member">

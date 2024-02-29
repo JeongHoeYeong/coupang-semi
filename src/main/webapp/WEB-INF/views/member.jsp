@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>로그인한 회원만 접근 가능한 페이지</h1>
+	<h1>로그인한 회원만 접근 가능한 페이지(마이 페이지)</h1>
 	<a href="/">첫 페이지로 이동</a>
 </body>
 </html>
