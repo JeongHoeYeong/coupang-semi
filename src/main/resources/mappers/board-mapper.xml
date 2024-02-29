@@ -1,0 +1,23 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="board">
+
+	<resultMap type="board" id="boardMap">
+		<id property="boardNo" column="board_no"/>
+		<result property="boardDate" column="board_date"/>
+		<result property="id" column="id"/>
+		<result property="boardViews" column="board_views"/>
+		<result property="boardLike" column="board_like"/>
+		<result property="boardTitle" column="board_title"/>
+		<result property="boardContent" column="board_content"/>
+	</resultMap>
+	
+	<select id="selectAll" resultType="Board">
+		SELECT * FROM board
+	</select>
+	
+	<insert id="insert" parameterType="Board" useGeneratedKeys="true" keyProperty="no" keyColumn="no" >
+		INSERT INTO board(id, board_title, board_content)
+		VALUES(#{id}, #{boardTitle}, #{boardContent})
+	</insert>
+	
+</mapper>
