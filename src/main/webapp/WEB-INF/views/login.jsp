@@ -244,7 +244,7 @@ z-index
 </style>
 </head>
 <body>
-	<h2>로그인 페이지</h2>
+	<a href="/" /><h2>로그인 페이지</h2>
 	<div class="container" id="container">
 		<div class="form-container sign-up-container">
 			<form action="#">
