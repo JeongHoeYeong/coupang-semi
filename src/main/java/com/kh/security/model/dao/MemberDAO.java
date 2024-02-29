@@ -19,4 +19,5 @@ public class MemberDAO {
 	public Member getMemberById(String id) {
 		return session.selectOne("memberMapper.getMemberById", id);
 	}
+	
 }

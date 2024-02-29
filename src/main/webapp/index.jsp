@@ -7,30 +7,17 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="resources/css/styles.css" />
-<title>Insert title here</title>
+<link rel="stylesheet" href="resources/css/mainpage.css" />
+<link href="resources/image/logo.jpg" rel="shortcut icon" type="image/x-icon">
+<title>전만순</title>
 </head>
 <body>
 	
-	<!-- <sec:authentication property="principal" var="member" />
-	<ul>
-		<li><a href="/all">전체 페이지</a></li>
-		<c:choose>
-			<c:when test="${member == 'anonymousUser'}">
-				<li><a href="/login">로그인</a></li>
-			</c:when>
-			<c:otherwise>
-				<li><a href="/member">마이 페이지</a>
-					<li><a href="/logout">로그아웃</a></li>
-			</c:otherwise>
-		</c:choose>
-	</ul>
-	 -->
-	
+	<sec:authentication property="principal" var="member" />
 	 	<!-- Navigation-->
         <nav class="navbar navbar-light bg-light static-top">
             <div class="container">
-                <a class="navbar-brand" href="/">Start Bootstrap</a>
+                <a class="navbar-brand" href="/">전국을 만나는 순간</a>
                 <c:choose>
                 <c:when test="${member == 'anonymousUser'}">
                 	<a class="btn btn-primary" href="/login">Sign In</a>
@@ -50,17 +37,8 @@
                         <div class="text-center text-white">
                             <!-- Page heading-->
                             <h1 class="mb-5">Generate more leads with a professional landing page!</h1>
-                            <!-- Signup form-->
-                            <!-- * * * * * * * * * * * * * * *-->
-                            <!-- * * SB Forms Contact Form * *-->
-                            <!-- * * * * * * * * * * * * * * *-->
-                            <!-- This form is pre-integrated with SB Forms.-->
-                            <!-- To make this form functional, sign up at-->
-                            <!-- https://startbootstrap.com/solution/contact-forms-->
-                            <!-- to get an API token!-->
                             <form class="form-subscribe"
 							id="contactForm" data-sb-form-api-token="API_TOKEN">
-                                <!-- Email address input-->
                                 <div class="row">
                                     <div class="col">
                                         <input
@@ -79,10 +57,6 @@
 										id="submitButton" type="submit">Submit</button>
 								</div>
                                 </div>
-                                <!-- Submit success message-->
-                                <!---->
-                                <!-- This is what your users will see when the form-->
-                                <!-- has successfully submitted-->
                                 <div class="d-none"
 								id="submitSuccessMessage">
                                     <div class="text-center mb-3">
@@ -92,10 +66,6 @@
 										href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
                                     </div>
                                 </div>
-                                <!-- Submit error message-->
-                                <!---->
-                                <!-- This is what your users will see when there is-->
-                                <!-- an error submitting the form-->
                                 <div class="d-none"
 								id="submitErrorMessage">
 								<div class="text-center text-danger mb-3">Error sending message!</div>
@@ -219,14 +189,6 @@
                 <div class="row justify-content-center">
                     <div class="col-xl-6">
                         <h2 class="mb-4">Ready to get started? Sign up now!</h2>
-                        <!-- Signup form-->
-                        <!-- * * * * * * * * * * * * * * *-->
-                        <!-- * * SB Forms Contact Form * *-->
-                        <!-- * * * * * * * * * * * * * * *-->
-                        <!-- This form is pre-integrated with SB Forms.-->
-                        <!-- To make this form functional, sign up at-->
-                        <!-- https://startbootstrap.com/solution/contact-forms-->
-                        <!-- to get an API token!-->
                         <form class="form-subscribe"
 										id="contactFormFooter" data-sb-form-api-token="API_TOKEN">
                             <!-- Email address input-->
@@ -248,10 +210,7 @@
 													id="submitButton" type="submit">Submit</button>
 											</div>
                             </div>
-                            <!-- Submit success message-->
-                            <!---->
-                            <!-- This is what your users will see when the form-->
-                            <!-- has successfully submitted-->
+
                             <div class="d-none"
 											id="submitSuccessMessage">
                                 <div class="text-center mb-3">
@@ -261,10 +220,7 @@
 													href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
                                 </div>
                             </div>
-                            <!-- Submit error message-->
-                            <!---->
-                            <!-- This is what your users will see when there is-->
-                            <!-- an error submitting the form-->
+
                             <div class="d-none" id="submitErrorMessage">
 											<div class="text-center text-danger mb-3">Error sending message!</div>
 										</div>
@@ -319,10 +275,7 @@
 						src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
-        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-        <!-- * *                               SB Forms JS                               * *-->
-        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
-        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
 
 				</body>

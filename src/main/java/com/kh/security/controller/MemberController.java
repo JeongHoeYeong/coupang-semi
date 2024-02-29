@@ -28,4 +28,7 @@ public class MemberController {
 		service.registerMember(vo);
 		return "redirect:/login";
 	}
+	
+	@GetMapping("/member")
+	public void member() {}
 }
