@@ -163,7 +163,12 @@
 		    <artifactId>assertj-core</artifactId>
 		    <version>3.24.2</version>
 		    <scope>test</scope>
-		</dependency>   
+		</dependency> 
+		
+		<!-- 여기서 부터 추가함 -->
+		<!-- https://mvnrepository.com/ 사이트에서 설정값 찾을 수 있음 -->
+		
+		
 		
 		<!-- mysql -->
 		<dependency>
@@ -171,7 +176,7 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<version>8.0.13</version>
 		</dependency>
-		
+		       
 		<!-- spring-jdbc -->
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -212,14 +217,25 @@
 			<artifactId>spring-security-config</artifactId>
 			<version>${org.springframework-version}</version>
 		</dependency>
-
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-taglibs</artifactId>
 			<version>${org.springframework-version}</version>
-		</dependency>    
+		</dependency>
 		
-		     
+		<!-- POI : Excel 읽는 라이브러리 -->
+		<dependency>
+		    <groupId>org.apache.poi</groupId>
+		    <artifactId>poi-ooxml</artifactId>
+		    <version>4.1.2</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.apache.poi</groupId>
+		    <artifactId>poi</artifactId>
+		    <version>4.1.2</version>
+		</dependency>
+		
+     <!-- 여기까지 -->       
 	</dependencies>
     <build>
         <plugins>
