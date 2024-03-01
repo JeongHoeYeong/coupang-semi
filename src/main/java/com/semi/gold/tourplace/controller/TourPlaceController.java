@@ -5,10 +5,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/tourplace")
 public class TourPlaceController {
 	
-	@GetMapping("/allPlace")
+	@GetMapping("/tourplace")
 	public String test() {
 		return "/tourplace/home2";
 	}
