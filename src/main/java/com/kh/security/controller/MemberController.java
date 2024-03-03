@@ -31,4 +31,8 @@ public class MemberController {
 	
 	@GetMapping("/member")
 	public void member() {}
+
+	@GetMapping("/change")
+	public void change() {}
 }
+

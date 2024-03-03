@@ -49,8 +49,8 @@
       <!-- 4. 필드(성별) -->
       <div class="field gender">
         <div>
-        <input type="radio" name="gender" value="남" />남
-        <input type="radio" name="gender" value="여" />여
+        <input type="radio" name="gender" value="남" />남성
+        <input type="radio" name="gender" value="여" />여성
         </div>
       </div>
 

@@ -31,9 +31,10 @@
 						href="#" class="social"><i class="fab fa-google-plus-g"></i></a> <a
 						href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
 				</div>
-				<span>or use your account</span> <input type="text" name="username"
-					placeholder="id" /> <input type="password" name="password"
-					placeholder="password" /> <a href="#">Forgot your password?</a>
+				<span>or use your account</span> 
+				<input type="text" name="username" placeholder="id" /> 
+				<input type="password" name="password" placeholder="password" />
+				<a href="#">Forgot your password?</a>
 				<button>Sign In</button>
 			</form>
 		</div>
