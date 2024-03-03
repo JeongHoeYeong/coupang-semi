@@ -1,11 +1,14 @@
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd" >
 <configuration>
 
+    <properties resource="driver.properties"/>
+
 	<settings>
 		<setting name="jdbcTypeForNull" value="NULL" />
 	</settings>
 
 	<typeAliases>
+	  <typeAlias type="com.semi.gold.vo.Lodging" alias="Lodging"/>
 	</typeAliases>
 
 	<environments default="develop">
@@ -22,6 +25,6 @@
 	</environments>
 
 	<mappers>
-		<mapper resource="mappers/gold-mapper.xml" />
+		<mapper resource="mappers/lodging-mapper.xml" />
 	</mappers>
 </configuration>

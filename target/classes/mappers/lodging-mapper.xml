@@ -1,0 +1,9 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="lodgingMapper">
+
+    <insert id="insertLodging" parameterType="Lodging">
+       INSERT  lodging (lodging_name, lodging_number, lodging_addr)
+       VALUES(#{lodging_name}, #{lodging_number}, #{lodging_addr})
+    </insert>
+
+</mapper>
