@@ -1,6 +1,7 @@
 package com.semi.gold.board.vo;
 
 import java.sql.Timestamp;
+import java.util.Date;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -9,7 +10,7 @@ import lombok.NoArgsConstructor;
 public class Board {
 	
 	private int boardNo;
-	private Timestamp boardDate;
+	private Date boardDate;
 	private String id;
 	private int boardViews;
 	private int boardLike;

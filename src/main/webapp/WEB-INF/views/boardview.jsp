@@ -26,25 +26,20 @@
 <body>
 <div class="container">
 		<h1>게시물 정보</h1>
-		<form action="/update" method="post" enctype="multipart/form-data">
-			<input type="hidden" name="no" value="${vo.no}">
-			<input type="hidden" name="url" value="${vo.url}">
+		<form action="/boardupdate" method="post">
+			<input type="hidden" name="boardNo" value="${vo.boardNo}">
 			<div class="form-group">
 				<label>Title</label>
-				<input class="form-control" name="title" value="${vo.title}">
+				<input class="form-control" name="boardTitle" value="${vo.boardTitle}">
 			</div>
 			<div class="form-group">
 				<label>Content</label>
-				<textarea class="form-control" row="10" name="content" style="resize:none;">${vo.content}</textarea>
-				<a href="/upload/${vo.url}" download><img src="/upload/${vo.url}"/></a>
-			</div>
-			<div class="form-group">
-				<label for="file">Add File</label>
-				<input class="form-control" type="file" id="file" name="file" accept="image/*">
+				<textarea class="form-control" row="10" name="boardContent" style="resize:none;">${vo.boardContent}</textarea>
 			</div>
 			
 			<button type="submit" class="btn btn-outline-warning">수정</button>
-			<a class="btn btn-outline-danger" href="/delete?no=${vo.no}">삭제</a>
+			<a class="btn btn-outline-danger" href="/boarddelete?no=${vo.boardNo}">삭제</a>
+			<a class="btn btn-outline-danger" href="/boardlist">게시판</a>
 		</form>
 	</div>
 </body>

@@ -9,6 +9,7 @@
 	<!-- vo, dto 추가 -->
 	<typeAliases>
 		<typeAlias type="com.semi.gold.board.vo.Board" alias="Board"/>
+		<typeAlias type="com.semi.gold.board.vo.BoardPaging" alias="BoardPaging"/>
 	</typeAliases>
 
 	<environments default="develop">

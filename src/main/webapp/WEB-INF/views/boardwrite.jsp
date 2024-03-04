@@ -18,18 +18,15 @@
 <body>
 <div class="container">
 		<h1>게시물 등록</h1>
-		<form action="/write" method="post" enctype="multipart/form-data">
+		<form action="/boardwrite" method="post">
 			<div class="form-group">
+			<input type="hidden" name="id" value="123"/>
 				<label>Title</label>
-				<input class="form-control" name="title">
+				<input class="form-control" name="boardTitle">
 			</div>
 			<div class="form-group">
 				<label>Content</label>
-				<textarea class="form-control" row="10" name="content"></textarea>
-			</div>
-			<div class="form-group">
-				<label for="file">Add File</label>
-				<input class="form-control" type="file" id="file" name="file" accept="image/*">
+				<textarea class="form-control" row="10" name="boardContent"></textarea>
 			</div>
 			<button type="submit" class="btn btn-outline-warning">등록</button>
 		</form>

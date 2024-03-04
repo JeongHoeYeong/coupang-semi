@@ -29,6 +29,8 @@
 					<th>#번호</th>
 					<th>제목</th>
 					<th>작성일</th>
+					<th>조회수</th>
+					<th>추천수</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -36,13 +38,25 @@
 				<c:forEach items="${list}" var="board" varStatus="status">
 					<tr>
 						<td>${status.count}</td>
-						<td><a href="/view?no=${board.no}">${board.title}</a></td>
-						<td><fmt:formatDate value="${board.date}"
-								pattern="yyyy-MM-dd" /></td>
+						<td><a href="/boardview?no=${board.boardNo}">${board.boardTitle}</a></td>
+						<td><fmt:formatDate value="${board.boardDate}"
+								pattern="yyyy-MM-dd HH:mm" /></td>
+						<td>${board.boardViews}</td>
 					</tr>
 				</c:forEach>
 			</tbody>
 		</table>
+		<nav>
+			<ul class="pagination">
+				<li class="page-item ${paging.prev ? '' : 'disabled'}"><a class="page-link" href="/boardlist?page=${paging.startPage - 1}">Previous</a></li>
+				
+				<c:forEach begin="${paging.startPage}" end="${paging.endPage}" var="page">
+					<li class="page-item"><a class="page-link ${paging.page == page ? 'active' : ''}" href="/boardlist?page=${page}">${page}</a></li>
+				</c:forEach>
+				
+				<li class="page-item ${paging.next ? '' : 'disabled'}"><a class="page-link" href="/boardlist?page=${paging.endPage + 1}">Next</a></li>
+			</ul>
+		</nav>
 	</div>
 </body>
 </html>

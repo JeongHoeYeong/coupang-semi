@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.semi.gold.board.dao.BoardDAO;
 import com.semi.gold.board.vo.Board;
+import com.semi.gold.board.vo.BoardPaging;
 
 @Service
 public class BoardService {
@@ -14,7 +15,30 @@ public class BoardService {
 	@Autowired
 	private BoardDAO dao;
 	
-	public List<Board> selectAll() {
-		return dao.selectAll();
+	public List<Board> selectAll(BoardPaging paging) {
+		paging.setOffset(paging.getLimit() * (paging.getPage() - 1));
+		return dao.selectAll(paging);
+	}
+	
+	public int insert(Board b) {
+		return dao.insert(b);
+	}
+	public Board select(int no) {
+		return dao.select(no);
+	}
+	
+	public int update(Board b) {
+		return dao.update(b);
+	}
+	
+	public int delete(int no) {
+		return dao.delete(no);
+	}
+	public int total() {
+		return dao.total();
+	}
+	
+	public int view(int no) {
+		return dao.view(no);
 	}
 }
