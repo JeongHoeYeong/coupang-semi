@@ -5,6 +5,7 @@ function sendit() {
   const nickname = document.getElementById("nickname");
   const resident = document.getElementById("resident");
   const hp = document.getElementById("phone");
+  const email = document.getElementById("email");
 
   const expldText = /^[A-Za-z]{1}[A-Za-z0-9]{3,20}$/;
   const expPassword =
@@ -14,6 +15,7 @@ function sendit() {
   const expResidentText =
     /^(?:[0-9]{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[1,2][0-9]|3[0,1]))-[1-4][0-9]{6}$/;
   const expHpText = /^\d{3}-\d{3,4}-\d{4}$/;
+  const expEmailText = /^[A-Za-z-0-9\-\.]+@[A-Ja-z-0-9\-\.]+\.[A-Ja-z-0-9]+$/;
 
   if (userid.value == "") {
     alert("아이디를 입력하세요");
@@ -54,6 +56,12 @@ function sendit() {
   if (!expNickText.test(nickname.value)) {
     alert("닉네임은 2자 이상 20자 이하로 입력해주세요.");
     nickname.focus();
+    return false;
+  }
+
+  if (!expEmailText.test(email.value)) {
+    alert("이메일 형식을 확인하세요 \n골뱅이표시(@)을 포함해야 합니다.");
+    email.focus();
     return false;
   }
 
