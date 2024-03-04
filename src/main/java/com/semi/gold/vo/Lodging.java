@@ -10,5 +10,9 @@ public class Lodging {
 	private String Name;
 	private String Number;
 	private String Addr;
+	private String name;
+	private String number;
+	private String addr;
+	private String filename;
 	
 }

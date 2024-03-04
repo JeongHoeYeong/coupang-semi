@@ -2,8 +2,8 @@
 <mapper namespace="lodgingMapper">
 
     <insert id="insertLodging" parameterType="Lodging">
-       INSERT  lodging (lodging_name, lodging_number, lodging_addr)
-       VALUES(#{lodging_name}, #{lodging_number}, #{lodging_addr})
+       INSERT  lodging (name, number, addr, filename)
+       VALUES(#{name}, #{number}, #{addr}, #{filename})
     </insert>
 
 </mapper>
