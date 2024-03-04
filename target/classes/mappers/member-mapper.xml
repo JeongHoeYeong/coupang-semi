@@ -9,6 +9,7 @@
 		SELECT * FROM member
 		WHERE id=#{id}
 	</select>
+	
 </mapper>
 
 

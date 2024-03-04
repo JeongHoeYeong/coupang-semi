@@ -25,6 +25,7 @@
 	rel="stylesheet">
 
 <link href="resources/css/admin1.css" rel="stylesheet">
+<link rel="stylesheet" href="resources/css/register.css">
 
 </head>
 <!--=====================================================================================-->
@@ -43,9 +44,6 @@
 			<a
 				class="sidebar-brand d-flex align-items-center justify-content-center"
 				href="/">
-				<div class="sidebar-brand-icon rotate-n-15">
-					<i class="fas fa-laugh-wink"></i>
-				</div>
 				<div class="sidebar-brand-text mx-3">전국을 만나는 순간</div>
 			</a>
 
@@ -177,16 +175,13 @@
 
 				<!-- Content Row -->
 				<form action="/change_a" method="post">
-				<div class="row">
-					<!-- Card Body -->
-					<div class="card-body">
-						<div class="chart-area">
-							비밀번호 <input type="password" name="password" placeholder="password" />
-							<input type="submit" value="확인"/>
-							<canvas id="myAreaChart"></canvas>
+					<div class="member">
+							<div class="field">
+								<b>비밀번호</b> <input type="password" name="password" placeholder="비밀번호 입력" />
+							</div>
+							<!-- 6. 가입하기 버튼 -->
+							<input type="submit" value="변경하기" />
 						</div>
-					</div>
-				</div>
 				</form>
 			</div>
 			<!-- Card Body -->

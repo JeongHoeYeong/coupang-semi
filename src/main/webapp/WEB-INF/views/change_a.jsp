@@ -25,6 +25,7 @@
 	rel="stylesheet">
 
 <link href="resources/css/admin1.css" rel="stylesheet">
+<link rel="stylesheet" href="resources/css/register.css">
 
 </head>
 <!--=====================================================================================-->
@@ -57,8 +58,6 @@
 					<i class="fas fa-fw fa-tachometer-alt"></i> <span>나의 정보</span>
 			</a></li>
 
-			<!-- Divider -->
-			<hr class="sidebar-divider">
 
 			<!-- Heading -->
 			<div class="sidebar-heading">정보 관리</div>
@@ -177,34 +176,53 @@
 
 				<!-- Content Row -->
 				<form action="/change_a" method="post">
-				<div class="row">
-					<!-- Card Body -->
-					<div class="card-body">
-						<div class="chart-area">
-							비밀번호 <input type="password" name="password" placeholder="password" />
-							<input type="submit" value="확인"/>
-							<canvas id="myAreaChart"></canvas>
+					<div class="member">
+
+						<div class="field">
+							<b>닉네임</b> <input type="text" name="nickname"
+								placeholder="닉네임 입력" />
 						</div>
-					</div>
-				</div>
+
+						<div class="field">
+							<b>이메일</b> <input type="text" name="email" placeholder="이메일 입력" />
+						</div>
+
+						<!-- 5. 주소-->
+						<div class="field">
+							<b>주소</b> <input type="text" name="address" placeholder="주소 입력" />
+						</div>
+
+						<div class="field tel-number">
+							<b>휴대전화</b>
+							<div>
+								<input type="text" name="phone" placeholder="전화번호 입력" />
+							</div>
+
+							<!-- 6. 가입하기 버튼 -->
+							<input type="submit" value="변경하기" />
+						</div>
 				</form>
 			</div>
-			<!-- Card Body -->
-			<div class="card-body">
-				<div class="chart-pie pt-4 pb-2">
-					<canvas id="myPieChart"></canvas>
-				</div>
-				<div class="mt-4 text-center small">
-					<span class="mr-2"> <i class="fas fa-circle text-primary"></i>
-						Direct
-					</span> <span class="mr-2"> <i class="fas fa-circle text-success"></i>
-						Social
-					</span> <span class="mr-2"> <i class="fas fa-circle text-info"></i>
-						Referral
-					</span>
-				</div>
-			</div>
 		</div>
+	</div>
+	</form>
+	</div>
+	<!-- Card Body -->
+	<div class="card-body">
+		<div class="chart-pie pt-4 pb-2">
+			<canvas id="myPieChart"></canvas>
+		</div>
+		<div class="mt-4 text-center small">
+			<span class="mr-2"> <i class="fas fa-circle text-primary"></i>
+				Direct
+			</span> <span class="mr-2"> <i class="fas fa-circle text-success"></i>
+				Social
+			</span> <span class="mr-2"> <i class="fas fa-circle text-info"></i>
+				Referral
+			</span>
+		</div>
+	</div>
+	</div>
 	</div>
 	</div>
 	</div>
