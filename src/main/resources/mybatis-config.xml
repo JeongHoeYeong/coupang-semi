@@ -11,6 +11,8 @@
 		<typeAlias type="com.semi.gold.model.vo.Board" alias="Board"/>
 		<typeAlias type="com.semi.gold.model.vo.BoardPaging" alias="BoardPaging"/>
 		<typeAlias type="com.semi.gold.model.vo.Member" alias="Member"/>
+		<typeAlias type="com.semi.gold.vo.TourPlace"
+			alias="TourPlace" />
 	</typeAliases>
 
 	<environments default="develop">
@@ -29,5 +31,6 @@
 	<mappers>
 		<mapper resource="mappers/board-mapper.xml"/>
 		<mapper resource="mappers/member-mapper.xml" />
+		<mapper resource="mappers/tourplace-mapper.xml" />
 	</mappers>
 </configuration>
