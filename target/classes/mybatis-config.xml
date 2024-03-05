@@ -8,8 +8,9 @@
 
 	<!-- vo, dto 추가 -->
 	<typeAliases>
-		<typeAlias type="com.semi.gold.board.vo.Board" alias="Board"/>
-		<typeAlias type="com.semi.gold.board.vo.BoardPaging" alias="BoardPaging"/>
+		<typeAlias type="com.semi.gold.model.vo.Board" alias="Board"/>
+		<typeAlias type="com.semi.gold.model.vo.BoardPaging" alias="BoardPaging"/>
+		<typeAlias type="com.semi.gold.model.vo.Member" alias="Member"/>
 	</typeAliases>
 
 	<environments default="develop">
@@ -27,5 +28,6 @@
 	<!-- mapper추가 -->
 	<mappers>
 		<mapper resource="mappers/board-mapper.xml"/>
+		<mapper resource="mappers/member-mapper.xml" />
 	</mappers>
 </configuration>
