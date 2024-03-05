@@ -18,14 +18,13 @@
 						href="#" class="social"><i class="fab fa-google-plus-g"></i></a> <a
 						href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
 				</div>
-				<span>or use your email for registration</span>
-				<button>Sign Up</button>
 			</form>
 		</div>
 		<div class="form-container sign-in-container">
 			<form action="/login" method="post">
 				<!--  로그인  -->
 				<h1>Sign in</h1>
+				<!-- SNS 로그인 -->
 				<div class="social-container">
 					<a href="#" class="social"><i class="fab fa-facebook-f"></i></a> <a
 						href="#" class="social"><i class="fab fa-google-plus-g"></i></a> <a

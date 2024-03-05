@@ -44,4 +44,12 @@ public class MemberService implements UserDetailsService {
 		vo.setPassword(encodePw);
 		return dao.updateMember(vo);
 	}
+	
+	// 회원 탈퇴
+	public int deleteMember(Member vo) {
+		String encodePw = bcpe.encode(vo.getPassword());
+		vo.setPassword(encodePw);
+		System.out.println("!!!!!!!!!!!!!!!!");
+		return dao.deleteMember(vo);
+	}
 }

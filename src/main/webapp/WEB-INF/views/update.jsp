@@ -7,7 +7,11 @@
 <html lang="en">
 
 <head>
-
+<style>
+#id {
+	color: black;
+}
+</style>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport"
@@ -26,11 +30,12 @@
 
 <link href="resources/css/admin1.css" rel="stylesheet">
 <link rel="stylesheet" href="resources/css/register.css">
+<script src="resources/js/register.js" />
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 
 </head>
 <!--=====================================================================================-->
 <body id="page-top">
-	<h2>개인정보변경</h2>
 
 	<!-- Page Wrapper -->
 	<div id="wrapper">
@@ -64,7 +69,7 @@
 
 			<!-- Nav Item - Pages Collapse Menu -->
 			<li class="nav-item"><a class="nav-link collapsed"
-				href="/change"> <i class="fas fa-fw fa-cog"></i><span>회원
+				href="/update"> <i class="fas fa-fw fa-cog"></i> <span>회원
 						정보 변경</span>
 			</a></li>
 
@@ -175,31 +180,42 @@
 				</nav>
 
 				<!-- Content Row -->
-				<form action="/update" method="post">
+				<form action="/updateMember" method="post" onsubmit="return sendit()">
 					<div class="member">
 						<div class="field">
-							<input type="hidden" name="id" placeholder="아이디 입력" />
+							<input type="hidden" id="id" name="id" value="<sec:authentication property="principal.id"/>" />
 						</div>
 
 						<div class="field">
-							<input type="hidden" name="password" placeholder="비밀번호 입력" />
+							<b>비밀번호 : </b><input class="password" type="password" 
+							name="password" id="password" placeholder="비밀번호 입력"/>
 						</div>
 
 						<div class="field">
-							<input type="hidden" name="resident" placeholder="주민번호 입력" />
+							<b>이름</b> <input type="text" name="name" id="name" placeholder="이름 입력"/>
 						</div>
 
 						<div class="field">
-							<b>이름</b> <input type="text" name="nickname" placeholder="이름 입력" />
+							<b>닉네임</b> <input type="text" name="nickname" 
+							id="nickname" placeholder="닉네임 입력"/>
 						</div>
 
 						<div class="field">
-							<b>닉네임</b> <input type="text" name="nickname"
-								placeholder="닉네임 입력" />
+							<b>이메일</b> <input type="text" name="email" id="email" placeholder="이메일 입력"/>
 						</div>
 
 						<div class="field">
-							<b>이메일</b> <input type="text" name="email" placeholder="이메일 입력" />
+							<b>주민등록번호 : </b> <input type="text" 
+							name="resident" id="resident" placeholder="주민등록번호 입력" maxlength="14"/>
+						</div>
+
+						<!-- 4. 필드(성별) -->
+						<div class="field gender">
+							<b>성별</b>
+							<div>
+								<input type="radio" name="gender" value="남" checked />남성
+								<input type="radio" name="gender" value="여" />여성
+							</div>
 						</div>
 
 						<!-- 5. 주소-->
@@ -210,7 +226,8 @@
 						<div class="field tel-number">
 							<b>휴대전화</b>
 							<div>
-								<input type="text" name="phone" placeholder="전화번호 입력" />
+								 <input type="text" name="phone" 
+								 id="phone" placeholder="전화번호 입력" />
 							</div>
 
 							<!-- 6. 가입하기 버튼 -->

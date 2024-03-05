@@ -24,4 +24,10 @@ public class MemberDAO {
 	public int updateMember(Member vo) {
 		return session.update("memberMapper.updateMember", vo);
 	}
+	
+	// 회원탈퇴
+	public int deleteMember(Member vo) {
+		return session.delete("memberMapper.deleteMember", vo);
+	}
+	
 }

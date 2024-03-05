@@ -7,7 +7,11 @@
 <html lang="en">
 
 <head>
-
+<style>
+#id {
+	color: black;
+}
+</style>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport"
@@ -16,17 +20,7 @@
 <meta name="author" content="">
 
 <title>전만순</title>
-<!-- 
-<script type="text/javascript">
-	function check(){
-		if(document.fr.pass.value ==""){
-			document.fr.pass.focus();
-			alert("비밀번호를 입력하세요.");
-			return false;
-		}
-	}
-</script>
- -->
+
 <!-- Custom fonts for this template-->
 <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet"
 	type="text/css">
@@ -36,12 +30,13 @@
 
 <link href="resources/css/admin1.css" rel="stylesheet">
 <link rel="stylesheet" href="resources/css/register.css">
+<script
+	src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 
 </head>
 <!--=====================================================================================-->
 <body id="page-top">
-	<h2>개인정보변경 페이지</h2>
-
+	<h1>회원탈퇴</h1>
 	<!-- Page Wrapper -->
 	<div id="wrapper">
 
@@ -54,6 +49,9 @@
 			<a
 				class="sidebar-brand d-flex align-items-center justify-content-center"
 				href="/">
+				<div class="sidebar-brand-icon rotate-n-15">
+					<i class="fas fa-laugh-wink"></i>
+				</div>
 				<div class="sidebar-brand-text mx-3">전국을 만나는 순간</div>
 			</a>
 
@@ -65,15 +63,13 @@
 					<i class="fas fa-fw fa-tachometer-alt"></i> <span>나의 정보</span>
 			</a></li>
 
-			<!-- Divider -->
-			<hr class="sidebar-divider">
 
 			<!-- Heading -->
 			<div class="sidebar-heading">정보 관리</div>
 
 			<!-- Nav Item - Pages Collapse Menu -->
 			<li class="nav-item"><a class="nav-link collapsed"
-				href="/change"> <i class="fas fa-fw fa-cog"></i><span>회원
+				href="/update"> <i class="fas fa-fw fa-cog"></i> <span>회원
 						정보 변경</span>
 			</a></li>
 
@@ -155,7 +151,9 @@
 							class="nav-link dropdown-toggle" href="#" id="userDropdown"
 							role="button" data-toggle="dropdown" aria-haspopup="true"
 							aria-expanded="false"> <span
-								class="mr-2 d-none d-lg-inline text-gray-600 small"></span>
+								class="mr-2 d-none d-lg-inline text-gray-600 small"><sec:authentication
+										property="principal.nickname" /></span> <img
+								class="img-profile rounded-circle" src="img/undraw_profile.svg">
 						</a> <!-- Dropdown - User Information -->
 							<div
 								class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -181,45 +179,49 @@
 
 				</nav>
 
-				<!-- Content Row -->
-				<form action="/update" method="post">
+				<form action="/deleteMember" method="post"
+					onsubmit="return sendit()">
 					<div class="member">
 						<div class="field">
-							<b>비밀번호</b> <input type="password" name="password"
-								placeholder="비밀번호 입력" />
-							<sec:authentication property="principal.password" />
+								<input type="hidden" id="id" name="id"
+									value="<sec:authentication property="principal.id"/>" />
+							</div>
+
+							<div class="field">
+								<br> 
+								<br> 
+								<br> 
+								<br> 
+								<br> 
+								<input class="password" type="password" 
+								name="password" id="password" placeholder="비밀번호 입력" />
+							</div>
+
+							<!-- 6. 가입하기 버튼 -->
+							<input type="submit" value="탈퇴하기" />
 						</div>
-						<!-- 6. 가입하기 버튼 -->
-						<input type="submit" value="변경하기" />
-					</div>
 				</form>
 			</div>
-			<form action="/login" method="post">
-				<div class="social-container">
-					<a href="#" class="social"><i class="fab fa-facebook-f"></i></a> <a
-						href="#" class="social"><i class="fab fa-google-plus-g"></i></a> <a
-						href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-				</div>
-				<input type="text" name="username" placeholder="id" /> 
-					<input type="password" name="password" placeholder="password" />
-				<button>Sign In</button>
-			</form>
-			<!-- Card Body -->
-			<div class="card-body">
-				<div class="chart-pie pt-4 pb-2">
-					<canvas id="myPieChart"></canvas>
-				</div>
-				<div class="mt-4 text-center small">
-					<span class="mr-2"> <i class="fas fa-circle text-primary"></i>
-						Direct
-					</span> <span class="mr-2"> <i class="fas fa-circle text-success"></i>
-						Social
-					</span> <span class="mr-2"> <i class="fas fa-circle text-info"></i>
-						Referral
-					</span>
-				</div>
-			</div>
 		</div>
+	</div>
+	</form>
+	</div>
+	<!-- Card Body -->
+	<div class="card-body">
+		<div class="chart-pie pt-4 pb-2">
+			<canvas id="myPieChart"></canvas>
+		</div>
+		<div class="mt-4 text-center small">
+			<span class="mr-2"> <i class="fas fa-circle text-primary"></i>
+				Direct
+			</span> <span class="mr-2"> <i class="fas fa-circle text-success"></i>
+				Social
+			</span> <span class="mr-2"> <i class="fas fa-circle text-info"></i>
+				Referral
+			</span>
+		</div>
+	</div>
+	</div>
 	</div>
 	</div>
 	</div>

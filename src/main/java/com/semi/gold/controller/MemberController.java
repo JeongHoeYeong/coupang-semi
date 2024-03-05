@@ -1,5 +1,8 @@
 package com.semi.gold.controller;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -35,17 +38,64 @@ public class MemberController {
 	@GetMapping("/member")
 	public void member() {}
 
-	@GetMapping("/change")
-	public void change() {}
-	
+	// 회원 정보 변경
 	@GetMapping("/update")
-	public void update() {}
-	
-	@PostMapping("/update")
 	public String update(Member vo) {
-		service.updateMember(vo);
-		return "redirect:/member";
+		return "/update";
+	}
+	
+	// 회원 정보 변경
+	@PostMapping("/updateMember")
+	public String update(Member vo, HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		System.out.println(vo);
+		if(service.updateMember(vo)==1) {
+			session.setAttribute("vo", vo);
+		}
+		return "redirect:/login";
+	}
+	
+	// 회원 탈퇴
+	@GetMapping("/userout")
+	public String delete(Member vo) {
+		System.out.println("--------------------------");
+		return "/userout";
+	}
+	
+	// 회원 탈퇴
+	@PostMapping("/deleteMember")
+	public String delete(Member vo, HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		System.out.println(vo);
+		if(service.deleteMember(vo) == 1) {
+			System.out.println("제발 되라!!!!");
+			session.setAttribute("vo", vo);
+		}
+		return "redirect:/login";
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

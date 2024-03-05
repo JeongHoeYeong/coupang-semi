@@ -1,24 +1,54 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="memberMapper">
 	<insert id="registerMember" parameterType="Member">
-		INSERT INTO member(id, password, name, email, address, phone, nickname, gender, resident)
-		VALUES(#{id}, #{password}, #{name}, #{email}, #{address}, #{phone}, #{nickname}, #{gender}, #{resident})
+		INSERT INTO member(id,
+		password, name, email, address, phone, nickname, gender, resident)
+		VALUES(#{id}, #{password}, #{name}, #{email}, #{address}, #{phone},
+		#{nickname}, #{gender}, #{resident})
 	</insert>
-	
-	<select id="getMemberById" parameterType="String" resultType="Member">
+
+	<select id="getMemberById" parameterType="String"
+		resultType="Member">
 		SELECT * FROM member
 		WHERE id=#{id}
 	</select>
-	
-		<select id="getMemberByPassword" parameterType="String" resultType="Member">
+
+	<select id="getMemberByPassword" parameterType="String"
+		resultType="Member">
 		SELECT * FROM member
 		WHERE id=#{id} AND password=#{password}
 	</select>
-	
+
 	<update id="updateMember" parameterType="Member">
-		UPDATE member SET nickname=#{nickname}, email=#{email}, phone=#{phone}, phone=#{phone} 
-		WHERE id=#{id} AND password=#{password}
+		UPDATE member
+		<set>
+			<if test="password != null">
+				password=#{password},
+			</if>
+			<if test="name != null">
+				name=#{name},
+			</if>
+			<if test="nickname != null">
+				nickname=#{nickname},
+			</if>
+			email=#{email},
+			<if test="resident != null">
+				resident=#{resident},
+			</if>
+			gender=#{gender},
+			address=#{address},
+			<if test="phone != null">
+				phone=#{phone}
+			</if>
+		</set>
+		WHERE id=#{id}
 	</update>
+
+	<delete id="deleteMember" parameterType="Member">
+		DELETE FROM member
+		WHERE id=#{id} AND password=#{password}
+	</delete>
+
 </mapper>
 
 
