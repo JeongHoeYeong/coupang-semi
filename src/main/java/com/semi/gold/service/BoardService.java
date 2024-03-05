@@ -5,9 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.semi.gold.board.dao.BoardDAO;
-import com.semi.gold.board.vo.Board;
-import com.semi.gold.board.vo.BoardPaging;
+import com.semi.gold.model.dao.BoardDAO;
+import com.semi.gold.model.vo.Board;
+import com.semi.gold.model.vo.BoardPaging;
 
 @Service
 public class BoardService {

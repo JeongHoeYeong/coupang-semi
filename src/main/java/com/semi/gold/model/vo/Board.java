@@ -1,4 +1,4 @@
-package com.semi.gold.board.vo;
+package com.semi.gold.model.vo;
 
 import java.sql.Timestamp;
 import java.util.Date;

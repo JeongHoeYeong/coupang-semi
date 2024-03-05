@@ -1,4 +1,4 @@
-package com.semi.gold.board.dao;
+package com.semi.gold.model.dao;
 
 import java.util.List;
 
@@ -6,8 +6,8 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.semi.gold.board.vo.Board;
-import com.semi.gold.board.vo.BoardPaging;
+import com.semi.gold.model.vo.Board;
+import com.semi.gold.model.vo.BoardPaging;
 
 @Repository
 public class BoardDAO {

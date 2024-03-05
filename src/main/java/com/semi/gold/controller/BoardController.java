@@ -10,8 +10,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.semi.gold.board.vo.Board;
-import com.semi.gold.board.vo.BoardPaging;
+import com.semi.gold.model.vo.Board;
+import com.semi.gold.model.vo.BoardPaging;
 import com.semi.gold.service.BoardService;
 
 

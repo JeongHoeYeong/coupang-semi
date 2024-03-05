@@ -1,4 +1,4 @@
-package com.kh.security.service;
+package com.semi.gold.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -9,8 +9,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.kh.security.model.dao.MemberDAO;
-import com.kh.security.model.vo.Member;
+import com.semi.gold.model.dao.MemberDAO;
+import com.semi.gold.model.vo.Member;
 
 // Spring Security에서 제공하는 UserDetailsService 인터페이스 상속
 @Service
