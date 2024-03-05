@@ -1,14 +1,36 @@
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd" >
 <configuration>
+	<properties resource="driver.properties"/>
+
 	<settings>
 		<setting name="jdbcTypeForNull" value="NULL" />
 	</settings>
-	
+
+	<!-- vo, dto 추가 -->
 	<typeAliases>
-		<typeAlias type="com.kh.security.model.vo.Member" alias="Member"/>
+		<typeAlias type="com.semi.gold.model.vo.Board" alias="Board"/>
+		<typeAlias type="com.semi.gold.model.vo.BoardPaging" alias="BoardPaging"/>
+		<typeAlias type="com.semi.gold.model.vo.Member" alias="Member"/>
+		<typeAlias type="com.semi.gold.vo.TourPlace"
+			alias="TourPlace" />
 	</typeAliases>
-	
+
+	<environments default="develop">
+		<environment id="develop">
+			<transactionManager type="JDBC" />
+			<dataSource type="UNPOOLED">
+				<property name="driver" value="${db.driver}" />
+				<property name="url" value="${db.url}" />
+				<property name="username" value="${db.username}" />
+				<property name="password" value="${db.password}" />
+			</dataSource>
+		</environment>
+	</environments>
+
+	<!-- mapper추가 -->
 	<mappers>
+		<mapper resource="mappers/board-mapper.xml"/>
 		<mapper resource="mappers/member-mapper.xml" />
+		<mapper resource="mappers/tourplace-mapper.xml" />
 	</mappers>
 </configuration>

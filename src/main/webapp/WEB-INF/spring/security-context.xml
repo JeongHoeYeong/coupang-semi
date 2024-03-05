@@ -10,8 +10,8 @@
 	<bean id="bcryptPasswordEncoder"
 		class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
 
-	<context:component-scan	base-package="com.kh.security" />
-	<bean id="memberService" class="com.kh.security.service.MemberService" />
+	<context:component-scan	base-package="com.semi.gold" />
+	<bean id="memberService" class="com.semi.gold.service.MemberService" />
 
 	<security:http>
 		<security:form-login login-page="/login" />

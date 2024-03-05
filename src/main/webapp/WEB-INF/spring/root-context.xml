@@ -8,7 +8,6 @@
 	<context:property-placeholder location="classpath:driver.properties"/>
 
 	<!-- Root Context: defines shared resources visible to all other web components -->
-	<!-- mysql 연결 -->
 	<bean id="dataSource"
 		class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
 		<property name="driverClassName" value="${db.driver}" />
@@ -30,3 +29,4 @@
 		<constructor-arg ref="sqlSessionFactoryBean" />
 	</bean>
 </beans>
+
