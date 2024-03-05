@@ -72,7 +72,51 @@ body {
   outline: 0 !important;
 }
 
+.img {
+  width: 50%;
+  margin-top: 60px;
+  background-color: pink;
+}
 
+.categories {
+  width: 100%;
+  margin-top: 60px;
+  text-align: center;
+}
+
+.categories li {
+  display: inline-block;
+  text-align: center;
+  width: 18%;
+}
+
+.categories li a {
+  color: #fff;
+  text-align: center;
+  font-size: 15px;
+  margin-top: 15px;
+}
+
+.categories {
+  display: block;
+  margin: 0 auto 12px auto;
+  width: 66px;
+  height: 66px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 62px;
+  color: #8d99af;
+  background-color: #fff;
+  transition: all 0.5s;
+}
+
+.categories {
+  background-color: #2b2d42;
+}
+
+.categories img {
+  max-width: 27px;
+}
 
 /* line 79, src/assets/scss/_reboot.scss */
 hr {
