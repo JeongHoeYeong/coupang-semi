@@ -1,4 +1,4 @@
-package com.semi.gold.tourplace.controller;
+package com.semi.gold.service;
 
 import java.io.File;
 import java.util.HashMap;
@@ -8,7 +8,8 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.semi.gold.vo.TourPlace;
+import com.semi.gold.model.dao.TourplaceDAO;
+import com.semi.gold.model.vo.TourPlace;
 
 @Service
 public class TourplaceService {

@@ -1,4 +1,4 @@
-package com.semi.gold.vo;
+package com.semi.gold.model.vo;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;

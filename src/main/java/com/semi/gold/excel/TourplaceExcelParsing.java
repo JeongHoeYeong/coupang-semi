@@ -16,7 +16,7 @@ import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 
-import com.semi.gold.vo.TourPlace;
+import com.semi.gold.model.vo.TourPlace;
 
 //1. webapp/resources/parsingExcel에 파싱할 엑셀 복사
 //2. 생성자의  path경로의 파일명 수정

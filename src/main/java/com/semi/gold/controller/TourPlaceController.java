@@ -1,4 +1,4 @@
-package com.semi.gold.tourplace.controller;
+package com.semi.gold.controller;
 
 import java.util.List;
 
@@ -7,7 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import com.semi.gold.vo.TourPlace;
+import com.semi.gold.model.vo.TourPlace;
+import com.semi.gold.service.TourplaceService;
 
 @Controller
 public class TourPlaceController {
