@@ -11,4 +11,5 @@ public class TourPlace {
 	private String touristName;
 	private String touristAddress;
 	private int look;
+	private String imgTag;//<img src='localhost:8080/resources&*%&*%*^&'/>
 }

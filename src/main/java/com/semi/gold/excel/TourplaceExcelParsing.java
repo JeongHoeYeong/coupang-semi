@@ -18,7 +18,6 @@ import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 
 import com.semi.gold.vo.TourPlace;
 
-
 //1. webapp/resources/parsingExcel에 파싱할 엑셀 복사
 //2. 생성자의  path경로의 파일명 수정
 //3. columns 배열의 값 엑셀의 컬럼명으로 수정
@@ -26,11 +25,11 @@ import com.semi.gold.vo.TourPlace;
 //5. insert할 mybatis mapper 변경
 //6. main 실행
 public class TourplaceExcelParsing {
-	
+
 	public TourplaceExcelParsing() {
-		
-		parsingExcel("src/main/webapp/resources/parsingExcel/관광지-강남구.xls");
-		
+
+			parsingExcel("src/main/webapp/resources/parsingExcel/관광지 텍스트.xls");
+
 	}
 
 	public void parsingExcel(String filePath) {
@@ -40,41 +39,22 @@ public class TourplaceExcelParsing {
 			HSSFWorkbook workbook = new HSSFWorkbook(file);
 
 			List<TourPlace> voDataList = new ArrayList<>();
-			
-			String[] columns = {
-				"명칭",
-				"우편번호",
-				"관리자",
-				"전화번호",
-				"주소",
-				"위도",
-				"경도",
-				"개요",
-				"유산구분",
-				"문의 및 안내",
-				"개장일",
-				"쉬는날",
-				"체험안내",
-				"체험가능연령",
-				"수용인원",
-				"이용시기",
-				"이용시간",
-				"주차시설",
-				"유모차 대여 여부",
-				"애완동물 동반 가능 여부",
-				"신용카드 가능 여부",
-				"상세정보"
-			};
-			
+
+			String[] columns = { "명칭", "우편번호", "관리자", "전화번호", "주소", "위도", "경도", "개요", "유산구분", "문의 및 안내", "개장일", "쉬는날",
+					"체험안내", "체험가능연령", "수용인원", "이용시기", "이용시간", "주차시설", "유모차 대여 여부", "애완동물 동반 가능 여부", "신용카드 가능 여부",
+					"상세정보" };
+
 			// 시트 수 (첫번째에만 존재하므로 0을 준다)
 			// 만약 각 시트를 읽기위해서는 FOR문을 한번더 돌려준다
 			HSSFSheet sheet = workbook.getSheetAt(0);
 			// 행의 수
 			int rows = sheet.getPhysicalNumberOfRows();
+
 			for (int rowindex = 1; rowindex < rows; rowindex++) {
-				
+
+				// MAP >
 				Map<String, String> excelRow = new HashMap<String, String>();
-				
+
 				// 행을읽는다
 				HSSFRow row = sheet.getRow(rowindex);
 				if (row != null) {
@@ -83,25 +63,25 @@ public class TourplaceExcelParsing {
 						// 셀값을 읽는다
 						HSSFCell cell = row.getCell(columnindex);
 						String value = getCellValue(cell);
-						
+
 						excelRow.put(columns[columnindex], value);
 					}
 				}
-				
+
 				TourPlace vo = new TourPlace();
 				vo.setTouristName(excelRow.get("명칭"));
 				vo.setTouristAddress(excelRow.get("주소"));
 				vo.setLook(0);
 				voDataList.add(vo);
 			}
-			
+
 			insertExcelData(voDataList);
-			
+
 			workbook.close();
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
-		}
+		} 
 
 	}
 
@@ -111,7 +91,6 @@ public class TourplaceExcelParsing {
 			Reader r = Resources.getResourceAsReader("mybatis-config.xml");
 			SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(r);
 			SqlSession session = factory.openSession();
-
 
 			for (int i = 0; i < voList.size(); i++) {
 
@@ -160,7 +139,7 @@ public class TourplaceExcelParsing {
 
 	public static void main(String[] args) {
 		new TourplaceExcelParsing();
-		
+
 	}
 
 }
