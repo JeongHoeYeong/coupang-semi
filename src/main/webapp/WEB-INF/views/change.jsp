@@ -16,7 +16,17 @@
 <meta name="author" content="">
 
 <title>전만순</title>
-
+<!-- 
+<script type="text/javascript">
+	function check(){
+		if(document.fr.pass.value ==""){
+			document.fr.pass.focus();
+			alert("비밀번호를 입력하세요.");
+			return false;
+		}
+	}
+</script>
+ -->
 <!-- Custom fonts for this template-->
 <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet"
 	type="text/css">
@@ -145,9 +155,7 @@
 							class="nav-link dropdown-toggle" href="#" id="userDropdown"
 							role="button" data-toggle="dropdown" aria-haspopup="true"
 							aria-expanded="false"> <span
-								class="mr-2 d-none d-lg-inline text-gray-600 small"><sec:authentication
-										property="principal.nickname" /></span> <img
-								class="img-profile rounded-circle" src="img/undraw_profile.svg">
+								class="mr-2 d-none d-lg-inline text-gray-600 small"></span>
 						</a> <!-- Dropdown - User Information -->
 							<div
 								class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -174,16 +182,28 @@
 				</nav>
 
 				<!-- Content Row -->
-				<form action="/change_a" method="post">
+				<form action="/update" method="post">
 					<div class="member">
-							<div class="field">
-								<b>비밀번호</b> <input type="password" name="password" placeholder="비밀번호 입력" />
-							</div>
-							<!-- 6. 가입하기 버튼 -->
-							<input type="submit" value="변경하기" />
+						<div class="field">
+							<b>비밀번호</b> <input type="password" name="password"
+								placeholder="비밀번호 입력" />
+							<sec:authentication property="principal.password" />
 						</div>
+						<!-- 6. 가입하기 버튼 -->
+						<input type="submit" value="변경하기" />
+					</div>
 				</form>
 			</div>
+			<form action="/login" method="post">
+				<div class="social-container">
+					<a href="#" class="social"><i class="fab fa-facebook-f"></i></a> <a
+						href="#" class="social"><i class="fab fa-google-plus-g"></i></a> <a
+						href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+				</div>
+				<input type="text" name="username" placeholder="id" /> 
+					<input type="password" name="password" placeholder="password" />
+				<button>Sign In</button>
+			</form>
 			<!-- Card Body -->
 			<div class="card-body">
 				<div class="chart-pie pt-4 pb-2">

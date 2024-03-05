@@ -38,4 +38,10 @@ public class MemberService implements UserDetailsService {
 		return dao.registerMember(vo);
 	}
 	
+	// 정보 수정
+	public int updateMember(Member vo) {
+		String encodePw = bcpe.encode(vo.getPassword());
+		vo.setPassword(encodePw);
+		return dao.updateMember(vo);
+	}
 }

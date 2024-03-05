@@ -38,6 +38,14 @@ public class MemberController {
 	@GetMapping("/change")
 	public void change() {}
 	
+	@GetMapping("/update")
+	public void update() {}
+	
+	@PostMapping("/update")
+	public String update(Member vo) {
+		service.updateMember(vo);
+		return "redirect:/member";
+	}
 }
 
 

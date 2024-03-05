@@ -10,6 +10,15 @@
 		WHERE id=#{id}
 	</select>
 	
+		<select id="getMemberByPassword" parameterType="String" resultType="Member">
+		SELECT * FROM member
+		WHERE id=#{id} AND password=#{password}
+	</select>
+	
+	<update id="updateMember" parameterType="Member">
+		UPDATE member SET nickname=#{nickname}, email=#{email}, phone=#{phone}, phone=#{phone} 
+		WHERE id=#{id} AND password=#{password}
+	</update>
 </mapper>
 
 

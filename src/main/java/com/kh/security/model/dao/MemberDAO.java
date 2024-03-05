@@ -20,4 +20,8 @@ public class MemberDAO {
 		return session.selectOne("memberMapper.getMemberById", id);
 	}
 	
+	// 회원정보 수정
+	public int updateMember(Member vo) {
+		return session.update("memberMapper.updateMember", vo);
+	}
 }

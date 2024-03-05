@@ -175,8 +175,23 @@
 				</nav>
 
 				<!-- Content Row -->
-				<form action="/change_a" method="post">
+				<form action="/update" method="post">
 					<div class="member">
+						<div class="field">
+							<input type="hidden" name="id" placeholder="아이디 입력" />
+						</div>
+
+						<div class="field">
+							<input type="hidden" name="password" placeholder="비밀번호 입력" />
+						</div>
+
+						<div class="field">
+							<input type="hidden" name="resident" placeholder="주민번호 입력" />
+						</div>
+
+						<div class="field">
+							<b>이름</b> <input type="text" name="nickname" placeholder="이름 입력" />
+						</div>
 
 						<div class="field">
 							<b>닉네임</b> <input type="text" name="nickname"
