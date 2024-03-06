@@ -46,9 +46,12 @@
 
 	<delete id="deleteMember" parameterType="Member">
 		DELETE FROM member
-		WHERE id=#{id} AND password=#{password}
+		WHERE id=#{id} 
 	</delete>
-
+	
+	<select id="doubleCheck" parameterType="String" resultType="Member">
+		SELECT id FROM member WHERE id=#{id};
+	</select>
 </mapper>
 
 

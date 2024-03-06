@@ -17,17 +17,18 @@ function sendit() {
   const expHpText = /^\d{3}-\d{3,4}-\d{4}$/;
   const expEmailText = /^[A-Za-z-0-9\-\.]+@[A-Ja-z-0-9\-\.]+\.[A-Ja-z-0-9]+$/;
 
-  if (userid.value == "") {
-    alert("아이디를 입력하세요");
-    userid.focus();
-    return false;
+$("#doublecheck").click((e) => {
+  let id = $("#id").val();
+  const regExp = /^[A-Za-z]{1}[A-Za-z0-9]{3,20}$/;
+  console.log(id);
+  if (regExp.test(id)) {
+    $("#checkText").text("사용 가능한 아이디입니다.").css("color", "green");
+  } else if (id === "") {
+    $("#checkText").text("");
+  } else {
+    $("#checkText").text("영문자로 시작하는 4 ~ 20 이내의 영문자 또는 숫자").css("color", "red");
   }
-
-  if (!expldText.test(userid.value)) {
-    alert("아이디는 4자 이상 20자 이하의 대소문자로 시작하는 조합입니다.");
-    userid.focus();
-    return false;
-  }
+});
 
   if (password.value == "") {
     alert("비밀번호를 입력하세요.");

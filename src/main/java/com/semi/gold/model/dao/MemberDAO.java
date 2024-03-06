@@ -1,9 +1,16 @@
 package com.semi.gold.model.dao;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.CannotGetJdbcConnectionException;
 import org.springframework.stereotype.Repository;
 
+import com.mysql.cj.protocol.Resultset;
+import com.mysql.cj.xdevapi.Result;
 import com.semi.gold.model.vo.Member;
 
 @Repository
@@ -13,6 +20,7 @@ public class MemberDAO {
 	private SqlSessionTemplate session;
 	
 	public int registerMember(Member vo) {
+		System.out.println(vo);
 		return session.insert("memberMapper.registerMember",vo);
 	}
 	
@@ -27,7 +35,9 @@ public class MemberDAO {
 	
 	// 회원탈퇴
 	public int deleteMember(Member vo) {
+		System.out.println("DAO 위치");
+		System.out.println(vo);
 		return session.delete("memberMapper.deleteMember", vo);
 	}
-	
+
 }

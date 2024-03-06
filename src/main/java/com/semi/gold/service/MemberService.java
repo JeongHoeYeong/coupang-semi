@@ -15,10 +15,10 @@ import com.semi.gold.model.vo.Member;
 // Spring Security에서 제공하는 UserDetailsService 인터페이스 상속
 @Service
 public class MemberService implements UserDetailsService {
-
+	
 	@Autowired
 	private BCryptPasswordEncoder bcpe;
-	
+
 	@Autowired
 	private MemberDAO dao;
 	
@@ -47,9 +47,6 @@ public class MemberService implements UserDetailsService {
 	
 	// 회원 탈퇴
 	public int deleteMember(Member vo) {
-		String encodePw = bcpe.encode(vo.getPassword());
-		vo.setPassword(encodePw);
-		System.out.println("!!!!!!!!!!!!!!!!");
 		return dao.deleteMember(vo);
 	}
 }
