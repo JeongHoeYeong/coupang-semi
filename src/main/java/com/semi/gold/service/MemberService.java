@@ -6,8 +6,6 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.semi.gold.model.dao.MemberDAO;
 import com.semi.gold.model.vo.Member;
@@ -26,7 +24,6 @@ public class MemberService implements UserDetailsService {
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		Member member = dao.getMemberById(username);
-		System.out.println("로그인 성공 : " + member);
 		return member;
 	}
 	
@@ -48,5 +45,13 @@ public class MemberService implements UserDetailsService {
 	// 회원 탈퇴
 	public int deleteMember(Member vo) {
 		return dao.deleteMember(vo);
+	}
+	
+	// 아이디 중복체크
+	public Member idCheck(String id) {
+		return dao.idCheck(id);
+	}
+	public Member nicknameCheck(String nickname) {
+		return dao.nicknameCheck(nickname);
 	}
 }

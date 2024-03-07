@@ -56,7 +56,6 @@ public class MemberController {
 	@PostMapping("/updateMember")
 	public String update(Member vo, HttpServletRequest request) {
 		HttpSession session = request.getSession();
-		System.out.println(vo);
 		if(service.updateMember(vo)==1) {
 			session.setAttribute("vo", vo);
 		}
@@ -72,10 +71,8 @@ public class MemberController {
 	// 회원 탈퇴
 	@PostMapping("/deleteMember")
 	public String delete(Member vo, HttpServletRequest request) {
-		
 		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		UserDetails userDetails = (UserDetails)principal;
-
 		if(bcpe.matches(vo.getPassword(), userDetails.getPassword())) {
 			service.deleteMember(vo);
 			SecurityContextHolder.clearContext();
@@ -85,6 +82,23 @@ public class MemberController {
 	}
 	
 
+	// 아이디 중복 체크
+	@ResponseBody
+	@PostMapping("/check")
+	public boolean check(String id) {
+		Member member = service.idCheck(id);
+		if(member == null) return false;
+		return true;
+	}
+	
+	// 닉네임 중복 체크
+	@ResponseBody
+	@PostMapping("/checko")
+	public boolean nickcheck(String nickname) {
+		Member member = service.nicknameCheck(nickname);
+		if(member == null) return false;
+		return true;
+	}
 }
 
 

@@ -49,8 +49,12 @@
 		WHERE id=#{id} 
 	</delete>
 	
-	<select id="doubleCheck" parameterType="String" resultType="Member">
-		SELECT id FROM member WHERE id=#{id};
+	<select id="idCheck" parameterType="String" resultType="Member">
+		SELECT * FROM member WHERE id=#{id};
+	</select>
+	
+		<select id="nicknameCheck" parameterType="String" resultType="Member">
+		SELECT * FROM member WHERE nickname=#{nickname};
 	</select>
 </mapper>
 

@@ -20,7 +20,6 @@ public class MemberDAO {
 	private SqlSessionTemplate session;
 	
 	public int registerMember(Member vo) {
-		System.out.println(vo);
 		return session.insert("memberMapper.registerMember",vo);
 	}
 	
@@ -35,9 +34,14 @@ public class MemberDAO {
 	
 	// 회원탈퇴
 	public int deleteMember(Member vo) {
-		System.out.println("DAO 위치");
-		System.out.println(vo);
 		return session.delete("memberMapper.deleteMember", vo);
 	}
 
+	// 아이디 중복 체크
+	public Member idCheck(String id) {
+		return session.selectOne("memberMapper.idCheck", id);
+	}
+	public Member nicknameCheck(String nickname) {
+		return session.selectOne("memberMapper.nicknameCheck", nickname);
+	}
 }
