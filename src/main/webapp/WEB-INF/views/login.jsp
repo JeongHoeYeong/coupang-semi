@@ -6,6 +6,12 @@
 <meta charset="UTF-8">
 <title>login</title>
 <link rel="stylesheet" href="resources/css/loginpage.css">
+<script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.0/kakao.min.js"
+  integrity="sha384-l+xbElFSnPZ2rOaPrU//2FF5B4LB8FiX5q4fXYTlfcG4PGpMkE1vcL7kNXI6Cci0" crossorigin="anonymous"></script>
+<script>
+  Kakao.init('a0203ccdffa21fc7096cfaca29b6fa24'); // 사용하려는 앱의 JavaScript 키 입력
+</script>
+
 </head>
 <body>
 	<a href="/"><h2>로그인 페이지</h2>
@@ -14,9 +20,9 @@
 			<form action="#">
 				<h1>Create Account</h1>
 				<div class="social-container">
-					<a href="#" class="social"><i class="fab fa-facebook-f"></i></a> <a
-						href="#" class="social"><i class="fab fa-google-plus-g"></i></a> <a
-						href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+					<a href="#" class="social" ><i class="fab fa-facebook-f"></i></a> 
+					<a href="#" class="social"><i class="fab fa-google-plus-g"></i></a> 
+					<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
 				</div>
 			</form>
 		</div>
@@ -26,9 +32,9 @@
 				<h1>Sign in</h1>
 				<!-- SNS 로그인 -->
 				<div class="social-container">
-					<a href="#" class="social"><i class="fab fa-facebook-f"></i></a> <a
-						href="#" class="social"><i class="fab fa-google-plus-g"></i></a> <a
-						href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+					<a id="kakao-login-btn" href="javascript:loginWithKakao()" class="social">  <img src="https://k.kakaocdn.net/14/dn/btroDszwNrM/I6efHub1SN5KCJqLm1Ovx1/o.jpg" width="222"
+    alt="카카오 로그인 버튼" /><i class="fab fa-google-plus-g"></i></a> 
+    <p id="token-result"></p>
 				</div>
 				<span>or use your account</span> 
 				<input type="text" name="username" placeholder="id" /> 
@@ -55,5 +61,37 @@
 			</div>
 		</div>
 	</div>
+	<script>
+  function loginWithKakao() {
+    Kakao.Auth.authorize({
+      redirectUri: 'http://localhost:8080/auth/kakao/callback',
+    });
+  };
+
+  // 아래는 데모를 위한 UI 코드입니다.
+  displayToken()
+  function displayToken() {
+    var token = getCookie('authorize-access-token');
+
+    if(token) {
+      Kakao.Auth.setAccessToken(token);
+      Kakao.Auth.getStatusInfo()
+        .then(function(res) {
+          if (res.status === 'connected') {
+            document.getElementById('token-result').innerText
+              = 'login success, token: ' + Kakao.Auth.getAccessToken();
+          }
+        })
+        .catch(function(err) {
+          Kakao.Auth.setAccessToken(null);
+        });
+    }
+  }
+
+  function getCookie(name) {
+    var parts = document.cookie.split(name + '=');
+    if (parts.length === 2) { return parts[1].split(';')[0]; }
+  }
+</script>
 </body>
 </html>
