@@ -32,9 +32,11 @@
 				<h1>Sign in</h1>
 				<!-- SNS 로그인 -->
 				<div class="social-container">
-					<a id="kakao-login-btn" href="javascript:loginWithKakao()" class="social">  <img src="https://k.kakaocdn.net/14/dn/btroDszwNrM/I6efHub1SN5KCJqLm1Ovx1/o.jpg" width="222"
-    alt="카카오 로그인 버튼" /><i class="fab fa-google-plus-g"></i></a> 
-    <p id="token-result"></p>
+					<a id="kakao-login-btn" href="javascript:loginWithKakao()" class="social">  
+						<img src="https://k.kakaocdn.net/14/dn/btroDszwNrM/I6efHub1SN5KCJqLm1Ovx1/o.jpg" width="222" alt="카카오 로그인 버튼" />
+						<i class="fab fa-google-plus-g"></i>
+					</a> 
+    				<p id="token-result"></p>
 				</div>
 				<span>or use your account</span> 
 				<input type="text" name="username" placeholder="id" /> 
@@ -64,15 +66,15 @@
 	<script>
   function loginWithKakao() {
     Kakao.Auth.authorize({
-      redirectUri: 'http://localhost:8080/auth/kakao/callback',
+      redirectUri: 'http://localhost:8080/kakaoLogin',
     });
   };
 
   // 아래는 데모를 위한 UI 코드입니다.
-  displayToken()
+  displayToken();
   function displayToken() {
+	  alert(document.cookie);
     var token = getCookie('authorize-access-token');
-
     if(token) {
       Kakao.Auth.setAccessToken(token);
       Kakao.Auth.getStatusInfo()
@@ -80,9 +82,11 @@
           if (res.status === 'connected') {
             document.getElementById('token-result').innerText
               = 'login success, token: ' + Kakao.Auth.getAccessToken();
+            alert(Kakao.Auth.getAccessToken());
           }
         })
         .catch(function(err) {
+        	console.log(err);
           Kakao.Auth.setAccessToken(null);
         });
     }
