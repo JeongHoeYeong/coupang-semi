@@ -123,10 +123,8 @@ public class MemberController {
 		//    -> DB에 해당 정보 저장을 해야하는 로직!
 		// -> 처음이 아니라면 로그인 처리를 해야겠죠! -> 스프링 시큐리티랑 연결하셔도 되고! 
 		
-		
-		System.out.println(code);
 		String token = getToken(code);
-		System.out.println("getToken : " + token);
+
 		
 		Cookie cookie = new Cookie("authorize-access-token", token);
 		cookie.setDomain("localhost");

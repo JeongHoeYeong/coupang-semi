@@ -73,7 +73,6 @@
   // 아래는 데모를 위한 UI 코드입니다.
   displayToken();
   function displayToken() {
-	  alert(document.cookie);
     var token = getCookie('authorize-access-token');
     if(token) {
       Kakao.Auth.setAccessToken(token);
@@ -82,7 +81,6 @@
           if (res.status === 'connected') {
             document.getElementById('token-result').innerText
               = 'login success, token: ' + Kakao.Auth.getAccessToken();
-            alert(Kakao.Auth.getAccessToken());
           }
         })
         .catch(function(err) {
