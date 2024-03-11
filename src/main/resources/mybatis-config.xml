@@ -11,8 +11,7 @@
 		<typeAlias type="com.semi.gold.model.vo.Board" alias="Board"/>
 		<typeAlias type="com.semi.gold.model.vo.BoardPaging" alias="BoardPaging"/>
 		<typeAlias type="com.semi.gold.model.vo.Member" alias="Member"/>
-		<typeAlias type="com.semi.gold.vo.TourPlace"
-			alias="TourPlace" />
+		<typeAlias type="com.semi.gold.model.vo.TourPlace" alias="TourPlace" />
 	</typeAliases>
 
 	<environments default="develop">
