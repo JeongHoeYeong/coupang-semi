@@ -17,12 +17,12 @@
     <link href="/src/main/webapp/css/review.css" rel="stylesheet">
 
     <!-- Font CSS -->
+    <script src="https://kit.fontawesome.com/4602e82315.js" crossorigin="anonymous"></script>
     <link href="/src/main/webapp/css/boxicon.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
- 
+    
     <!-- Custom CSS -->
     <link rel="stylesheet" href="/src/main/webapp/css/custom.css">
-
      <!-- reset CSS -->
     <link rel="stylesheet" href="/src/main/webapp/css/reset.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
@@ -30,7 +30,6 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-
 </head>
 <body>
 	<sec:authentication property="principal" var="member" />
@@ -80,11 +79,11 @@
 
 					<c:choose>
 						<c:when test="${member == 'anonymousUser'}">
-							<a class="nav-link" href="/login"><i class='bx bx-bell bx-sm bx-tada-hover text-danger'></i></a>
+							<a class="nav-link" href="/login"><i class="fa-solid fa-right-to-bracket"></i></a>
 						</c:when>
 						<c:otherwise>
-							<a class="nav-link" href="/member"><i class='bx bx-cog bx-sm text-danger'></i></a>
-							<a class="nav-link" href="/logout"><i class='bx bx-user-circle bx-sm text-danger'></i></a>
+							<a class="nav-link" href="/member"><i class="fa-solid fa-house"></i></a>
+							<a class="nav-link" href="/logout"><i class="fa-solid fa-right-from-bracket"></i></a>
 						</c:otherwise>
 					</c:choose>
 				</div>
