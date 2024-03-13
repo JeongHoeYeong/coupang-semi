@@ -14,7 +14,7 @@
 
 </head>
 <body>
-	<a href="/"><h2>로그인 페이지</h2>
+	<a href="/"><img src="resources/image/logobackclear.png">
 	<div class="container" id="container">
 		<div class="form-container sign-up-container">
 			<form action="#">

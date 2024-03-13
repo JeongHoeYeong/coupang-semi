@@ -5,31 +5,31 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <title>Purple Buzz HTML Template with Bootstrap 5 Beta 1</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
        <!-- Load Tempalte CSS -->
-       <link href="/src/main/webapp/css/templatemo.css" rel="stylesheet">
-    <link href="/src/main/webapp/css/bootstrap.css" rel="stylesheet">
-    <link href="/src/main/webapp/css/review.css" rel="stylesheet">
+       <link href="resources/css/templatemo.css" rel="stylesheet">
+    <link href="resources/css//bootstrap.css" rel="stylesheet">
+    <link href="resources/css/review.css" rel="stylesheet">
 
     <!-- Font CSS -->
     <script src="https://kit.fontawesome.com/4602e82315.js" crossorigin="anonymous"></script>
-    <link href="/src/main/webapp/css/boxicon.min.css" rel="stylesheet">
+    <link href="resources/css/boxicon.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
     
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/src/main/webapp/css/custom.css">
+    <link rel="stylesheet" href="resources/css/custom.css">
      <!-- reset CSS -->
-    <link rel="stylesheet" href="/src/main/webapp/css/reset.css">
+    <link rel="stylesheet" href="resources/css/reset.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
       <!-- boot cdn -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
 </head>
 <body>
 	<sec:authentication property="principal" var="member" />
@@ -39,10 +39,10 @@
 		<div
 			class="container d-flex justify-content-between align-items-center">
 			<a class="navbar-brand h1" href="/"> <img
-				src="/src/main/webapp/image/로고 (2).jpg" alt="">
+				src="resources/image/로고 (2).jpg" alt="">
 				<div class="main">
 					<div class="animation">
-						<span class="one_text">전국을 만나는 순간</span> <span class="two_text">전
+						<span class="one_text">전국을 만나는 순간</span><span class="two_text">전
 							만 순</span>
 					</div>
 				</div>
@@ -121,14 +121,14 @@
 		</div>
 		<div class="carousel-inner">
 			<div class="carousel-item active">
-				<img src="/src/main/webapp/image/충청북도_단양.jpg" class="d-block w-100"
+				<img src="resources/image/충청북도_단양.jpg" class="d-block w-100"
 					alt="...">
 				<div class="carousel-caption d-none d-md-block">
-					<h1>충정북도</h1>
+					<h1>충청북도</h1>
 				</div>
 			</div>
 			<div class="carousel-item">
-				<img src="/src/main/webapp/image/제주특별시.jpg" class="d-block w-100"
+				<img src="resources/image/제주특별시.jpg" class="d-block w-100"
 					alt="...">
 				<div class="carousel-caption d-none d-md-block">
 					<h1>제주특별시</h1>
@@ -136,35 +136,35 @@
 				</div>
 			</div>
 			<div class="carousel-item">
-				<img src="/src/main/webapp/image/전라북도_전주.jpg" class="d-block w-100"
+				<img src="resources/image/전라북도_전주.jpg" class="d-block w-100"
 					alt="...">
 				<div class="carousel-caption d-none d-md-block">
 					<h1>전라북도</h1>
 				</div>
 			</div>
 			<div class="carousel-item">
-				<img src="/src/main/webapp/image/전라남도_광주.jpg" class="d-block w-100"
+				<img src="resources/image/전라남도_광주.jpg" class="d-block w-100"
 					alt="...">
 				<div class="carousel-caption d-none d-md-block">
 					<h1>전라남도</h1>
 				</div>
 			</div>
 			<div class="carousel-item">
-				<img src="/src/main/webapp/image/인천_소래포구.jpg" class="d-block w-100"
+				<img src="resources/image/인천_소래포구.jpg" class="d-block w-100"
 					alt="...">
 				<div class="carousel-caption d-none d-md-block">
 					<h1>인천</h1>
 				</div>
 			</div>
 			<div class="carousel-item">
-				<img src="/src/main/webapp/image/서울.jpg" class="d-block w-100"
+				<img src="resources/image/서울.jpg" class="d-block w-100"
 					alt="...">
 				<div class="carousel-caption d-none d-md-block">
 					<h1>서울</h1>
 				</div>
 			</div>
 			<div class="carousel-item">
-				<img src="/src/main/webapp/image/부산_해운대.jpg" class="d-block w-100"
+				<img src="resources/image/부산_해운대.jpg" class="d-block w-100"
 					alt="...">
 				<div class="carousel-caption d-none d-md-block">
 					<h1>부산</h1>
@@ -172,28 +172,28 @@
 			</div>
 
 			<div class="carousel-item">
-				<img src="/src/main/webapp/image/경상북도_경주.jpg" class="d-block w-100"
+				<img src="resources/image/경상북도_경주.jpg" class="d-block w-100"
 					alt="...">
 				<div class="carousel-caption d-none d-md-block">
 					<h1>경상북도</h1>
 				</div>
 			</div>
 			<div class="carousel-item">
-				<img src="/src/main/webapp/image/경상남도_통영.jpg" class="d-block w-100"
+				<img src="resources/image/경상남도_통영.jpg" class="d-block w-100"
 					alt="...">
 				<div class="carousel-caption d-none d-md-block">
 					<h1>경상남도</h1>
 				</div>
 			</div>
 			<div class="carousel-item">
-				<img src="/src/main/webapp/image/경기도_수원.jpg" class="d-block w-100"
+				<img src="resources/image/경기도_수원.jpg" class="d-block w-100"
 					alt="...">
 				<div class="carousel-caption d-none d-md-block">
 					<h1>경기도</h1>
 				</div>
 			</div>
 			<div class="carousel-item">
-				<img src="/src/main/webapp/image/강원도_속초.jpg" class="d-block w-100"
+				<img src="resources/image/강원도_속초.jpg" class="d-block w-100"
 					alt="...">
 				<div class="carousel-caption d-none d-md-block">
 					<h1>강원도</h1>
@@ -253,7 +253,7 @@
 				<div class="col-xl-3 col-md-4 col-sm-6 project ui branding">
 					<a href="#"
 						class="service-work card border-0 text-white shadow-sm overflow-hidden mx-5 m-sm-0">
-						<img class="service card-img" src="/src/main/webapp/image/3.png"
+						<img class="service card-img" src="resources/image/3.png"
 						alt="Card image">
 						<div
 							class="service-work-vertical card-img-overlay d-flex align-items-end">
@@ -264,7 +264,7 @@
 				<div class="col-xl-3 col-md-4 col-sm-6 project ui graphic">
 					<a href="#"
 						class="service-work card border-0 text-white shadow-sm overflow-hidden mx-5 m-sm-0">
-						<img class="card-img" src="/src/main/webapp/image/1.jpg">
+						<img class="card-img" src="resources/image/1.jpg">
 						<div
 							class="service-work-vertical card-img-overlay d-flex align-items-end">
 							<div class="service-work-content text-left text-dark"></div>
@@ -274,7 +274,7 @@
 				<div class="col-xl-3 col-md-4 col-sm-6 project branding">
 					<a href="#"
 						class="service-work card border-0 text-white shadow-sm overflow-hidden mx-5 m-sm-0">
-						<img class="card-img" src="/src/main/webapp/image/2.png"
+						<img class="card-img" src="resources/image/2.png"
 						alt="Card image">
 						<div
 							class="service-work-vertical card-img-overlay d-flex align-items-end">
@@ -285,7 +285,7 @@
 				<div class="col-xl-3 col-md-4 col-sm-6 project ui graphic">
 					<a href="#"
 						class="service-work card border-0 text-white shadow-sm overflow-hidden mx-5 m-sm-0">
-						<img class="card-img" src="/src/main/webapp/image/4.jpg"
+						<img class="card-img" src="resources/image/4.jpg"
 						alt="Card image">
 						<div
 							class="service-work-vertical card-img-overlay d-flex align-items-end">
@@ -296,7 +296,7 @@
 				<div class="col-xl-3 col-md-4 col-sm-6 project ui graphic">
 					<a href="#"
 						class="service-work card border-0 text-white shadow-sm overflow-hidden mx-5 m-sm-0">
-						<img class="card-img" src="/src/main/webapp/image/5.jpg"
+						<img class="card-img" src="resources/image/5.jpg"
 						alt="Card image">
 						<div
 							class="service-work-vertical card-img-overlay d-flex align-items-end">
@@ -307,7 +307,7 @@
 				<div class="col-xl-3 col-md-4 col-sm-6 project branding">
 					<a href="#"
 						class="service-work card border-0 text-white shadow-sm overflow-hidden mx-5 m-sm-0">
-						<img class="card-img" src="/src/main/webapp/image/6.jpg"
+						<img class="card-img" src="resources/image/6.jpg"
 						alt="Card image">
 						<div
 							class="service-work-vertical card-img-overlay d-flex align-items-end">
@@ -318,7 +318,7 @@
 				<div class="col-xl-3 col-md-4 col-sm-6 project branding">
 					<a href="#"
 						class="service-work card border-0 text-white shadow-sm overflow-hidden mx-5 m-sm-0">
-						<img class="card-img" src="/src/main/webapp/image/7.jpg"
+						<img class="card-img" src="resources/image/7.jpg"
 						alt="Card image">
 						<div
 							class="service-work-vertical card-img-overlay d-flex align-items-end">
@@ -329,7 +329,7 @@
 				<div class="col-xl-3 col-md-4 col-sm-6 project ui graphic branding">
 					<a href="#"
 						class="service-work card border-0 text-white shadow-sm overflow-hidden mx-5 m-sm-0">
-						<img class="card-img" src="/src/main/webapp/image/8.jpg"
+						<img class="card-img" src="resources/image/8.jpg"
 						alt="Card image">
 						<div
 							class="service-work-vertical card-img-overlay d-flex align-items-end">
@@ -370,7 +370,7 @@
 				<div class="property-slider">
 					<div class="property-item">
 						<a href="property-single.html" class="img"> <img
-							src="images/img_1.jpg" alt="Image" class="img-fluid" />
+							src="resources/image/img_1.jpg" alt="Image" class="img-fluid" />
 						</a>
 
 						<div class="property-content">
@@ -401,7 +401,7 @@
 
 					<div class="property-item">
 						<a href="property-single.html" class="img"> <img
-							src="images/img_2.jpg" alt="Image" class="img-fluid" />
+							src="resources/image/img_2.jpg" alt="Image" class="img-fluid" />
 						</a>
 
 						<div class="property-content">
@@ -432,7 +432,7 @@
 
 					<div class="property-item">
 						<a href="property-single.html" class="img"> <img
-							src="images/img_3.jpg" alt="Image" class="img-fluid" />
+							src="resources/image/img_3.jpg" alt="Image" class="img-fluid" />
 						</a>
 
 						<div class="property-content">
@@ -463,7 +463,7 @@
 
 					<div class="property-item">
 						<a href="property-single.html" class="img"> <img
-							src="images/img_4.jpg" alt="Image" class="img-fluid" />
+							src="resources/image/img_4.jpg" alt="Image" class="img-fluid" />
 						</a>
 
 						<div class="property-content">
@@ -494,7 +494,7 @@
 
 					<div class="property-item">
 						<a href="property-single.html" class="img"> <img
-							src="images/img_5.jpg" alt="Image" class="img-fluid" />
+							src="resources/image/img_5.jpg" alt="Image" class="img-fluid" />
 						</a>
 
 						<div class="property-content">
@@ -525,7 +525,7 @@
 
 					<div class="property-item">
 						<a href="property-single.html" class="img"> <img
-							src="images/img_6.jpg" alt="Image" class="img-fluid" />
+							src="resources/image/img_6.jpg" alt="Image" class="img-fluid" />
 						</a>
 
 						<div class="property-content">
@@ -556,7 +556,7 @@
 
 					<div class="property-item">
 						<a href="property-single.html" class="img"> <img
-							src="images/img_7.jpg" alt="Image" class="img-fluid" />
+							src="resources/image/img_7.jpg" alt="Image" class="img-fluid" />
 						</a>
 
 						<div class="property-content">
@@ -587,7 +587,7 @@
 
 					<div class="property-item">
 						<a href="property-single.html" class="img"> <img
-							src="images/img_8.jpg" alt="Image" class="img-fluid" />
+							src="resources/image/img_8.jpg" alt="Image" class="img-fluid" />
 						</a>
 
 						<div class="property-content">
@@ -618,7 +618,7 @@
 
 					<div class="property-item">
 						<a href="property-single.html" class="img"> <img
-							src="images/img_1.jpg" alt="Image" class="img-fluid" />
+							src="resources/image/img_1.jpg" alt="Image" class="img-fluid" />
 						</a>
 
 						<div class="property-content">
@@ -666,7 +666,7 @@
 			<div class="row py-4">
 
 				<div class="col-lg-3 col-12 align-left">
-					<a class="navbar-brand" href="index.html"> <i
+					<a class="navbar-brand" href="/"> <i
 						class='bx bx-buildings bx-sm text-light'></i> <span
 						class="text-light h5">Purple</span> <span
 						class="text-light h5 semi-bold-600">Buzz</span>
@@ -704,7 +704,7 @@
 						</h2>
 						<ul class="list-unstyled text-light light-300">
 							<li class="pb-2"><i class='bx-fw bx bxs-chevron-right bx-xs'></i><a
-								class="text-decoration-none text-light" href="index.html">Home</a>
+								class="text-decoration-none text-light" href="/">Home</a>
 							</li>
 							<li class="pb-2"><i class='bx-fw bx bxs-chevron-right bx-xs'></i><a
 								class="text-decoration-none text-light py-1" href="about.html">About
