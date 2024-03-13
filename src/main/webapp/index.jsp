@@ -1,349 +1,785 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-pageEncoding="UTF-8"%> <%@ taglib prefix="sec"
-uri="http://www.springframework.org/security/tags"%> <%@ taglib prefix="c"
-uri="http://java.sun.com/jsp/jstl/core"%>
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="sec"
+	uri="http://www.springframework.org/security/tags"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="stylesheet" href="resources/css/mainpage.css" />
-    <link
-      href="resources/image/logo.jpg"
-      rel="shortcut icon"
-      type="image/x-icon"
-    />
-    <title>전만순</title>
-  </head>
-  <body>
-    <sec:authentication property="principal" var="member" />
-    <!-- Navigation-->
-    <nav class="navbar navbar-light bg-light static-top">
-      <div class="container">
-        <a class="navbar-brand" href="/">전국을 만나는 순간</a>
-        <c:choose>
-          <c:when test="${member == 'anonymousUser'}">
-            <a class="btn btn-primary" href="/login">Sign In</a>
-          </c:when>
-          <c:otherwise>
-            <a class="btn btn-primary" href="/member">My Page</a>
-            <a class="btn btn-primary" href="/logout">Sign Out</a>
-          </c:otherwise>
-        </c:choose>
-      </div>
-    </nav>
-    <!-- Masthead-->
-    <header class="masthead">
-      <div class="container position-relative">
-        <div class="row justify-content-center">
-          <div class="col-xl-6">
-            <div class="text-center text-white">
-              <!-- Page heading-->
-              <h1 class="mb-5">
-                Generate more leads with a professional landing page!
-              </h1>
-              <form
-                class="form-subscribe"
-                id="contactForm"
-                data-sb-form-api-token="API_TOKEN"
-              >
-                <div class="row">
-                  <div class="col">
-                    <input
-                      class="form-control form-control-lg"
-                      id="emailAddress"
-                      type="email"
-                      placeholder="Email Address"
-                      data-sb-validations="required,email"
-                    />
-                    <div
-                      class="invalid-feedback text-white"
-                      data-sb-feedback="emailAddress:required"
-                    >
-                      Email Address is required.
-                    </div>
-                    <div
-                      class="invalid-feedback text-white"
-                      data-sb-feedback="emailAddress:email"
-                    >
-                      Email Address Email is not valid.
-                    </div>
-                  </div>
-                  <div class="col-auto">
-                    <button
-                      class="btn btn-primary btn-lg disabled"
-                      id="submitButton"
-                      type="submit"
-                    >
-                      Submit
-                    </button>
-                  </div>
-                </div>
-                <div class="d-none" id="submitSuccessMessage">
-                  <div class="text-center mb-3">
-                    <div class="fw-bolder">Form submission successful!</div>
-                    <p>To activate this form, sign up at</p>
-                    <a
-                      class="text-white"
-                      href="https://startbootstrap.com/solution/contact-forms"
-                      >https://startbootstrap.com/solution/contact-forms</a
-                    >
-                  </div>
-                </div>
-                <div class="d-none" id="submitErrorMessage">
-                  <div class="text-center text-danger mb-3">
-                    Error sending message!
-                  </div>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-    </header>
-    <!-- Icons Grid-->
-    <section class="features-icons bg-light text-center">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-4">
-            <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
-              <div class="features-icons-icon d-flex">
-                <i class="bi-window m-auto text-primary"></i>
-              </div>
-              <h3>Fully Responsive</h3>
-              <p class="lead mb-0">
-                This theme will look great on any device, no matter the size!
-              </p>
-            </div>
-          </div>
-          <div class="col-lg-4">
-            <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
-              <div class="features-icons-icon d-flex">
-                <i class="bi-layers m-auto text-primary"></i>
-              </div>
-              <h3>Bootstrap 5 Ready</h3>
-              <p class="lead mb-0">
-                Featuring the latest build of the new Bootstrap 5 framework!
-              </p>
-            </div>
-          </div>
-          <div class="col-lg-4">
-            <div class="features-icons-item mx-auto mb-0 mb-lg-3">
-              <div class="features-icons-icon d-flex">
-                <i class="bi-terminal m-auto text-primary"></i>
-              </div>
-              <h3>Easy to Use</h3>
-              <p class="lead mb-0">
-                Ready to use with your own content, or customize the source
-                files!
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- Image Showcases-->
-    <section class="showcase">
-      <div class="container-fluid p-0">
-        <div class="row g-0">
-          <div
-            class="col-lg-6 order-lg-2 text-white showcase-img"
-            style="background-image: url('assets/img/bg-showcase-1.jpg')"
-          ></div>
-          <div class="col-lg-6 order-lg-1 my-auto showcase-text">
-            <h2>Fully Responsive Design</h2>
-            <p class="lead mb-0">
-              When you use a theme created by Start Bootstrap, you know that the
-              theme will look great on any device, whether it's a phone, tablet,
-              or desktop the page will behave responsively!
-            </p>
-          </div>
-        </div>
-        <div class="row g-0">
-          <div
-            class="col-lg-6 text-white showcase-img"
-            style="background-image: url('assets/img/bg-showcase-2.jpg')"
-          ></div>
-          <div class="col-lg-6 my-auto showcase-text">
-            <h2>Updated For Bootstrap 5</h2>
-            <p class="lead mb-0">
-              Newly improved, and full of great utility classes, Bootstrap 5 is
-              leading the way in mobile responsive web development! All of the
-              themes on Start Bootstrap are now using Bootstrap 5!
-            </p>
-          </div>
-        </div>
-        <div class="row g-0">
-          <div
-            class="col-lg-6 order-lg-2 text-white showcase-img"
-            style="background-image: url('assets/img/bg-showcase-3.jpg')"
-          ></div>
-          <div class="col-lg-6 order-lg-1 my-auto showcase-text">
-            <h2>Easy to Use & Customize</h2>
-            <p class="lead mb-0">
-              Landing Page is just HTML and CSS with a splash of SCSS for users
-              who demand some deeper customization options. Out of the box, just
-              add your content and images, and your new landing page will be
-              ready to go!
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- Testimonials-->
-    <section class="testimonials text-center bg-light">
-      <div class="container">
-        <h2 class="mb-5">What people are saying...</h2>
-        <div class="row">
-          <div class="col-lg-4">
-            <div class="testimonial-item mx-auto mb-5 mb-lg-0">
-              <img
-                class="img-fluid rounded-circle mb-3"
-                src="assets/img/testimonials-1.jpg"
-                alt="..."
-              />
-              <h5>Margaret E.</h5>
-              <p class="font-weight-light mb-0">
-                "This is fantastic! Thanks so much guys!"
-              </p>
-            </div>
-          </div>
-          <div class="col-lg-4">
-            <div class="testimonial-item mx-auto mb-5 mb-lg-0">
-              <img
-                class="img-fluid rounded-circle mb-3"
-                src="assets/img/testimonials-2.jpg"
-                alt="..."
-              />
-              <h5>Fred S.</h5>
-              <p class="font-weight-light mb-0">
-                "Bootstrap is amazing. I've been using it to create lots of
-                super nice landing pages."
-              </p>
-            </div>
-          </div>
-          <div class="col-lg-4">
-            <div class="testimonial-item mx-auto mb-5 mb-lg-0">
-              <img
-                class="img-fluid rounded-circle mb-3"
-                src="assets/img/testimonials-3.jpg"
-                alt="..."
-              />
-              <h5>Sarah W.</h5>
-              <p class="font-weight-light mb-0">
-                "Thanks so much for making these free resources available to
-                us!"
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- Call to Action-->
-    <section class="call-to-action text-white text-center" id="signup">
-      <div class="container position-relative">
-        <div class="row justify-content-center">
-          <div class="col-xl-6">
-            <h2 class="mb-4">Ready to get started? Sign up now!</h2>
-            <form
-              class="form-subscribe"
-              id="contactFormFooter"
-              data-sb-form-api-token="API_TOKEN"
-            >
-              <!-- Email address input-->
-              <div class="row">
-                <div class="col">
-                  <input
-                    class="form-control form-control-lg"
-                    id="emailAddressBelow"
-                    type="email"
-                    placeholder="Email Address"
-                    data-sb-validations="required,email"
-                  />
-                  <div
-                    class="invalid-feedback text-white"
-                    data-sb-feedback="emailAddressBelow:required"
-                  >
-                    Email Address is required.
-                  </div>
-                  <div
-                    class="invalid-feedback text-white"
-                    data-sb-feedback="emailAddressBelow:email"
-                  >
-                    Email Address Email is not valid.
-                  </div>
-                </div>
-                <div class="col-auto">
-                  <button
-                    class="btn btn-primary btn-lg disabled"
-                    id="submitButton"
-                    type="submit"
-                  >
-                    Submit
-                  </button>
-                </div>
-              </div>
+<html lang="en">
 
-              <div class="d-none" id="submitSuccessMessage">
-                <div class="text-center mb-3">
-                  <div class="fw-bolder">Form submission successful!</div>
-                  <p>To activate this form, sign up at</p>
-                  <a
-                    class="text-white"
-                    href="https://startbootstrap.com/solution/contact-forms"
-                    >https://startbootstrap.com/solution/contact-forms</a
-                  >
-                </div>
-              </div>
+<head>
+    <title>Purple Buzz HTML Template with Bootstrap 5 Beta 1</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-              <div class="d-none" id="submitErrorMessage">
-                <div class="text-center text-danger mb-3">
-                  Error sending message!
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- Footer-->
-    <footer class="footer bg-light">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-6 h-100 text-center text-lg-start my-auto">
-            <ul class="list-inline mb-2">
-              <li class="list-inline-item"><a href="#!">About</a></li>
-              <li class="list-inline-item">⋅</li>
-              <li class="list-inline-item"><a href="#!">Contact</a></li>
-              <li class="list-inline-item">⋅</li>
-              <li class="list-inline-item"><a href="#!">Terms of Use</a></li>
-              <li class="list-inline-item">⋅</li>
-              <li class="list-inline-item"><a href="#!">Privacy Policy</a></li>
-            </ul>
-            <p class="text-muted small mb-4 mb-lg-0">
-              &copy; Your Website 2023. All Rights Reserved.
-            </p>
-          </div>
-          <div class="col-lg-6 h-100 text-center text-lg-end my-auto">
-            <ul class="list-inline mb-0">
-              <li class="list-inline-item me-4">
-                <a href="#!"><i class="bi-facebook fs-3"></i></a>
-              </li>
-              <li class="list-inline-item me-4">
-                <a href="#!"><i class="bi-twitter fs-3"></i></a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#!"><i class="bi-instagram fs-3"></i></a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </footer>
-    <!-- Bootstrap core JS-->
+       <!-- Load Tempalte CSS -->
+       <link href="/src/main/webapp/css/templatemo.css" rel="stylesheet">
+    <link href="/src/main/webapp/css/bootstrap.css" rel="stylesheet">
+    <link href="/src/main/webapp/css/review.css" rel="stylesheet">
+
+    <!-- Font CSS -->
+    <link href="/src/main/webapp/css/boxicon.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+ 
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/src/main/webapp/css/custom.css">
+
+     <!-- reset CSS -->
+    <link rel="stylesheet" href="/src/main/webapp/css/reset.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+      <!-- boot cdn -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Core theme JS-->
-    <script src="js/scripts.js"></script>
 
-    <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
-  </body>
+</head>
+<body>
+	<sec:authentication property="principal" var="member" />
+	<!-- Header -->
+	<nav id="main_nav"
+		class="navbar navbar-expand-lg navbar-light bg-white shadow">
+		<div
+			class="container d-flex justify-content-between align-items-center">
+			<a class="navbar-brand h1" href="/"> <img
+				src="/src/main/webapp/image/로고 (2).jpg" alt="">
+				<div class="main">
+					<div class="animation">
+						<span class="one_text">전국을 만나는 순간</span> <span class="two_text">전
+							만 순</span>
+					</div>
+				</div>
+			</a>
+			<button class="navbar-toggler border-0" type="button"
+				data-bs-toggle="collapse" data-bs-target="#navbar-toggler-success"
+				aria-controls="navbarSupportedContent" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div
+				class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between"
+				id="navbar-toggler-success">
+				<div class="flex-fill mx-xl-5 mb-2">
+					<ul
+						class="nav navbar-nav d-flex justify-content-between mx-xl-5 text-center text-dark">
+						<li class="nav-item"><a
+							class="nav-link btn-outline-success rounded-pill px-3">여행을
+								만나는 순간</a></li>
+						<li class="nav-item"><a
+							class="nav-link btn-outline-success rounded-pill px-3">맛집를
+								만나는 순간</a></li>
+						<li class="nav-item"><a
+							class="nav-link btn-outline-success rounded-pill px-3">숙소를
+								만나는 순간</a></li>
+						<li class="nav-item"><a
+							class="nav-link btn-outline-success rounded-pill px-3">축제를
+								만나는 순간</a></li>
+					</ul>
+				</div>
+				<div class="navbar align-self-center d-flex">
+
+
+					<c:choose>
+						<c:when test="${member == 'anonymousUser'}">
+							<a class="nav-link" href="/login"><i class='bx bx-bell bx-sm bx-tada-hover text-danger'></i></a>
+						</c:when>
+						<c:otherwise>
+							<a class="nav-link" href="/member"><i class='bx bx-cog bx-sm text-danger'></i></a>
+							<a class="nav-link" href="/logout"><i class='bx bx-user-circle bx-sm text-danger'></i></a>
+						</c:otherwise>
+					</c:choose>
+				</div>
+			</div>
+		</div>
+	</nav>
+
+	<!-- careousel -->
+	<div id="carouselExampleCaptions" class="carousel slide"
+		data-bs-ride="carousel">
+		<div class="carousel-indicators">
+			<button type="button" data-bs-target="#carouselExampleCaptions"
+				data-bs-slide-to="0" class="active" aria-current="true"
+				aria-label="Slide 1"></button>
+			<button type="button" data-bs-target="#carouselExampleCaptions"
+				data-bs-slide-to="1" aria-label="Slide 2"></button>
+			<button type="button" data-bs-target="#carouselExampleCaptions"
+				data-bs-slide-to="2" aria-label="Slide 3"></button>
+			<button type="button" data-bs-target="#carouselExampleCaptions"
+				data-bs-slide-to="3" aria-label="Slide 4"></button>
+			<button type="button" data-bs-target="#carouselExampleCaptions"
+				data-bs-slide-to="4" aria-label="Slide 5"></button>
+			<button type="button" data-bs-target="#carouselExampleCaptions"
+				data-bs-slide-to="5" aria-label="Slide 6"></button>
+			<button type="button" data-bs-target="#carouselExampleCaptions"
+				data-bs-slide-to="6" aria-label="Slide 7"></button>
+			<button type="button" data-bs-target="#carouselExampleCaptions"
+				data-bs-slide-to="7" aria-label="Slide 8"></button>
+			<button type="button" data-bs-target="#carouselExampleCaptions"
+				data-bs-slide-to="8" aria-label="Slide 9"></button>
+			<button type="button" data-bs-target="#carouselExampleCaptions"
+				data-bs-slide-to="9" aria-label="Slide 10"></button>
+			<button type="button" data-bs-target="#carouselExampleCaptions"
+				data-bs-slide-to="10" aria-label="Slide 11"></button>
+		</div>
+		<div class="carousel-inner">
+			<div class="carousel-item active">
+				<img src="/src/main/webapp/image/충청북도_단양.jpg" class="d-block w-100"
+					alt="...">
+				<div class="carousel-caption d-none d-md-block">
+					<h1>충정북도</h1>
+				</div>
+			</div>
+			<div class="carousel-item">
+				<img src="/src/main/webapp/image/제주특별시.jpg" class="d-block w-100"
+					alt="...">
+				<div class="carousel-caption d-none d-md-block">
+					<h1>제주특별시</h1>
+
+				</div>
+			</div>
+			<div class="carousel-item">
+				<img src="/src/main/webapp/image/전라북도_전주.jpg" class="d-block w-100"
+					alt="...">
+				<div class="carousel-caption d-none d-md-block">
+					<h1>전라북도</h1>
+				</div>
+			</div>
+			<div class="carousel-item">
+				<img src="/src/main/webapp/image/전라남도_광주.jpg" class="d-block w-100"
+					alt="...">
+				<div class="carousel-caption d-none d-md-block">
+					<h1>전라남도</h1>
+				</div>
+			</div>
+			<div class="carousel-item">
+				<img src="/src/main/webapp/image/인천_소래포구.jpg" class="d-block w-100"
+					alt="...">
+				<div class="carousel-caption d-none d-md-block">
+					<h1>인천</h1>
+				</div>
+			</div>
+			<div class="carousel-item">
+				<img src="/src/main/webapp/image/서울.jpg" class="d-block w-100"
+					alt="...">
+				<div class="carousel-caption d-none d-md-block">
+					<h1>서울</h1>
+				</div>
+			</div>
+			<div class="carousel-item">
+				<img src="/src/main/webapp/image/부산_해운대.jpg" class="d-block w-100"
+					alt="...">
+				<div class="carousel-caption d-none d-md-block">
+					<h1>부산</h1>
+				</div>
+			</div>
+
+			<div class="carousel-item">
+				<img src="/src/main/webapp/image/경상북도_경주.jpg" class="d-block w-100"
+					alt="...">
+				<div class="carousel-caption d-none d-md-block">
+					<h1>경상북도</h1>
+				</div>
+			</div>
+			<div class="carousel-item">
+				<img src="/src/main/webapp/image/경상남도_통영.jpg" class="d-block w-100"
+					alt="...">
+				<div class="carousel-caption d-none d-md-block">
+					<h1>경상남도</h1>
+				</div>
+			</div>
+			<div class="carousel-item">
+				<img src="/src/main/webapp/image/경기도_수원.jpg" class="d-block w-100"
+					alt="...">
+				<div class="carousel-caption d-none d-md-block">
+					<h1>경기도</h1>
+				</div>
+			</div>
+			<div class="carousel-item">
+				<img src="/src/main/webapp/image/강원도_속초.jpg" class="d-block w-100"
+					alt="...">
+				<div class="carousel-caption d-none d-md-block">
+					<h1>강원도</h1>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+	<!-- Search Start -->
+	<div class="container-fluid wow fadeIn" data-wow-delay="0.1s"
+		style="padding: 35px;">
+		<div class="container">
+			<div class="row g-2">
+				<div class="col-md-10">
+					<div class="row g-2">
+						<div class="col-md-4">
+							<input type="text" class="form-control py-3"
+								placeholder="어디로,어떤 여행을 떠날 예정인가요?">
+						</div>
+						<div class="col-md-4">
+							<select class="form-select py-3">
+								<option selected>순간</option>
+								<option value="1">여행지</option>
+								<option value="2">맛집</option>
+								<option value="3">숙박</option>
+
+							</select>
+						</div>
+						<div class="col-md-4">
+							<select class="form-select py-3">
+								<option selected>위치</option>
+								<option value="1">서울</option>
+								<option value="2">경기도</option>
+								<option value="3">충청북도</option>
+								<option value="4">충청남도</option>
+								<option value="5">전라북도</option>
+								<option value="6">전라남도</option>
+								<option value="7">제주도</option>
+								<option value="8">부산</option>
+
+							</select>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-2">
+					<button class="btn btn-outline-warning border-0 w-100 py-3">Click</button>
+				</div>
+			</div>
+		</div>
+
+		<!-- Search End -->
+		<!-- Start Recent Work -->
+		<section class="container overflow-hidden py-5">
+			<div class="row gx-5 gx-sm-3 gx-lg-5 gy-lg-5 gy-5 pb-3 projects">
+
+				<div class="col-xl-3 col-md-4 col-sm-6 project ui branding">
+					<a href="#"
+						class="service-work card border-0 text-white shadow-sm overflow-hidden mx-5 m-sm-0">
+						<img class="service card-img" src="/src/main/webapp/image/3.png"
+						alt="Card image">
+						<div
+							class="service-work-vertical card-img-overlay d-flex align-items-end">
+							<div class="service-work-content text-left text-dark"></div>
+						</div>
+					</a>
+				</div>
+				<div class="col-xl-3 col-md-4 col-sm-6 project ui graphic">
+					<a href="#"
+						class="service-work card border-0 text-white shadow-sm overflow-hidden mx-5 m-sm-0">
+						<img class="card-img" src="/src/main/webapp/image/1.jpg">
+						<div
+							class="service-work-vertical card-img-overlay d-flex align-items-end">
+							<div class="service-work-content text-left text-dark"></div>
+						</div>
+					</a>
+				</div>
+				<div class="col-xl-3 col-md-4 col-sm-6 project branding">
+					<a href="#"
+						class="service-work card border-0 text-white shadow-sm overflow-hidden mx-5 m-sm-0">
+						<img class="card-img" src="/src/main/webapp/image/2.png"
+						alt="Card image">
+						<div
+							class="service-work-vertical card-img-overlay d-flex align-items-end">
+							<div class="service-work-content text-left text-light"></div>
+						</div>
+					</a>
+				</div>
+				<div class="col-xl-3 col-md-4 col-sm-6 project ui graphic">
+					<a href="#"
+						class="service-work card border-0 text-white shadow-sm overflow-hidden mx-5 m-sm-0">
+						<img class="card-img" src="/src/main/webapp/image/4.jpg"
+						alt="Card image">
+						<div
+							class="service-work-vertical card-img-overlay d-flex align-items-end">
+							<div class="service-work-content text-left text-light"></div>
+						</div>
+					</a>
+				</div>
+				<div class="col-xl-3 col-md-4 col-sm-6 project ui graphic">
+					<a href="#"
+						class="service-work card border-0 text-white shadow-sm overflow-hidden mx-5 m-sm-0">
+						<img class="card-img" src="/src/main/webapp/image/5.jpg"
+						alt="Card image">
+						<div
+							class="service-work-vertical card-img-overlay d-flex align-items-end">
+							<div class="service-work-content text-left text-light"></div>
+						</div>
+					</a>
+				</div>
+				<div class="col-xl-3 col-md-4 col-sm-6 project branding">
+					<a href="#"
+						class="service-work card border-0 text-white shadow-sm overflow-hidden mx-5 m-sm-0">
+						<img class="card-img" src="/src/main/webapp/image/6.jpg"
+						alt="Card image">
+						<div
+							class="service-work-vertical card-img-overlay d-flex align-items-end">
+							<div class="service-work-content text-left text-light"></div>
+						</div>
+					</a>
+				</div>
+				<div class="col-xl-3 col-md-4 col-sm-6 project branding">
+					<a href="#"
+						class="service-work card border-0 text-white shadow-sm overflow-hidden mx-5 m-sm-0">
+						<img class="card-img" src="/src/main/webapp/image/7.jpg"
+						alt="Card image">
+						<div
+							class="service-work-vertical card-img-overlay d-flex align-items-end">
+							<div class="service-work-content text-left text-light"></div>
+						</div>
+					</a>
+				</div>
+				<div class="col-xl-3 col-md-4 col-sm-6 project ui graphic branding">
+					<a href="#"
+						class="service-work card border-0 text-white shadow-sm overflow-hidden mx-5 m-sm-0">
+						<img class="card-img" src="/src/main/webapp/image/8.jpg"
+						alt="Card image">
+						<div
+							class="service-work-vertical card-img-overlay d-flex align-items-end">
+							<div class="service-work-content text-left text-light"></div>
+						</div>
+					</a>
+				</div>
+			</div>
+	</div>
+	</section>
+	<div class="flow-container">
+		<div class="flow-text">
+			<div class="flow-wrap">⯎&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;전국을 만나는
+				순간,&nbsp;&nbsp;˗ˋˏ전ˎˊ˗˗ˋˏ만ˎˊ˗˗ˋˏ순ˎˊ˗</div>
+			<div class="flow-wrap">⯎&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;전국을 만나는
+				순간,&nbsp;&nbsp;˗ˋˏ전ˎˊ˗˗ˋˏ만ˎˊ˗˗ˋˏ순ˎˊ˗</div>
+			<div class="flow-wrap">⯎&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;전국을 만나는
+				순간,&nbsp;&nbsp;'˗ˋˏ전ˎˊ˗˗ˋˏ만ˎˊ˗˗ˋˏ순ˎˊ˗</div>
+			<div class="flow-wrap">⯎&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;전국을 만나는
+				순간,&nbsp;&nbsp;˗ˋˏ전ˎˊ˗˗ˋˏ만ˎˊ˗˗ˋˏ순ˎˊ˗</div>
+			<div class="flow-wrap">⯎&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;전국을 만나는
+				순간,&nbsp;&nbsp;˗ˋˏ전ˎˊ˗˗ˋˏ만ˎˊ˗˗ˋˏ순ˎˊ˗</div>
+			<div class="flow-wrap">⯎&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;전국을 만나는
+				순간,&nbsp;&nbsp;˗ˋˏ전ˎˊ˗˗ˋˏ만ˎˊ˗˗ˋˏ순ˎˊ˗</div>
+			<div class="flow-wrap">⯎&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;전국을 만나는
+				순간,&nbsp;&nbsp;˗ˋˏ전ˎˊ˗˗ˋˏ만ˎˊ˗˗ˋˏ순ˎˊ˗</div>
+
+		</div>
+	</div>
+
+
+
+
+
+	<div class="row">
+		<div class="col-12">
+			<div class="property-slider-wrap">
+				<div class="property-slider">
+					<div class="property-item">
+						<a href="property-single.html" class="img"> <img
+							src="images/img_1.jpg" alt="Image" class="img-fluid" />
+						</a>
+
+						<div class="property-content">
+							<div class="price mb-2">
+								<span>$1,291,000</span>
+							</div>
+							<div>
+								<span class="d-block mb-2 text-black-50">5232 California
+									Fake, Ave. 21BC</span> <span class="city d-block mb-3">California,
+									USA</span>
+
+								<div class="specs d-flex mb-4">
+									<span class="d-block d-flex align-items-center me-3"> <span
+										class="icon-bed me-2"></span> <span class="caption">2
+											beds</span>
+									</span> <span class="d-block d-flex align-items-center"> <span
+										class="icon-bath me-2"></span> <span class="caption">2
+											baths</span>
+									</span>
+								</div>
+
+								<a href="property-single.html" class="btn btn-primary py-2 px-3">See
+									details</a>
+							</div>
+						</div>
+					</div>
+					<!-- .item -->
+
+					<div class="property-item">
+						<a href="property-single.html" class="img"> <img
+							src="images/img_2.jpg" alt="Image" class="img-fluid" />
+						</a>
+
+						<div class="property-content">
+							<div class="price mb-2">
+								<span>$1,291,000</span>
+							</div>
+							<div>
+								<span class="d-block mb-2 text-black-50">5232 California
+									Fake, Ave. 21BC</span> <span class="city d-block mb-3">California,
+									USA</span>
+
+								<div class="specs d-flex mb-4">
+									<span class="d-block d-flex align-items-center me-3"> <span
+										class="icon-bed me-2"></span> <span class="caption">2
+											beds</span>
+									</span> <span class="d-block d-flex align-items-center"> <span
+										class="icon-bath me-2"></span> <span class="caption">2
+											baths</span>
+									</span>
+								</div>
+
+								<a href="property-single.html" class="btn btn-primary py-2 px-3">See
+									details</a>
+							</div>
+						</div>
+					</div>
+					<!-- .item -->
+
+					<div class="property-item">
+						<a href="property-single.html" class="img"> <img
+							src="images/img_3.jpg" alt="Image" class="img-fluid" />
+						</a>
+
+						<div class="property-content">
+							<div class="price mb-2">
+								<span>$1,291,000</span>
+							</div>
+							<div>
+								<span class="d-block mb-2 text-black-50">5232 California
+									Fake, Ave. 21BC</span> <span class="city d-block mb-3">California,
+									USA</span>
+
+								<div class="specs d-flex mb-4">
+									<span class="d-block d-flex align-items-center me-3"> <span
+										class="icon-bed me-2"></span> <span class="caption">2
+											beds</span>
+									</span> <span class="d-block d-flex align-items-center"> <span
+										class="icon-bath me-2"></span> <span class="caption">2
+											baths</span>
+									</span>
+								</div>
+
+								<a href="property-single.html" class="btn btn-primary py-2 px-3">See
+									details</a>
+							</div>
+						</div>
+					</div>
+					<!-- .item -->
+
+					<div class="property-item">
+						<a href="property-single.html" class="img"> <img
+							src="images/img_4.jpg" alt="Image" class="img-fluid" />
+						</a>
+
+						<div class="property-content">
+							<div class="price mb-2">
+								<span>$1,291,000</span>
+							</div>
+							<div>
+								<span class="d-block mb-2 text-black-50">5232 California
+									Fake, Ave. 21BC</span> <span class="city d-block mb-3">California,
+									USA</span>
+
+								<div class="specs d-flex mb-4">
+									<span class="d-block d-flex align-items-center me-3"> <span
+										class="icon-bed me-2"></span> <span class="caption">2
+											beds</span>
+									</span> <span class="d-block d-flex align-items-center"> <span
+										class="icon-bath me-2"></span> <span class="caption">2
+											baths</span>
+									</span>
+								</div>
+
+								<a href="property-single.html" class="btn btn-primary py-2 px-3">See
+									details</a>
+							</div>
+						</div>
+					</div>
+					<!-- .item -->
+
+					<div class="property-item">
+						<a href="property-single.html" class="img"> <img
+							src="images/img_5.jpg" alt="Image" class="img-fluid" />
+						</a>
+
+						<div class="property-content">
+							<div class="price mb-2">
+								<span>$1,291,000</span>
+							</div>
+							<div>
+								<span class="d-block mb-2 text-black-50">5232 California
+									Fake, Ave. 21BC</span> <span class="city d-block mb-3">California,
+									USA</span>
+
+								<div class="specs d-flex mb-4">
+									<span class="d-block d-flex align-items-center me-3"> <span
+										class="icon-bed me-2"></span> <span class="caption">2
+											beds</span>
+									</span> <span class="d-block d-flex align-items-center"> <span
+										class="icon-bath me-2"></span> <span class="caption">2
+											baths</span>
+									</span>
+								</div>
+
+								<a href="property-single.html" class="btn btn-primary py-2 px-3">See
+									details</a>
+							</div>
+						</div>
+					</div>
+					<!-- .item -->
+
+					<div class="property-item">
+						<a href="property-single.html" class="img"> <img
+							src="images/img_6.jpg" alt="Image" class="img-fluid" />
+						</a>
+
+						<div class="property-content">
+							<div class="price mb-2">
+								<span>$1,291,000</span>
+							</div>
+							<div>
+								<span class="d-block mb-2 text-black-50">5232 California
+									Fake, Ave. 21BC</span> <span class="city d-block mb-3">California,
+									USA</span>
+
+								<div class="specs d-flex mb-4">
+									<span class="d-block d-flex align-items-center me-3"> <span
+										class="icon-bed me-2"></span> <span class="caption">2
+											beds</span>
+									</span> <span class="d-block d-flex align-items-center"> <span
+										class="icon-bath me-2"></span> <span class="caption">2
+											baths</span>
+									</span>
+								</div>
+
+								<a href="property-single.html" class="btn btn-primary py-2 px-3">See
+									details</a>
+							</div>
+						</div>
+					</div>
+					<!-- .item -->
+
+					<div class="property-item">
+						<a href="property-single.html" class="img"> <img
+							src="images/img_7.jpg" alt="Image" class="img-fluid" />
+						</a>
+
+						<div class="property-content">
+							<div class="price mb-2">
+								<span>$1,291,000</span>
+							</div>
+							<div>
+								<span class="d-block mb-2 text-black-50">5232 California
+									Fake, Ave. 21BC</span> <span class="city d-block mb-3">California,
+									USA</span>
+
+								<div class="specs d-flex mb-4">
+									<span class="d-block d-flex align-items-center me-3"> <span
+										class="icon-bed me-2"></span> <span class="caption">2
+											beds</span>
+									</span> <span class="d-block d-flex align-items-center"> <span
+										class="icon-bath me-2"></span> <span class="caption">2
+											baths</span>
+									</span>
+								</div>
+
+								<a href="property-single.html" class="btn btn-primary py-2 px-3">See
+									details</a>
+							</div>
+						</div>
+					</div>
+					<!-- .item -->
+
+					<div class="property-item">
+						<a href="property-single.html" class="img"> <img
+							src="images/img_8.jpg" alt="Image" class="img-fluid" />
+						</a>
+
+						<div class="property-content">
+							<div class="price mb-2">
+								<span>$1,291,000</span>
+							</div>
+							<div>
+								<span class="d-block mb-2 text-black-50">5232 California
+									Fake, Ave. 21BC</span> <span class="city d-block mb-3">California,
+									USA</span>
+
+								<div class="specs d-flex mb-4">
+									<span class="d-block d-flex align-items-center me-3"> <span
+										class="icon-bed me-2"></span> <span class="caption">2
+											beds</span>
+									</span> <span class="d-block d-flex align-items-center"> <span
+										class="icon-bath me-2"></span> <span class="caption">2
+											baths</span>
+									</span>
+								</div>
+
+								<a href="property-single.html" class="btn btn-primary py-2 px-3">See
+									details</a>
+							</div>
+						</div>
+					</div>
+					<!-- .item -->
+
+					<div class="property-item">
+						<a href="property-single.html" class="img"> <img
+							src="images/img_1.jpg" alt="Image" class="img-fluid" />
+						</a>
+
+						<div class="property-content">
+							<div class="price mb-2">
+								<span>$1,291,000</span>
+							</div>
+							<div>
+								<span class="d-block mb-2 text-black-50">5232 California
+									Fake, Ave. 21BC</span> <span class="city d-block mb-3">California,
+									USA</span>
+
+								<div class="specs d-flex mb-4">
+									<span class="d-block d-flex align-items-center me-3"> <span
+										class="icon-bed me-2"></span> <span class="caption">2
+											beds</span>
+									</span> <span class="d-block d-flex align-items-center"> <span
+										class="icon-bath me-2"></span> <span class="caption">2
+											baths</span>
+									</span>
+								</div>
+
+								<a href="property-single.html" class="btn btn-primary py-2 px-3">See
+									details</a>
+							</div>
+						</div>
+					</div>
+					<!-- .item -->
+				</div>
+
+				<div id="property-nav" class="controls" tabindex="0"
+					aria-label="Carousel Navigation">
+					<span class="prev" data-controls="prev" aria-controls="property"
+						tabindex="-1">Prev</span> <span class="next" data-controls="next"
+						aria-controls="property" tabindex="-1">Next</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+	</div>
+
+	<!-- Footer -->
+	<footer class="bg-secondary pt-4">
+		<div class="container">
+			<div class="row py-4">
+
+				<div class="col-lg-3 col-12 align-left">
+					<a class="navbar-brand" href="index.html"> <i
+						class='bx bx-buildings bx-sm text-light'></i> <span
+						class="text-light h5">Purple</span> <span
+						class="text-light h5 semi-bold-600">Buzz</span>
+					</a>
+					<p class="text-light my-lg-4 my-2">Lorem ipsum dolor sit amet,
+						consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.
+					</p>
+					<ul class="list-inline footer-icons light-300">
+						<li class="list-inline-item m-0"><a class="text-light"
+							target="_blank" href="http://facebook.com/"> <i
+								class='bx bxl-facebook-square bx-md'></i>
+						</a></li>
+						<li class="list-inline-item m-0"><a class="text-light"
+							target="_blank" href="https://www.linkedin.com/"> <i
+								class='bx bxl-linkedin-square bx-md'></i>
+						</a></li>
+						<li class="list-inline-item m-0"><a class="text-light"
+							target="_blank" href="https://www.whatsapp.com/"> <i
+								class='bx bxl-whatsapp-square bx-md'></i>
+						</a></li>
+						<li class="list-inline-item m-0"><a class="text-light"
+							target="_blank" href="https://www.flickr.com/"> <i
+								class='bx bxl-flickr-square bx-md'></i>
+						</a></li>
+						<li class="list-inline-item m-0"><a class="text-light"
+							target="_blank" href="https://www.medium.com/"> <i
+								class='bx bxl-medium-square bx-md'></i>
+						</a></li>
+					</ul>
+				</div>
+
+				<div class="col-lg-3 col-md-4 my-sm-0 mt-4">
+					<h3 class="h4 pb-lg-3 text-light light-300">
+						Our Company
+						</h2>
+						<ul class="list-unstyled text-light light-300">
+							<li class="pb-2"><i class='bx-fw bx bxs-chevron-right bx-xs'></i><a
+								class="text-decoration-none text-light" href="index.html">Home</a>
+							</li>
+							<li class="pb-2"><i class='bx-fw bx bxs-chevron-right bx-xs'></i><a
+								class="text-decoration-none text-light py-1" href="about.html">About
+									Us</a></li>
+							<li class="pb-2"><i class='bx-fw bx bxs-chevron-right bx-xs'></i><a
+								class="text-decoration-none text-light py-1" href="work.html">Work</a>
+							</li>
+							<li class="pb-2"><i class='bx-fw bx bxs-chevron-right bx-xs'></i></i><a
+								class="text-decoration-none text-light py-1" href="pricing.html">Price</a>
+							</li>
+							<li class="pb-2"><i class='bx-fw bx bxs-chevron-right bx-xs'></i><a
+								class="text-decoration-none text-light py-1" href="contact.html">Contact</a>
+							</li>
+						</ul>
+				</div>
+
+				<div class="col-lg-3 col-md-4 my-sm-0 mt-4">
+					<h2 class="h4 pb-lg-3 text-light light-300">Our Works</h2>
+					<ul class="list-unstyled text-light light-300">
+						<li class="pb-2"><i class='bx-fw bx bxs-chevron-right bx-xs'></i><a
+							class="text-decoration-none text-light py-1" href="#">Branding</a>
+						</li>
+						<li class="pb-2"><i class='bx-fw bx bxs-chevron-right bx-xs'></i><a
+							class="text-decoration-none text-light py-1" href="#">Business</a>
+						</li>
+						<li class="pb-2"><i class='bx-fw bx bxs-chevron-right bx-xs'></i><a
+							class="text-decoration-none text-light py-1" href="#">Marketing</a>
+						</li>
+						<li class="pb-2"><i class='bx-fw bx bxs-chevron-right bx-xs'></i><a
+							class="text-decoration-none text-light py-1" href="#">Social
+								Media</a></li>
+						<li class="pb-2"><i class='bx-fw bx bxs-chevron-right bx-xs'></i><a
+							class="text-decoration-none text-light py-1" href="#">Digital
+								Solution</a></li>
+						<li class="pb-2"><i class='bx-fw bx bxs-chevron-right bx-xs'></i><a
+							class="text-decoration-none text-light py-1" href="#">Graphic</a>
+						</li>
+					</ul>
+				</div>
+
+				<div class="col-lg-3 col-md-4 my-sm-0 mt-4">
+					<h2 class="h4 pb-lg-3 text-light light-300">For Client</h2>
+					<ul class="list-unstyled text-light light-300">
+						<li class="pb-2"><i class='bx-fw bx bx-phone bx-xs'></i><a
+							class="text-decoration-none text-light py-1"
+							href="tel:010-020-0340">010-020-0340</a></li>
+						<li class="pb-2"><i class='bx-fw bx bx-mail-send bx-xs'></i><a
+							class="text-decoration-none text-light py-1"
+							href="mailto:info@company.com">info@company.com</a></li>
+					</ul>
+				</div>
+
+			</div>
+		</div>
+
+		<div class="w-100 bg-primary py-3">
+			<div class="container">
+				<div class="row pt-2">
+					<div class="col-lg-6 col-sm-12">
+						<p class="text-lg-start text-center text-light light-300">©
+							Copyright 2021 Purple Buzz Company. All Rights Reserved.</p>
+					</div>
+					<div class="col-lg-6 col-sm-12">
+						<p class="text-lg-end text-center text-light light-300">
+							Designed by <a rel="sponsored"
+								class="text-decoration-none text-light"
+								href="https://templatemo.com/" target="_blank"><strong>TemplateMo</strong></a>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</footer>
+	<!-- End Footer -->
+</body>
 </html>
