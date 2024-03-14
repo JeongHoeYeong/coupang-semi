@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.semi.gold.model.vo.Board;
 import com.semi.gold.model.vo.BoardComment;
+import com.semi.gold.model.vo.BoardCommentPaging;
 import com.semi.gold.model.vo.BoardPaging;
 import com.semi.gold.model.vo.LikeBoard;
 import com.semi.gold.model.vo.Member;
@@ -60,13 +61,16 @@ public class BoardController {
 	
 	// 글 정보
 	@GetMapping("/boardview")
-	public String view(Principal principal, String no, Model model) {
+	public String view(Principal principal, BoardCommentPaging paging, String no, Model model) {
+		
 		LikeBoard vo = new LikeBoard();
 		
 		int num = Integer.parseInt(no);
-		service.view(num);
-		List<BoardComment> bc = bcService.selectAll(num);
-		model.addAttribute("boardComment", bc);
+		service.view(num); // 조회수 증가
+		paging.setBoard_no(num);
+		List<BoardComment> list = bcService.selectAll(paging);
+		model.addAttribute("boardComment", list);
+		model.addAttribute("paging", new BoardCommentPaging(paging.getPage(), bcService.total(num)));
 		model.addAttribute("vo", service.select(num));
 		if(principal!=null) {
 			String id = principal.getName();

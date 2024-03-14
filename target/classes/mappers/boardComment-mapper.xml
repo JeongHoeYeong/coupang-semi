@@ -10,10 +10,11 @@
 		<result property="bcDate" column="bc_date"/>
 	</resultMap>
 	
-	<select id="selectAll" parameterType="int" resultMap="boardCommentMap">
+	<select id="selectAll" parameterType="BoardPaging" resultMap="boardCommentMap">
 		select * from board_comment
-		where board_no = #{no}
+		where board_no = #{board_no}
 		order by coalesce(parent_no, bc_no), bc_no
+		LIMIT #{offset}, #{limit}
 	</select>
 	
 	<insert id="insertBC" parameterType="BoardComment">
@@ -28,6 +29,10 @@
 		values(${boardNo}, ${id}, "${bcContent}", ${parentNo})
 		</otherwise>
 		</choose>
-			
 	</insert>
+		<select id="count" parameterType="int" resultType="int">
+		SELECT count(*) FROM board_comment
+		WHERE board_no = #{no}
+	</select>
+	
 </mapper>

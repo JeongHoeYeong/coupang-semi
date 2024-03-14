@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.semi.gold.model.dao.BoardCommentDAO;
 import com.semi.gold.model.vo.BoardComment;
+import com.semi.gold.model.vo.BoardCommentPaging;
 
 @Service
 public class BoardCommentService {
@@ -14,11 +15,17 @@ public class BoardCommentService {
 	@Autowired
 	private BoardCommentDAO dao;
 	
-	public List<BoardComment> selectAll(int no) {
-		return dao.selectAll(no);
+	public List<BoardComment> selectAll(BoardCommentPaging paging) {
+		paging.setOffset(paging.getLimit() * (paging.getPage() - 1));
+		return dao.selectAll(paging);
 	}
 	
 	public int insertBC(BoardComment bc) {
 		return dao.insertBC(bc);
 	}
+	
+	public int total(int no) {
+		return dao.total(no);
+	}
+	
 }

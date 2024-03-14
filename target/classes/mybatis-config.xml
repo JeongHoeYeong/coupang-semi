@@ -10,6 +10,7 @@
 	<typeAliases>
 		<typeAlias type="com.semi.gold.model.vo.Board" alias="Board"/>
 		<typeAlias type="com.semi.gold.model.vo.BoardPaging" alias="BoardPaging"/>
+		<typeAlias type="com.semi.gold.model.vo.BoardCommentPaging" alias="BoardCommentPaging"/>
 		<typeAlias type="com.semi.gold.model.vo.Member" alias="Member"/>
 		<typeAlias type="com.semi.gold.model.vo.TourPlace" alias="TourPlace" />
 		<typeAlias type="com.semi.gold.model.vo.LikeBoard" alias="LikeBoard" />

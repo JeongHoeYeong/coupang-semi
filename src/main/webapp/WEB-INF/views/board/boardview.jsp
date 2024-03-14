@@ -117,6 +117,18 @@ ${vo.boardContent}</textarea
       	</c:choose>
       </c:forEach>
       
+      <nav>
+		<ul class="pagination">
+			<li class="page-item ${paging.prev ? '' : 'disabled'}"><a class="page-link" href="/boardview?no=${vo.boardNo}&page=${boardCommentPaging.startPage - 1}">Previous</a></li>
+				
+			<c:forEach begin="${paging.startPage}" end="${paging.endPage}" var="page">
+				<li class="page-item"><a class="page-link ${paging.page == page ? 'active' : ''}" href="/boardview?no=${vo.boardNo}&page=${page}">${page}</a></li>
+			</c:forEach>
+				
+			<li class="page-item ${paging.next ? '' : 'disabled'}"><a class="page-link" href="/boardview?no=${vo.boardNo}&page=${paging.endPage + 1}">Next</a></li>
+			</ul>
+		</nav>
+      
      <form id="boardContent">
       <h2>댓글 작성</h2>
       	 <input type="hidden" name="boardNo" id="boardNo" value="${vo.boardNo}" />
