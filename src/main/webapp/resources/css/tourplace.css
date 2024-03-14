@@ -1,0 +1,82 @@
+@charset "UTF-8";
+
+.tourlist_board {
+	display: flex;
+	justify-content: center;
+}
+
+.tourplaceMainImg {
+	width: 100px;
+	height: 70px;
+}
+
+.search_table {
+	min-width: 800px;
+	border-top: 3px solid #4374D9;
+	border-collapse: collapse;
+	text-align: left;
+}
+
+.search_header {
+	width: 200px;
+	background-color: #ebebeb;
+	text-align: center;
+	font-size: 17px;
+
+}
+
+.search_table tr {
+	border-bottom: 1px solid #ABABAB;
+	height: 45px;
+}
+
+td.input_form>input {
+	width: 450px;
+	height: 30px;
+}
+
+.search_content {
+	padding-left: 5px;	
+}
+
+.listTilte{
+	display: flex;
+    text-align: center;
+    justify-content: center;
+    padding-top: 18px;
+    
+}
+
+td.search_content input_form > input{
+	background-color: red;
+}
+
+.box{
+	width: 100px;
+	height: 150px;
+	padding: 5px;
+	margin: 5px;
+	background-color: yellow;
+	float: left;
+}
+
+.photoList {
+	width : 800px;
+	height: 100vh;
+	background-color: pink;
+	text-align: center;
+	margin: 0 auto;
+	
+}
+
+#searchResultTable {
+	width: 100%;
+	text-align: center;
+}
+
+#searchResultTable tr td{
+	
+}
+
+
+

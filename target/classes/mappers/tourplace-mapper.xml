@@ -2,23 +2,30 @@
 <mapper namespace="tourPlaceMapper">
 
 	<insert id="insertTourPlace" parameterType="TourPlace">
-		INSERT tourist (touristname, touristaddress, look)
-		VALUES (#{touristName}, #{touristAddress}, #{look})
+		INSERT tourist
+		(touristName, touristAddress, look)
+		VALUES (#{touristName},
+		#{touristAddress}, #{look})
 	</insert>
-	
+
 	<resultMap type="Tourplace" id="TourplaceMap">
-		<id property="touristCode" column="touristCode"/>
-		<result property="touristName" column="touristName"/>
-		<result property="touristAddress" column="touristAddress"/>
-		<result property="look" column="look"/>
-	</resultMap>	
+		<id property="touristCode" column="touristCode" />
+		<result property="touristName" column="touristName" />
+		<result property="touristAddress" column="touristAddress" />
+		<result property="look" column="look" />
+	</resultMap>
 	
 	<select id="showTourplace" resultMap="TourplaceMap">
 		SELECT * FROM tourist
 	</select>
-	
-	
-	
-	
+    
+    <select id="searchTourplace" resultMap="TourplaceMap" parameterType="com.semi.gold.model.dto.TourplaceSearchDTO">
+		SELECT * FROM tourist
+		<where>
+			<if test="keyword != null and keyword != ''">
+				touristName LIKE '%${keyword}%'
+			</if>
+		</where>
+	</select>
 
 </mapper>
