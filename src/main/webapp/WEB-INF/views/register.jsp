@@ -10,7 +10,7 @@
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 </head>
 <body>
-	<form action="/register" method="post" onsubmit="return sendit()">
+	<form action="/register" method="post" <%-- onsubmit="return sendit()" --%>>
 	<div class="member">
       <!-- 1. 로고 -->
 		

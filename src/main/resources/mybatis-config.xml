@@ -12,6 +12,8 @@
 		<typeAlias type="com.semi.gold.model.vo.BoardPaging" alias="BoardPaging"/>
 		<typeAlias type="com.semi.gold.model.vo.Member" alias="Member"/>
 		<typeAlias type="com.semi.gold.model.vo.TourPlace" alias="TourPlace" />
+		<typeAlias type="com.semi.gold.model.vo.LikeBoard" alias="LikeBoard" />
+		<typeAlias type="com.semi.gold.model.vo.BoardComment" alias="BoardComment"/>
 	</typeAliases>
 
 	<environments default="develop">
@@ -31,5 +33,6 @@
 		<mapper resource="mappers/board-mapper.xml"/>
 		<mapper resource="mappers/member-mapper.xml" />
 		<mapper resource="mappers/tourplace-mapper.xml" />
+		<mapper resource="mappers/boardComment-mapper.xml" />
 	</mappers>
 </configuration>

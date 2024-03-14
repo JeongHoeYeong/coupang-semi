@@ -9,11 +9,27 @@
 		<result property="boardLike" column="board_like"/>
 		<result property="boardTitle" column="board_title"/>
 		<result property="boardContent" column="board_content"/>
+		<result property="bcCount" column="bc_count"/>
+	</resultMap>
+	
+	
+	<resultMap type="LikeBoard" id="likeBoardMap">
+		<id property="gbId" column="gb_id"/>
+		<result property="id" column="id"/>
+		<result property="boardNo" column="board_no"/>
 	</resultMap>
 	
 	<select id="selectAll" parameterType="BoardPaging" resultMap="boardMap">
 		SELECT * FROM board
+		<choose>
+		<when test="sort == 'board_like' or sort == 'board_views' or sort == 'bc_count'">
+		ORDER BY ${sort} DESC
 		LIMIT #{offset}, #{limit}
+		</when>
+		<otherwise>
+		LIMIT #{offset}, #{limit}
+		</otherwise>
+		</choose>
 	</select>
 	
 	<select id="count" resultType="int">
@@ -43,5 +59,40 @@
 	
 	<update id="view" parameterType="int">
 		UPDATE board SET board_views = board_views + 1 WHERE board_no=#{boardNo}
+	</update>
+	
+	<insert id="insertLikeBoard" parameterType="LikeBoard">
+		INSERT INTO like_board(id, board_no) VALUE(#{id}, #{boardNo})
+	</insert>
+	
+	<delete id="deleteLikeBoard" parameterType="LikeBoard">
+		DELETE FROM like_board
+		WHERE id=#{id} AND board_no=#{boardNo}
+	</delete>
+	
+	<select id="countLikeBoard" parameterType="int" resultType="int">
+		SELECT COUNT(*) FROM like_board
+		WHERE board_no=#{no}
+	</select>
+	
+	<update id="addBoardLike" parameterType="int">
+		UPDATE board SET board_like = board_like + 1 WHERE board_no=#{boardNo}
+	</update>
+	
+	<update id="subBoardLike" parameterType="int">
+		UPDATE board SET board_like = board_like - 1 WHERE board_no=#{boardNo}
+	</update>
+	
+	<select id="checkLikeBoard" parameterType="LikeBoard" resultMap="likeBoardMap">
+		SELECT * FROM like_board
+		WHERE id=#{id} AND board_no=#{boardNo}
+	</select>
+	
+	<update id="updateBcCount" parameterType="int">
+		update board b 
+		set b.bc_count = (select count(bc_no)
+		from board_comment
+		where board_no = ${no})
+		where b.board_no = ${no};
 	</update>
 </mapper>

@@ -16,4 +16,5 @@ public class Board {
 	private int boardLike;
 	private String boardTitle;
 	private String boardContent;
+	private String bcCount;
 }
