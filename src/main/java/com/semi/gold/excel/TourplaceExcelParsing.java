@@ -28,7 +28,7 @@ public class TourplaceExcelParsing {
 
 	public TourplaceExcelParsing() {
 
-			parsingExcel("src/main/webapp/resources/parsingExcel/관광지 텍스트.xls");
+			parsingExcel("src/main/webapp/resources/parsingExcel/관광지 텍스트 목록.xls");
 
 	}
 
