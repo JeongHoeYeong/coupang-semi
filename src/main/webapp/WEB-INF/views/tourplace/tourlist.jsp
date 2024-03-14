@@ -24,7 +24,6 @@ window.onload = function(){
 function getSearchList(){
 	
 	const inputKeyword = document.querySelector("#search_keyword");
-	
 	const url = "/tourplace/getSearchList";
 	const params = {
 		keyword: inputKeyword.value
