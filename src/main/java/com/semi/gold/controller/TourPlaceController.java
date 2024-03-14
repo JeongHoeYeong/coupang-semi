@@ -35,8 +35,4 @@ public class TourPlaceController {
 		return returnList;
 	}	
 
-
-	
-	
-	
 }
