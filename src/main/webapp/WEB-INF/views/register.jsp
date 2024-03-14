@@ -92,11 +92,6 @@
 					<input type="text" name="phone" id="phone" placeholder="전화번호 입력" /><br>
 					<span id="phoneText"></span><br>
 				</div>
-				
-			
-				
-
-
 
 				<!-- 6. 가입하기 버튼 -->
 				<input type="submit" value="가입하기" />

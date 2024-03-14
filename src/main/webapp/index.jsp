@@ -11,7 +11,7 @@ pageEncoding="UTF-8"%>
 
     <!-- Load Tempalte CSS -->
     <link href="resources/css/templatemo.css" rel="stylesheet" />
-    <link href="resources/css//bootstrap.css" rel="stylesheet" />
+    <link href="resources/css/bootstrap.css" rel="stylesheet" />
     <link href="resources/css/review.css" rel="stylesheet" />
 
     <!-- Font CSS -->
@@ -40,14 +40,17 @@ pageEncoding="UTF-8"%>
     />
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+    	.fa-solid{
+    		width: 50px;
+    		height: 50px;
+    	}
+    </style>
   </head>
   <body>
     <sec:authentication property="principal" var="member" />
     <!-- Header -->
-    <nav
-      id="main_nav"
-      class="navbar navbar-expand-lg navbar-light bg-white shadow"
-    >
+    <nav id="main_nav" class="navbar navbar-expand-lg navbar-light bg-white shadow">
       <div class="container d-flex justify-content-between align-items-center">
         <a class="navbar-brand h1" href="/">
           <img src="resources/image/로고 (2).jpg" alt="" />
@@ -103,17 +106,11 @@ pageEncoding="UTF-8"%>
           <div class="navbar align-self-center d-flex">
             <c:choose>
               <c:when test="${member == 'anonymousUser'}">
-                <a class="nav-link" href="/login"
-                  ><i class="fa-solid fa-right-to-bracket"></i
-                ></a>
+                <a class="nav-link" href="/login"><i class="fa-solid fa-right-to-bracket fa-2x"></i></a>	<!-- 로그인 -->
               </c:when>
               <c:otherwise>
-                <a class="nav-link" href="/member"
-                  ><i class="fa-solid fa-house"></i
-                ></a>
-                <a class="nav-link" href="/logout"
-                  ><i class="fa-solid fa-right-from-bracket"></i
-                ></a>
+                <a class="nav-link" href="/member"><i class="fa-solid fa-house fa-2x"></i></a>	<!-- 마이페이지 -->
+                <a class="nav-link" href="/logout"><i class="fa-solid fa-right-from-bracket fa-2x"></i></a>	<!-- 로그아웃 -->
               </c:otherwise>
             </c:choose>
           </div>

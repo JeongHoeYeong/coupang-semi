@@ -53,7 +53,7 @@ function sendit() {
   }
 
   if (!expPassword.test(password.value)) {
-    $("#passwordText").text("비밀번호는 최소 8자리, 숫자, 문자, 특수문자 최소 1개").css("color", "red");
+    $("#passwordText").text("비밀번호는 최소 8자리, 숫자, 문자, 특수문자 최소 1개씩 포함").css("color", "red");
     password.focus();
     return false;
   } else {
