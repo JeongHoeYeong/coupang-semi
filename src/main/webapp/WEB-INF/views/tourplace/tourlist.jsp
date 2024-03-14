@@ -1,14 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
-<html>
+<!DOCTYPE html>
+<html lang="ko">
 <head>
-<link href="/resources/css/tourplace.css" rel="stylesheet"
-	type="text/css">
 <title>Home</title>
-
-
+<link rel="stylesheet" href="/resources/css/tourplace.css">
 </head>
 
 <script type="text/javascript">
@@ -24,6 +21,7 @@ window.onload = function(){
 function getSearchList(){
 	
 	const inputKeyword = document.querySelector("#search_keyword");
+	
 	const url = "/tourplace/getSearchList";
 	const params = {
 		keyword: inputKeyword.value
@@ -106,9 +104,9 @@ function tourplaceToBoard(dataList){
 			</tr>
 			<tr>
 				<td class="search_header">검색어</td>
-				<td class="search_content input_form"><input
-					style="float: left;" type="text" id="search_keyword"/> <input
-					style="width: 100px; margin-left: 5px;" type="button"
+				<td class="search_content input_form">
+				<input style="float: left;" type="text" id="search_keyword"/> 
+				<input style="width: 100px; margin-left: 5px;" type="button"
 					id="searchButton" value="검색" /></td>
 			</tr>
 		</table>
