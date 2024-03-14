@@ -2,12 +2,10 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
-<title>Home</title>
+<title>전만순관광지</title>
 <link rel="stylesheet" href="/resources/css/tourplace.css">
-</head>
-
 <script type="text/javascript">
 window.onload = function(){
 	const searchButton = document.querySelector('#searchButton');
@@ -74,27 +72,14 @@ function tourplaceToBoard(dataList){
 			idx = 0;
 		}
 		
-		//const attachDiv = document.createElement("div");
-		//
-		//attachDiv.classList.add("box");
-		//attachDiv.innerHTML = item.imgTag;
-		//
-		//const divCode = document.createElement("div");
-		//divCode.innerHTML = item.touristCode;
-		//
-		//const divName = document.createElement("div");
-		//divName.innerHTML = item.touristName;
-		//
-		//attachDiv.appendChild(divCode);
-		//attachDiv.appendChild(divName);
-		//
-		//targetDiv.appendChild(attachDiv);
 		
 	});
 	
 }
- 
 </script>
+
+</head>
+
 <body>
 	<div class="tourlist_board">
 		<table class="search_table">
@@ -114,40 +99,12 @@ function tourplaceToBoard(dataList){
 
 <!-- 	<h1>관광지 목록</h1> -->
 <br>
-	<%-- <table class="listTilte">
-		<tr>
-			<th>번호</th>
-			<th>관광지명</th>
-			<th>관광지 주소</th>
-			<th>조회수</th>
-		</tr>
-		<c:forEach items="${list}" var="item">
-			<tr>
-				<td>${item.touristCode}</td>
-				<td>${item.touristName}</td>
-				<td>${item.touristAddress}</td>
-				<td>${item.look}</td>
-				<td>${item.imgTag}</td>
-			</tr>
-		</c:forEach>
-	</table>  --%>
 
 <div class="photoList">
 	<div class="photoList_div">
 	
 		<table id="searchResultTable">
 		</table>
-		<%-- <c:forEach items="${list}" var="item">
-			<div class="box">
-				${item.imgTag}
-				<div>
-					${item.touristCode}
-				</div>	
-				<div>
-					${item.touristName}
-				</div>
-			</div>
-		</c:forEach> --%>
 	</div> 
 </div>
 
