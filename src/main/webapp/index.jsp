@@ -1,8 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="sec"
-	uri="http://www.springframework.org/security/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -72,17 +71,17 @@
 				<div class="flex-fill mx-xl-5 mb-2">
 					<ul
 						class="nav navbar-nav d-flex justify-content-between mx-xl-5 text-center text-dark">
-						<li class="nav-item"><a
-							class="nav-link btn-outline-success rounded-pill px-3"
+						<li class="nav-item">
+						<a class="nav-link btn-outline-success rounded-pill px-3"
 							href="tourplace/search">여행을 만나는 순간</a></li>
-						<li class="nav-item"><a
-							class="nav-link btn-outline-success rounded-pill px-3">맛집를
+						<li class="nav-item">
+						<a class="nav-link btn-outline-success rounded-pill px-3">맛집를
 								만나는 순간</a></li>
-						<li class="nav-item"><a
-							class="nav-link btn-outline-success rounded-pill px-3">숙소를
+						<li class="nav-item">
+						<a class="nav-link btn-outline-success rounded-pill px-3">숙소를
 								만나는 순간</a></li>
-						<li class="nav-item"><a
-							class="nav-link btn-outline-success rounded-pill px-3">축제를
+						<li class="nav-item">
+						<a class="nav-link btn-outline-success rounded-pill px-3">축제를
 								만나는 순간</a></li>
 					</ul>
 				</div>
@@ -225,11 +224,10 @@
 					<div class="row g-2">
 						<div class="col-md-4">
 							<form href="">
-								<input type="text" class="form-control py-3"
-									placeholder="어디로,어떤 여행을 떠날 예정인가요?" />
+
 						</div>
 						<div class="col-md-4">
-							<select class="form-select py-3">
+							<select class="form-select py-3" id="sele" onchange="changeFn()">
 								<option value="" selected>순간</option>
 								<option value="tourist">여행지</option>
 								<option value="food">맛집</option>
@@ -237,7 +235,7 @@
 							</select>
 						</div>
 						<div class="col-md-4">
-							<select class="form-select py-3">
+							<select class="form-select py-3" id="dosi" onchange="changeFn()">
 								<option value="" selected>위치</option>
 								<option value="서울">서울</option>
 								<option value="경기">경기도</option>
@@ -253,13 +251,13 @@
 						</div>
 					</div>
 				</div>
-
+				</form>
 				<div class="col-md-2">
 					<button class="btn btn-outline-warning border-0 w-100 py-3"
 						id="btn">Click</button>
 				</div>
-				</form>
 			</div>
+			<p id="text"></p>
 		</div>
 
 		<!-- Search End -->
@@ -488,6 +486,7 @@
 		<!-- End Footer -->
 		<!-- Core theme JS-->
 		<script src="js/scripts.js"></script>
+		<script src="resources/js/mainselect.js"></script>
 		<script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
 </body>
 </html>
