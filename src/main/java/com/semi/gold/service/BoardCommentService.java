@@ -28,4 +28,7 @@ public class BoardCommentService {
 		return dao.total(no);
 	}
 	
+	public int deleteBC(int no) {
+		return dao.deleteBC(no);
+	}
 }

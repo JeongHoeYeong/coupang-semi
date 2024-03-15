@@ -15,4 +15,5 @@ public class BoardComment {
 	private String id;
 	private String bcContent;
 	private Date bcDate;
+	private String bcDelete;
 }

@@ -1,11 +1,13 @@
 package com.semi.gold.model.dao;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.semi.gold.model.dto.BoardSearchDTO;
 import com.semi.gold.model.vo.Board;
 import com.semi.gold.model.vo.BoardPaging;
 import com.semi.gold.model.vo.LikeBoard;
@@ -71,6 +73,9 @@ public class BoardDAO {
 	
 	public int updateBcCount(int no) {
 		return session.update("board.updateBcCount", no);
+	}
+	public List<Board> searchBoard(HashMap<String, Object> map) {
+		return session.selectList("board.searchBoard", map);
 	}
 }
 

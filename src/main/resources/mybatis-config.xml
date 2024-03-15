@@ -15,6 +15,7 @@
 		<typeAlias type="com.semi.gold.model.vo.TourPlace" alias="TourPlace" />
 		<typeAlias type="com.semi.gold.model.vo.LikeBoard" alias="LikeBoard" />
 		<typeAlias type="com.semi.gold.model.vo.BoardComment" alias="BoardComment"/>
+		<typeAlias type="com.semi.gold.model.dto.BoardSearchDTO" alias="BoardSearchDTO"/>
 	</typeAliases>
 
 	<environments default="develop">

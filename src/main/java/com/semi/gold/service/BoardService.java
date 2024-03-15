@@ -1,5 +1,6 @@
 package com.semi.gold.service;
 
+import java.util.HashMap;
 import java.util.List;
 
 
@@ -7,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.semi.gold.model.dao.BoardDAO;
+import com.semi.gold.model.dto.BoardSearchDTO;
 import com.semi.gold.model.vo.Board;
 import com.semi.gold.model.vo.BoardPaging;
 import com.semi.gold.model.vo.LikeBoard;
@@ -72,5 +74,17 @@ public class BoardService {
 	
 	public int updateBcCount(int no) {
 		return dao.updateBcCount(no);
+	}
+	public List<Board> boardSearch(String keyword, String select, BoardPaging paging){
+		paging.setOffset(paging.getLimit() * (paging.getPage() - 1));
+		BoardSearchDTO dto = new BoardSearchDTO();
+		dto.setKeyword(keyword);
+		dto.setSelect(select);
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("keyword", dto.getKeyword());
+		map.put("select", dto.getSelect());
+		map.put("offset", paging.getOffset());
+		map.put("limit", paging.getLimit());
+		return dao.searchBoard(map);
 	}
 }

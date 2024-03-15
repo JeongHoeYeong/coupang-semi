@@ -16,7 +16,6 @@ public class BoardCommentDAO {
 	private SqlSessionTemplate session;
 	
 	public List<BoardComment> selectAll(BoardCommentPaging paging) {
-		System.out.println(paging);
 		return session.selectList("boardComment.selectAll", paging);
 	}
 	
@@ -26,5 +25,9 @@ public class BoardCommentDAO {
 	
 	public int total(int no) {
 		return session.selectOne("boardComment.count", no);
+	}
+	
+	public int deleteBC(int no) {
+		return session.update("boardComment.deleteBC", no);
 	}
 }

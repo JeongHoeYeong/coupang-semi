@@ -92,7 +92,30 @@
 		update board b 
 		set b.bc_count = (select count(bc_no)
 		from board_comment
-		where board_no = ${no})
+		where board_no = ${no}
+		and bc_delete = "n")
 		where b.board_no = ${no};
 	</update>
+	
+	<select id="searchBoard" parameterType="hashmap" resultType="Board">
+		SELECT * FROM board
+		<where>
+			<choose>
+				<when test="select=='all'">
+				board_title LIKE CONCAT('%',#{keyword},'%')
+				or board_content LIKE CONCAT('%',#{keyword},'%')
+				</when>
+				<when test="select=='title'">
+				board_title LIKE CONCAT('%',#{keyword},'%')
+				</when>
+				<when test="select=='content'">
+				board_content LIKE CONCAT('%',#{keyword},'%')
+				</when>
+				<when test="select=='id'">
+				id LIKE CONCAT('%',#{keyword},'%')
+				</when>
+			</choose>
+		</where>
+		LIMIT #{offset}, #{limit}
+	</select> 
 </mapper>

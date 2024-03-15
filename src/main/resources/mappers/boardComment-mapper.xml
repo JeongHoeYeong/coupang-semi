@@ -8,6 +8,7 @@
 		<result property="id" column="id"/>
 		<result property="bcContent" column="bc_content"/>
 		<result property="bcDate" column="bc_date"/>
+		<result property="bcDelete" column="bc_delete"/>
 	</resultMap>
 	
 	<select id="selectAll" parameterType="BoardPaging" resultMap="boardCommentMap">
@@ -33,6 +34,10 @@
 		<select id="count" parameterType="int" resultType="int">
 		SELECT count(*) FROM board_comment
 		WHERE board_no = #{no}
+		AND bc_delete = "n"
 	</select>
-	
+	<update id="deleteBC" parameterType="int">
+		UPDATE board_comment SET bc_delete = "y"
+		WHERE bc_no = #{no} 
+	</update>
 </mapper>

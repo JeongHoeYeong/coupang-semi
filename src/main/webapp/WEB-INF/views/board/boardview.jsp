@@ -78,15 +78,24 @@ ${vo.boardContent}</textarea
       	<c:choose>
       	<c:when test="${boardComment.parentNo==0}">
       		<li class="liClick" style="cursor: pointer;">
+      		<c:if test="${boardComment.bcDelete eq 'n'}">
       			아이디 : ${boardComment.id}
       			날짜 : <fmt:formatDate value="${boardComment.bcDate}"
       					pattern="yyyy-MM-dd HH:mm" />
       			<br>
       			글 내용 : ${boardComment.bcContent}
+      			<c:if test="${boardComment.id eq id}">
+      			<form>
+      				<input type="hidden" class="bcNo" value="${boardComment.bcNo}">
+      				<input type="button" value="삭제하기" class="bcDelete">
+      			</form>
+      			</c:if>
+      			</c:if>
+      			<c:if test="${boardComment.bcDelete eq 'y'}">
+      			삭제된 댓글입니다
+      			</c:if>
       			</li>      			
-
-				<div class="replyDiv" style="display: none; background: gray;">
-				
+				<div class="bcDiv" style="display: none; background: gray;">
 					<form>
 						<input type="hidden" name="boardNo"
 							value="${vo.boardNo}" /> <input type="hidden" name="id"
@@ -105,14 +114,25 @@ ${vo.boardContent}</textarea
 			</c:when>
       		<c:otherwise>
       			<li style="padding-left:50px;">
+      			<c:if test="${boardComment.bcDelete eq 'n'}">
       			아이디 : ${boardComment.id}
       			날짜 : <fmt:formatDate value="${boardComment.bcDate}"
       					pattern="yyyy-MM-dd HH:mm" />
       			<br>
       			글 내용 : ${boardComment.bcContent}
+      			<c:if test="${boardComment.id eq id}">
+      			<form>
+      				<input type="hidden" class="bcNo" value="${boardComment.bcNo}">
+      				<input type="button" value="삭제하기" class="bcDelete">
+      			</form>
+      			</c:if>
+      			</c:if>
+      			<c:if test="${boardComment.bcDelete eq 'y'}">
+      				삭제된 댓글입니다
+      			</c:if>
       			</li>
+      			
       		<hr>
-      		
       		</c:otherwise>
       	</c:choose>
       </c:forEach>
@@ -138,6 +158,17 @@ ${vo.boardContent}</textarea
     </form>
     
     <script>
+    $(".bcDelete").click((e) => {
+    	$.ajax({
+    		type: 'get',
+    		url: '/deleteBC',
+    		data: "bcNo=" + $(e.target).siblings(".bcNo").val() +"&boardNo=" + ${vo.boardNo},
+    		success:function(data) {
+    			location.reload();
+    		}
+    	});
+    })
+    
     $("#bcWrite").click((e) => {
     	if(document.querySelector("#id").value==""){
     		alert("로그인 후 이용 가능합니다");
@@ -176,10 +207,10 @@ ${vo.boardContent}</textarea
     
     	$(".liClick").click((e) =>{
     		if($(e.target).next().css("display") === "none") {
-    			$(".replyDiv").css("display", "none");
+    			$(".bcDiv").css("display", "none");
         		$(e.target).next().css("display", "block");;
     		} else {
-    			$(".replyDiv").css("display", "none");
+    			$(".bcDiv").css("display", "none");
     		}
     	});
     	

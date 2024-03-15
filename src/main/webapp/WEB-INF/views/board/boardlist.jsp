@@ -13,6 +13,7 @@
 	rel="stylesheet"
 	integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
 	crossorigin="anonymous" />
+	<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 </head>
 <body>
 	<sec:authentication property="principal" var="member" />
@@ -34,7 +35,7 @@
 		<table class="table">
 			<thead>
 				<tr>
-					<th>#번호</th>
+					<th><a href="/boardlist">#번호</a></th>
 					<th>제목</th>
 					<th>작성자</th>
 					<th>작성일</th>
@@ -78,5 +79,28 @@
 			</ul>
 		</nav>
 	</div>
+	<form id="findBoard" style="margin-left: 80px">
+	<select name="select" id="select">
+		<option value="all">제목+내용</option>
+		<option value="title">제목</option>
+		<option value="content">내용</option>
+		<option value="id">글쓴이</option>
+	</select>
+	<input type="text" name="keyword" id="keyword">
+	<input type="button" value="검색" id="search" onclick="searchBoard()">
+	</form>
+	<script>
+	function searchBoard() {
+		if($.trim($("#keyword").val()).length==0) {
+			alert("내용을 입력해주세요");
+			return false;
+		}
+		$.ajax({
+			type: 'get',
+			url: '/boardlist',
+			data: 'select='+ $("#select").val() + '&keyword=' + $.trim($("#keyword").val())
+		});
+	}
+	</script>
 </body>
 </html>
