@@ -223,7 +223,6 @@
 				<div class="col-md-10">
 					<div class="row g-2">
 						<div class="col-md-4">
-							<form href="">
 
 						</div>
 						<div class="col-md-4">
@@ -251,7 +250,6 @@
 						</div>
 					</div>
 				</div>
-				</form>
 				<div class="col-md-2">
 					<button class="btn btn-outline-warning border-0 w-100 py-3"
 						id="btn">Click</button>

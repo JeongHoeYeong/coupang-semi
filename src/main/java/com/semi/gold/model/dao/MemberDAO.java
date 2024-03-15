@@ -44,4 +44,11 @@ public class MemberDAO {
 	public Member nicknameCheck(String nickname) {
 		return session.selectOne("memberMapper.nicknameCheck", nickname);
 	}
+	
+	// 유저 아이디 찾기
+	public String searchUserid(String email) {
+		return session.selectOne("memberMapper.searchUserid", email);
+	}
+	
 }
+

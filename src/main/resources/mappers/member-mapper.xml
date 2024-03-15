@@ -56,6 +56,23 @@
 		<select id="nicknameCheck" parameterType="String" resultType="Member">
 		SELECT * FROM member WHERE nickname=#{nickname};
 	</select>
+	
+	<select id="searchUserid" parameterType="String">
+		SELECT id FROM member
+		WHERE email=#{email}
+	</select>
+	
+	<select id="searchUserpwd" parameterType="String">
+		SELECT id FROM member
+		WHERE password=#{password}
+	</select>
+	
+	<update id="updateUserpwd" parameterType="String">
+		UPDATE member
+		SET password=#{password}
+		WHERE id=#{id}
+	</update>
+	
 </mapper>
 
 

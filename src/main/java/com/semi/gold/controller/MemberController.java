@@ -112,6 +112,18 @@ public class MemberController {
 		return true;
 	}
 	
+	// 회원 정보 찾기 아이디
+	@GetMapping("/searchUserid")
+	public String searchUserid(String email) {
+		return "/searchUserid";
+	}
+	
+	// 회원 정보 찾기 비밀번호
+	@GetMapping("/searchUserpwd")
+	public String searchUserpwd(String id) {
+		return "/searchUserpwd";
+	}
+	
 	// 카카오 로그인
 	@GetMapping("/kakaoLogin")
 	public String kakaoLogin(String code, HttpServletResponse response) throws IOException {
@@ -136,7 +148,7 @@ public class MemberController {
 	
 		return "redirect:/login";
 	}
-	
+		
 	private String getToken(String authorize_code) throws IOException {
 		String access_Token = "";
 		String refresh_Token = "";
