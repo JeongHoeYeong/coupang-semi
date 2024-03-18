@@ -30,10 +30,11 @@
 		join member using (id)
 		<choose>
 		<when test="sort == 'board_like' or sort == 'board_views' or sort == 'bc_count'">
-		ORDER BY ${sort} DESC
+		ORDER BY #{sort} DESC
 		LIMIT #{offset}, #{limit}
 		</when>
 		<otherwise>
+		ORDER BY board_date DESC
 		LIMIT #{offset}, #{limit}
 		</otherwise>
 		</choose>
@@ -68,6 +69,7 @@
 			LIMIT #{paging.offset}, #{paging.limit}
 			</when>
 			<otherwise>
+			ORDER BY board_date DESC
 			LIMIT #{paging.offset}, #{paging.limit}
 			</otherwise>
 		</choose>
