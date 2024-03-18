@@ -8,7 +8,9 @@
 </head>
 <body>
 	<h1>아이디 찾기</h1>
-	<input type="text" name="email" placeholder="email" /> 
-	<input type="button" id="btn">
+	<input type="text" name="name" placeholder="name" /> <br>
+	<input type="text" name="email" placeholder="email" /> <br>
+	<input type="button" id="btn" value="찾기"><br>
+	<span id="searchIdText"></span>
 </body>
 </html>

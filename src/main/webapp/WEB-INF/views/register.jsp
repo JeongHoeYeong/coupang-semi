@@ -33,7 +33,8 @@ pageEncoding="UTF-8"%>
     >
       <div class="member">
         <!-- 1. 로고 -->
-
+        <a href="/">
+	<img src="resources/image/logobackclear.png" style="margin-left : 100px"></a>
         <!-- 2. 필드 -->
         <div class="field">
           <b>아이디</b>
