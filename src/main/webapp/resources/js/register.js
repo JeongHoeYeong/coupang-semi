@@ -91,15 +91,30 @@ function sendit() {
 		});
 	});
 
+	$("#emailCheck").click(()=>{
+		$.ajax({
+				type: "post",
+				url: "/checke",
+				data: "email=" + $("#email").val(),
+				
+				success: function(resulte){
+					if(resulte) {
+						$("#emailText").text("사용 불가한 이메일입니다.").css("color", "red");
+					} else {
+						$("#emailText").text("사용 가능한 이메일입니다.").css("color", "green");
+					}
+					  if (!expEmailText.test(email.value)) {
+   						 $("#emailText").text("이메일 형식을 확인하세요. 골뱅이표시(@)을 포함해야 합니다.").css("color", "red");
+   						 email.focus();
+  						 return false;
+ 					 } else {
+  						$("#emailText").text("");
+  					 }
+				}
+		});
+	});
 
 
-  if (!expEmailText.test(email.value)) {
-    $("#emailText").text("이메일 형식을 확인하세요. 골뱅이표시(@)을 포함해야 합니다.").css("color", "red");
-    email.focus();
-    return false;
-  } else {
-  	$("#emailText").text("");
-  }
 
 	  if (!expResidentText.test(resident.value)) {
     $("#phoneText").text("주민등록번호을 확인하세요. 하이픈(-)을 포함해야 합니다.").css("color", "red");
