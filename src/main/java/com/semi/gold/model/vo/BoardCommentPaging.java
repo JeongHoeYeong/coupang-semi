@@ -4,12 +4,14 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data @NoArgsConstructor
-public class BoardPaging {
-	private String sort;
+public class BoardCommentPaging {
+	
+	private int board_no;
+	
 	private int page = 1; // 현재 페이지
 
 	private int offset = 0; // 시작 위치
-	private int limit = 10; // 레코드 수
+	private int limit = 20; // 레코드 수
 	
 	private int pageSize = 10; // 한 페이지 당 페이지 개수
 	private int endPage = this.pageSize; // 한 페이지의 마지막 페이지 수
@@ -19,7 +21,7 @@ public class BoardPaging {
 	private boolean next;
 	
 	
-	public BoardPaging(int page, int total) {
+	public BoardCommentPaging(int page, int total) {
 		
 		this.page = page;
 		this.endPage = (int)(Math.ceil((double) page / this.pageSize)) * this.pageSize;
@@ -34,4 +36,3 @@ public class BoardPaging {
 		this.next = this.endPage < lastPage;
 	}
 }
-
