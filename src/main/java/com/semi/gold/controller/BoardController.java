@@ -135,7 +135,14 @@ public class BoardController {
 		cookie.setPath("/");
 		cookie.setMaxAge(60*60*24);
 		res.addCookie(cookie);
-		
+	}
+	
+	@PostMapping("/writeSelect") 
+	private String writeSelect(String id, BoardPaging paging, Model model) {
+		List<Board> list = service.writeSelect(id, paging);
+		model.addAttribute("list", list);
+		model.addAttribute("paging", new BoardPaging(paging.getPage(), service.writeTotal(id)));
+		return "board/myWirteBoard";
 	}
 	
 	// 글 삭제

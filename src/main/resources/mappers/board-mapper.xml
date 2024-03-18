@@ -40,6 +40,11 @@
 		</choose>
 	</select>
 	
+	<select id="writeSelect" parameterType="String" resultMap="boardMap">
+		SELECT * FROM board
+		WHERE id=#{id}
+	</select>
+	
 	<select id="searchBoard" parameterType="hashmap" resultMap="boardMap">
 		SELECT * FROM board
 		join member using (id)
@@ -77,6 +82,11 @@
 	
 	<select id="count" resultType="int">
 		SELECT count(*) FROM board
+	</select>
+	
+	<select id="writeCount" parameterType="String" resultType="int">
+		SELECT COUNT(*) FROM board
+		WHERE id = #{id}
 	</select>
 	
 	<select id="searchCount" parameterType="hashmap" resultType="int">

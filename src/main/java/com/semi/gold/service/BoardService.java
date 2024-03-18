@@ -62,6 +62,10 @@ public class BoardService {
 		return dao.total();
 	}
 	
+	public int writeTotal(String id) {
+		return dao.writeTotal(id);
+	}
+	
 	public int view(int no) {
 		return dao.view(no);
 	}
@@ -93,6 +97,14 @@ public class BoardService {
 	
 	public int updateBcCount(int no) {
 		return dao.updateBcCount(no);
+	}
+	
+	public List<Board> writeSelect(String id, BoardPaging paging) {
+		paging.setOffset(paging.getLimit() * (paging.getPage() - 1));
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("id", id);
+		map.put("paging", paging);
+		return dao.writeSelect(map);
 	}
 	
 }
