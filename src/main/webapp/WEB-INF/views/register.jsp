@@ -29,12 +29,10 @@
 
 			<!-- 2. 필드 -->
 			<div class="field">
-
 					<b>아이디</b> <input type="text" id="id" name="id"
 						placeholder="아이디 입력" maxlength="20" /> 
 						<button id="idCheck">중복 체크</button> 
 						<span id="checkText"></span>
-
 			</div>
 
 			<div class="field">
