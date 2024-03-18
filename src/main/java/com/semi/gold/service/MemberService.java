@@ -23,7 +23,9 @@ public class MemberService implements UserDetailsService {
 	// -> 로그인 시 자동으로 이곳으로 온다.
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		System.out.println(username);
 		Member member = dao.getMemberById(username);
+		System.out.println(member);
 		return member;
 	}
 	

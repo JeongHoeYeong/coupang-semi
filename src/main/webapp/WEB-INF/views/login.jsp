@@ -45,7 +45,7 @@
 				<span>For got your </span>
 				<a href="/searchUserid">id / </a>
 				<a href="/searchUserpwd">password?</a></div>
-				<button>Sign In</button>
+				<button type="submit">Sign In</button>
 			</form>
 		</div>
 		<div class="overlay-container">

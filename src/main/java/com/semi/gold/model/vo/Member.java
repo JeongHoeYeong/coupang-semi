@@ -61,9 +61,6 @@ public class Member implements UserDetails{
 		return enabled == 1 ? true : false;
 	}
 
-	public Member(String id, String name) {
-		this.id = id;
-		this.name = name;
-	}
+
 	
 }
