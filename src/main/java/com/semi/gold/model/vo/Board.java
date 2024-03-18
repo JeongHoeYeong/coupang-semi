@@ -17,4 +17,7 @@ public class Board {
 	private String boardTitle;
 	private String boardContent;
 	private String bcCount;
+	private String category;
+	
+	private Member member;
 }

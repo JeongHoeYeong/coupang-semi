@@ -79,7 +79,7 @@ ${vo.boardContent}</textarea
       	<c:when test="${boardComment.parentNo==0}">
       		<li class="liClick" style="cursor: pointer;">
       		<c:if test="${boardComment.bcDelete eq 'n'}">
-      			아이디 : ${boardComment.id}
+      			작성자 : ${boardComment.member.nickname}
       			날짜 : <fmt:formatDate value="${boardComment.bcDate}"
       					pattern="yyyy-MM-dd HH:mm" />
       			<br>
@@ -88,6 +88,7 @@ ${vo.boardContent}</textarea
       			<form>
       				<input type="hidden" class="bcNo" value="${boardComment.bcNo}">
       				<input type="button" value="삭제하기" class="bcDelete">
+      				<input type="button" value="수정하기" class="bcEdit">
       			</form>
       			</c:if>
       			</c:if>
@@ -115,7 +116,7 @@ ${vo.boardContent}</textarea
       		<c:otherwise>
       			<li style="padding-left:50px;">
       			<c:if test="${boardComment.bcDelete eq 'n'}">
-      			아이디 : ${boardComment.id}
+      			작성자 : ${boardComment.member.nickname}
       			날짜 : <fmt:formatDate value="${boardComment.bcDate}"
       					pattern="yyyy-MM-dd HH:mm" />
       			<br>
@@ -124,6 +125,7 @@ ${vo.boardContent}</textarea
       			<form>
       				<input type="hidden" class="bcNo" value="${boardComment.bcNo}">
       				<input type="button" value="삭제하기" class="bcDelete">
+      				<input type="button" value="수정하기" class="bcEdit">
       			</form>
       			</c:if>
       			</c:if>

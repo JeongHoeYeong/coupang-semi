@@ -9,10 +9,16 @@
 		<result property="bcContent" column="bc_content"/>
 		<result property="bcDate" column="bc_date"/>
 		<result property="bcDelete" column="bc_delete"/>
+		
+		<association property="member" javaType="Member">
+		<id property="id" column="id" />
+		<result property="nickname" column="nickname" />
+		</association>
 	</resultMap>
 	
 	<select id="selectAll" parameterType="BoardPaging" resultMap="boardCommentMap">
 		select * from board_comment
+		join member using (id)
 		where board_no = #{board_no}
 		order by coalesce(parent_no, bc_no), bc_no
 		LIMIT #{offset}, #{limit}
@@ -23,11 +29,11 @@
 		<choose>
 		<when test="parentNo == 0">
 		(board_no, id , bc_content)
-		values(${boardNo}, ${id}, "${bcContent}")
+		values(#{boardNo}, #{id}, #{bcContent})
 		</when>
 		<otherwise>
 		(board_no, id , bc_content, parent_no)
-		values(${boardNo}, ${id}, "${bcContent}", ${parentNo})
+		values(#{boardNo}, #{id}, #{bcContent}, #{parentNo})
 		</otherwise>
 		</choose>
 	</insert>

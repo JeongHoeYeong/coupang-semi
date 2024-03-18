@@ -21,6 +21,12 @@
 		<h1>게시물 등록</h1>
 		<form action="/boardwrite" method="post">
 			<div class="form-group">
+			<select name="category" id="category">
+				<option value="관광지">관광지</option>
+				<option value="숙소">숙소</option>
+				<option value="음식점">음식점</option>
+				<option value="기타">기타</option>
+			</select>
 			<input type="hidden" name="id" value="<sec:authentication property="principal.id" />"/>
 				<label>Title</label>
 				<input class="form-control" name="boardTitle">

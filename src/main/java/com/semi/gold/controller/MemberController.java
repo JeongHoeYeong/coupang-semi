@@ -1,4 +1,4 @@
-package com.semi.gold.controller;
+	package com.semi.gold.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

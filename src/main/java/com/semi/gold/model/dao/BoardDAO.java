@@ -2,6 +2,7 @@ package com.semi.gold.model.dao;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,7 @@ public class BoardDAO {
 	}
 	
 	public List<Board> selectAll(BoardPaging paging) {
+		System.out.println(session.selectList("board.selectAll", paging));
 		return session.selectList("board.selectAll", paging);
 	}
 	
@@ -74,8 +76,14 @@ public class BoardDAO {
 	public int updateBcCount(int no) {
 		return session.update("board.updateBcCount", no);
 	}
-	public List<Board> searchBoard(HashMap<String, Object> map) {
+	
+	public List<Board> searchBoard(Map<String, Object> map) {
 		return session.selectList("board.searchBoard", map);
 	}
+	
+	public int searchTotal(Map<String, String> map) {
+		return session.selectOne("board.searchCount", map);
+	}
+	
 }
 

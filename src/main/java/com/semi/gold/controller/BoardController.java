@@ -47,18 +47,28 @@ public class BoardController {
 		model.addAttribute("member", principal.getName());
 		}
 		paging.setSort(sort);
-		if(keyword != null) {
-			List<Board> list = service.boardSearch(keyword, select, paging);
-			model.addAttribute("list", list);
-			model.addAttribute("paging", new BoardPaging(paging.getPage(), service.total()));
-			model.addAttribute("sort", paging.getSort());
-			return "/board/boardlist";
-		} 
 		List<Board> list = service.selectAll(paging);
 		model.addAttribute("list", list);
 		model.addAttribute("paging", new BoardPaging(paging.getPage(), service.total()));
 		model.addAttribute("sort", paging.getSort());
 		return "/board/boardlist";
+	}
+	
+	// 글 검색
+	@GetMapping("/boardSearch")
+	private String boardSearch(Model model, BoardPaging paging, Principal principal, String sort,
+			String select, String keyword) {
+		if(principal !=null) {
+			model.addAttribute("member", principal.getName());
+			}
+		paging.setSort(sort);
+		List<Board> list = service.boardSearch(keyword, select, paging);
+		model.addAttribute("list", list);
+		model.addAttribute("paging", new BoardPaging(paging.getPage(), service.searchTotal(keyword, select)));
+		model.addAttribute("sort", paging.getSort());
+		model.addAttribute("keyword", keyword);
+		model.addAttribute("select", select);
+		return "/board/boardSearch";
 	}
 	
 	@GetMapping("/boardwrite")
@@ -72,6 +82,7 @@ public class BoardController {
 		
 		// 비즈니스 로직 처리 -> service.insert
 		service.insert(b);
+		
 		return "redirect:/boardview?no=" + b.getBoardNo();
 	}
 	
@@ -83,6 +94,7 @@ public class BoardController {
 		LikeBoard vo = new LikeBoard();
 		
 		int num = Integer.parseInt(no);
+		service.updateBcCount(num);
 		viewCountUp(no, req, res);
 		paging.setBoard_no(num);
 		List<BoardComment> list = bcService.selectAll(paging);
@@ -93,6 +105,7 @@ public class BoardController {
 			String id = principal.getName();
 			vo.setId(id);
 			vo.setBoardNo(num);
+			System.out.println(id);
 			LikeBoard likeBoard = service.checkLikeBoard(vo);
 			model.addAttribute("id", id);
 			model.addAttribute("likeBoard", likeBoard);
@@ -100,6 +113,7 @@ public class BoardController {
 		return "/board/boardview";
 	}
 	
+	//조회 쿠키
 	@RequestMapping("/boardview")
 	private void viewCountUp(String no, HttpServletRequest req, HttpServletResponse res) {
 		int num = Integer.parseInt(no);

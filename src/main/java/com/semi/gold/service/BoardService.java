@@ -2,7 +2,7 @@ package com.semi.gold.service;
 
 import java.util.HashMap;
 import java.util.List;
-
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,6 +23,25 @@ public class BoardService {
 	public List<Board> selectAll(BoardPaging paging) {
 		paging.setOffset(paging.getLimit() * (paging.getPage() - 1));
 		return dao.selectAll(paging);
+	}
+	
+	public List<Board> boardSearch(String keyword, String select, BoardPaging paging){
+		paging.setOffset(paging.getLimit() * (paging.getPage() - 1));
+		BoardSearchDTO dto = new BoardSearchDTO();
+		dto.setKeyword(keyword);
+		dto.setSelect(select);
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("keyword", dto.getKeyword());
+		map.put("select", dto.getSelect());
+		map.put("paging", paging);
+		return dao.searchBoard(map);
+	}
+	
+	public int searchTotal(String keyword, String select) {
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("keyword", keyword);
+		map.put("select", select);
+		return dao.searchTotal(map);
 	}
 	
 	public int insert(Board b) {
@@ -75,16 +94,5 @@ public class BoardService {
 	public int updateBcCount(int no) {
 		return dao.updateBcCount(no);
 	}
-	public List<Board> boardSearch(String keyword, String select, BoardPaging paging){
-		paging.setOffset(paging.getLimit() * (paging.getPage() - 1));
-		BoardSearchDTO dto = new BoardSearchDTO();
-		dto.setKeyword(keyword);
-		dto.setSelect(select);
-		HashMap<String, Object> map = new HashMap<String, Object>();
-		map.put("keyword", dto.getKeyword());
-		map.put("select", dto.getSelect());
-		map.put("offset", paging.getOffset());
-		map.put("limit", paging.getLimit());
-		return dao.searchBoard(map);
-	}
+	
 }

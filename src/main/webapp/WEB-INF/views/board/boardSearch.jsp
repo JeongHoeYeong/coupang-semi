@@ -39,9 +39,9 @@
 					<th>제목</th>
 					<th>작성자</th>
 					<th>작성일</th>
-					<th><a href="/boardlist?sort=board_views">조회수</a></th>
-					<th><a href="/boardlist?sort=board_like">추천수</a></th>
-					<th><a href="/boardlist?sort=bc_count">댓글수</a></th>
+					<th><a href="/boardSearch?select=${select}&keyword=${keyword}&sort=board_views">조회수</a></th>
+					<th><a href="/boardSearch?select=${select}&keyword=${keyword}&sort=board_like">추천수</a></th>
+					<th><a href="/boardSearch?select=${select}&keyword=${keyword}&sort=bc_count">댓글수</a></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -49,7 +49,7 @@
 				<c:forEach items="${list}" var="board" varStatus="status">
 					<tr>
 						<td>${status.count}</td>
-						<td><a href="/boardview?no=${board.boardNo}" style="text-decoration: none">
+					    <td><a href="/boardview?no=${board.boardNo}" style="text-decoration: none">
 						[${board.category}]&nbsp&nbsp${board.boardTitle}</a></td>
 						<td>${board.member.nickname}</td>
 						<td><fmt:formatDate value="${board.boardDate}"
@@ -70,15 +70,17 @@
 		</table>
 		<nav>
 			<ul class="pagination">
-				<li class="page-item ${paging.prev ? '' : 'disabled'}"><a class="page-link" href="/boardlist?sort=${sort}&page=${boardPaging.startPage - 1}&sort=${paging.sort}">Previous</a></li>
+				<li class="page-item ${paging.prev ? '' : 'disabled'}">
+				<a class="page-link" 
+				href="/boardSearch?select=${select}&keyword=${keyword}&sort=${sort}&page=${boardPaging.startPage - 1}&sort=${paging.sort}">Previous</a></li>
 				
 				<c:forEach begin="${paging.startPage}" end="${paging.endPage}" var="page">
 					<li class="page-item"><a class="page-link ${paging.page == page ? 'active' : ''}"
-					 href="/boardlist?sort=${sort}&page=${page}">${page}</a></li>
+					 href="/boardSearch?select=${select}&keyword=${keyword}&sort=${sort}&page=${page}">${page}</a></li>
 				</c:forEach>
 				
-				<li class="page-item ${paging.next ? '' : 'disabled'}">
-				<a class="page-link" href="/boardlist?sort=${sort}&page=${paging.endPage + 1}">Next</a></li>
+				<li class="page-item ${paging.next ? '' : 'disabled'}"><a class="page-link"
+				 href="/boardSearch?select=${select}&keyword=${keyword}&sort=${sort}&page=${paging.endPage + 1}">Next</a></li>
 			</ul>
 		</nav>
 	</div>
