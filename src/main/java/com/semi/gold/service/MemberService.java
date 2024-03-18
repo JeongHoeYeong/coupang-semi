@@ -23,7 +23,9 @@ public class MemberService implements UserDetailsService {
 	// -> 로그인 시 자동으로 이곳으로 온다.
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		System.out.println(username);
 		Member member = dao.getMemberById(username);
+		System.out.println(member);
 		return member;
 	}
 	
@@ -54,4 +56,10 @@ public class MemberService implements UserDetailsService {
 	public Member nicknameCheck(String nickname) {
 		return dao.nicknameCheck(nickname);
 	}
+	
+	// 유저 아이디 찾기
+	public String searchUserid(String email) {
+		return dao.searchUserid(email);
+	}
+	
 }

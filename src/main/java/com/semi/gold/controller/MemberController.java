@@ -21,13 +21,10 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.semi.gold.model.dao.MemberDAO;
 import com.semi.gold.model.vo.Member;
 import com.semi.gold.service.MemberService;
 
@@ -112,6 +109,18 @@ public class MemberController {
 		return true;
 	}
 	
+	// 회원 정보 찾기 아이디
+	@GetMapping("/searchUserid")
+	public String searchUserid(String email) {
+		return "/searchUserid";
+	}
+	
+	// 회원 정보 찾기 비밀번호
+	@GetMapping("/searchUserpwd")
+	public String searchUserpwd(String id) {
+		return "/searchUserpwd";
+	}
+	
 	// 카카오 로그인
 	@GetMapping("/kakaoLogin")
 	public String kakaoLogin(String code, HttpServletResponse response) throws IOException {
@@ -136,7 +145,7 @@ public class MemberController {
 	
 		return "redirect:/login";
 	}
-	
+		
 	private String getToken(String authorize_code) throws IOException {
 		String access_Token = "";
 		String refresh_Token = "";
@@ -197,28 +206,3 @@ public class MemberController {
 		return access_Token;
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

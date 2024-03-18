@@ -49,13 +49,28 @@
 		WHERE id=#{id} 
 	</delete>
 	
+	<!-- 아이디 중복체크 -->
 	<select id="idCheck" parameterType="String" resultType="Member">
 		SELECT * FROM member WHERE id=#{id};
 	</select>
 	
-		<select id="nicknameCheck" parameterType="String" resultType="Member">
+	<!-- 중복체크 -->
+	<select id="nicknameCheck" parameterType="String" resultType="Member">
 		SELECT * FROM member WHERE nickname=#{nickname};
 	</select>
+	<!-- 중복체크 -->
+	<select id="emailCheck" parameterType="String" resultType="Member">
+		SELECT * FROM member WHERE email=#{email}
+	</select>
+	<!-- 중복체크 -->
+	<select id="residentCheck" parameterType="String" resultType="Member">
+		SELECT * FROM member WHERE resident=#{resident}
+	</select>
+	<!-- 중복체크 -->
+	<select id="phoneCheck" parameterType="String" resultType="Member">
+		SELECT * FROM member WHERE phone=#{phone}
+	</select>
+		
 </mapper>
 
 

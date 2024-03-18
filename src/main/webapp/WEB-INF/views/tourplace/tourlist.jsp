@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <title>전만순관광지</title>
 <link rel="stylesheet" href="/resources/css/tourplace.css">
 <script type="text/javascript">
@@ -90,9 +90,9 @@ function tourplaceToBoard(dataList){
 			<tr>
 				<td class="search_header">검색어</td>
 				<td class="search_content input_form">
-				<input style="float: left;" type="text" id="search_keyword"/> 
+				<input style="float: left;" type="text" id="search_keyword" value=""/> 
 				<input style="width: 100px; margin-left: 5px;" type="button"
-					id="searchButton" value="검색" /></td>
+					id="searchButton" value="검색"/></td>
 			</tr>
 		</table>
 	</div>
@@ -107,6 +107,6 @@ function tourplaceToBoard(dataList){
 		</table>
 	</div> 
 </div>
-
+<script src="/resources/js/tourselect.js"></script>
 </body>
 </html>

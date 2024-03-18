@@ -41,8 +41,11 @@
 				<span>or use your account</span> 
 				<input type="text" name="username" placeholder="id" /> 
 				<input type="password" name="password" placeholder="password" />
-				<a href="#">Forgot your password?</a>
-				<button>Sign In</button>
+				<div>
+				<span>For got your </span>
+				<a href="/searchUserid">id / </a>
+				<a href="/searchUserpwd">password?</a></div>
+				<button type="submit">Sign In</button>
 			</form>
 		</div>
 		<div class="overlay-container">
