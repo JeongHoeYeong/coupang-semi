@@ -21,13 +21,20 @@ window.onload = function(){
 	getSearchList();
 }
 
+
 function getSearchList(){
+	
+	let pageIdx = new URLSearchParams(location.search).get("pageIdx");
+	if(pageIdx == null){
+		pageIdx = 1;
+	}
 	
 	const inputKeyword = document.querySelector("#search_keyword");
 	
 	const url = "/tourplace/getSearchList";
 	const params = {
-		keyword: inputKeyword.value
+		keyword : inputKeyword.value,
+		pageIdx : pageIdx
 	}
 	
 	fetch(url, {
@@ -96,6 +103,8 @@ function tourplaceToBoard(dataList){
 	});
 	
 }
+
+
  
 </script>
 <body>
@@ -134,7 +143,14 @@ function tourplaceToBoard(dataList){
 			</tr>
 		</c:forEach>
 	</table>  --%>
-
+	
+	<!-- 페이징 뿌리기  -->
+	<c:set var="pageIdx" value="0"/>
+	<c:forEach begin="1" end="${maxPage}">
+		<c:set var="pageIdx" value="${pageIdx+1}"/>
+		<a href="/tourplace/search?pageIdx=${pageIdx}">${pageIdx}</a>
+	</c:forEach>
+	
 <div class="photoList">
 	<div class="photoList_div">
 	
@@ -151,6 +167,8 @@ function tourplaceToBoard(dataList){
 				</div>
 			</div>
 		</c:forEach> --%>
+		
+		
 	</div> 
 </div>
 

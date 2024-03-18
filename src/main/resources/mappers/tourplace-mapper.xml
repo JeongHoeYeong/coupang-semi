@@ -26,6 +26,15 @@
 				touristName LIKE '%${keyword}%'
 			</if>
 		</where>
+		<if test="!createPageIndex">
+		limit ${pageRowStartIdx}, 30
+		</if>
 	</select>
+	
+	<!-- SELECT touristcode, touristname, touristaddress, look
+	FROM gold_semi.tourist
+	order by touristname
+	limit 0, 20; -->
+	
 
 </mapper>
