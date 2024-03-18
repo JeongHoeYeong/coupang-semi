@@ -1,4 +1,4 @@
-package com.semi.gold.controller;
+	package com.semi.gold.controller;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;

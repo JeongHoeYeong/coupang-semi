@@ -12,9 +12,8 @@
 		SELECT * FROM member
 		WHERE id=#{id}
 	</select>
-
-	<select id="getMemberByPassword" parameterType="String"
-		resultType="Member">
+	
+	<select id="getMemberByPassword" parameterType="String" resultType="Member">
 		SELECT * FROM member
 		WHERE id=#{id} AND password=#{password}
 	</select>

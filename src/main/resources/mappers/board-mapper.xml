@@ -9,20 +9,104 @@
 		<result property="boardLike" column="board_like"/>
 		<result property="boardTitle" column="board_title"/>
 		<result property="boardContent" column="board_content"/>
+		<result property="bcCount" column="bc_count"/>
+		<result property="category" column="category"/>
+		
+
+		<association property="member" javaType="Member">
+		<id property="id" column="id" />
+		<result property="nickname" column="nickname" />
+		</association>
+	</resultMap>
+	
+	
+	<resultMap type="LikeBoard" id="likeBoardMap">
+		<id property="gbId" column="gb_id"/>
+		<id property="id" column="id" />
 	</resultMap>
 	
 	<select id="selectAll" parameterType="BoardPaging" resultMap="boardMap">
 		SELECT * FROM board
+		join member using (id)
+		<choose>
+		<when test="sort == 'board_like' or sort == 'board_views' or sort == 'bc_count'">
+		ORDER BY #{sort} DESC
 		LIMIT #{offset}, #{limit}
+		</when>
+		<otherwise>
+		ORDER BY board_date DESC
+		LIMIT #{offset}, #{limit}
+		</otherwise>
+		</choose>
 	</select>
+	
+	<select id="searchBoard" parameterType="hashmap" resultMap="boardMap">
+		SELECT * FROM board
+		join member using (id)
+		<where>
+			<choose>
+				<when test="select=='all'">
+				board_title LIKE CONCAT('%',#{keyword},'%')
+				or board_content LIKE CONCAT('%',#{keyword},'%')
+				</when>
+				<when test="select=='title'">
+				board_title LIKE CONCAT('%',#{keyword},'%')
+				</when>
+				<when test="select=='content'">
+				board_content LIKE CONCAT('%',#{keyword},'%')
+				</when>
+				<when test="select=='nickname'">
+				nickname LIKE CONCAT('%',#{keyword},'%')
+				</when>
+				<when test="select=='category'">
+				category = #{keyword}
+				</when>
+			</choose>
+		</where>
+		<choose>
+			<when test="paging.sort == 'board_like' or paging.sort == 'board_views' or paging.sort == 'bc_count'">
+			ORDER BY ${paging.sort} DESC
+			LIMIT #{paging.offset}, #{paging.limit}
+			</when>
+			<otherwise>
+			ORDER BY board_date DESC
+			LIMIT #{paging.offset}, #{paging.limit}
+			</otherwise>
+		</choose>
+	</select> 
 	
 	<select id="count" resultType="int">
 		SELECT count(*) FROM board
 	</select>
 	
+	<select id="searchCount" parameterType="hashmap" resultType="int">
+		SELECT COUNT(*) FROM board
+		JOIN member using (id)
+		<where>
+			<choose>
+				<when test="select=='all'">
+				board_title LIKE CONCAT('%',#{keyword},'%')
+				or board_content LIKE CONCAT('%',#{keyword},'%')
+				</when>
+				<when test="select=='title'">
+				board_title LIKE CONCAT('%',#{keyword},'%')
+				</when>
+				<when test="select=='content'">
+				board_content LIKE CONCAT('%',#{keyword},'%')
+				</when>
+				<when test="select=='nickname'">
+				nickname LIKE CONCAT('%',#{keyword},'%')
+				</when>
+				<when test="select=='category'">
+				category = #{keyword}
+				</when>
+			</choose>
+		</where>
+	</select>
+	
 	<insert id="insert" parameterType="Board" useGeneratedKeys="true" keyProperty="boardNo" keyColumn="board_no">
-		INSERT INTO board(id, board_title, board_content)
-		VALUES(#{id}, #{boardTitle}, #{boardContent})
+		INSERT INTO board(id, board_title, board_content, category)
+		VALUES(#{id}, #{boardTitle}, #{boardContent}, #{category})
 	</insert>
 	
 	<select id="select" parameterType="int" resultMap="boardMap">
@@ -44,4 +128,41 @@
 	<update id="view" parameterType="int">
 		UPDATE board SET board_views = board_views + 1 WHERE board_no=#{boardNo}
 	</update>
+	
+	<insert id="insertLikeBoard" parameterType="LikeBoard">
+		INSERT INTO like_board(id, board_no) VALUE("#{id}", #{boardNo})
+	</insert>
+	
+	<delete id="deleteLikeBoard" parameterType="LikeBoard">
+		DELETE FROM like_board
+		WHERE id=#{id} AND board_no=#{boardNo}
+	</delete>
+	
+	<select id="countLikeBoard" parameterType="int" resultType="int">
+		SELECT COUNT(*) FROM like_board
+		WHERE board_no=#{no}
+	</select>
+	
+	<update id="addBoardLike" parameterType="int">
+		UPDATE board SET board_like = board_like + 1 WHERE board_no=#{boardNo}
+	</update>
+	
+	<update id="subBoardLike" parameterType="int">
+		UPDATE board SET board_like = board_like - 1 WHERE board_no=#{boardNo}
+	</update>
+	
+	<select id="checkLikeBoard" parameterType="LikeBoard" resultMap="likeBoardMap">
+		SELECT * FROM like_board
+		WHERE id=#{id} AND board_no=#{boardNo}
+	</select>
+	
+	<update id="updateBcCount" parameterType="int">
+		update board b 
+		set b.bc_count = (select count(bc_no)
+		from board_comment
+		where board_no = ${no}
+		and bc_delete = "n")
+		where b.board_no = ${no};
+	</update>
+	
 </mapper>
