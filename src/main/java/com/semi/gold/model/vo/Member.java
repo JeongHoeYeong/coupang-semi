@@ -27,7 +27,6 @@ public class Member implements UserDetails{
 	private String auth;
 	private int enabled;
 	
-	
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		ArrayList<GrantedAuthority> authList = new ArrayList<>();
