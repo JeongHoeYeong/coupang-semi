@@ -27,7 +27,7 @@
 			</if>
 		</where>
 		<if test="!createPageIndex">
-		limit ${pageRowStartIdx}, 30
+		limit ${pageRowStartIdx}, ${showPageCount}
 		</if>
 	</select>
 	

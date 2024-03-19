@@ -7,25 +7,27 @@
 <link href="/resources/css/tourplace.css" rel="stylesheet"
 	type="text/css">
 <title>Home</title>
-
-
 </head>
 
 <script type="text/javascript">
 window.onload = function(){
 	const searchButton = document.querySelector('#searchButton');
 	searchButton.addEventListener("click", function(){
-		getSearchList();
+		getSearchList(null);
 	});
 	
-	getSearchList();
+	getSearchList(null);
 }
 
 
-function getSearchList(){
+function getSearchList(selectedIdx){
 	
-	let pageIdx = new URLSearchParams(location.search).get("pageIdx");
-	if(pageIdx == null){
+	//let pageIdx = new URLSearchParams(location.search).get("pageIdx");
+	//if(pageIdx == null){
+	//	pageIdx = 1;
+	//}
+	let pageIdx = selectedIdx;
+	if(selectedIdx == null){
 		pageIdx = 1;
 	}
 	
@@ -34,7 +36,8 @@ function getSearchList(){
 	const url = "/tourplace/getSearchList";
 	const params = {
 		keyword : inputKeyword.value,
-		pageIdx : pageIdx
+		pageRowStartIdx : (pageIdx-1)*showPageCount,
+		showPageCount : showPageCount
 	}
 	
 	fetch(url, {
@@ -44,7 +47,8 @@ function getSearchList(){
 		})
 	.then(response => response.json())
 	.then(data => {
-		tourplaceToBoard(data);
+		tourplaceToBoard(data.searchList);
+		tourplaceToPageIndex(data.totalListSize);
 	})
 	.catch(error => {
 		console.error('Error:', error);
@@ -84,28 +88,32 @@ function tourplaceToBoard(dataList){
 			idx = 0;
 		}
 		
-		//const attachDiv = document.createElement("div");
-		//
-		//attachDiv.classList.add("box");
-		//attachDiv.innerHTML = item.imgTag;
-		//
-		//const divCode = document.createElement("div");
-		//divCode.innerHTML = item.touristCode;
-		//
-		//const divName = document.createElement("div");
-		//divName.innerHTML = item.touristName;
-		//
-		//attachDiv.appendChild(divCode);
-		//attachDiv.appendChild(divName);
-		//
-		//targetDiv.appendChild(attachDiv);
-		
 	});
 	
 }
 
+let showPageCount = 30;
+function tourplaceToPageIndex(totalListSize){
 
- 
+	const pageIdxDiv = document.querySelector("#searchResultPageIndex");
+	pageIdxDiv.innerHTML = "";
+	
+	let totalIdxCount = totalListSize/showPageCount;
+	if(totalListSize%showPageCount > 0){
+		totalIdxCount++;
+	}
+	
+	for(let i = 1; i < totalIdxCount; i++){
+		let newIdx = document.createElement("a");
+		newIdx.innerHTML = i;
+		newIdx.setAttribute("onclick", "getSearchList("+i+")");
+		
+		pageIdxDiv.appendChild(newIdx);
+		
+		pageIdxDiv.innerHTML = pageIdxDiv.innerHTML + " ";
+	}
+	
+}
 </script>
 <body>
 	<div class="tourlist_board">
@@ -145,17 +153,20 @@ function tourplaceToBoard(dataList){
 	</table>  --%>
 	
 	<!-- 페이징 뿌리기  -->
-	<c:set var="pageIdx" value="0"/>
+	<%-- <c:set var="pageIdx" value="0"/>
 	<c:forEach begin="1" end="${maxPage}">
 		<c:set var="pageIdx" value="${pageIdx+1}"/>
 		<a href="/tourplace/search?pageIdx=${pageIdx}">${pageIdx}</a>
-	</c:forEach>
+	</c:forEach> --%>
 	
 <div class="photoList">
 	<div class="photoList_div">
 	
 		<table id="searchResultTable">
 		</table>
+		
+		<div id="searchResultPageIndex">
+		</div>
 		<%-- <c:forEach items="${list}" var="item">
 			<div class="box">
 				${item.imgTag}
@@ -167,8 +178,6 @@ function tourplaceToBoard(dataList){
 				</div>
 			</div>
 		</c:forEach> --%>
-		
-		
 	</div> 
 </div>
 

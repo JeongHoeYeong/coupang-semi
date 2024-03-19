@@ -1,6 +1,8 @@
 package com.semi.gold.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,27 +25,23 @@ public class TourPlaceController {
 	
 	@GetMapping("/search")
 	private String tourplace(TourplaceSearchDTO dto, Model model) {
-		
-		dto.setCreatePageIndex(true);
-		
-		List<TourPlace> returnList = service.searchTourplace(dto);
-		int maxPage = returnList.size()/30 ;
-		
-		if(returnList.size()%30 > 0) {
-			maxPage++;
-		}
-		model.addAttribute("maxPage", maxPage);
 		return "/tourplace/tourlist"; 
 	}
 
 	@ResponseBody
 	@RequestMapping("/getSearchList")
-	private List<TourPlace> getSearchList(@RequestBody TourplaceSearchDTO dto){
+	private Map<String, Object> getSearchList(@RequestBody TourplaceSearchDTO dto){
 		
-		dto.setPageRowStartIdx((dto.getPageIdx()-1)*30);
+		Map<String, Object> returnMap = new HashMap<String, Object>();
 		
-		List<TourPlace> returnList = service.searchTourplace(dto);
-		return returnList;
+		List<TourPlace> searchList = service.searchTourplace(dto);
+		returnMap.put("searchList", searchList);
+		
+		dto.setCreatePageIndex(true);
+		List<TourPlace> totalSearchList = service.searchTourplace(dto);
+		returnMap.put("totalListSize", totalSearchList.size());
+		
+		return returnMap;
 	}	
 
 //	@GetMapping("")
