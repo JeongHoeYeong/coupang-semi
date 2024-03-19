@@ -56,10 +56,20 @@ public class MemberService implements UserDetailsService {
 	public Member nicknameCheck(String nickname) {
 		return dao.nicknameCheck(nickname);
 	}
-	
-	// 유저 아이디 찾기
-	public String searchUserid(String email) {
-		return dao.searchUserid(email);
+	public Member emailCheck(String email) {
+		return dao.emailCheck(email);
 	}
+	public Member residentCheck(String resident) {
+		return dao.residentCheck(resident);
+	}
+	public Member phoneCheck(String phone) {
+		return dao.phoneCheck(phone);
+	}
+	
+	// 회원정보 찾기 기능
+	public Member searchId(Member vo) {
+		return dao.searchId(vo);
+	}
+	
 	
 }

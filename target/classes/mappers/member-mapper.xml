@@ -52,7 +52,6 @@
 	<select id="idCheck" parameterType="String" resultType="Member">
 		SELECT * FROM member WHERE id=#{id};
 	</select>
-	
 	<!-- 중복체크 -->
 	<select id="nicknameCheck" parameterType="String" resultType="Member">
 		SELECT * FROM member WHERE nickname=#{nickname};
@@ -69,7 +68,12 @@
 	<select id="phoneCheck" parameterType="String" resultType="Member">
 		SELECT * FROM member WHERE phone=#{phone}
 	</select>
-		
+	
+	<select id="searchId" parameterType="Member">
+		SELECT id FROM member
+		WHERE name=#{name} AND phone=#{phone}
+	</select>
+	
 </mapper>
 
 
