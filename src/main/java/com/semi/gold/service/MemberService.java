@@ -6,8 +6,6 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.semi.gold.model.dao.MemberDAO;
 import com.semi.gold.model.vo.Member;
@@ -15,18 +13,19 @@ import com.semi.gold.model.vo.Member;
 // Spring Security에서 제공하는 UserDetailsService 인터페이스 상속
 @Service
 public class MemberService implements UserDetailsService {
-
+	
 	@Autowired
 	private BCryptPasswordEncoder bcpe;
-	
+
 	@Autowired
 	private MemberDAO dao;
 	
 	// -> 로그인 시 자동으로 이곳으로 온다.
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		System.out.println(username);
 		Member member = dao.getMemberById(username);
-		System.out.println("로그인 성공 : " + member);
+		System.out.println(member);
 		return member;
 	}
 	
@@ -44,4 +43,23 @@ public class MemberService implements UserDetailsService {
 		vo.setPassword(encodePw);
 		return dao.updateMember(vo);
 	}
+	
+	// 회원 탈퇴
+	public int deleteMember(Member vo) {
+		return dao.deleteMember(vo);
+	}
+	
+	// 아이디 중복체크
+	public Member idCheck(String id) {
+		return dao.idCheck(id);
+	}
+	public Member nicknameCheck(String nickname) {
+		return dao.nicknameCheck(nickname);
+	}
+	
+	// 유저 아이디 찾기
+	public String searchUserid(String email) {
+		return dao.searchUserid(email);
+	}
+	
 }

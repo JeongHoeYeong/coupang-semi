@@ -5,7 +5,7 @@ import lombok.NoArgsConstructor;
 
 @Data @NoArgsConstructor
 public class BoardPaging {
-	
+	private String sort;
 	private int page = 1; // 현재 페이지
 
 	private int offset = 0; // 시작 위치

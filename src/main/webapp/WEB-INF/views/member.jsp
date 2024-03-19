@@ -63,7 +63,7 @@
 			<div class="sidebar-heading">정보 관리</div>
 
 			<!-- Nav Item - Pages Collapse Menu -->
-			<li class="nav-item"><a class="nav-link collapsed" href="/change"> 
+			<li class="nav-item"><a class="nav-link collapsed" href="/update"> 
 			<i class="fas fa-fw fa-cog"></i><span>회원 정보 변경</span>
 			</a>
 			</li>

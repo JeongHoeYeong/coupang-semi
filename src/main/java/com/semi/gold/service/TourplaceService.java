@@ -52,7 +52,7 @@ public class TourplaceService {
 		Map<String, String> tourplaceImgMap = new HashMap<String, String>();
 
 //		File dir = new File("src/main/webapp/resources/image/tourplace");
-		File dir = new File("D:/spring-workspace/gold-semi/src/main/webapp/resources/image/tourplace");
+		File dir = new File("D:\\spring-workspace\\gold-semi\\src\\main\\webapp\\resources\\image\\tourplace");
 
 		File files[] = dir.listFiles();
 		for (File file : files) {

@@ -14,7 +14,7 @@
 	<bean id="memberService" class="com.semi.gold.service.MemberService" />
 
 	<security:http>
-		<security:form-login login-page="/login" />
+		<security:form-login login-page="/login" authentication-success-forward-url="/" authentication-failure-forward-url="/error"/>
 		<security:csrf disabled="true"/>
 		<security:logout logout-url="/logout"
 			invalidate-session="true" />

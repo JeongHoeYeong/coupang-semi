@@ -1,0 +1,49 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="boardComment">
+
+	<resultMap type="BoardComment" id="boardCommentMap">
+		<id property="bcNo" column="bc_no"/>
+		<result property="boardNo" column="board_no"/>
+		<result property="parentNo" column="parent_no"/>
+		<result property="id" column="id"/>
+		<result property="bcContent" column="bc_content"/>
+		<result property="bcDate" column="bc_date"/>
+		<result property="bcDelete" column="bc_delete"/>
+		
+		<association property="member" javaType="Member">
+		<id property="id" column="id" />
+		<result property="nickname" column="nickname" />
+		</association>
+	</resultMap>
+	
+	<select id="selectAll" parameterType="BoardPaging" resultMap="boardCommentMap">
+		select * from board_comment
+		join member using (id)
+		where board_no = #{board_no}
+		order by coalesce(parent_no, bc_no), bc_no
+		LIMIT #{offset}, #{limit}
+	</select>
+	
+	<insert id="insertBC" parameterType="BoardComment">
+		insert into board_comment
+		<choose>
+		<when test="parentNo == 0">
+		(board_no, id , bc_content)
+		values(#{boardNo}, #{id}, #{bcContent})
+		</when>
+		<otherwise>
+		(board_no, id , bc_content, parent_no)
+		values(#{boardNo}, #{id}, #{bcContent}, #{parentNo})
+		</otherwise>
+		</choose>
+	</insert>
+		<select id="count" parameterType="int" resultType="int">
+		SELECT count(*) FROM board_comment
+		WHERE board_no = #{no}
+		AND bc_delete = "n"
+	</select>
+	<update id="deleteBC" parameterType="int">
+		UPDATE board_comment SET bc_delete = "y"
+		WHERE bc_no = #{no} 
+	</update>
+</mapper>

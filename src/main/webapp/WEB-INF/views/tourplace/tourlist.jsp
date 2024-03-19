@@ -1,8 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
-<html>
+<!DOCTYPE html>
+<html lang="ko">
 <head>
 <link href="/resources/css/tourplace.css" rel="stylesheet"
 	type="text/css">
@@ -115,6 +114,9 @@ function tourplaceToPageIndex(totalListSize){
 	
 }
 </script>
+
+</head>
+
 <body>
 	<div class="tourlist_board">
 		<table class="search_table">
@@ -124,10 +126,10 @@ function tourplaceToPageIndex(totalListSize){
 			</tr>
 			<tr>
 				<td class="search_header">검색어</td>
-				<td class="search_content input_form"><input
-					style="float: left;" type="text" id="search_keyword"/> <input
-					style="width: 100px; margin-left: 5px;" type="button"
-					id="searchButton" value="검색" /></td>
+				<td class="search_content input_form">
+				<input style="float: left;" type="text" id="search_keyword" value=""/> 
+				<input style="width: 100px; margin-left: 5px;" type="button"
+					id="searchButton" value="검색"/></td>
 			</tr>
 		</table>
 	</div>
@@ -180,6 +182,6 @@ function tourplaceToPageIndex(totalListSize){
 		</c:forEach> --%>
 	</div> 
 </div>
-
+<script src="/resources/js/tourselect.js"></script>
 </body>
 </html>
