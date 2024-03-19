@@ -1,6 +1,7 @@
 package com.semi.gold.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,16 +23,32 @@ public class TourPlaceController {
 	private TourplaceService service;
 	
 	@GetMapping("/search")
-	private String tourplace(Model model) {
+	private String tourplace(TourplaceSearchDTO dto, Model model) {
 		return "/tourplace/tourlist"; 
 	}
 
 	@ResponseBody
 	@RequestMapping("/getSearchList")
-	private List<TourPlace> getSearchList(@RequestBody TourplaceSearchDTO request){
+	private Map<String, Object> getSearchList(@RequestBody TourplaceSearchDTO dto){
 		
-		List<TourPlace> returnList = service.searchTourplace(request);
-		return returnList;
+		Map<String, Object> returnMap = new HashMap<String, Object>();
+		
+		List<TourPlace> searchList = service.searchTourplace(dto);
+		returnMap.put("searchList", searchList);
+		
+		dto.setCreatePageIndex(true);
+		List<TourPlace> totalSearchList = service.searchTourplace(dto);
+		returnMap.put("totalListSize", totalSearchList.size());
+		
+		return returnMap;
 	}	
+
+//	@GetMapping("")
+//	public String allMember(Model model) {
+//		List<Member> list = service.showAllMember();
+//		model.addAttribute("list", list);
+//		return "allMember";
+//	}
+
 	
 }

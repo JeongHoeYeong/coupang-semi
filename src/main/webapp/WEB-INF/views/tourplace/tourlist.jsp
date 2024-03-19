@@ -3,26 +3,40 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-<title>전만순관광지</title>
-<link rel="stylesheet" href="/resources/css/tourplace.css">
+<link href="/resources/css/tourplace.css" rel="stylesheet"
+	type="text/css">
+<title>Home</title>
+</head>
+
 <script type="text/javascript">
 window.onload = function(){
 	const searchButton = document.querySelector('#searchButton');
 	searchButton.addEventListener("click", function(){
-		getSearchList();
+		getSearchList(null);
 	});
 	
-	getSearchList();
+	getSearchList(null);
 }
 
-function getSearchList(){
+
+function getSearchList(selectedIdx){
+	
+	//let pageIdx = new URLSearchParams(location.search).get("pageIdx");
+	//if(pageIdx == null){
+	//	pageIdx = 1;
+	//}
+	let pageIdx = selectedIdx;
+	if(selectedIdx == null){
+		pageIdx = 1;
+	}
 	
 	const inputKeyword = document.querySelector("#search_keyword");
 	
 	const url = "/tourplace/getSearchList";
 	const params = {
-		keyword: inputKeyword.value
+		keyword : inputKeyword.value,
+		pageRowStartIdx : (pageIdx-1)*showPageCount,
+		showPageCount : showPageCount
 	}
 	
 	fetch(url, {
@@ -32,7 +46,8 @@ function getSearchList(){
 		})
 	.then(response => response.json())
 	.then(data => {
-		tourplaceToBoard(data);
+		tourplaceToBoard(data.searchList);
+		tourplaceToPageIndex(data.totalListSize);
 	})
 	.catch(error => {
 		console.error('Error:', error);
@@ -72,8 +87,30 @@ function tourplaceToBoard(dataList){
 			idx = 0;
 		}
 		
-		
 	});
+	
+}
+
+let showPageCount = 30;
+function tourplaceToPageIndex(totalListSize){
+
+	const pageIdxDiv = document.querySelector("#searchResultPageIndex");
+	pageIdxDiv.innerHTML = "";
+	
+	let totalIdxCount = totalListSize/showPageCount;
+	if(totalListSize%showPageCount > 0){
+		totalIdxCount++;
+	}
+	
+	for(let i = 1; i < totalIdxCount; i++){
+		let newIdx = document.createElement("a");
+		newIdx.innerHTML = i;
+		newIdx.setAttribute("onclick", "getSearchList("+i+")");
+		
+		pageIdxDiv.appendChild(newIdx);
+		
+		pageIdxDiv.innerHTML = pageIdxDiv.innerHTML + " ";
+	}
 	
 }
 </script>
@@ -99,12 +136,50 @@ function tourplaceToBoard(dataList){
 
 <!-- 	<h1>관광지 목록</h1> -->
 <br>
-
+	<%-- <table class="listTilte">
+		<tr>
+			<th>번호</th>
+			<th>관광지명</th>
+			<th>관광지 주소</th>
+			<th>조회수</th>
+		</tr>
+		<c:forEach items="${list}" var="item">
+			<tr>
+				<td>${item.touristCode}</td>
+				<td>${item.touristName}</td>
+				<td>${item.touristAddress}</td>
+				<td>${item.look}</td>
+				<td>${item.imgTag}</td>
+			</tr>
+		</c:forEach>
+	</table>  --%>
+	
+	<!-- 페이징 뿌리기  -->
+	<%-- <c:set var="pageIdx" value="0"/>
+	<c:forEach begin="1" end="${maxPage}">
+		<c:set var="pageIdx" value="${pageIdx+1}"/>
+		<a href="/tourplace/search?pageIdx=${pageIdx}">${pageIdx}</a>
+	</c:forEach> --%>
+	
 <div class="photoList">
 	<div class="photoList_div">
 	
 		<table id="searchResultTable">
 		</table>
+		
+		<div id="searchResultPageIndex">
+		</div>
+		<%-- <c:forEach items="${list}" var="item">
+			<div class="box">
+				${item.imgTag}
+				<div>
+					${item.touristCode}
+				</div>	
+				<div>
+					${item.touristName}
+				</div>
+			</div>
+		</c:forEach> --%>
 	</div> 
 </div>
 <script src="/resources/js/tourselect.js"></script>

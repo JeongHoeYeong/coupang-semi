@@ -24,6 +24,9 @@ public class TourplaceDAO {
 		return session.selectList("tourPlaceMapper.searchTourplace", dto);
 	}
 	
+	
+//	public List<TourplaceSearchDTO> showPaging()
+	
 //	public List<Member> findMember(SearchDTO search) {
 //		return session.selectList("memberMapper.findMember", search);
 //	}

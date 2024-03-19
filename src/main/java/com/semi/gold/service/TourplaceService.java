@@ -91,4 +91,9 @@ public class TourplaceService {
 		return returnList;
 	}
 
+//	public List<TourplaceSearchDTO> showPaging(TourplaceSearchDTO dto){
+//		
+////		List<TourplaceSearchDTO> returnList = dao.
+//	   
+//	}
 }
