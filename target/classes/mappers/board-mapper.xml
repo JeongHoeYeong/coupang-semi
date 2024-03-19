@@ -11,6 +11,7 @@
 		<result property="boardContent" column="board_content"/>
 		<result property="bcCount" column="bc_count"/>
 		<result property="category" column="category"/>
+		<result property="url" column="url"/>
 		
 
 		<association property="member" javaType="Member">
@@ -29,8 +30,8 @@
 		SELECT * FROM board
 		join member using (id)
 		<choose>
-		<when test="sort == 'board_like' or sort == 'board_views' or sort == 'bc_count'">
-		ORDER BY #{sort} DESC
+		<when test="sort=='board_like' or sort=='board_views' or sort=='bc_count'">
+		ORDER BY ${sort} DESC
 		LIMIT #{offset}, #{limit}
 		</when>
 		<otherwise>
@@ -40,14 +41,21 @@
 		</choose>
 	</select>
 	
+	<select id="writeSelect" parameterType="Hashmap" resultMap="boardMap">
+		SELECT * FROM board
+		WHERE id=#{id}
+		ORDER BY board_date DESC
+		LIMIT #{paging.offset}, #{paging.limit}
+	</select>
+	
 	<select id="searchBoard" parameterType="hashmap" resultMap="boardMap">
 		SELECT * FROM board
 		join member using (id)
 		<where>
 			<choose>
 				<when test="select=='all'">
-				board_title LIKE CONCAT('%',#{keyword},'%')
-				or board_content LIKE CONCAT('%',#{keyword},'%')
+				(board_title LIKE CONCAT('%',#{keyword},'%')
+				or board_content LIKE CONCAT('%',#{keyword},'%'))
 				</when>
 				<when test="select=='title'">
 				board_title LIKE CONCAT('%',#{keyword},'%')
@@ -58,10 +66,10 @@
 				<when test="select=='nickname'">
 				nickname LIKE CONCAT('%',#{keyword},'%')
 				</when>
-				<when test="select=='category'">
-				category = #{keyword}
-				</when>
 			</choose>
+		<if test="category!=null and !category.equals('') and !category.equals('전체')">
+		AND category IN (#{category})
+		</if>
 		</where>
 		<choose>
 			<when test="paging.sort == 'board_like' or paging.sort == 'board_views' or paging.sort == 'bc_count'">
@@ -79,14 +87,19 @@
 		SELECT count(*) FROM board
 	</select>
 	
+	<select id="writeCount" parameterType="String" resultType="int">
+		SELECT COUNT(*) FROM board
+		WHERE id = #{id}
+	</select>
+	
 	<select id="searchCount" parameterType="hashmap" resultType="int">
 		SELECT COUNT(*) FROM board
 		JOIN member using (id)
 		<where>
 			<choose>
 				<when test="select=='all'">
-				board_title LIKE CONCAT('%',#{keyword},'%')
-				or board_content LIKE CONCAT('%',#{keyword},'%')
+				(board_title LIKE CONCAT('%',#{keyword},'%')
+				or board_content LIKE CONCAT('%',#{keyword},'%'))
 				</when>
 				<when test="select=='title'">
 				board_title LIKE CONCAT('%',#{keyword},'%')
@@ -97,10 +110,10 @@
 				<when test="select=='nickname'">
 				nickname LIKE CONCAT('%',#{keyword},'%')
 				</when>
-				<when test="select=='category'">
-				category = #{keyword}
-				</when>
 			</choose>
+		<if test="category!=null and !category.equals('') and !category.equals('전체')">
+		AND category IN (#{category})
+		</if>
 		</where>
 	</select>
 	
@@ -114,11 +127,6 @@
 		WHERE board_no=#{boardNo}
 	</select>
 	
-	<update id="update" parameterType="Board">
-		UPDATE board
-		SET board_title=#{boardTitle}, board_content=#{boardContent}
-		WHERE board_no=#{boardNo}
-	</update>
 	
 	<delete id="delete" parameterType="int">
 		DELETE FROM board
@@ -130,7 +138,7 @@
 	</update>
 	
 	<insert id="insertLikeBoard" parameterType="LikeBoard">
-		INSERT INTO like_board(id, board_no) VALUE("#{id}", #{boardNo})
+		INSERT INTO like_board(id, board_no) VALUE(#{id}, #{boardNo})
 	</insert>
 	
 	<delete id="deleteLikeBoard" parameterType="LikeBoard">
@@ -163,6 +171,17 @@
 		where board_no = ${no}
 		and bc_delete = "n")
 		where b.board_no = ${no};
+	</update>
+	
+	<select id="selectBoard" parameterType="int" resultMap="boardMap">
+		SELECT * FROM board
+		WHERE board_no = #{boardNo}
+	</select>
+	
+	<update id="update" parameterType="Board">
+		UPDATE board
+		SET board_title=#{boardTitle}, board_content=#{boardContent}, category=#{category}
+		WHERE board_no=#{boardNo}
 	</update>
 	
 </mapper>

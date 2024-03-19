@@ -83,12 +83,20 @@ ${vo.boardContent}</textarea
       			날짜 : <fmt:formatDate value="${boardComment.bcDate}"
       					pattern="yyyy-MM-dd HH:mm" />
       			<br>
-      			글 내용 : ${boardComment.bcContent}
+      			<span class="bcContent1">글 내용 : ${boardComment.bcContent}</span>
       			<c:if test="${boardComment.id eq id}">
+      			
+      			<form action="/editBC" class="editContent" style="display: none;">
+      			
+      				<input type="hidden" value="${boardComment.bcNo}" name="bcNo">
+      				<textarea name="bcContent" rows="4" cols="50">${boardComment.bcContent}</textarea>
+      				<input type="submit" value="수정완료" class="editCon">
+      				<input type="button" value="수정취소" class="editCan">
+      			</form>
+      			<input type="button" value="수정하기" class="bcEdit">
       			<form>
       				<input type="hidden" class="bcNo" value="${boardComment.bcNo}">
       				<input type="button" value="삭제하기" class="bcDelete">
-      				<input type="button" value="수정하기" class="bcEdit">
       			</form>
       			</c:if>
       			</c:if>
@@ -122,10 +130,17 @@ ${vo.boardContent}</textarea
       			<br>
       			글 내용 : ${boardComment.bcContent}
       			<c:if test="${boardComment.id eq id}">
+      			<form action="/editBC" class="editContent" style="display: none;">
+      			
+      				<input type="hidden" value="${boardComment.bcNo}" name="bcNo">
+      				<textarea name="bcContent" rows="4" cols="50">${boardComment.bcContent}</textarea>
+      				<input type="submit" value="수정완료" class="editCon">
+      				<input type="button" value="수정취소" class="editCan">
+      			</form>
+      					<input type="button" value="수정하기" class="bcEdit">
       			<form>
       				<input type="hidden" class="bcNo" value="${boardComment.bcNo}">
       				<input type="button" value="삭제하기" class="bcDelete">
-      				<input type="button" value="수정하기" class="bcEdit">
       			</form>
       			</c:if>
       			</c:if>
@@ -160,6 +175,29 @@ ${vo.boardContent}</textarea
     </form>
     
     <script>
+    $(".bcEdit").click((e) =>{
+		$(e.target).siblings(".editContent").css("display", "block");
+		$(e.target).siblings(".bcContent1").css("display", "none");
+		$(e.target).css("display", "none");
+	});
+    
+    $(".editCan").click((e) => {
+    	$(e.target).parent().css("display", "none");
+    	$(e.target).parent().siblings(".bcContent1").css("display", "block");
+    	$(e.target).parent().siblings(".bcEdit").css("display", "block");
+    });
+    
+    $(".editCon").click((e) => {
+    	$.ajax({
+    		type: 'get',
+    		url: 'editBC',
+    		data: $(e.target).parent().serialize(),
+    		success:function(data) {
+    			location.reload();
+    		}
+    	})
+    });
+    
     $(".bcDelete").click((e) => {
     	$.ajax({
     		type: 'get',
@@ -169,7 +207,7 @@ ${vo.boardContent}</textarea
     			location.reload();
     		}
     	});
-    })
+    });
     
     $("#bcWrite").click((e) => {
     	if(document.querySelector("#id").value==""){
