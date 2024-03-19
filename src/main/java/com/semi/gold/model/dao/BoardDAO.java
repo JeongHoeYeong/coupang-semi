@@ -24,6 +24,7 @@ public class BoardDAO {
 	}
 	
 	public List<Board> selectAll(BoardPaging paging) {
+		System.out.println(paging);
 		return session.selectList("board.selectAll", paging);
 	}
 	
@@ -81,6 +82,7 @@ public class BoardDAO {
 	}
 	
 	public List<Board> searchBoard(Map<String, Object> map) {
+		System.out.println(map);
 		return session.selectList("board.searchBoard", map);
 	}
 	
@@ -92,5 +94,9 @@ public class BoardDAO {
 		return session.selectList("board.writeSelect", map);
 	}
 	
+	public Board selectBoard(int no) {
+		return session.selectOne("board.selectBoard", no);
+	}
+
 }
 

@@ -46,4 +46,9 @@
 		UPDATE board_comment SET bc_delete = "y"
 		WHERE bc_no = #{no} 
 	</update>
+	
+	<update id="editBC" parameterType="BoardComment">
+		UPDATE board_comment SET bc_content=#{bcContent}
+		WHERE bc_no = #{bcNo}
+	</update>
 </mapper>

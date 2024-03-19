@@ -30,4 +30,8 @@ public class BoardCommentDAO {
 	public int deleteBC(int no) {
 		return session.update("boardComment.deleteBC", no);
 	}
+	
+	public int editBC(BoardComment bc) {
+		return session.update("boardComment.editBC", bc);
+	}
 }

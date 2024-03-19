@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,9 +17,9 @@
 </head>
 <body>
 <div class="container">
-		<h1>게시물 등록</h1>
-		<form action="/boardwrite" method="post" enctype="multipart/form-data">
-			<input type="file" name="boardFile" accept="image/*">
+		<h1>게시물 수정</h1>
+		<form action="/boardUpdate" method="get">
+		<input type="hidden" value="${board.boardNo}" name="boardNo">
 			<div class="form-group">
 			<select name="category" id="category">
 				<option value="관광지">관광지</option>
@@ -29,14 +28,14 @@
 				<option value="기타">기타</option>
 			</select>
 				<label>Title</label>
-				<input class="form-control" name="boardTitle">
+				<input class="form-control" name="boardTitle" value="${board.boardTitle}">
 			</div>
 			<div class="form-group">
 				<label>Content</label>
-				<textarea class="form-control" row="10" name="boardContent"></textarea>
+				<textarea class="form-control" row="10" name="boardContent">${board.boardContent}</textarea>
 			</div>
-			<button type="submit" class="btn btn-outline-warning">등록</button>
+			<button type="submit" class="btn btn-outline-warning">수정</button>
 		</form>
 	</div>
 </body>
-</html>
+</html></html>

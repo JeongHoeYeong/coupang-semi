@@ -31,4 +31,8 @@ public class BoardCommentService {
 	public int deleteBC(int no) {
 		return dao.deleteBC(no);
 	}
+	
+	public int editBC(BoardComment bc) {
+		return dao.editBC(bc);
+	}
 }

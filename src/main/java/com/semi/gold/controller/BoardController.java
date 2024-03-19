@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.UUID;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.mysql.cj.protocol.a.NativeConstants.IntegerDataType;
 import com.semi.gold.model.vo.Board;
@@ -57,17 +59,18 @@ public class BoardController {
 	// 글 검색
 	@GetMapping("/boardSearch")
 	private String boardSearch(Model model, BoardPaging paging, Principal principal, String sort,
-			String select, String keyword) {
+			String select, String keyword, String category) {
 		if(principal !=null) {
 			model.addAttribute("member", principal.getName());
 			}
 		paging.setSort(sort);
-		List<Board> list = service.boardSearch(keyword, select, paging);
+		List<Board> list = service.boardSearch(keyword, select, paging, category);
 		model.addAttribute("list", list);
-		model.addAttribute("paging", new BoardPaging(paging.getPage(), service.searchTotal(keyword, select)));
+		model.addAttribute("paging", new BoardPaging(paging.getPage(), service.searchTotal(keyword, select, category)));
 		model.addAttribute("sort", paging.getSort());
 		model.addAttribute("keyword", keyword);
 		model.addAttribute("select", select);
+		model.addAttribute("category", category);
 		return "/board/boardSearch";
 	}
 	
@@ -76,10 +79,19 @@ public class BoardController {
 		return "/board/boardwrite";
 	}
 	
+	@GetMapping("/boardEdit")
+	private String selectBoard(String no, Model model) {
+		int num = Integer.parseInt(no);
+		model.addAttribute("board", service.selectBoard(num));
+		return "/board/boardEdit";
+	}
+	
 	// 글 등록
 	@PostMapping("/boardwrite")
-	private String write(Board b) {
+	private String write(Board b, Principal principal) {
 		
+		
+		b.setId(principal.getName());
 		// 비즈니스 로직 처리 -> service.insert
 		service.insert(b);
 		
@@ -137,12 +149,13 @@ public class BoardController {
 		res.addCookie(cookie);
 	}
 	
-	@PostMapping("/writeSelect") 
-	private String writeSelect(String id, BoardPaging paging, Model model) {
-		List<Board> list = service.writeSelect(id, paging);
+	@GetMapping("/myWriteBoard") 
+	private String writeSelect(BoardPaging paging, Model model, Principal principal) {
+		List<Board> list = service.writeSelect(principal.getName(), paging);
+		model.addAttribute("member", principal.getName());
 		model.addAttribute("list", list);
-		model.addAttribute("paging", new BoardPaging(paging.getPage(), service.writeTotal(id)));
-		return "board/myWirteBoard";
+		model.addAttribute("paging", new BoardPaging(paging.getPage(), service.writeTotal(principal.getName())));
+		return "board/myWriteBoard";
 	}
 	
 	// 글 삭제
@@ -152,11 +165,14 @@ public class BoardController {
 		service.delete(Integer.parseInt(no));
 		return "redirect:/boardlist";
 	}
+
+	
 	
 	// 글 수정
-	@PostMapping("/boardupdate")
-	public String update(Board b) {
+	@GetMapping("/boardUpdate")
+	public String update(Board b, Principal principal) {
 		System.out.println(b);
+		b.setId(principal.getName());
 		service.update(b);
 		
 		return "redirect:/boardview?no="+b.getBoardNo();
@@ -198,4 +214,11 @@ public class BoardController {
 		return true;
 	}
 	
+	//댓글 수정
+	@ResponseBody
+	@GetMapping("/editBC")
+	public boolean editBC(BoardComment bc) {
+		bcService.editBC(bc);
+		return true;
+	}
 }
