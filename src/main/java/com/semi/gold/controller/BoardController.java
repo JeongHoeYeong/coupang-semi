@@ -1,5 +1,7 @@
 package com.semi.gold.controller;
 
+import java.io.File;
+import java.io.IOException;
 import java.security.Principal;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -35,6 +37,8 @@ import com.semi.gold.service.BoardService;
 @Controller
 public class BoardController {
 
+	private String path = "D:/gold-semi/";
+	
 	@Autowired
 	private BoardService service;
 	
@@ -88,14 +92,30 @@ public class BoardController {
 	
 	// 글 등록
 	@PostMapping("/boardwrite")
-	private String write(Board b, Principal principal) {
+	private String write(Board b, Principal principal) throws IllegalStateException, IOException {
 		
+		System.out.println(b);
 		
+		if(!b.getFile().isEmpty()) {
+			String url = fileUpload(b.getFile());
+			
+			b.setUrl(url);
+		}
 		b.setId(principal.getName());
 		// 비즈니스 로직 처리 -> service.insert
 		service.insert(b);
 		
 		return "redirect:/boardview?no=" + b.getBoardNo();
+	}
+	
+	
+	public String fileUpload(MultipartFile file) throws IllegalStateException, IOException {
+		UUID uuid = UUID.randomUUID();
+		String fileName = uuid.toString() + "-" + file.getOriginalFilename();
+		
+		File copyFile = new File(path + fileName);
+		file.transferTo(copyFile);
+		return fileName;
 	}
 	
 	// 글 정보

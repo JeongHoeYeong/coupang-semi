@@ -118,8 +118,8 @@
 	</select>
 	
 	<insert id="insert" parameterType="Board" useGeneratedKeys="true" keyProperty="boardNo" keyColumn="board_no">
-		INSERT INTO board(id, board_title, board_content, category)
-		VALUES(#{id}, #{boardTitle}, #{boardContent}, #{category})
+		INSERT INTO board(id, board_title, board_content, category, url)
+		VALUES(#{id}, #{boardTitle}, #{boardContent}, #{category}, #{url})
 	</insert>
 	
 	<select id="select" parameterType="int" resultMap="boardMap">

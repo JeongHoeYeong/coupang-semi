@@ -20,7 +20,7 @@
 <div class="container">
 		<h1>게시물 등록</h1>
 		<form action="/boardwrite" method="post" enctype="multipart/form-data">
-			<input type="file" name="boardFile" accept="image/*">
+			<input type="file" name="file" accept="image/*">
 			<div class="form-group">
 			<select name="category" id="category">
 				<option value="관광지">관광지</option>
