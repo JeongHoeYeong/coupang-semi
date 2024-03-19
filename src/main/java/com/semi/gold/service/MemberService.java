@@ -67,8 +67,8 @@ public class MemberService implements UserDetailsService {
 	}
 	
 	// 회원정보 찾기 기능
-	public Member searchId(Member vo) {
-		return dao.searchId(vo);
+	public Member searchId(String email) {
+		return dao.searchId(email);
 	}
 	
 	

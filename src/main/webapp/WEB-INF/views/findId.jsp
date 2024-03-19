@@ -12,12 +12,13 @@
 </head>
 <body>
 	<h1>아이디 찾기</h1>
-	<form method="post" action="/resultId">
-		<input type="text" id="name" name="name" placeholder="name" /> <br />
-		<input type="text" id="phone" name="phone" placeholder="phone" /> <br />
-		<input type="submit" id="btn" value="찾기" />
+	<form method="post">
+		<input type="text" name="name" id="name" placeholder="name" value="">
+		<input type="text" name="email" id="email" placeholder="email" value="">
+		<input type="submit" id="find" name="find" value="찾기" >
+		<a href="/login"><input type="button" name="cancle" value="취소" ></a>
+		<span id="findidText"></span>
 	</form>
-		<span id="searchIdText"></span>
-	<script src="resources/js/searchId.js"></script>
+<script src="/resources/js/findId.js"></script>
 </body>
 </html>

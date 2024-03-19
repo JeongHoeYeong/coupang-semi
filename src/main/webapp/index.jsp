@@ -10,11 +10,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
 <script src="/resources/js/bootstrap.bundle.min.js"></script>
+
 <script src="/resources/js/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 
 
 <!-- Load Tempalte CSS -->
-<link href="/resources/css/mintemplatemo.css" rel="stylesheet" />
+
+<link href="/resources/css/maintemplatemo.css" rel="stylesheet" />
 <link href="/resources/css/main.css" rel="stylesheet" />
 <link href="/resources/css/review.css" rel="stylesheet" />
 
@@ -37,8 +40,7 @@
 <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
 	rel="stylesheet" />
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-<script
-	src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
 <style>
 .fa-solid {
 	width: 50px;
@@ -75,16 +77,16 @@
 					<ul
 						class="nav navbar-nav d-flex justify-content-between mx-xl-5 text-center text-dark">
 						<li class="nav-item">
-						<a class="nav-link btn-outline-success rounded-pill px-3"
+						<a class="nav-link btn-outline-warning rounded-pill px-3"
 							href="tourplace/search">여행을 만나는 순간</a></li>
 						<li class="nav-item">
-						<a class="nav-link btn-outline-success rounded-pill px-3">맛집를
+						<a class="nav-link btn-outline-warning rounded-pill px-3">맛집를
 								만나는 순간</a></li>
 						<li class="nav-item">
-						<a class="nav-link btn-outline-success rounded-pill px-3">숙소를
+						<a class="nav-link btn-outline-warning rounded-pill px-3" href="/boardlist">사람을
 								만나는 순간</a></li>
 						<li class="nav-item">
-						<a class="nav-link btn-outline-success rounded-pill px-3">축제를
+						<a class="nav-link btn-outline-warning rounded-pill px-3">축제를
 								만나는 순간</a></li>
 					</ul>
 				</div>
@@ -377,7 +379,7 @@
 						href="https://github.com/JeongHoeYeong">Jeong Hoe Yeong</a></li>
 					<li class="pb-2"><i class='bx-fw bx bxs-chevron-right bx-xs'></i><a
 						class="text-decoration-none text-light py-1"
-						href="https://github.com/mutual99/gold-semi-sangho534">Lee
+						href="https://github.com/mutual99">Lee
 							Sang ho</a></li>
 					<li class="pb-2"><i class='bx-fw bx bxs-chevron-right bx-xs'></i><a
 						class="text-decoration-none text-light py-1"
@@ -421,6 +423,7 @@
 
 <!-- End Footer -->
 <!-- Core theme JS-->
+<script src="resources/js/jquery.min.js"></script>
 <script src="resources/js/mainselect.js"></script>
 <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
 </body>

@@ -134,20 +134,20 @@ public class MemberController {
 	}
 	
 	// 회원 정보 찾기 아이디
-	@GetMapping("/searchId")
-	public String searchUserid(String email) {
-		return "/searchId";
-	}
+	@GetMapping("/findId")
+	public void searchMyid() {}
 	
-	@PostMapping("/resultId")
-	public String resultId(Member vo) {
-		return "/resultId";
+	@ResponseBody
+	@PostMapping("/findId")
+	public boolean searchId(String email) {
+		Member member = service.searchId(email);
+		if(member == null) return false;
+		return true;
 	}
-
 	
 	// 회원 정보 찾기 비밀번호
 	@GetMapping("/searchPwd")
-	public String searchUserpwd(String id) {
+	public String searchUserpwd(Member vo) {
 		return "/searchPwd";
 	}
 	

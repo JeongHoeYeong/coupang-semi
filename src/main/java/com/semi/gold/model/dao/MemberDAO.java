@@ -55,8 +55,8 @@ public class MemberDAO {
 	}
 	
 	// 유저 아이디 찾기
-	public Member searchId(Member vo) {
-		return session.selectOne("memberMapper.searchid", vo);
+	public Member searchId(String email) {
+		return session.selectOne("memberMapper.searchId", email);
 	}
 	
 }
