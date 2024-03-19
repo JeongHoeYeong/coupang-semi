@@ -96,10 +96,10 @@ public class MemberController {
 	@PostMapping("/check")
 	public boolean check(String id) {
 		Member member = service.idCheck(id);
+		System.out.println(member);
 		if(member == null) return false;
 		return true;
 	}
-	
 	// 닉네임 중복 체크
 	@ResponseBody
 	@PostMapping("/checko")
@@ -108,17 +108,47 @@ public class MemberController {
 		if(member == null) return false;
 		return true;
 	}
-	
-	// 회원 정보 찾기 아이디
-	@GetMapping("/searchUserid")
-	public String searchUserid(String email) {
-		return "/searchUserid";
+	// 이메일 중복체크
+	@ResponseBody
+	@PostMapping("/checke")
+	public boolean emailCheck(String email) {
+		Member member = service.emailCheck(email);
+		if(member == null) return false;
+		return true;
+	}
+	// 주민번호 중복체크
+	@ResponseBody
+	@PostMapping("/checkr")
+	public boolean residentCheck(String resident) {
+		Member member = service.residentCheck(resident);
+		if(member == null) return false;
+		return true;
+	}
+	// 전화번호 중복체크
+	@ResponseBody
+	@PostMapping("/checkp")
+	public boolean phoneCheck(String phone) {
+		Member member = service.phoneCheck(phone);
+		if(member == null) return false;
+		return true;
 	}
 	
+	// 회원 정보 찾기 아이디
+	@GetMapping("/searchId")
+	public String searchUserid(String email) {
+		return "/searchId";
+	}
+	
+	@PostMapping("/resultId")
+	public String resultId(Member vo) {
+		return "/resultId";
+	}
+
+	
 	// 회원 정보 찾기 비밀번호
-	@GetMapping("/searchUserpwd")
+	@GetMapping("/searchPwd")
 	public String searchUserpwd(String id) {
-		return "/searchUserpwd";
+		return "/searchPwd";
 	}
 	
 	// 카카오 로그인

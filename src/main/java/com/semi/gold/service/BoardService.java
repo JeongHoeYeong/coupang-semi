@@ -25,7 +25,7 @@ public class BoardService {
 		return dao.selectAll(paging);
 	}
 	
-	public List<Board> boardSearch(String keyword, String select, BoardPaging paging){
+	public List<Board> boardSearch(String keyword, String select, BoardPaging paging, String category){
 		paging.setOffset(paging.getLimit() * (paging.getPage() - 1));
 		BoardSearchDTO dto = new BoardSearchDTO();
 		dto.setKeyword(keyword);
@@ -34,19 +34,22 @@ public class BoardService {
 		map.put("keyword", dto.getKeyword());
 		map.put("select", dto.getSelect());
 		map.put("paging", paging);
+		map.put("category", category);
 		return dao.searchBoard(map);
 	}
 	
-	public int searchTotal(String keyword, String select) {
+	public int searchTotal(String keyword, String select, String category) {
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("keyword", keyword);
 		map.put("select", select);
+		map.put("category", category);
 		return dao.searchTotal(map);
 	}
 	
 	public int insert(Board b) {
 		return dao.insert(b);
 	}
+	
 	public Board select(int no) {
 		return dao.select(no);
 	}
@@ -60,6 +63,10 @@ public class BoardService {
 	}
 	public int total() {
 		return dao.total();
+	}
+	
+	public int writeTotal(String id) {
+		return dao.writeTotal(id);
 	}
 	
 	public int view(int no) {
@@ -95,4 +102,15 @@ public class BoardService {
 		return dao.updateBcCount(no);
 	}
 	
+	public List<Board> writeSelect(String id, BoardPaging paging) {
+		paging.setOffset(paging.getLimit() * (paging.getPage() - 1));
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("id", id);
+		map.put("paging", paging);
+		return dao.writeSelect(map);
+	}
+	
+	public Board selectBoard(int no) {
+		return dao.selectBoard(no);
+	}
 }

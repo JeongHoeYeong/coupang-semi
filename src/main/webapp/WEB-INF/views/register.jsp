@@ -6,15 +6,16 @@ pageEncoding="UTF-8"%>
     <meta charset="UTF-8" />
     <title>전만순</title>
     <link rel="stylesheet" href="resources/css/register.css" />
-    <script src="resources/js/register.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+
     <style>
       #idCheck,
       #nicknameCheck,
       #phoneCheck,
       #residentCheck,
-      #emailCheck {
+      #emailCheck,
+      #addressone {
         width: 80px;
         height: 40px;
         text-align: center;
@@ -28,12 +29,17 @@ pageEncoding="UTF-8"%>
     <form
       action="/register"
       method="post"
+      name="regform"
+      id="regform"
       onsubmit="return sendit()"
-      onsubmit="checkForm(event)"
     >
       <div class="member">
         <!-- 1. 로고 -->
-
+        <a href="/">
+          <img
+            src="resources/image/logobackclear.png"
+            style="margin-left: 100px"
+        /></a>
         <!-- 2. 필드 -->
         <div class="field">
           <b>아이디</b>
@@ -44,8 +50,7 @@ pageEncoding="UTF-8"%>
             placeholder="아이디 입력"
             maxlength="20"
           />
-          <button id="idCheck">중복 체크</button>
-          <span id="checkText"></span>
+          <span id="checkText" style="height: 20px; display: block"></span>
         </div>
 
         <div class="field">
@@ -57,13 +62,13 @@ pageEncoding="UTF-8"%>
             id="password"
             placeholder="비밀번호 입력"
           />
-          <span id="passwordText"></span>
+          <span id="passwordText" style="height: 20px; display: block"></span>
         </div>
 
         <div class="field">
           <b>이름</b>
           <input type="text" name="name" id="name" placeholder="이름 입력" />
-          <span id="nameText"></span>
+          <span id="nameText" style="height: 20px; display: block"></span>
         </div>
 
         <div class="field">
@@ -74,8 +79,7 @@ pageEncoding="UTF-8"%>
             id="nickname"
             placeholder="닉네임 입력"
           />
-          <button id="nicknameCheck">중복 체크</button>
-          <span id="nickText"></span>
+          <span id="nickText" style="height: 20px; display: block"></span>
         </div>
 
         <div class="field">
@@ -86,8 +90,7 @@ pageEncoding="UTF-8"%>
             id="email"
             placeholder="이메일 입력"
           />
-          <button id="emailCheck">중복 체크</button>
-          <span id="emailText"></span>
+          <span id="emailText" style="height: 20px; display: block"></span>
         </div>
 
         <!-- 4. 필드(성별) -->
@@ -99,12 +102,6 @@ pageEncoding="UTF-8"%>
           </div>
         </div>
 
-        <!-- 5. 주소-->
-        <div class="field">
-          <b>주소</b>
-          <input type="text" name="address" placeholder="주소 입력" />
-        </div>
-
         <div class="field birth">
           <b>주민등록번호</b>
           <input
@@ -114,8 +111,7 @@ pageEncoding="UTF-8"%>
             placeholder="주민등록번호 입력"
             maxlength="14"
           />
-          <button id="residentCheck">중복 체크</button>
-          <span id="residentText"></span>
+          <span id="residentText" style="height: 20px; display: block"></span>
         </div>
 
         <!-- 3. 필드(생년월일) -->
@@ -126,15 +122,44 @@ pageEncoding="UTF-8"%>
             name="phone"
             id="phone"
             placeholder="전화번호 입력"
-          /><br />
-          <button id="phoneCheck">중복 체크</button>
-          <span id="phoneText"></span><br />
+            maxlength="13"
+          />
+          <span id="phoneText" style="height: 20px; display: block"></span>
         </div>
-        <div>
+        <div class="field">
+          <!-- 5. 주소-->
+          <b>우편번호</b
+          ><input
+            type="text"
+            name="zipcode"
+            maxlength="5"
+            id="sample6_postcode"
+            placeholder="우편번호"
+          />
+          <button
+            type="button"
+            id="addressone"
+            onclick="sample6_execDaumPostcode()"
+          >
+            검색
+          </button>
+          <b>주소</b
+          ><input
+            type="text"
+            name="address"
+            id="address"
+            placeholder="상세 주소"
+          />
+          <input type="hidden" type="text" id="sample6_detailAddress" />
+          <input type="hidden" type="text" id="sample6_extraAddress" />
+
           <!-- 6. 가입하기 버튼 -->
-          <input type="submit" value="가입하기" />
+          <div>
+            <input type="submit" value="가입하기" />
+          </div>
         </div>
       </div>
     </form>
+    <script src="resources/js/register.js"></script>
   </body>
 </html>

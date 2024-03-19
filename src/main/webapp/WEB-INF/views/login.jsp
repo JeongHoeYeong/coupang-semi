@@ -43,8 +43,8 @@
 				<input type="password" name="password" placeholder="password" />
 				<div>
 				<span>For got your </span>
-				<a href="/searchUserid">id / </a>
-				<a href="/searchUserpwd">password?</a></div>
+				<a href="/searchId">id / </a>
+				<a href="/searchPwd">password?</a></div>
 				<button type="submit">Sign In</button>
 			</form>
 		</div>

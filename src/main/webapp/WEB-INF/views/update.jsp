@@ -5,20 +5,28 @@
 	uri="http://www.springframework.org/security/tags"%>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-<style>
-#id {
-	color: black;
-}
-</style>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="">
 <meta name="author" content="">
+<style>
+#id {
+	color: black;
+}
 
+#idCheck, #nicknameCheck, #phoneCheck, #residentCheck, #emailCheck,
+	#addressone {
+	width: 80px;
+	height: 40px;
+	text-align: center;
+	color: white;
+	background-color: #4287f5;
+	border: none;
+}
+</style>
 <title>전만순</title>
 
 <!-- Custom fonts for this template-->
@@ -30,8 +38,10 @@
 
 <link href="resources/css/admin1.css" rel="stylesheet">
 <link rel="stylesheet" href="resources/css/register.css">
-<script src="resources/js/register.js" />
-<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script
+	src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+
 
 </head>
 <!--=====================================================================================-->
@@ -142,8 +152,6 @@
 							</div></li>
 
 
-
-
 						<div class="topbar-divider d-none d-sm-block"></div>
 
 						<!-- Nav Item - User Information -->
@@ -180,90 +188,87 @@
 				</nav>
 
 				<!-- Content Row -->
-				<form action="/updateMember" method="post" onsubmit="return sendit()">
+				<form action="/updateMember" method="post"
+					onsubmit="return sendit()">
 					<div class="member">
 						<div class="field">
-							<input type="hidden" id="id" name="id" value="<sec:authentication property="principal.id"/>" />
+							<input type="hidden" id="id" name="id"
+								value="<sec:authentication property="principal.id"/>" />
 						</div>
 
 						<div class="field">
-							<b>비밀번호 : </b><input class="password" type="password" 
-							name="password" id="password" placeholder="비밀번호 입력"/>
+							<b>비밀번호</b> <input class="password" type="password"
+								name="password" id="password" placeholder="비밀번호 입력" /> 
+								<span id="passwordText" style="height: 20px; display: block;"></span>
 						</div>
 
 						<div class="field">
-							<b>이름</b> <input type="text" name="name" id="name" placeholder="이름 입력"/>
+							<b>이름</b> <input type="text" name="name" id="name"
+								placeholder="이름 입력" value="<sec:authentication property="principal.name"/>"/> 
+								<span id="nameText" style="height: 20px; display: block;"></span>
 						</div>
 
 						<div class="field">
-							<b>닉네임</b> <input type="text" name="nickname" 
-							id="nickname" placeholder="닉네임 입력"/>
+							<b>닉네임</b> <input type="text" name="nickname" id="nickname"
+								placeholder="닉네임 입력" value="<sec:authentication property="principal.nickname"/>"/> 
+								<span id="nickText" style="height: 20px; display: block;"></span>
 						</div>
 
 						<div class="field">
-							<b>이메일</b> <input type="text" name="email" id="email" placeholder="이메일 입력"/>
-						</div>
-
-						<div class="field">
-							<b>주민등록번호 : </b> <input type="text" 
-							name="resident" id="resident" placeholder="주민등록번호 입력" maxlength="14"/>
+							<b>이메일</b> <input type="text" name="email" id="email"
+								placeholder="이메일 입력" value="<sec:authentication property="principal.email"/>"/> 
+								<span id="emailText" style="height: 20px; display: block;"></span>
 						</div>
 
 						<!-- 4. 필드(성별) -->
 						<div class="field gender">
 							<b>성별</b>
 							<div>
-								<input type="radio" name="gender" value="남" checked />남성
-								<input type="radio" name="gender" value="여" />여성
+								<input type="radio" name="gender" value="남" checked />남성 <input
+									type="radio" name="gender" value="여" />여성
 							</div>
 						</div>
 
-						<!-- 5. 주소-->
-						<div class="field">
-							<b>주소</b> <input type="text" name="address" placeholder="주소 입력" />
+						<div class="field birth">
+							<b>주민등록번호</b> <input type="text" name="resident" id="resident"
+								placeholder="주민등록번호 입력" maxlength="14" value="<sec:authentication property="principal.resident"/>"/> 
+								<span id="residentText" style="height: 20px; display: block;"></span>
 						</div>
 
+						<!-- 3. 필드(생년월일) -->
 						<div class="field tel-number">
-							<b>휴대전화</b>
-							<div>
-								 <input type="text" name="phone" 
-								 id="phone" placeholder="전화번호 입력" />
-							</div>
+							<b>휴대전화</b> <input type="text" name="phone" id="phone"
+								placeholder="전화번호 입력" maxlength="13" value="<sec:authentication property="principal.phone"/>"/> 
+								<span id="phoneText" style="height: 20px; display: block;"></span>
+						</div>
+						<div class="field">
+							<!-- 5. 주소-->
+							<b>우편번호</b><input type="text" name="zipcode" maxlength="5"
+								id="sample6_postcode" placeholder="우편번호" value="<sec:authentication property="principal.address"/>"/>
+							<button type="button" id="addressone"
+								onclick="sample6_execDaumPostcode()">검색</button>
+							<b>주소</b><input type="text" name="address" id="address"
+								placeholder="상세 주소"> <input type="hidden" type="text"
+								id="sample6_detailAddress"> <input type="hidden"
+								type="text" id="sample6_extraAddress">
 
 							<!-- 6. 가입하기 버튼 -->
-							<input type="submit" value="변경하기" />
+							<div>
+								<input type="submit" value="변경하기" />
+							</div>
 						</div>
+					</div>
 				</form>
 			</div>
 		</div>
 	</div>
-	</form>
-	</div>
-	<!-- Card Body -->
-	<div class="card-body">
-		<div class="chart-pie pt-4 pb-2">
-			<canvas id="myPieChart"></canvas>
-		</div>
-		<div class="mt-4 text-center small">
-			<span class="mr-2"> <i class="fas fa-circle text-primary"></i>
-				Direct
-			</span> <span class="mr-2"> <i class="fas fa-circle text-success"></i>
-				Social
-			</span> <span class="mr-2"> <i class="fas fa-circle text-info"></i>
-				Referral
-			</span>
-		</div>
-	</div>
-	</div>
-	</div>
-	</div>
-	</div>
-	</div>
 
-	</div>
+
+
+
+
 	<!-- /.container-fluid -->
 
-	</div>
 	<!-- End of Main Content -->
 
 	<!-- Footer -->
@@ -311,8 +316,7 @@
 	</div>
 
 	<!-- Bootstrap core JavaScript-->
-	<script src="vendor/jquery/jquery.min.js"></script>
-	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
 
 	<!-- Core plugin JavaScript-->
 	<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
@@ -324,9 +328,8 @@
 	<script src="vendor/chart.js/Chart.min.js"></script>
 
 	<!-- Page level custom scripts -->
+	<script src="resources/js/register.js"></script>
 	<script src="js/demo/chart-area-demo.js"></script>
 	<script src="js/demo/chart-pie-demo.js"></script>
-
 </body>
-
 </html>

@@ -20,12 +20,12 @@
 	<div class="container">
 		<div class="header">
 			<h1>List Page</h1>
-			
 			<c:choose>
 				<c:when test="${member == 'anonymousUser'}">
 					<a href="/login" class="btn btn-outline-warning">게시글 등록</a>
 				</c:when>
 				<c:otherwise>
+				<a href="myWriteBoard" class="btn btn-outline-warning">내 글 보기</a>
 					<a href="/boardwrite" class="btn btn-outline-warning">게시글 등록</a>
 				</c:otherwise>
 			</c:choose>
@@ -39,9 +39,9 @@
 					<th>제목</th>
 					<th>작성자</th>
 					<th>작성일</th>
-					<th><a href="/boardSearch?select=${select}&keyword=${keyword}&sort=board_views">조회수</a></th>
-					<th><a href="/boardSearch?select=${select}&keyword=${keyword}&sort=board_like">추천수</a></th>
-					<th><a href="/boardSearch?select=${select}&keyword=${keyword}&sort=bc_count">댓글수</a></th>
+					<th><a href="/boardSearch?category=${category}&select=${select}&keyword=${keyword}&sort=board_views">조회수</a></th>
+					<th><a href="/boardSearch?category=${category}&select=${select}&keyword=${keyword}&sort=board_like">추천수</a></th>
+					<th><a href="/boardSearch?category=${category}&select=${select}&keyword=${keyword}&sort=bc_count">댓글수</a></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -60,7 +60,7 @@
 						<td>
 						<c:if test="${member != 'anonymousUser'}">
 						<c:if test="${member.id eq board.id}">
-						<a href="/boardwrite">수정하기</a>
+						<a href="/boardEdit?no=${board.boardNo}">수정하기</a>
 						</c:if>
 						</c:if>
 						</td>
@@ -72,15 +72,15 @@
 			<ul class="pagination">
 				<li class="page-item ${paging.prev ? '' : 'disabled'}">
 				<a class="page-link" 
-				href="/boardSearch?select=${select}&keyword=${keyword}&sort=${sort}&page=${boardPaging.startPage - 1}&sort=${paging.sort}">Previous</a></li>
+				href="/boardSearch?category=${category}&select=${select}&keyword=${keyword}&sort=${sort}&page=${boardPaging.startPage - 1}">Previous</a></li>
 				
 				<c:forEach begin="${paging.startPage}" end="${paging.endPage}" var="page">
 					<li class="page-item"><a class="page-link ${paging.page == page ? 'active' : ''}"
-					 href="/boardSearch?select=${select}&keyword=${keyword}&sort=${sort}&page=${page}">${page}</a></li>
+					 href="/boardSearch?category=${category}&select=${select}&keyword=${keyword}&sort=${sort}&page=${page}">${page}</a></li>
 				</c:forEach>
 				
 				<li class="page-item ${paging.next ? '' : 'disabled'}"><a class="page-link"
-				 href="/boardSearch?select=${select}&keyword=${keyword}&sort=${sort}&page=${paging.endPage + 1}">Next</a></li>
+				 href="/boardSearch?category=${category}&select=${select}&keyword=${keyword}&sort=${sort}&page=${paging.endPage + 1}">Next</a></li>
 			</ul>
 		</nav>
 	</div>
@@ -92,6 +92,11 @@
 		<option value="nickname">글쓴이</option>
 		<option value="category">카테고리</option> 
 	</select>
+		<input type="radio" name="category" value="전체">전체
+		<input type="radio" name="category" value="관광지">관광지
+		<input type="radio" name="category" value="숙소">숙소
+		<input type="radio" name="category" value="음식점">음식점
+		<input type="radio" name="category" value="기타">기타
 	<input type="text" name="keyword" id="keyword">
 	<input type="submit" value="검색" id="search">
 	</form>
