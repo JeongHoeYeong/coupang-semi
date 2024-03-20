@@ -1,24 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-pageEncoding="UTF-8"%> <%@ taglib prefix="c"
-uri="http://java.sun.com/jsp/jstl/core"%> <%@ taglib prefix="fmt"
-uri="http://java.sun.com/jsp/jstl/fmt"%> <%@ taglib prefix="sec"
-uri="http://www.springframework.org/security/tags"%>
+pageEncoding="UTF-8"%> 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> 
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%> 
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="UTF-8" />
     <title>Insert title here</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
-      crossorigin="anonymous"
-    />
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-
-    <link href="../../../css/board/boardlist.css" rel="stylesheet">
+    <link href="../../../css/board/boardlist.css" rel="stylesheet" />
   </head>
   <body>
+   <jsp:include page="/WEB-INF/views/header.jsp" />
     <sec:authentication property="principal" var="member" />
     <div class="container">
       <div class="header">
@@ -48,7 +42,8 @@ uri="http://www.springframework.org/security/tags"%>
             <th>작성자</th>
             <th>작성일</th>
             <th><a href="/boardlist?sort=board_views">조회수</a></th>
-            <th><a href="/boardlist?sort=board_like">추천수</a></th>
+            <th><a href="/boardlist?sort=board_like">추천수</a><i class="fa-solid fa-sort-down fa-xm"
+            style="<c:if test="${sort eq 'board_like'}">color: orangered;</c:if>"></i></th>
           </tr>
         </thead>
         <tbody>
@@ -118,14 +113,14 @@ uri="http://www.springframework.org/security/tags"%>
     <form
       action="/boardSearch"
       id="findBoard"
-      style="margin-left: 80px"
       onsubmit="return searchBoard();"
+      style="text-align: center; margin-bottom: 50px;"
     >
       <select
         class="form-select"
         name="select"
         id="select"
-        style="width: 150px"
+        style="display: inline; width: 150px;"
       >
         <option value="all">제목+내용</option>
         <option value="title">제목</option>
@@ -134,8 +129,9 @@ uri="http://www.springframework.org/security/tags"%>
       </select>
 
       <input type="text" name="keyword" id="keyword" />
-      <input type="submit" value="검색" id="search" />
+      <input type="submit" value="검색" id="search" style="margin-left: 0px"/>
       <br />
+      태그선택 &nbsp: &nbsp 
       <input
         type="radio"
         class="btn-check"

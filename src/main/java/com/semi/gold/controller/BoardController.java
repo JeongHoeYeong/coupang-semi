@@ -17,9 +17,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.FileCopyUtils;
@@ -42,8 +39,6 @@ import com.semi.gold.service.BoardService;
 
 @Controller
 public class BoardController {
-
-	private String path = "D:/gold-semi/";
 	
 	@Autowired
 	private BoardService service;
@@ -53,8 +48,8 @@ public class BoardController {
 	
 	// 글 목록
 	@GetMapping("/boardlist")
-	private String list(Model model, BoardPaging paging, Principal principal, String sort,
-			String select, String keyword) {
+	private String list(Model model, BoardPaging paging, Principal principal, String sort
+			) {
 		if(principal !=null) {
 		model.addAttribute("member", principal.getName());
 		}
@@ -63,6 +58,7 @@ public class BoardController {
 		model.addAttribute("list", list);
 		model.addAttribute("boardPaging", new BoardPaging(paging.getPage(), service.total()));
 		model.addAttribute("sort", paging.getSort());
+		System.out.println(model);
 		return "/board/boardlist";
 	}
 	
@@ -100,13 +96,6 @@ public class BoardController {
 	@PostMapping("/boardwrite")
 	private String write(Board b, Principal principal) throws IllegalStateException, IOException {
 		
-		System.out.println(b);
-		
-		if(b.getFile() != null && !b.getFile().isEmpty()) {
-			String url = fileUpload(b.getFile());
-			
-			b.setUrl(url);
-		}
 		b.setId(principal.getName());
 		// 비즈니스 로직 처리 -> service.insert
 		service.insert(b);
@@ -115,14 +104,6 @@ public class BoardController {
 	}
 	
 	
-	public String fileUpload(MultipartFile file) throws IllegalStateException, IOException {
-		UUID uuid = UUID.randomUUID();
-		String fileName = uuid.toString() + "-" + file.getOriginalFilename();
-		
-		File copyFile = new File(path + fileName);
-		file.transferTo(copyFile);
-		return fileName;
-	}
 	
 	// 글 정보
 	@GetMapping("/boardview")
@@ -138,9 +119,7 @@ public class BoardController {
 		List<BoardComment> list = bcService.selectAll(paging);
 		model.addAttribute("boardComment", list);
 		model.addAttribute("paging", new BoardCommentPaging(paging.getPage(), bcService.total(num)));
-		Board b = service.select(num);
-		b.setUrl(path + b.getUrl());
-		model.addAttribute("vo", b);
+		model.addAttribute("vo", service.select(num));
 		if(principal!=null) {
 			String id = principal.getName();
 			vo.setId(id);
