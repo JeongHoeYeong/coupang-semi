@@ -363,7 +363,7 @@
 						href="https://github.com/JeongHoeYeong">Jeong Hoe Yeong</a></li>
 					<li class="pb-2"><i class='bx-fw bx bxs-chevron-right bx-xs'></i><a
 						class="text-decoration-none text-light py-1"
-						href="https://github.com/mutual99/gold-semi-sangho534">Lee
+						href="https://github.com/mutual99">Lee
 							Sang ho</a></li>
 					<li class="pb-2"><i class='bx-fw bx bxs-chevron-right bx-xs'></i><a
 						class="text-decoration-none text-light py-1"
