@@ -4,7 +4,6 @@
 <html lang="ko">
 <head>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-<title>전만순관광지</title>
 <link rel="stylesheet" href="/resources/css/tourplace.css">
 <script type="text/javascript">
 window.onload = function(){
@@ -57,11 +56,16 @@ function tourplaceToBoard(dataList){
 		
 		const newTd = document.createElement("td");
 		const newDivCode = document.createElement("div");
+		
+		const inner_box= document.createElement("div");
+		
 		const newDivName = document.createElement("div");
+	
 		newTd.innerHTML = item.imgTag;
 		newDivCode.innerHTML = item.touristCode;
 		newDivName.innerHTML = item.touristName;
 		
+		newTd.appendChild(newDivCode);
 		newTd.appendChild(newDivCode);
 		newTd.appendChild(newDivName);
 		
@@ -81,6 +85,7 @@ function tourplaceToBoard(dataList){
 </head>
 
 <body>
+	<jsp:include page="/WEB-INF/views/header.jsp" />
 	<div class="tourlist_board">
 		<table class="search_table">
 			<tr>
@@ -99,13 +104,13 @@ function tourplaceToBoard(dataList){
 
 <!-- 	<h1>관광지 목록</h1> -->
 <br>
-
 <div class="photoList">
 	<div class="photoList_div">
-	
+
 		<table id="searchResultTable">
 		</table>
 	</div> 
+</div>
 </div>
 <script src="/resources/js/tourselect.js"></script>
 </body>
