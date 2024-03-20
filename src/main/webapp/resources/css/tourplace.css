@@ -136,5 +136,20 @@ table{
 	margin-bottom: 20px;
 }
 
+#searchResultTable td{
+ background-color:black; 
+ padding:100px;
+ magin:10px;
+ height:10px;
+ weight:10px;
+ 	
+}
+.tourplaceMainImg{
+margin-top:100px;
+ min-height:100%;
+ padding-top:50px;
+ height:200px;
+ weight:500px;
+ display:flex;
 
 
