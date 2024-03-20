@@ -1,0 +1,1 @@
+$("#searchIdText").text(id.value);

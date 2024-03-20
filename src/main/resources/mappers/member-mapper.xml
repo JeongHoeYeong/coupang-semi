@@ -30,12 +30,18 @@
 			<if test="nickname != null">
 				nickname=#{nickname},
 			</if>
-			email=#{email},
+			<if test="email != null">
+				email=#{email},
+			</if>
 			<if test="resident != null">
 				resident=#{resident},
 			</if>
-			gender=#{gender},
-			address=#{address},
+			<if test="gender != null">
+				gender=#{gender},
+			</if>
+			<if test="address != null">
+				address=#{address},
+			</if>
 			<if test="phone != null">
 				phone=#{phone}
 			</if>
@@ -69,11 +75,25 @@
 		SELECT * FROM member WHERE phone=#{phone}
 	</select>
 	
-	<select id="searchId" parameterType="Member">
+	<select id="searchId" parameterType="String" resultType="Member">
 		SELECT id FROM member
-		WHERE name=#{name} AND phone=#{phone}
+		WHERE email=#{email} AND name=#{name}
 	</select>
 	
+	<select id="searchpwd" parameterType="String" resultType="Member">
+		SELECT * FROM member
+		WHERE id=#{id} AND name=#{name}
+	</select>
+	
+	<update id="searchUp" parameterType="Member">
+		UPDATE member
+		<set>
+			<if test="password != null">
+				password=#{password}
+			</if>
+		</set>
+		WHERE id=#{id}
+	</update>
 </mapper>
 
 
