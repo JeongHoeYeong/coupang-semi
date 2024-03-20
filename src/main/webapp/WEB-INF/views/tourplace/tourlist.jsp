@@ -79,11 +79,16 @@ function tourplaceToBoard(dataList){
 		
 		const newTd = document.createElement("td");
 		const newDivCode = document.createElement("div");
+		
+		const inner_box= document.createElement("div");
+		
 		const newDivName = document.createElement("div");
+	
 		newTd.innerHTML = item.imgTag;
 		newDivCode.innerHTML = item.touristCode;
 		newDivName.innerHTML = item.touristName;
 		
+		newTd.appendChild(newDivCode);
 		newTd.appendChild(newDivCode);
 		newTd.appendChild(newDivName);
 		
@@ -157,6 +162,7 @@ function tourplaceToPageIndex(){
 </head>
 
 <body>
+	<jsp:include page="/WEB-INF/views/header.jsp" />
 	<div class="tourlist_board">
 		<table class="search_table">
 			<tr>
@@ -221,6 +227,7 @@ function tourplaceToPageIndex(){
 			</div>
 		</c:forEach> --%>
 	</div> 
+</div>
 </div>
 <script src="/resources/js/tourselect.js"></script>
 </body>

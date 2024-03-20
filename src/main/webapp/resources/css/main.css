@@ -14334,7 +14334,12 @@ fieldset:disabled .btn {
   border-radius: 66% 100% 96% 53% / 67% 89% 81% 73%;
   opacity: 1;
 }
-*/
+
+/* 아이콘 */
+.fa-solid {
+	width: 50px;
+	height: 50px;
+}
 /*검색 버튼*/
 #search {
   margin-left: 20%;
