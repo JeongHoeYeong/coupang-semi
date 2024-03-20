@@ -18,14 +18,14 @@
 </head>
 <body>
 <div class="container">
-		<h1>게시물 등록</h1>
-		<form action="/boardwrite" method="post" enctype="multipart/form-data">
-			<input type="file" name="file" accept="image/*">
+		<h1>게시물 등록</h1>	
+		<form action="/boardwrite" method="post">
 			<div class="form-group">
+			<input type="file" name="file">
 			<select name="category" id="category">
 				<option value="관광지">관광지</option>
-				<option value="숙소">숙소</option>
 				<option value="음식점">음식점</option>
+				<option value="동행">동행</option>
 				<option value="기타">기타</option>
 			</select>
 				<label>Title</label>
@@ -33,9 +33,9 @@
 			</div>
 			<div class="form-group">
 				<label>Content</label>
-				<textarea class="form-control" row="10" name="boardContent"></textarea>
+				<textarea class="form-control" rows="20" name="boardContent"></textarea>
 			</div>
-			<button type="submit" class="btn btn-outline-warning">등록</button>
+			<button type="submit" class="btn btn-outline-warning" onclick="subimt()">등록</button>
 		</form>
 	</div>
 </body>

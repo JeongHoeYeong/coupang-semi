@@ -1,0 +1,13 @@
+h1 {
+  margin-top: 70px;
+}
+.form-group {
+  margin: 20px 0;
+}
+.liClick {
+  cursor: pointer;
+}
+#disLike {
+  color: red;
+  cursor: pointer;
+}

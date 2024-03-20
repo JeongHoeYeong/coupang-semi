@@ -1,0 +1,19 @@
+.bc-count {
+  color: orangered;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+
+#findBoard {
+  text-align: center;
+}
+
+.form-select {
+  display: inline;
+}
+
+.pagination {
+	display: flex;
+}

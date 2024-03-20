@@ -22,8 +22,7 @@
 
 	<!-- 인증 매니저 : 다양한 방식의 인증을 처리할 수 있도록 설계 -->
 	<security:authentication-manager>
-		<security:authentication-provider
-			user-service-ref="memberService">
+		<security:authentication-provider user-service-ref="memberService">
 			<security:password-encoder hash="bcrypt" />
 		</security:authentication-provider>
 	</security:authentication-manager>

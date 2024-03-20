@@ -23,8 +23,8 @@
 			<div class="form-group">
 			<select name="category" id="category">
 				<option value="관광지">관광지</option>
-				<option value="숙소">숙소</option>
 				<option value="음식점">음식점</option>
+				<option value="동행">동행</option>
 				<option value="기타">기타</option>
 			</select>
 				<label>Title</label>
@@ -32,7 +32,7 @@
 			</div>
 			<div class="form-group">
 				<label>Content</label>
-				<textarea class="form-control" row="10" name="boardContent">${board.boardContent}</textarea>
+				<textarea class="form-control" rows="20" name="boardContent">${board.boardContent}</textarea>
 			</div>
 			<button type="submit" class="btn btn-outline-warning">수정</button>
 		</form>

@@ -24,7 +24,6 @@ public class BoardDAO {
 	}
 	
 	public List<Board> selectAll(BoardPaging paging) {
-		System.out.println(paging);
 		return session.selectList("board.selectAll", paging);
 	}
 	

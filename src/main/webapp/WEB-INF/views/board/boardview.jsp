@@ -15,17 +15,11 @@ pageEncoding="UTF-8"%>
       crossorigin="anonymous"/>
       <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
-    <style>
-      h1 {
-        margin-top: 70px;
-      }
-      .form-group {
-        margin: 20px 0;
-      }
-      img {
-        width: 200px;
-      }
-    </style>
+	<script
+      src="https://kit.fontawesome.com/4602e82315.js"
+      crossorigin="anonymous"
+    ></script>
+    <link href="../../../css/board/boardview.css" rel="stylesheet">
   </head>
   <body>
   <form id="checklike">
@@ -49,7 +43,7 @@ pageEncoding="UTF-8"%>
           <label>Content</label>
           <textarea
             class="form-control"
-            row="10"
+            rows="25"
             name="boardContent"
             style="resize: none"
           >
@@ -58,10 +52,13 @@ ${vo.boardContent}</textarea
         </div>
         <c:if test ="${!empty id}">
         <c:if test= "${empty likeBoard}">
-        	<input type="button" value="추천" id="like">
+        	<i class="fa-regular fa-heart fa-3x" id="like"></i>
+        	${vo.boardLike}
         </c:if>
         <c:if test="${!empty likeBoard}">
-        	<input type="button" value="추천취소" id="disLike">
+        	<i class="fa-solid fa-heart fa-3x" id="disLike"></i>
+        	${vo.boardLike}
+        	
         </c:if>
 			<c:if test="${id eq vo.id}">
 			<button type="submit" class="btn btn-outline-warning">수정</button>
@@ -77,7 +74,7 @@ ${vo.boardContent}</textarea
       <c:forEach items="${boardComment}" var="boardComment" varStatus="status">
       	<c:choose>
       	<c:when test="${boardComment.parentNo==0}">
-      		<li class="liClick" style="cursor: pointer;">
+      		<li class="liClick">
       		<c:if test="${boardComment.bcDelete eq 'n'}">
       			작성자 : ${boardComment.member.nickname}
       			날짜 : <fmt:formatDate value="${boardComment.bcDate}"

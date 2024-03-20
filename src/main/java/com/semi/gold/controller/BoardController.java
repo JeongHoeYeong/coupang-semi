@@ -2,6 +2,8 @@ package com.semi.gold.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URLDecoder;
+import java.nio.file.Files;
 import java.security.Principal;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -15,15 +17,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.mysql.cj.protocol.a.NativeConstants.IntegerDataType;
+
 import com.semi.gold.model.vo.Board;
 import com.semi.gold.model.vo.BoardComment;
 import com.semi.gold.model.vo.BoardCommentPaging;
@@ -55,7 +61,7 @@ public class BoardController {
 		paging.setSort(sort);
 		List<Board> list = service.selectAll(paging);
 		model.addAttribute("list", list);
-		model.addAttribute("paging", new BoardPaging(paging.getPage(), service.total()));
+		model.addAttribute("boardPaging", new BoardPaging(paging.getPage(), service.total()));
 		model.addAttribute("sort", paging.getSort());
 		return "/board/boardlist";
 	}
@@ -68,11 +74,11 @@ public class BoardController {
 			model.addAttribute("member", principal.getName());
 			}
 		paging.setSort(sort);
-		List<Board> list = service.boardSearch(keyword, select, paging, category);
+		List<Board> list = service.boardSearch(keyword.trim(), select, paging, category);
 		model.addAttribute("list", list);
-		model.addAttribute("paging", new BoardPaging(paging.getPage(), service.searchTotal(keyword, select, category)));
+		model.addAttribute("boardPaging", new BoardPaging(paging.getPage(), service.searchTotal(keyword.trim(), select, category)));
 		model.addAttribute("sort", paging.getSort());
-		model.addAttribute("keyword", keyword);
+		model.addAttribute("keyword", keyword.trim());
 		model.addAttribute("select", select);
 		model.addAttribute("category", category);
 		return "/board/boardSearch";
@@ -96,7 +102,7 @@ public class BoardController {
 		
 		System.out.println(b);
 		
-		if(!b.getFile().isEmpty()) {
+		if(b.getFile() != null && !b.getFile().isEmpty()) {
 			String url = fileUpload(b.getFile());
 			
 			b.setUrl(url);
@@ -104,7 +110,7 @@ public class BoardController {
 		b.setId(principal.getName());
 		// 비즈니스 로직 처리 -> service.insert
 		service.insert(b);
-		
+		System.out.println(b);
 		return "redirect:/boardview?no=" + b.getBoardNo();
 	}
 	
@@ -132,12 +138,13 @@ public class BoardController {
 		List<BoardComment> list = bcService.selectAll(paging);
 		model.addAttribute("boardComment", list);
 		model.addAttribute("paging", new BoardCommentPaging(paging.getPage(), bcService.total(num)));
-		model.addAttribute("vo", service.select(num));
+		Board b = service.select(num);
+		b.setUrl(path + b.getUrl());
+		model.addAttribute("vo", b);
 		if(principal!=null) {
 			String id = principal.getName();
 			vo.setId(id);
 			vo.setBoardNo(num);
-			System.out.println(id);
 			LikeBoard likeBoard = service.checkLikeBoard(vo);
 			model.addAttribute("id", id);
 			model.addAttribute("likeBoard", likeBoard);

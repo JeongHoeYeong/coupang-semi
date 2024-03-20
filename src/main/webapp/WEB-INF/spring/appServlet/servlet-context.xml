@@ -28,6 +28,12 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
+	<!-- MultipartFile 빈 등록 -->
+	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<beans:property name="defaultEncoding" value="utf-8" />
+		<beans:property name="maxUploadSize" value="-1" />
+	</beans:bean>
+	
 	<context:component-scan base-package="com.semi.gold" />
 	
 </beans:beans>

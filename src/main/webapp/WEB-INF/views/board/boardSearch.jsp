@@ -70,17 +70,17 @@
 		</table>
 		<nav>
 			<ul class="pagination">
-				<li class="page-item ${paging.prev ? '' : 'disabled'}">
+				<li class="page-item ${boardPaging.prev ? '' : 'disabled'}">
 				<a class="page-link" 
 				href="/boardSearch?category=${category}&select=${select}&keyword=${keyword}&sort=${sort}&page=${boardPaging.startPage - 1}">Previous</a></li>
 				
-				<c:forEach begin="${paging.startPage}" end="${paging.endPage}" var="page">
-					<li class="page-item"><a class="page-link ${paging.page == page ? 'active' : ''}"
+				<c:forEach begin="${boardPaging.startPage}" end="${boardPaging.endPage}" var="page">
+					<li class="page-item"><a class="page-link ${boardPaging.page == page ? 'active' : ''}"
 					 href="/boardSearch?category=${category}&select=${select}&keyword=${keyword}&sort=${sort}&page=${page}">${page}</a></li>
 				</c:forEach>
 				
-				<li class="page-item ${paging.next ? '' : 'disabled'}"><a class="page-link"
-				 href="/boardSearch?category=${category}&select=${select}&keyword=${keyword}&sort=${sort}&page=${paging.endPage + 1}">Next</a></li>
+				<li class="page-item ${boardPaging.next ? '' : 'disabled'}"><a class="page-link"
+				 href="/boardSearch?category=${category}&select=${select}&keyword=${keyword}&sort=${sort}&page=${boardPaging.endPage + 1}">Next</a></li>
 			</ul>
 		</nav>
 	</div>
@@ -89,16 +89,15 @@
 		<option value="all">제목+내용</option>
 		<option value="title">제목</option>
 		<option value="content">내용</option>
-		<option value="nickname">글쓴이</option>
-		<option value="category">카테고리</option> 
+		<option value="nickname">글쓴이</option> 
 	</select>
-		<input type="radio" name="category" value="전체">전체
-		<input type="radio" name="category" value="관광지">관광지
-		<input type="radio" name="category" value="숙소">숙소
-		<input type="radio" name="category" value="음식점">음식점
-		<input type="radio" name="category" value="기타">기타
 	<input type="text" name="keyword" id="keyword">
 	<input type="submit" value="검색" id="search">
+	<input type="radio" name="category" value="전체">전체
+		<input type="radio" name="category" value="관광지">관광지
+		<input type="radio" name="category" value="음식점">음식점
+		<input type="radio" name="category" value="동행">동행
+		<input type="radio" name="category" value="기타">기타
 	</form>
 	<script>
 	function searchBoard() {
