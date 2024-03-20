@@ -46,8 +46,15 @@ function getSearchList(selectedIdx){
 		})
 	.then(response => response.json())
 	.then(data => {
+		
+		totalSearchListSize = data.totalListSize;
+		
+		//검색 데이터를 뿌림
 		tourplaceToBoard(data.searchList);
-		tourplaceToPageIndex(data.totalListSize);
+		
+		//인덱스를 그림
+		tourplaceToPageIndex();
+		
 	})
 	.catch(error => {
 		console.error('Error:', error);
@@ -91,26 +98,58 @@ function tourplaceToBoard(dataList){
 	
 }
 
-let showPageCount = 30;
-function tourplaceToPageIndex(totalListSize){
-
+let currentIndexBundle = 1;
+let totalSearchListSize = 0;
+let showPageCount = 15;
+const indexBundleSize = 10;
+function tourplaceToPageIndex(){
+	
 	const pageIdxDiv = document.querySelector("#searchResultPageIndex");
 	pageIdxDiv.innerHTML = "";
 	
-	let totalIdxCount = totalListSize/showPageCount;
-	if(totalListSize%showPageCount > 0){
+	let totalIdxCount = (totalSearchListSize/showPageCount).toFixed();
+	if(totalSearchListSize%showPageCount > 0){
 		totalIdxCount++;
 	}
 	
-	for(let i = 1; i < totalIdxCount; i++){
+	let totalIdxBundleCount = (totalIdxCount/indexBundleSize).toFixed();
+	if(totalIdxCount%indexBundleSize > 0){
+		totalIdxBundleCount++;
+	}
+	
+	// drawIndexCount : 그려질 인덱스 개수
+	// Bundle 현재 페이지가 끝Bundle까지 왔을때
+	let drawIndexCount = 0;
+	if(currentIndexBundle==totalIdxBundleCount){
+		drawIndexCount = totalIdxCount%indexBundleSize;
+		
+		if(totalIdxCount%indexBundleSize == 0){
+			drawIndexCount = indexBundleSize;
+		}
+	}else{
+		drawIndexCount = indexBundleSize;
+	}
+
+	let previousBundle = document.createElement("a");
+	previousBundle.innerHTML = "◀"; 
+	pageIdxDiv.appendChild(previousBundle);
+	pageIdxDiv.innerHTML = pageIdxDiv.innerHTML + " ";
+	for(let i = 1; i <= drawIndexCount; i++){
+		
 		let newIdx = document.createElement("a");
-		newIdx.innerHTML = i;
-		newIdx.setAttribute("onclick", "getSearchList("+i+")");
+		let idxNumber = i+((currentIndexBundle-1)*indexBundleSize);
+		newIdx.innerHTML = idxNumber;
+		newIdx.setAttribute("onclick", "getSearchList("+idxNumber+")");
 		
 		pageIdxDiv.appendChild(newIdx);
-		
 		pageIdxDiv.innerHTML = pageIdxDiv.innerHTML + " ";
 	}
+	let nextBundle = document.createElement("a");
+	nextBundle.innerHTML = "▶";  
+	pageIdxDiv.appendChild(nextBundle);
+	pageIdxDiv.innerHTML = pageIdxDiv.innerHTML + " ";
+	
+	// 
 	
 }
 </script>
@@ -164,11 +203,12 @@ function tourplaceToPageIndex(totalListSize){
 <div class="photoList">
 	<div class="photoList_div">
 	
+	
+		<div id="searchResultPageIndex">
+		</div>
 		<table id="searchResultTable">
 		</table>
 		
-		<div id="searchResultPageIndex">
-		</div>
 		<%-- <c:forEach items="${list}" var="item">
 			<div class="box">
 				${item.imgTag}
