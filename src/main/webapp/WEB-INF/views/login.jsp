@@ -44,7 +44,7 @@
 				<div>
 				<span>For got your </span>
 				<a href="/findId">id / </a>
-				<a href="/searchPwd">password?</a></div>
+				<a href="/findpwd">password?</a></div>
 				<button type="submit">Sign In</button>
 			</form>
 		</div>

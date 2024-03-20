@@ -67,9 +67,48 @@ public class MemberService implements UserDetailsService {
 	}
 	
 	// 회원정보 찾기 기능
-	public Member searchId(String email) {
-		return dao.searchId(email);
+	public Member searchId(Member m) {
+		return dao.searchId(m);
 	}
 	
+	// 비밀번호 찾기
+	public Member searchpwd(Member m) {
+		return dao.searchpwd(m);
+	}
+
+	public int searchUpdate(Member m) {
+		String encodePw = bcpe.encode(m.getPassword());
+		m.setPassword(encodePw);
+		return dao.updateMember(m);
+	}
 	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

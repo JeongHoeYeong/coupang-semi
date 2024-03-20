@@ -68,13 +68,7 @@ $("#nickname").keyup(() => {
 });
 
 $("#password").keyup(() => {
-  if (!expldText.test(id.value)) {
-    $("#checkText")
-      .text("아이디는 4자 이상 20자 이하의 대소문자로 시작하는 조합입니다.")
-      .css("color", "red");
-    id.focus();
-    return false;
-  } else if (password.value == "") {
+	if (password.value == "") {
     $("#passwordText").text("비밀번호를 입력하세요.").css("color", "red");
     password.focus();
     return false;

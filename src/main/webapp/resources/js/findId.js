@@ -1,15 +1,15 @@
-$("#find").keyup(() => {
+$("#find").click(() => {
   $.ajax({
     type: "post",
-    url: "/findId",
-    data: "email=" + $("#email").val(),
+    url: "/find",
+    data: $("#frm").serialize(),
 
     success: function (result) {
-		if(result){
-			$("#findidText").text("사용 불가한 이메일입니다.").css("color", "red");
-		} else{
-			$("#findidText").text("사용 가능한 이메일입니다.").css("color", "green");
-		}
-    },
+      					if(result) {
+						$("#resultText").text("회원님의 ID : " + result).css("color", "green");
+					} else {
+						$("#resultText").text("회원 정보가 없습니다.").css("color", "red");
+					}
+    }
   });
 });
