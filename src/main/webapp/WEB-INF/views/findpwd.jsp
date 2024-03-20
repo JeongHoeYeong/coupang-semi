@@ -26,7 +26,7 @@
 		</section>
 		<div class="btnSearch">
 			<input type="button" name="enter" value="찾기" id="find"> <a
-				href="/login"><input type="button" name="cancle" value="취소"></a>
+				href="/login"><input type="button" name="cancle" value="로그인"></a>
 		</div>
 	</form>
 	<div id="resultText"></div>

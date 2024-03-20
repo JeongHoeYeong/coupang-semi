@@ -12,7 +12,7 @@ const expPassword =
 const expNameText = /^[가-힣]+$/;
 const expNickText = /^[A-Za-z가-힝0-9]{2,20}$/;
 const expResidentText =
-  /^(?:[0-9]{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[1,2][0-9]|3[0,1]))-[1-4][0-9]{6}$/;
+  /^(?:[0-9]{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[1,2][0-9]|3[0,1]))[1-4][0-9]{6}$/;
 const expPhoneText = /^\d{3}-\d{3,4}-\d{4}$/;
 const expEmailText = /^[A-Za-z-0-9\-\.]+@[A-Ja-z-0-9\-\.]+\.[A-Ja-z-0-9]+$/;
 
@@ -68,7 +68,7 @@ $("#nickname").keyup(() => {
 });
 
 $("#password").keyup(() => {
-	if (password.value == "") {
+  if (password.value == "") {
     $("#passwordText").text("비밀번호를 입력하세요.").css("color", "red");
     password.focus();
     return false;
@@ -131,7 +131,7 @@ $("#resident").keyup(() => {
           .css("color", "red");
       } else if (!expResidentText.test(resident.value)) {
         $("#residentText")
-          .text("주민등록번호을 확인하세요. 하이픈(-)을 포함해야 합니다.")
+          .text("주민등록번호을 확인하세요.")
           .css("color", "red");
         resident.focus();
       } else {

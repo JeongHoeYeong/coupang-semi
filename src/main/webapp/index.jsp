@@ -1,17 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <title>전국을 만나는 순간</title>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="/resources/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-
 
 <!-- Load Tempalte CSS -->
 
@@ -34,9 +32,10 @@
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" />
 
-
 <!-- boot cdn -->
-<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+	rel="stylesheet" />
+
 
 <style>
 .fa-solid {
@@ -215,31 +214,19 @@
 <!-- Search Start -->
 <div class="container-fluid" style="padding: 35px">
 	<div class="col-md-5">
-		<select class="form-select py-2 text-center" id="sele"
-			onchange="changeFn()">
-			<option value="" selected>순간</option>
+		<select class="form-select py-2 text-center" id="sele" name="sele"
+			onchange="selectBoxChange(this.value);">
+			<option value="/" selected>순간</option>
 			<option value="tourist">관광</option>
 			<option value="food">맛집</option>
 			<option value="stay">숙박</option>
-		</select> 
-		<select class="form-select py-2 text-center" id="dosi"
-			onchange="changeFn()">
-			<option value="" selected>지역</option>
-			<option value="서울">서울</option>
-			<option value="경기도">경기도</option>
-			<option value="경상남도">경상남도</option>
-			<option value="경상북도">경상북도</option>
-			<option value="전라남도">전라남도</option>
-			<option value="전북">전라북도</option>
-			<option value="충청북도">충청북도</option>
-			<option value="충청남도">충청남도</option>
-			<option value="제주">제주도</option>
-			<option value="부산">부산</option>
-
 		</select>
+		<input type="text" class="form-control py-2 text-center" id="dosi" name="dosi"
+			value="" onchange="changeFn()" placeholder="검색어를 입력하세요"/>
 		<div class="col-md-2 px-5">
 			<button class="btn btn-warning px-5" id="btn">Click!</button>
 		</div>
+		<span id="text"></span>
 	</div>
 </div>
 <!-- Start Recent Work -->
@@ -376,7 +363,7 @@
 						href="https://github.com/JeongHoeYeong">Jeong Hoe Yeong</a></li>
 					<li class="pb-2"><i class='bx-fw bx bxs-chevron-right bx-xs'></i><a
 						class="text-decoration-none text-light py-1"
-						href="https://github.com/mutual99">Lee
+						href="https://github.com/mutual99/gold-semi-sangho534">Lee
 							Sang ho</a></li>
 					<li class="pb-2"><i class='bx-fw bx bxs-chevron-right bx-xs'></i><a
 						class="text-decoration-none text-light py-1"
@@ -417,11 +404,11 @@
 			</div>
 		</div>
 </footer>
-
 <!-- End Footer -->
 <!-- Core theme JS-->
 <script src="resources/js/jquery.min.js"></script>
 <script src="resources/js/mainselect.js"></script>
+<script src="resources/js/tourselect.js"></script>
 <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
 </body>
 </html>

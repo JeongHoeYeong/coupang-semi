@@ -41,10 +41,9 @@
 				<span>or use your account</span> 
 				<input type="text" name="username" placeholder="id" /> 
 				<input type="password" name="password" placeholder="password" />
-				<div>
-				<span>For got your </span>
-				<a href="/findId">id / </a>
-				<a href="/findpwd">password?</a></div>
+				<div style="margin: 10px">
+				<a href="/findId">아이디 찾기</a><span> / </span> 
+				<a href="/findpwd">비밀번호 찾기</a></div>
 				<button type="submit">Sign In</button>
 			</form>
 		</div>
