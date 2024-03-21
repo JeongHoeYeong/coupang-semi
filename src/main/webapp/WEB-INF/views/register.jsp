@@ -4,22 +4,12 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>전만순</title>
+<title>전만순회원가입</title>
 <link rel="stylesheet" href="resources/css/register.css" />
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script
 	src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 
-<style>
-	#addressone {
-	width: 80px;
-	height: 40px;
-	text-align: center;
-	color: white;
-	background-color: #4287f5;
-	border: none;
-}
-</style>
 </head>
 <body>
 	<form action="/register" method="post" name="regform" id="regform"
@@ -29,6 +19,7 @@
 			<a href="/"> <img src="resources/image/logobackclear.png"
 				style="margin-left: 100px" /></a>
 			<!-- 2. 필드 -->
+			<h1 id="h1">회원가입</h1>
 			<div class="field">
 				<b>아이디</b> <input type="text" id="id" name="id" placeholder="아이디 입력"
 					maxlength="20" /> <span id="checkText"

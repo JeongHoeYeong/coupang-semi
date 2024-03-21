@@ -37,7 +37,10 @@ p {
 span {
 	font-size: 12px;
 }
-
+#signIn{
+	background-image: linear-gradient(180deg, #FFDDB6 10%, #FFF8A9 100%);
+	border: none;
+}
 a {
 	color: #333;
 	font-size: 14px;
@@ -47,15 +50,15 @@ a {
 
 button {
     border-radius: 20px;
-    border: 1px solid #5e87e0;
-    background-color: #5e87e0;
-	color: #FFFFFF;
+    background-color: white;
+	color: black;
 	font-size: 12px;
 	font-weight: bold;
 	padding: 12px 45px;
 	letter-spacing: 1px;
 	text-transform: uppercase;
 	transition: transform 80ms ease-in;
+	border: none;
 }
 
 button:active {
@@ -66,9 +69,13 @@ button:focus {
 	outline: none;
 }
 
+button:hover{
+	cursor: pointer;
+}
+
 button.ghost {
-	background-color: transparent;
-	border-color: #FFFFFF;
+	background-color: white;
+	border-color: white;
 }
 
 form {
@@ -92,7 +99,7 @@ input {
 
 .container {
 	background-color: #fff;
-	border-radius: 10px;
+	border-radius: 20px;
 	box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px
 		rgba(0, 0, 0, 0.22);
 	position: relative;
@@ -214,6 +221,7 @@ z-index
 .overlay-right {
 	right: 0;
 	transform: translateX(0);
+	background-image: linear-gradient(180deg, #FFDDB6 10%, #FFF8A9 100%);
 }
 
 .container.right-panel-active .overlay-right {

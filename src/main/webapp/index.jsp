@@ -1,42 +1,38 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="sec"
+	uri="http://www.springframework.org/security/tags"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <title>전국을 만나는 순간</title>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-<script src="/resources/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 
-<!-- Load Tempalte CSS -->
-
+<!-- CSS -->
+<link rel="stylesheet" href="/resources/css/reset.css" />
 <link href="/resources/css/maintemplatemo.css" rel="stylesheet" />
 <link href="/resources/css/main.css" rel="stylesheet" />
 <link href="/resources/css/review.css" rel="stylesheet" />
-
-<!-- Font CSS -->
-<script src="https://kit.fontawesome.com/4602e82315.js"
-	crossorigin="anonymous"></script>
 <link href="/resources/css/boxicon.min.css" rel="stylesheet" />
 <link
 	href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap"
 	rel="stylesheet" />
-
-<!-- Custom CSS -->
 <link rel="stylesheet" href="/resources/css/custom.css" />
-<!-- reset CSS -->
-<link rel="stylesheet" href="/resources/css/reset.css" />
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" />
-
-<!-- boot cdn -->
 <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
 	rel="stylesheet" />
+	
+<!-- SCRIPT -->
+<script src="https://kit.fontawesome.com/4602e82315.js"
+	crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="/resources/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 
-
+<!-- STYLE -->
 <style>
 .fa-solid {
 	width: 50px;

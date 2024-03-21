@@ -44,7 +44,7 @@
 				<div style="margin: 10px">
 				<a href="/findId">아이디 찾기</a><span> / </span> 
 				<a href="/findpwd">비밀번호 찾기</a></div>
-				<button type="submit">Sign In</button>
+				<button id="signIn" type="submit" >Sign In</button>
 			</form>
 		</div>
 		<div class="overlay-container">

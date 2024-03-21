@@ -36,24 +36,21 @@
 		<!-- Sidebar -->
 		<ul
 			class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
-			id="accordionSidebar">
+			id="accordionSidebar" >
 
 			<!-- Sidebar - Brand -->
 			<a
 				class="sidebar-brand d-flex align-items-center justify-content-center"
-				href="/">
-				<div class="sidebar-brand-icon rotate-n-15">
+				href="/" >
+				<div class="sidebar-brand-icon rotate-n-15" >
 					<i class="fas fa-laugh-wink"></i>
 				</div>
-				<div class="sidebar-brand-text mx-3">전국을 만나는 순간</div>
+				<img src="resources/image/logobackclear.png" style="width: 50px;">
 			</a>
 
-			<!-- Divider -->
-			<hr class="sidebar-divider my-0">
-
 			<!-- Nav Item - Dashboard -->
-			<li class="nav-item active"><a class="nav-link" href="/member">
-					<i class="fas fa-fw fa-tachometer-alt"></i> <span>나의 정보</span>
+			<li class="nav-item active" ><a class="nav-link" href="/member">
+					<i class="fas fa-fw fa-tachometer-alt" ></i> <span>나의 정보</span>
 			</a></li>
 
 			<!-- Divider -->
@@ -144,13 +141,7 @@
 						<div class="topbar-divider d-none d-sm-block"></div>
 
 						<!-- Nav Item - User Information -->
-						<li class="nav-item dropdown no-arrow"><a
-							class="nav-link dropdown-toggle" href="#" id="userDropdown"
-							role="button" data-toggle="dropdown" aria-haspopup="true"
-							aria-expanded="false"> <span
-								class="mr-2 d-none d-lg-inline text-gray-600 small"><sec:authentication property="principal.nickname" /></span> <img class="img-profile rounded-circle"
-								src="img/undraw_profile.svg">
-						</a> <!-- Dropdown - User Information -->
+						<li class="nav-item dropdown no-arrow"> <!-- Dropdown - User Information -->
 							<div
 								class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
 								aria-labelledby="userDropdown">
@@ -360,13 +351,13 @@
 	<!-- End of Main Content -->
 
 	<!-- Footer -->
-	<footer class="sticky-footer bg-white">
+<!-- <footer class="sticky-footer bg-white">
 		<div class="container my-auto">
 			<div class="copyright text-center my-auto">
 				<span>Copyright &copy; Your Website 2021</span>
 			</div>
 		</div>
-	</footer>
+	</footer> -->	
 	<!-- End of Footer -->
 
 	</div>

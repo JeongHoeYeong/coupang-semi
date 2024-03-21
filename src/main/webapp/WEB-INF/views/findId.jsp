@@ -8,44 +8,10 @@
 <head>
 <meta charset="UTF-8">
 <title>아이디 찾기</title>
-<link rel="stylesheet" href="resources/css/register.css" />
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-<style>
-h1 {
-	margin-top: 50px;
-}
+<link rel="stylesheet" href="resources/css/register.css" />
+<link rel="stylesheet" href="resources/css/findId.css" />
 
-#one {
-	text-align: center;
-}
-
-#find, #cancle {
-	padding: auto;
-	margin-left: 3px;
-	width: 49%;
-	background-color: blanchedalmond;
-	color: black;
-	font-size: medium;
-	font-weight: bold;
-}
-
-label {
-	font-weight: bold;
-}
-
-#email {
-	margin-bottom: 40px;
-}
-
-#resultText {
-	font-weight: bold;
-	margin: auto;
-	display: block;
-	height: 20px;
-	text-align: center;
-	font-size: large;
-}
-</style>
 </head>
 <body>
 	<!-- 1. 로고 -->
