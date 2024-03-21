@@ -1,18 +1,16 @@
 @charset "UTF-8";
+
 .tourlist_board {
-	margin-top:100px;
+	margin-top: 100px;
 	display: flex;
 	justify-content: center;
 }
-.imgname{
-	text-align:center;
-	
+
+.imgname {
+	text-align: center;
 }
-.tourplaceMainImg {
-	width: 100px;
-	height: 70px;
-	padding:30px;
-}
+
+
 
 .search_table {
 	min-width: 1500px;
@@ -20,39 +18,41 @@
 	border-collapse: collapse;
 	text-align: left;
 }
- #searchButton{
- background-color:#ffc107;
-  width: 500px;
-  height: 32px;
-  font-size: 15px;
-  border: 0;
-  border-radius: 15px;
-  outline: none;
-  padding-left: 10px;
- box-shadow: 3px 3px 3px black;
 
- }
-  #searchButton:hover{
-  color: #fff;
-  background-color: #ffca2c;
-  border-color: #ffc720;
-  
-  }
- #search_keyword{
-  width: 500px;
-  height: 32px;
-  font-size: 15px;
-  border: 0;
-  border-radius: 15px;
-  outline: none;
-  padding-left: 10px;
-  background-color: rgb(233, 233, 233);
-  
- }
-.search_header{
-	padding-left:30px;
-	padding:25px;
-    color:black;
+#searchButton {
+	background-color: #ffc107;
+	width: 500px;
+	height: 32px;
+	font-size: 15px;
+	border: 0;
+	border-radius: 15px;
+	outline: none;
+	padding-left: 10px;
+	box-shadow: 3px 3px 3px black;
+}
+
+#searchButton:hover {
+	color: #fff;
+	background-color: #ffca2c;
+	border-color: #ffc720;
+	
+}
+
+#search_keyword {
+	width: 500px;
+	height: 32px;
+	font-size: 15px;
+	border: 0;
+	border-radius: 15px;
+	outline: none;
+	padding-left: 10px;
+	background-color: rgb(233, 233, 233);
+}
+
+.search_header {
+	padding-left: 30px;
+	padding: 25px;
+	color: black;
 	width: 200px;
 	background-color: #ebebeb;
 	text-align: center;
@@ -70,86 +70,86 @@ td.input_form>input {
 }
 
 .search_content {
-	padding-left: 5px;	
+	padding-left: 5px;
 }
 
-.listTilte{
+.listTilte {
 	display: flex;
-    text-align: center;
-    justify-content: center;
-    padding-top: 18px;
+	text-align: center;
+	justify-content: center;
+	padding-top: 18px;
 }
-
-td.search_content input_form > input{
-	background-color: red;
-}
-
-.box{
+.box {
 	width: 100px;
 	height: 150px;
 	padding: 5px;
 	margin: 5px;
-	background-color: yellow;
 	float: left;
 }
-.photoList img{
-width: 100%;
-  height: 200px;
-  object-fit: cover;
+
+.photoList img {
+	width: 300px;
+	height:200px;	
+	table-layout:fixed;
+	object-fit: cover;
 	justify-content: center;
 	background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
- 
- 
-	
+	padding:25px 25px 20px 25px;
+
+}
+
 .photoList {
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-  padding:30px;
-  min-height: 250px;
-	
+	color: black; /*폰트 색상*/
+	align-items: start;
+	display: flex;
+	font-size: 0.8rem;
+	align-items: start;
 	
 }
 
 #searchResultTable {
+	border-collapse: separate;
+    border-spacing:60px 40px;
 	width: 100%;
 	text-align: center;
 }
 
-table{
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  width: 300px;
-  justify-content: center;
-}
-.imgpage{
-	background-color:pink;
-	
-}
-
-#searchResultPageIndex{
+#searchResult {
+	border-collapse: separate;
+    border-spacing:30px 10px;
+	column-gap: 2px;
+	display: flex;
+	justify-content: center;
 	margin-bottom: 20px;
+	max-width:100%;
 }
 
 #searchResultTable td{
- background-color:black; 
- padding:100px;
- magin:10px;
- height:10px;
- weight:10px;
- 	
+	background-color: #fff; /*사진 안 카드*/
+	border-radius: 10px;
+	box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1); /*사진 안 배경*/	
+	padding-bottom:30px;
 }
-.tourplaceMainImg{
-margin-top:100px;
- min-height:100%;
- padding-top:50px;
- height:200px;
- weight:500px;
- display:flex;
+div{
+	
+	border-collapse: collapse;
+	justify-content: center;
+}
 
-
+.tourplaceMainImg:hover {
+	opacity: .8;
+}
+#searchResultPageIndex{
+	width:100px;
+	color:#000;
+	display:flex;
+	padding-left:1000px;
+}
+#searchResultPageIndex a{
+	padding:20px;
+}
+#searchResultPageIndex a:hover{
+ cursor: pointer;
+  transition: 0.2s border ease;
+  color: #ffca2c;
+}

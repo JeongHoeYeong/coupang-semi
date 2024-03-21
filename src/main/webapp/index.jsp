@@ -225,21 +225,9 @@
 			<option value="food">맛집</option>
 			<option value="stay">숙박</option>
 		</select> 
-		<select class="form-select py-2 text-center" id="dosi"
-			onchange="changeFn()">
-			<option value="" selected>지역</option>
-			<option value="서울">서울</option>
-			<option value="경기도">경기도</option>
-			<option value="경상남도">경상남도</option>
-			<option value="경상북도">경상북도</option>
-			<option value="전라남도">전라남도</option>
-			<option value="전북">전라북도</option>
-			<option value="충청북도">충청북도</option>
-			<option value="충청남도">충청남도</option>
-			<option value="제주">제주도</option>
-			<option value="부산">부산</option>
-
-		</select>
+		<input class="form-control py-2 text-center" id="dosi"
+			onchange="changeFn()" placeholder="검색어를 입력하세요"/>
+		</input>
 		<div class="col-md-2 px-5">
 			<button class="btn btn-warning px-5" id="btn">Click!</button>
 		</div>
