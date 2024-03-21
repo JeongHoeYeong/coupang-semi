@@ -20,11 +20,6 @@
 <script type="text/javascript" src="/js/apikey.js"></script>
 </head>
 <body>
-<div>
-	<div class="circle one"></div>
-	<div class="circle two"></div>
-	<div class="circle three"></div>
-</div>
 	<a href="/"><img src="resources/image/logobackclear.png" id="imglogo">
 		<div class="container" id="container">
 			<div class="form-container sign-up-container">
