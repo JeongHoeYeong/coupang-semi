@@ -10,7 +10,7 @@ $("#btn").click(() => {
   if (value1 == "tourist") {
     location.href = "tourplace/search";
   } else if (value1 == "food") {
-    location.href = "food";
+    location.href = "restaurant/search";
   } else {
     location.href = "/";
   }

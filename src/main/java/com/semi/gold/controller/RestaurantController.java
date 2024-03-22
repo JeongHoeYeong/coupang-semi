@@ -13,9 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.semi.gold.model.dto.RestaurantSearchDTO;
-import com.semi.gold.model.dto.TourplaceSearchDTO;
 import com.semi.gold.model.vo.Restaurant;
-import com.semi.gold.model.vo.TourPlace;
 import com.semi.gold.service.RestaurantService;
 
 @RequestMapping("/restaurant")
@@ -39,6 +37,7 @@ public class RestaurantController {
 		
 		List<Restaurant> searchList = service.searchRestaurant(dto);
 		returnMap.put("searchList", searchList);
+		
 		
 		return returnMap;
 	}	

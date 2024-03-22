@@ -5,6 +5,7 @@
 <head>
 <link href="/resources/css/tourplace.css" rel="stylesheet"
 	type="text/css">
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <title>Home</title>
 </head>
 
@@ -261,7 +262,21 @@ function clickPreviousBundle(){
 		</c:forEach> --%>
 	</div> 
 </div>
+<div class="return-top">
+<a href="#"> <span class="element3">Top</span></a>
 </div>
+<footer class="bg-success pt-4">
+		<div class="w-100 bg-success py-3">
+			<div class="container">
+				<div class="row pt-2">
+					<div class="col-lg-5 col-sm-12">
+						<p class="text-center text-light light-300">© 전국을 만난는 순간 2024
+							| 금쪽같은 코딩</p>
+					</div>
+				</div>
+			</div>
+		</div>
+</footer>
 <script src="/resources/js/tourselect.js"></script>
 </body>
 </html>
