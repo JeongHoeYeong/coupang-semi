@@ -35,6 +35,8 @@
 <link
 	href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
 	rel="stylesheet">
+<link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet"
+	type="text/css">
 
 <link href="resources/css/admin1.css" rel="stylesheet">
 <link rel="stylesheet" href="resources/css/register.css">
@@ -53,39 +55,39 @@
 		<!-- Sidebar -->
 		<ul
 			class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
-			id="accordionSidebar">
+			id="accordionSidebar" >
 
 			<!-- Sidebar - Brand -->
 			<a
 				class="sidebar-brand d-flex align-items-center justify-content-center"
-				href="/">
-				<div class="sidebar-brand-icon rotate-n-15">
+				href="/" >
+				<div class="sidebar-brand-icon rotate-n-15" >
 					<i class="fas fa-laugh-wink"></i>
 				</div>
-				<div class="sidebar-brand-text mx-3">전국을 만나는 순간</div>
+				<img src="resources/image/logobackclear.png" style="width: 50px;">
 			</a>
 
-			<!-- Divider -->
-			<hr class="sidebar-divider my-0">
-
 			<!-- Nav Item - Dashboard -->
-			<li class="nav-item active"><a class="nav-link" href="/member">
-					<i class="fas fa-fw fa-tachometer-alt"></i> <span>나의 정보</span>
+			<li class="nav-item active" ><a class="nav-link" href="/member">
+					<i class="fas fa-fw fa-tachometer-alt" ></i> <span>나의 정보</span>
 			</a></li>
 
+			<!-- Divider -->
+			<hr class="sidebar-divider">
 
 			<!-- Heading -->
 			<div class="sidebar-heading">정보 관리</div>
 
 			<!-- Nav Item - Pages Collapse Menu -->
-			<li class="nav-item"><a class="nav-link collapsed"
-				href="/update"> <i class="fas fa-fw fa-cog"></i> <span>회원
-						정보 변경</span>
-			</a></li>
+			<li class="nav-item"><a class="nav-link collapsed" href="/update"> 
+			<i class="fas fa-fw fa-cog"></i><span>회원 정보 변경</span>
+			</a>
+			</li>
 
 			<!-- Nav Item - Utilities Collapse Menu -->
-			<li class="nav-item"><a class="nav-link collapsed"
-				href="/userout"></i> <span>회원탈퇴</span> </a></li>
+			<li class="nav-item"><a class="nav-link collapsed" href="/userout"></i>
+			<span>회원탈퇴</span>
+			</a></li>
 
 			<!-- Divider -->
 			<hr class="sidebar-divider">
@@ -118,7 +120,7 @@
 								aria-describedby="basic-addon2">
 							<div class="input-group-append">
 								<button class="btn btn-primary" type="button">
-									<i class="fas fa-search fa-sm"></i>
+									<i class="fa-solid fa-pen-to-square"></i>
 								</button>
 							</div>
 						</div>
@@ -155,14 +157,7 @@
 						<div class="topbar-divider d-none d-sm-block"></div>
 
 						<!-- Nav Item - User Information -->
-						<li class="nav-item dropdown no-arrow"><a
-							class="nav-link dropdown-toggle" href="#" id="userDropdown"
-							role="button" data-toggle="dropdown" aria-haspopup="true"
-							aria-expanded="false"> <span
-								class="mr-2 d-none d-lg-inline text-gray-600 small"><sec:authentication
-										property="principal.nickname" /></span> <img
-								class="img-profile rounded-circle" src="img/undraw_profile.svg">
-						</a> <!-- Dropdown - User Information -->
+						<li class="nav-item dropdown no-arrow">
 							<div
 								class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
 								aria-labelledby="userDropdown">
@@ -244,11 +239,11 @@
 						<div class="field">
 							<!-- 5. 주소-->
 							<b>우편번호</b><input type="text" name="zipcode" maxlength="5"
-								id="sample6_postcode" placeholder="우편번호" value="<sec:authentication property="principal.address"/>"/>
+								id="sample6_postcode" placeholder="우편번호" />
 							<button type="button" id="addressone"
 								onclick="sample6_execDaumPostcode()">검색</button>
 							<b>주소</b><input type="text" name="address" id="address"
-								placeholder="상세 주소"> <input type="hidden" type="text"
+								placeholder="상세 주소" value="<sec:authentication property="principal.address"/>"> <input type="hidden" type="text"
 								id="sample6_detailAddress"> <input type="hidden"
 								type="text" id="sample6_extraAddress">
 

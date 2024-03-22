@@ -1,0 +1,48 @@
+h1 {
+	margin-top: 50px;
+}
+
+#one {
+	text-align: center;
+}
+
+#find, #cancle {
+	padding: auto;
+	margin-left: 3px;
+	width: 49%;
+	background-color: #ffc107;
+	color: black;
+	font-size: medium;
+	font-weight: bold;
+}
+
+label {
+	font-weight: bold;
+}
+
+#email {
+	margin-bottom: 40px;
+}
+
+#resultText {
+	font-weight: bold;
+	margin: auto;
+	display: block;
+	height: 20px;
+	text-align: center;
+	font-size: large;
+}
+#find:hover{
+	cursor: pointer;
+	background-color: #f5f107;
+	box-shadow: 0px 15px 20px rgba(255, 255, 69, 0.4);
+	color: #fff;
+	transform: translateY(-7px);
+}
+#cancle:hover{
+	cursor: pointer;
+	background-color: #f5f107;
+	box-shadow: 0px 15px 20px rgba(255, 255, 69, 0.4);
+	color: #fff;
+	transform: translateY(-7px);
+}

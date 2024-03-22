@@ -34,6 +34,12 @@ public class TourPlaceController {
 		
 		Map<String, Object> returnMap = new HashMap<String, Object>();
 		
+		//검색 게시판 만들때
+		//뭐가 필요해
+		//1. 검색한 데이터 결과 뿌리는 거
+		//2. totalCount 
+		
+		
 		List<TourPlace> searchList = service.searchTourplace(dto);
 		returnMap.put("searchList", searchList);
 		

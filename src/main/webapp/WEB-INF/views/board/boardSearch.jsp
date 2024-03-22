@@ -8,68 +8,67 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
-	rel="stylesheet"
-	integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
-	crossorigin="anonymous" />
 	<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+	<link href="/resources/css/board/boardlist.css" rel="stylesheet" />
 </head>
 <body>
+<jsp:include page="/WEB-INF/views/header.jsp" />
 	<sec:authentication property="principal" var="member" />
 	<div class="container">
-		<div class="header">
-			<h1>List Page</h1>
-			<c:choose>
-				<c:when test="${member == 'anonymousUser'}">
-					<a href="/login" class="btn btn-outline-warning">게시글 등록</a>
-				</c:when>
-				<c:otherwise>
-				<a href="myWriteBoard" class="btn btn-outline-warning">내 글 보기</a>
-					<a href="/boardwrite" class="btn btn-outline-warning">게시글 등록</a>
-				</c:otherwise>
-			</c:choose>
-			 <a class="btn btn-outline-warning" href="/">메인으로</a>
-		</div>
+      <div class="header" style="margin-top: 20px;">
+        <a href="/boardlist" class="boardlog">사람을 만나는 순간</a>
+      </div>
 
 		<table class="table">
 			<thead>
 				<tr>
-					<th><a href="/boardlist">#번호</a></th>
+					<th><a href="/boardSearch?category=${category}&select=${select}&keyword=${keyword}">#번호
+					 <i class="fa-solid fa-sort-down fa-xm"
+            style="<c:if test="${sort ne 'board_like' && sort ne 'board_views'}">color: orangered;</c:if>"></i></a>
+					</th>
 					<th>제목</th>
 					<th>작성자</th>
 					<th>작성일</th>
-					<th><a href="/boardSearch?category=${category}&select=${select}&keyword=${keyword}&sort=board_views">조회수</a></th>
-					<th><a href="/boardSearch?category=${category}&select=${select}&keyword=${keyword}&sort=board_like">추천수</a></th>
-					<th><a href="/boardSearch?category=${category}&select=${select}&keyword=${keyword}&sort=bc_count">댓글수</a></th>
+					<th><a href="/boardSearch?category=${category}&select=${select}&keyword=${keyword}&sort=board_views">조회수
+					<i class="fa-solid fa-sort-down fa-xm"
+            style="<c:if test="${sort eq 'board_views'}">color: orangered;</c:if>"></i></a></th>
+					<th><a href="/boardSearch?category=${category}&select=${select}&keyword=${keyword}&sort=board_like">추천수
+					<i class="fa-solid fa-sort-down fa-xm"
+            style="<c:if test="${sort eq 'board_like'}">color: orangered;</c:if>"></i></a></th>
 				</tr>
 			</thead>
 			<tbody>
 				<!--  현재 주소에 있는 거 긁어서 같이 넘기고,거기서 계속 넘기면 다시 유지해서 올 수 있음 -->
 				<c:forEach items="${list}" var="board" varStatus="status">
-					<tr>
-						<td>${status.count}</td>
-					    <td><a href="/boardview?no=${board.boardNo}" style="text-decoration: none">
-						[${board.category}]&nbsp&nbsp${board.boardTitle}</a></td>
+					<tr onclick="locationView(${board.boardNo})">
+						<td>${board.boardNo}</td>
+					    <td><span class="category">[${board.category}]</span> &nbsp&nbsp${board.boardTitle}
+                	  <c:if test="${board.bcCount ne 0}">
+                    <small><b class="bc-count">&nbsp[${board.bcCount}]</b></small>
+                 	 </c:if></a></td>
 						<td>${board.member.nickname}</td>
 						<td><fmt:formatDate value="${board.boardDate}"
 								pattern="yyyy-MM-dd HH:mm" /></td>
 						<td>${board.boardViews}</td>
 						<td>${board.boardLike}</td>
-						<td>${board.bcCount}</td>
-						<td>
-						<c:if test="${member != 'anonymousUser'}">
-						<c:if test="${member.id eq board.id}">
-						<a href="/boardEdit?no=${board.boardNo}">수정하기</a>
-						</c:if>
-						</c:if>
-						</td>
+					
 					</tr>
 				</c:forEach>
 			</tbody>
 		</table>
-		<nav>
-			<ul class="pagination">
+		 <nav style="text-align: center;">
+       <c:choose>
+		<c:when test="${member == 'anonymousUser'}">
+        <button class="btn btn-outline-warning" style="float:left;"
+       	 onclick="loginAlert()"
+       	 >내 글 보기</button>
+      	  </c:when>
+      	  <c:otherwise>
+     		 <a href="myWriteBoard" class="btn btn-outline-warning" style="float: left;"
+              >내 글 보기</a>
+              </c:otherwise>
+              </c:choose>
+			<ul class="pagination" style="display:inline-flex;">
 				<li class="page-item ${boardPaging.prev ? '' : 'disabled'}">
 				<a class="page-link" 
 				href="/boardSearch?category=${category}&select=${select}&keyword=${keyword}&sort=${sort}&page=${boardPaging.startPage - 1}">Previous</a></li>
@@ -82,31 +81,50 @@
 				<li class="page-item ${boardPaging.next ? '' : 'disabled'}"><a class="page-link"
 				 href="/boardSearch?category=${category}&select=${select}&keyword=${keyword}&sort=${sort}&page=${boardPaging.endPage + 1}">Next</a></li>
 			</ul>
+			 <c:choose>
+			<c:when test="${member == 'anonymousUser'}">
+       		 <button class="btn btn-outline-warning" style="float:right;"
+      	 	 onclick="loginAlert()"
+        	>게시물 등록</button>
+        	</c:when>
+        	<c:otherwise>
+        	<a href="/boardwrite" class="btn btn-outline-warning" style="float:right;">게시글 등록</a>
+        	</c:otherwise>
+      	</c:choose>
 		</nav>
 	</div>
-	<form action="/boardSearch" id="findBoard" style="margin-left: 80px" onsubmit="return searchBoard();">
-	<select name="select" id="select">
-		<option value="all">제목+내용</option>
-		<option value="title">제목</option>
-		<option value="content">내용</option>
-		<option value="nickname">글쓴이</option> 
-	</select>
-	<input type="text" name="keyword" id="keyword">
-	<input type="submit" value="검색" id="search">
-	<input type="radio" name="category" value="전체">전체
-		<input type="radio" name="category" value="관광지">관광지
-		<input type="radio" name="category" value="음식점">음식점
-		<input type="radio" name="category" value="동행">동행
-		<input type="radio" name="category" value="기타">기타
-	</form>
-	<script>
-	function searchBoard() {
-		if($.trim($("#keyword").val()).length==0) {
-			alert("내용을 입력해주세요");
-			return false;
-		}
-		return true;
-	}
-	</script>
+	<form
+      action="/boardSearch"
+      id="findBoard"
+      onsubmit="return searchBoard();"
+    >
+      <select
+        class="form-select"
+        name="select"
+        id="select"
+      >
+        <option value="all">제목+내용</option>
+        <option value="title">제목</option>
+        <option value="content">내용</option>
+        <option value="nickname">글쓴이</option>
+      </select>
+	<div id="searchForm">
+      <input type="text" name="keyword" id="keyword" class="form-control form-control-sm"
+      placeholder="검색어를 입력해 주세요."
+      autocomplete="off"/>
+      
+      <button type="submit" id="boardSearch">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      </button>
+      </div>
+      <br />
+      태그선택 &nbsp: &nbsp
+      <a href="/boardSearch?sort=${sort}&select=${select}&keyword=${keyword}" class="btn btn-secondary">전체</a> 
+      <a href="/boardSearch?sort=${sort}&category=관광지&select=${select}&keyword=${keyword}" class="btn btn-secondary">관광지</a>  
+      <a href="/boardSearch?sort=${sort}&category=음식점&select=${select}&keyword=${keyword}" class="btn btn-secondary">음식점</a> 
+      <a href="/boardSearch?sort=${sort}&category=동행&select=${select}&keyword=${keyword}" class="btn btn-secondary">동행</a> 
+      <a href="/boardSearch?sort=${sort}&category=기타&select=${select}&keyword=${keyword}" class="btn btn-secondary">기타</a> 
+      </form>
+	<script src="/resources/js/board/boardlist.js"></script>
 </body>
 </html>

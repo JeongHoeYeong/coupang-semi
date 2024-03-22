@@ -26,6 +26,12 @@
 		<id property="id" column="id" />
 	</resultMap>
 	
+	<select id="cateCount" parameterType="String" resultType="int">
+		SELECT COUNT(*) FROM board
+		WHERE category = #{category}
+	</select>
+	
+	
 	<select id="selectAll" parameterType="BoardPaging" resultMap="boardMap">
 		SELECT * FROM board
 		join member using (id)
@@ -41,7 +47,25 @@
 		</choose>
 	</select>
 	
-	<select id="writeSelect" parameterType="Hashmap" resultMap="boardMap">
+	<select id="cateSelect" parameterType="hashmap" resultMap="boardMap">
+		SELECT * FROM board
+		join member using (id)
+		<if test="category!=null and !category.equals('') and !category.equals('전체')">
+		WHERE category = #{category}
+		</if> 
+		<choose>
+		<when test="paging.sort=='board_like' or paging.sort=='board_views' or paging.sort=='bc_count'">
+		ORDER BY #{paging.sort} DESC
+		LIMIT #{paging.offset}, #{paging.limit}
+		</when>
+		<otherwise>
+		ORDER BY board_date DESC
+		LIMIT #{paging.offset}, #{paging.limit}
+		</otherwise>
+		</choose>
+	</select>
+	
+	<select id="writeSelect" parameterType="hashmap" resultMap="boardMap">
 		SELECT * FROM board
 		WHERE id=#{id}
 		ORDER BY board_date DESC
@@ -68,7 +92,7 @@
 				</when>
 			</choose>
 		<if test="category!=null and !category.equals('') and !category.equals('전체')">
-		AND category IN (#{category})
+		AND category = #{category}
 		</if>
 		</where>
 		<choose>
@@ -112,14 +136,14 @@
 				</when>
 			</choose>
 		<if test="category!=null and !category.equals('') and !category.equals('전체')">
-		AND category IN (#{category})
+		AND category = #{category}
 		</if>
 		</where>
 	</select>
 	
 	<insert id="insert" parameterType="Board" useGeneratedKeys="true" keyProperty="boardNo" keyColumn="board_no">
-		INSERT INTO board(id, board_title, board_content, category, url)
-		VALUES(#{id}, #{boardTitle}, #{boardContent}, #{category}, #{url})
+		INSERT INTO board(id, board_title, board_content, category)
+		VALUES(#{id}, #{boardTitle}, #{boardContent}, #{category})
 	</insert>
 	
 	<select id="select" parameterType="int" resultMap="boardMap">

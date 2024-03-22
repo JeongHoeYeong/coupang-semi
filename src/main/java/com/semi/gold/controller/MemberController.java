@@ -128,7 +128,7 @@ public class MemberController {
 	// 주민번호 중복체크
 	@ResponseBody
 	@PostMapping("/checkr")
-	public boolean residentCheck(String resident) {
+	public boolean residentCheck1(String resident) {
 		Member member = service.residentCheck(resident);
 		if (member == null)
 			return false;
