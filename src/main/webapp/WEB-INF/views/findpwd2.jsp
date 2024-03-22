@@ -9,12 +9,16 @@
 <meta charset="UTF-8">
 <title>비밀번호 찾기</title>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<link rel="stylesheet" href="resources/css/register.css" />
+<link rel="stylesheet" href="resources/css/findpwd2.css" />
 </head>
 <body>
-	<h1>비밀번호 변경하기</h1>
-
+	<div id="one">
+		<a href="/"> <img src="resources/image/logobackclear.png" /></a>
+	</div>
 	<form action="/searchUpdate" method="post">
 		<div class="member">
+			<h1 id="one">비밀번호 변경하기</h1>
 			<div class="field">
 				<input type="hidden" id="id" name="id" value="${id}" />
 			</div>
@@ -24,7 +28,7 @@
 					<span id="passwordText" style="height: 20px; display: block;"></span>
 			</div>
 			<div>
-				<input type="submit" value="변경하기" />
+				<input type="submit" id="update" value="변경하기" />
 			</div>
 		</div>
 	</form>

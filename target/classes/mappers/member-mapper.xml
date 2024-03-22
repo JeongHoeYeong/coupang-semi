@@ -7,8 +7,7 @@
 		#{nickname}, #{gender}, #{resident})
 	</insert>
 
-	<select id="getMemberById" parameterType="String"
-		resultType="Member">
+	<select id="getMemberById" parameterType="String" resultType="Member">
 		SELECT * FROM member
 		WHERE id=#{id}
 	</select>

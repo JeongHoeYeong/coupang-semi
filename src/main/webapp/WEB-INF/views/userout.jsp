@@ -40,41 +40,41 @@
 	<div id="wrapper">
 
 		<!-- Sidebar -->
-		<ul
+<ul
 			class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
-			id="accordionSidebar">
+			id="accordionSidebar" >
 
 			<!-- Sidebar - Brand -->
 			<a
 				class="sidebar-brand d-flex align-items-center justify-content-center"
-				href="/">
-				<div class="sidebar-brand-icon rotate-n-15">
+				href="/" >
+				<div class="sidebar-brand-icon rotate-n-15" >
 					<i class="fas fa-laugh-wink"></i>
 				</div>
-				<div class="sidebar-brand-text mx-3">전국을 만나는 순간</div>
+				<img src="resources/image/logobackclear.png" style="width: 50px;">
 			</a>
 
-			<!-- Divider -->
-			<hr class="sidebar-divider my-0">
-
 			<!-- Nav Item - Dashboard -->
-			<li class="nav-item active"><a class="nav-link" href="/member">
-					<i class="fas fa-fw fa-tachometer-alt"></i> <span>나의 정보</span>
+			<li class="nav-item active" ><a class="nav-link" href="/member">
+					<i class="fas fa-fw fa-tachometer-alt" ></i> <span>나의 정보</span>
 			</a></li>
 
+			<!-- Divider -->
+			<hr class="sidebar-divider">
 
 			<!-- Heading -->
 			<div class="sidebar-heading">정보 관리</div>
 
 			<!-- Nav Item - Pages Collapse Menu -->
-			<li class="nav-item"><a class="nav-link collapsed"
-				href="/update"> <i class="fas fa-fw fa-cog"></i> <span>회원
-						정보 변경</span>
-			</a></li>
+			<li class="nav-item"><a class="nav-link collapsed" href="/update"> 
+			<i class="fas fa-fw fa-cog"></i><span>회원 정보 변경</span>
+			</a>
+			</li>
 
 			<!-- Nav Item - Utilities Collapse Menu -->
-			<li class="nav-item"><a class="nav-link collapsed"
-				href="/userout"></i> <span>회원탈퇴</span> </a></li>
+			<li class="nav-item"><a class="nav-link collapsed" href="/userout"></i>
+			<span>회원탈퇴</span>
+			</a></li>
 
 			<!-- Divider -->
 			<hr class="sidebar-divider">
@@ -146,14 +146,7 @@
 						<div class="topbar-divider d-none d-sm-block"></div>
 
 						<!-- Nav Item - User Information -->
-						<li class="nav-item dropdown no-arrow"><a
-							class="nav-link dropdown-toggle" href="#" id="userDropdown"
-							role="button" data-toggle="dropdown" aria-haspopup="true"
-							aria-expanded="false"> <span
-								class="mr-2 d-none d-lg-inline text-gray-600 small"><sec:authentication
-										property="principal.nickname" /></span> <img
-								class="img-profile rounded-circle" src="img/undraw_profile.svg">
-						</a> <!-- Dropdown - User Information -->
+						<li class="nav-item dropdown no-arrow">
 							<div
 								class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
 								aria-labelledby="userDropdown">
@@ -203,34 +196,8 @@
 			</div>
 		</div>
 	</div>
-	</form>
-	</div>
 	<!-- Card Body -->
-	<div class="card-body">
-		<div class="chart-pie pt-4 pb-2">
-			<canvas id="myPieChart"></canvas>
-		</div>
-		<div class="mt-4 text-center small">
-			<span class="mr-2"> <i class="fas fa-circle text-primary"></i>
-				Direct
-			</span> <span class="mr-2"> <i class="fas fa-circle text-success"></i>
-				Social
-			</span> <span class="mr-2"> <i class="fas fa-circle text-info"></i>
-				Referral
-			</span>
-		</div>
-	</div>
-	</div>
-	</div>
-	</div>
-	</div>
-	</div>
 
-	</div>
-	<!-- /.container-fluid -->
-
-	</div>
-	<!-- End of Main Content -->
 
 	<!-- Footer -->
 	<footer class="sticky-footer bg-white">
@@ -242,11 +209,6 @@
 	</footer>
 	<!-- End of Footer -->
 
-	</div>
-	<!-- End of Content Wrapper -->
-
-	</div>
-	<!-- End of Page Wrapper -->
 
 	<!-- Scroll to Top Button-->
 	<a class="scroll-to-top rounded" href="#page-top"> <i
