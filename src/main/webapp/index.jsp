@@ -78,7 +78,7 @@
 						<a class="nav-link btn-outline-warning rounded-pill px-3"
 							href="tourplace/search">여행을 만나는 순간</a></li>
 						<li class="nav-item">
-						<a class="nav-link btn-outline-warning rounded-pill px-3">맛집를
+						<a class="nav-link btn-outline-warning rounded-pill px-3" href="mem">맛집를
 								만나는 순간</a></li>
 						<li class="nav-item">
 						<a class="nav-link btn-outline-warning rounded-pill px-3" href="/boardlist">사람을

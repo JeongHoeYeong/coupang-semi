@@ -37,6 +37,7 @@
 <link rel="apple-touch-icon" sizes="57x57" href="/resources/image/favicon.ico">
 </head>
 <body>
+ <sec:authentication property="principal" var="member" />
 	<!-- Header -->
 	<header>
 		<nav id="main_nav"

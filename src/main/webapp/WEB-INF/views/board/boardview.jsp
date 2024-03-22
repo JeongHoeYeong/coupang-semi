@@ -9,6 +9,7 @@ pageEncoding="UTF-8"%>
     <meta charset="UTF-8" />
     <title>Insert title here</title>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <link href="/resources/css/board/boardwrite.css" rel="stylesheet" />
     <link href="/resources/css/board/boardview.css" rel="stylesheet">
   </head>
   <body>
@@ -19,11 +20,12 @@ pageEncoding="UTF-8"%>
   </form>
 
 	<div class="container">
-      <h1>게시물 정보</h1>
+	<div class="header">
+      <h2 class="boardlog">게시물 정보</h2>
+      </div>
       <form action="/boardEdit" method="get">
         <input type="hidden" name="boardNo" id="boardNo" value="${vo.boardNo}" />
         <div class="form-group">
-          <label>Title</label>
           <input
             class="form-control"
             name="boardTitle"
@@ -31,38 +33,61 @@ pageEncoding="UTF-8"%>
             readonly="readonly"
           />
         </div>
+        <div>
+        <table style="width: 100%;">
+        <tr id="boardInpo">
+        <td>${vo.member.nickname}</td>  
+        <td>조회수 ${vo.boardViews}</td>  
+        <td><fmt:formatDate value="${vo.boardDate}"
+                  pattern="yyyy-MM-dd HH:mm" /> </td>
+        </tr>
+        </table>
+        </div>
         <div class="form-group">
-          <label>Content</label>
           <textarea
             class="form-control"
             rows="25"
             name="boardContent"
+            id="boardContent"
             style="resize: none"
             readonly="readonly"
           >
 ${vo.boardContent}</textarea
           >
         </div>
-        <c:if test ="${!empty id}">
+        <div class="boardBtnDiv">
+        <div>
         <c:if test= "${empty likeBoard}">
         	<i class="fa-regular fa-heart fa-3x" id="like"></i>
-        	${vo.boardLike}
+        	<p class="countText">${vo.boardLike}</p>
         </c:if>
         <c:if test="${!empty likeBoard}">
         	<i class="fa-solid fa-heart fa-3x" id="disLike"></i>
-        	${vo.boardLike}
+        	<p class="countText">${vo.boardLike}</p>
         </c:if>
+        </div>
+        <div>
+        <c:if test ="${!empty id}">
 			<c:if test="${id eq vo.id}">
-			<button type="submit" class="btn btn-outline-warning">수정</button>
-        <a class="btn btn-outline-danger" href="/boarddelete?no=${vo.boardNo}"
+			<a class="btn btn-outline-danger boardBtnDiv" href="/boarddelete?no=${vo.boardNo}"
           >삭제</a
         >
+			<a href="/boardEdit?no=${vo.boardNo}" class="btn btn-outline-warning boardBtnDiv">수정</a>
 		</c:if>
 		</c:if>
-        <a class="btn btn-outline-danger" href="/boardlist">게시판</a>
+        <a class="btn btn-outline-warning boardBtnDiv" class="listMove" href="/boardlist">게시판</a>
+        </div>
+        </div>
       </form>
-
     </div>
+    <div class="container">
+    <h5 style="margin-top: 20px; margin-bottom: 15px;">댓글 ${vo.bcCount}</h5>
+    <form id="bcForm">
+      	 <input type="hidden" name="boardNo" id="boardNo" value="${vo.boardNo}" />
+     	 <input type="hidden" name="id" id="id" value="${id}">
+     	 <textarea name="bcContent" id="bcContent" class="form-control" rows="3" ></textarea>
+     	 <input type="button" class="btn btn-outline-primary" id="bcWrite" value="작성" />
+    </form>
       <c:forEach items="${boardComment}" var="boardComment" varStatus="status">
       	<c:choose>
       	<c:when test="${boardComment.parentNo==0}">
@@ -154,14 +179,9 @@ ${vo.boardContent}</textarea
 			<li class="page-item ${paging.next ? '' : 'disabled'}"><a class="page-link" href="/boardview?no=${vo.boardNo}&page=${paging.endPage + 1}">Next</a></li>
 			</ul>
 		</nav>
+		</div>
+
       
-     <form id="boardContent">
-      <h2>댓글 작성</h2>
-      	 <input type="hidden" name="boardNo" id="boardNo" value="${vo.boardNo}" />
-     	 <input type="hidden" name="id" id="id" value="${id}">
-     	 <textarea name="bcContent" id="bcContent" class="form-control" rows="10" ></textarea>
-     	 <input type="button" id="bcWrite" value="작성" />
-    </form>
     <script src="/resources/js/board/boardview.js"></script>
   </body>
 </html>

@@ -43,12 +43,12 @@ $("#bcWrite").click((e) => {
   } else if ($(e.target).siblings("textarea").val().trim().length == 0) {
     alert("글을 작성해주세요");
     return false;
-}
-  
+  }
+
   $.ajax({
     type: "post",
     url: "/insertBc",
-    data: $("#boardContent").serialize(),
+    data: $("#bcForm").serialize(),
     success: function (data) {
       location.reload();
     },
@@ -83,6 +83,10 @@ $(".liClick").click((e) => {
 });
 
 $("#like").click(() => {
+  if ($("#id").val() == "") {
+    alert("로그인 후 이용 가능합니다");
+    return false;
+  }
   $.ajax({
     type: "post",
     url: "/insertLikeBoard",
@@ -95,6 +99,10 @@ $("#like").click(() => {
 });
 
 $("#disLike").click(() => {
+  if ($("#id").val() == "") {
+    alert("로그인 후 이용 가능합니다");
+    return false;
+  }
   $.ajax({
     type: "post",
     url: "/deleteLikeBoard",

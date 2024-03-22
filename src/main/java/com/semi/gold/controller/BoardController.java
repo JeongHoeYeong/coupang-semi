@@ -101,11 +101,11 @@ public class BoardController {
 	// 글 등록
 	@PostMapping("/boardwrite")
 	private String write(Board b, Principal principal) throws IllegalStateException, IOException {
-		
+		b.setBoardTitle(b.getBoardTitle().trim());
+		b.setBoardContent(b.getBoardContent().trim());
 		b.setId(principal.getName());
 		// 비즈니스 로직 처리 -> service.insert
 		service.insert(b);
-		System.out.println(b);
 		return "redirect:/boardview?no=" + b.getBoardNo();
 	}
 	
@@ -126,6 +126,7 @@ public class BoardController {
 		model.addAttribute("boardComment", list);
 		model.addAttribute("paging", new BoardCommentPaging(paging.getPage(), bcService.total(num)));
 		model.addAttribute("vo", service.select(num));
+		System.out.println(model);
 		if(principal!=null) {
 			String id = principal.getName();
 			vo.setId(id);
@@ -212,6 +213,7 @@ public class BoardController {
 	@ResponseBody
 	@PostMapping("/insertBc")
 	public boolean insertBc(BoardComment bc) {
+		bc.setBcContent(bc.getBcContent().trim());
 		bcService.insertBC(bc);
 		service.updateBcCount(bc.getBoardNo());
 		return true;
@@ -230,6 +232,7 @@ public class BoardController {
 	@ResponseBody
 	@GetMapping("/editBC")
 	public boolean editBC(BoardComment bc) {
+		bc.setBcContent(bc.getBcContent().trim());
 		bcService.editBC(bc);
 		return true;
 	}

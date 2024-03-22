@@ -148,6 +148,7 @@
 	
 	<select id="select" parameterType="int" resultMap="boardMap">
 		SELECT * FROM board
+		JOIN member USING (id)
 		WHERE board_no=#{boardNo}
 	</select>
 	

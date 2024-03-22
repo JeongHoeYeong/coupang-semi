@@ -85,10 +85,10 @@
 			<c:when test="${member == 'anonymousUser'}">
        		 <button class="btn btn-outline-warning" style="float:right;"
       	 	 onclick="loginAlert()"
-        	>게시물 등록</button>
+        	>글 쓰기</button>
         	</c:when>
         	<c:otherwise>
-        	<a href="/boardwrite" class="btn btn-outline-warning" style="float:right;">게시글 등록</a>
+        	<a href="/boardwrite" class="btn btn-outline-warning" style="float:right;">글 쓰기</a>
         	</c:otherwise>
       	</c:choose>
 		</nav>
