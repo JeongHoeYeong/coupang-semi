@@ -37,6 +37,7 @@
 <link rel="apple-touch-icon" sizes="57x57" href="/resources/image/favicon.ico">
 </head>
 <body>
+<sec:authentication property="principal" var="member" />
 	<!-- Header -->
 	<header>
 		<nav id="main_nav"
@@ -67,9 +68,9 @@
 							class="nav navbar-nav d-flex justify-content-between mx-xl-5 text-center text-dark">
 							<li class="nav-item"><a
 								class="nav-link btn-outline-warning rounded-pill px-3"
-								href="tourplace/search">여행을 만나는 순간</a></li>
+								href="/tourplace/search">여행을 만나는 순간</a></li>
 							<li class="nav-item"><a
-								class="nav-link btn-outline-warning rounded-pill px-3">맛집를
+								class="nav-link btn-outline-warning rounded-pill px-3" href="/restaurant/search">맛집을
 									만나는 순간</a></li>
 							<li class="nav-item"><a
 								class="nav-link btn-outline-warning rounded-pill px-3">숙소를
