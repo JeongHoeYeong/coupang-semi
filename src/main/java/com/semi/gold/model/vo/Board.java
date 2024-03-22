@@ -22,7 +22,6 @@ public class Board {
 	private String category;
 	private String url;
 	
-	private MultipartFile file;
 	
 	private Member member;
 }

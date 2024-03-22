@@ -27,6 +27,15 @@ public class BoardDAO {
 		return session.selectList("board.selectAll", paging);
 	}
 	
+	public List<Board> cateSelect(Map<String, Object> map) {
+		System.out.println(map);
+		return session.selectList("board.cateSelect", map);
+	}
+	
+	public int cateTotal(String category) {
+		return session.selectOne("board.cateCount", category);
+	}
+	
 	public Board select(int no) {
 		return session.selectOne("board.select", no);
 	}
@@ -81,7 +90,6 @@ public class BoardDAO {
 	}
 	
 	public List<Board> searchBoard(Map<String, Object> map) {
-		System.out.println(map);
 		return session.selectList("board.searchBoard", map);
 	}
 	

@@ -25,6 +25,18 @@ public class BoardService {
 		return dao.selectAll(paging);
 	}
 	
+	public List<Board> cateSelect(BoardPaging paging, String category) {
+		paging.setOffset(paging.getLimit() * (paging.getPage() -1));
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("paging", paging);
+		map.put("category", category);
+		return dao.cateSelect(map);
+	}
+	
+	public int cateTotal(String category)  {
+		return dao.cateTotal(category);
+	}
+	
 	public List<Board> boardSearch(String keyword, String select, BoardPaging paging, String category){
 		paging.setOffset(paging.getLimit() * (paging.getPage() - 1));
 		BoardSearchDTO dto = new BoardSearchDTO();

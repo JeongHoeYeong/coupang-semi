@@ -48,17 +48,23 @@ public class BoardController {
 	
 	// 글 목록
 	@GetMapping("/boardlist")
-	private String list(Model model, BoardPaging paging, Principal principal, String sort
-			) {
+	private String list(Model model, BoardPaging paging, Principal principal, String sort, String category) {
 		if(principal !=null) {
 		model.addAttribute("member", principal.getName());
 		}
+		
 		paging.setSort(sort);
-		List<Board> list = service.selectAll(paging);
-		model.addAttribute("list", list);
-		model.addAttribute("boardPaging", new BoardPaging(paging.getPage(), service.total()));
+		if(category != null && !category.isEmpty()) {
+			List<Board> list = service.cateSelect(paging, category);
+			model.addAttribute("list", list);
+			model.addAttribute("boardPaging", new BoardPaging(paging.getPage(), service.cateTotal(category)));
+			model.addAttribute("category", category);
+		} else {
+			List<Board> list = service.selectAll(paging);
+			model.addAttribute("list", list);
+			model.addAttribute("boardPaging", new BoardPaging(paging.getPage(), service.total()));
+		}
 		model.addAttribute("sort", paging.getSort());
-		System.out.println(model);
 		return "/board/boardlist";
 	}
 	
@@ -158,7 +164,8 @@ public class BoardController {
 	@GetMapping("/myWriteBoard") 
 	private String writeSelect(BoardPaging paging, Model model, Principal principal) {
 		List<Board> list = service.writeSelect(principal.getName(), paging);
-		model.addAttribute("member", principal.getName());
+		model.addAttribute("id", principal.getName());
+		System.out.println(model);
 		model.addAttribute("list", list);
 		model.addAttribute("paging", new BoardPaging(paging.getPage(), service.writeTotal(principal.getName())));
 		return "board/myWriteBoard";
@@ -177,7 +184,6 @@ public class BoardController {
 	// 글 수정
 	@GetMapping("/boardUpdate")
 	public String update(Board b, Principal principal) {
-		System.out.println(b);
 		b.setId(principal.getName());
 		service.update(b);
 		
