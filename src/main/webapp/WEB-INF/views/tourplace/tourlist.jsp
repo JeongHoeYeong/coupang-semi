@@ -1,10 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
 <link href="/resources/css/tourplace.css" rel="stylesheet"
 	type="text/css">
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <title>Home</title>
 </head>
 
@@ -171,16 +173,16 @@ function tourplaceToPageIndex(){
 			</tr>
 			<tr>
 				<td class="search_header">검색어</td>
-				<td class="search_content input_form">
-				<input style="float: left;" type="text" id="search_keyword" value=""/> 
-				<input style="width: 100px; margin-left: 5px;" type="button"
-					id="searchButton" value="검색"/></td>
+				<td class="search_content input_form"><input
+					style="float: left;" type="text" id="search_keyword" value="" /> <input
+					style="width: 100px; margin-left: 5px;" type="button"
+					id="searchButton" value="검색" /></td>
 			</tr>
 		</table>
 	</div>
 
-<!-- 	<h1>관광지 목록</h1> -->
-<br>
+	<!-- 	<h1>관광지 목록</h1> -->
+	<br>
 	<%-- <table class="listTilte">
 		<tr>
 			<th>번호</th>
@@ -198,24 +200,23 @@ function tourplaceToPageIndex(){
 			</tr>
 		</c:forEach>
 	</table>  --%>
-	
+
 	<!-- 페이징 뿌리기  -->
 	<%-- <c:set var="pageIdx" value="0"/>
 	<c:forEach begin="1" end="${maxPage}">
 		<c:set var="pageIdx" value="${pageIdx+1}"/>
 		<a href="/tourplace/search?pageIdx=${pageIdx}">${pageIdx}</a>
 	</c:forEach> --%>
-	
-<div class="photoList">
-	<div class="photoList_div">
-	
-	
-		<div id="searchResultPageIndex">
-		</div>
-		<table id="searchResultTable">
-		</table>
-		
-		<%-- <c:forEach items="${list}" var="item">
+
+	<div class="photoList">
+		<div class="photoList_div">
+
+
+			<div id="searchResultPageIndex"></div>
+			<table id="searchResultTable">
+			</table>
+
+			<%-- <c:forEach items="${list}" var="item">
 			<div class="box">
 				${item.imgTag}
 				<div>
@@ -229,6 +230,22 @@ function tourplaceToPageIndex(){
 	</div> 
 </div>
 </div>
+
+<div class="return-top">
+<a href="#"> <span class="element3">Top </a> </span>
+</div>
+<footer class="bg-success pt-4">
+		<div class="w-100 bg-success py-3">
+			<div class="container">
+				<div class="row pt-2">
+					<div class="col-lg-5 col-sm-12">
+						<p class="text-center text-light light-300">© 전국을 만난는 순간 2024
+							| 금쪽같은 코딩</p>
+					</div>
+				</div>
+			</div>
+		</div>
+</footer>
 <script src="/resources/js/tourselect.js"></script>
 </body>
 </html>

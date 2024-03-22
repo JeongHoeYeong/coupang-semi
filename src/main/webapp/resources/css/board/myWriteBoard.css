@@ -1,0 +1,11 @@
+tr th:nth-child(1) {
+  width: 120px;
+}
+tr th:nth-child(3) {
+  width: 250px;
+}
+tr th:nth-child(4),
+tr th:nth-child(5) {
+  width: 140px;
+}
+

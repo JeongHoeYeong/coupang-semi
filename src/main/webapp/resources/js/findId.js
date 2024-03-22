@@ -6,7 +6,7 @@ $("#find").click(() => {
 
     success: function (result) {
       					if(result) {
-						$("#resultText").text("회원님의 ID : " + result).css("color", "green");
+						$("#resultText").text(result).css("color", "green");
 					} else {
 						$("#resultText").text("회원 정보가 없습니다.").css("color", "red");
 					}
