@@ -26,6 +26,11 @@ body {
     min-height: 209px;
     min-width: 200px;
 }
+#pika:hover {
+	content: url("/resources/image/movepikaun.gif");
+	width: 100px;
+	height: 100px;
+}
 .mouse {
     width: 25px;
     height: 25px;

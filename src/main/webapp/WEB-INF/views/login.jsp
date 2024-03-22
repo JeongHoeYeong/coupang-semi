@@ -21,7 +21,7 @@
 </head>
 <body>
 	<div class="loading">
-		<a href="/"><img src="http://a.top4top.net/p_1990j031.gif" alt="Loading"></a>
+		<a href="/"><img src="http://a.top4top.net/p_1990j031.gif" alt="Loading" id="pika"></a>
 	</div>
 	<a href="/">
 		<div class="container" id="container">
