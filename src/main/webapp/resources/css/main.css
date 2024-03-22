@@ -3266,7 +3266,7 @@ textarea.form-control-lg {
 }
 
 /* line 26, src/assets/scss/forms/_form-select.scss */
-.form-select:focus{
+.form-select:focus {
   border-color: #a199e1;
   outline: 0;
   -webkit-box-shadow: 0 0 0 0.25rem rgba(66, 50, 194, 0.25);
@@ -14215,6 +14215,7 @@ fieldset:disabled .btn {
   transition: top 0.5s;
 }
 
+
 /* 버튼 */
 .element1 {
   position: fixed;
@@ -14334,12 +14335,7 @@ fieldset:disabled .btn {
   border-radius: 66% 100% 96% 53% / 67% 89% 81% 73%;
   opacity: 1;
 }
-
-/* 아이콘 */
-.fa-solid {
-	width: 50px;
-	height: 50px;
-}
+*/
 /*검색 버튼*/
 #search {
   margin-left: 20%;

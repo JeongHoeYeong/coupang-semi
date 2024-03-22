@@ -227,9 +227,25 @@ function tourplaceToPageIndex(){
 				</div>
 			</div>
 		</c:forEach> --%>
+	</div> 
+</div>
+</div>
+
+<div class="return-top">
+<a href="#"> <span class="element3">Top </a> </span>
+</div>
+<footer class="bg-success pt-4">
+		<div class="w-100 bg-success py-3">
+			<div class="container">
+				<div class="row pt-2">
+					<div class="col-lg-5 col-sm-12">
+						<p class="text-center text-light light-300">© 전국을 만난는 순간 2024
+							| 금쪽같은 코딩</p>
+					</div>
+				</div>
+			</div>
 		</div>
-	</div>
-	</div>
-	<script src="/resources/js/tourselect.js"></script>
+</footer>
+<script src="/resources/js/tourselect.js"></script>
 </body>
 </html>

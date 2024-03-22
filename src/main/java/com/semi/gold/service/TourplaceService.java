@@ -72,7 +72,7 @@ public class TourplaceService {
 
 //			"<img class='tourplaceMainImg' src='/resources/image/tourplace/국립장성숲체원_1_공공3유형.JPG'
 //			alt='이미지 없음'>"
-			String imgTagValue = "<img class='tourplaceMainImg' src='" + filePath + "' alt='이미지 없음'>";
+			String imgTagValue = "<img class='tourplaceMainImg' src='" +filePath + "' alt='이미지 없음'>";
 
 			if (!tourplaceImgMap.containsKey(tourplaceName)) {
 				tourplaceImgMap.put(tourplaceName, imgTagValue);

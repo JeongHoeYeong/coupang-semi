@@ -1,8 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="sec"
-	uri="http://www.springframework.org/security/tags"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,8 +9,14 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<!-- CSS -->
-<link rel="stylesheet" href="/resources/css/reset.css" />
+<script src="/resources/js/bootstrap.bundle.min.js"></script>
+
+<script src="/resources/js/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
+<!-- Load Tempalte CSS -->
+
 <link href="/resources/css/maintemplatemo.css" rel="stylesheet" />
 <link href="/resources/css/main.css" rel="stylesheet" />
 <link href="/resources/css/review.css" rel="stylesheet" />
@@ -22,12 +27,10 @@
 <link rel="stylesheet" href="/resources/css/custom.css" />
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" />
+
+<!-- boot cdn -->
 <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
 	rel="stylesheet" />
-	
-<!-- SCRIPT -->
-<script src="https://kit.fontawesome.com/4602e82315.js"
-	crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="/resources/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -216,9 +219,10 @@
 			<option value="tourist">관광</option>
 			<option value="food">맛집</option>
 			<option value="stay">숙박</option>
-		</select>
-		<input type="text" class="form-control py-2 text-center" id="dosi" name="dosi"
-			value="" onchange="changeFn()" placeholder="검색어를 입력하세요"/>
+		</select> 
+		<input class="form-control py-2 text-center" id="dosi"
+			onchange="changeFn()" placeholder="검색어를 입력하세요"/>
+		</input>
 		<div class="col-md-2 px-5">
 			<button class="btn btn-warning px-5" id="btn">Click!</button>
 		</div>
@@ -359,7 +363,7 @@
 						href="https://github.com/JeongHoeYeong">Jeong Hoe Yeong</a></li>
 					<li class="pb-2"><i class='bx-fw bx bxs-chevron-right bx-xs'></i><a
 						class="text-decoration-none text-light py-1"
-						href="https://github.com/mutual99">Lee
+						href="https://github.com/mutual99/gold-semi-sangho534">Lee
 							Sang ho</a></li>
 					<li class="pb-2"><i class='bx-fw bx bxs-chevron-right bx-xs'></i><a
 						class="text-decoration-none text-light py-1"
