@@ -1,6 +1,7 @@
 var previousValue = localStorage.getItem("previousValue");
 console.log(previousValue);
 $("#search_keyword").val(previousValue);
+window.localStorage.clear();
 
 $(document).ready(function () {
   $(".return-top").hide(); // 탑 버튼 숨김
