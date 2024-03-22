@@ -342,9 +342,9 @@
 <!--버튼-->
 
 <div class="return-top">
-	<a href="#"> <span class="element1">Insta </a> </span> <a href="#">
-		<span class="element2">Review 
-	</a> </span> <a href="#"> <span class="element3">Top </a> </span>
+	<a href="https://www.instagram.com/jeonmansoon_trip?igsh=MTQ5czhxOTBseXBuOA%3D%3D"><span class="element1">Insta</span></a>  
+	<a href="#"><span class="element2">Review</span></a>  
+	<a href="#"> <span class="element3">Top</span></a> 
 </div>
 <!--footer 언덕-->
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">

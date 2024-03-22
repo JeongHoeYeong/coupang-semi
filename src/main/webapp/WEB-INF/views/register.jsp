@@ -84,7 +84,7 @@
 
 				<!-- 6. 가입하기 버튼 -->
 				<div>
-					<input type="submit" value="가입하기" />
+					<input type="submit" value="가입하기" id="register"/>
 				</div>
 			</div>
 		</div>

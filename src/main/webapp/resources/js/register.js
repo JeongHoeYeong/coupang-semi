@@ -92,6 +92,7 @@ $("#name").keyup(() => {
   } else if (!expNameText.test(name.value)) {
     $("#nameText").text("이름은 한글로 입력하세요").css("color", "red");
     name.focus();
+    false;
   } else {
     $("#nameText").text("사용 가능한 이름").css("color", "green");
   }
@@ -106,11 +107,14 @@ $("#email").keyup(() => {
     success: function (resulte) {
       if (resulte) {
         $("#emailText").text("사용 불가한 이메일입니다.").css("color", "red");
+        email.focus();
+        false;
       } else if (!expEmailText.test(email.value)) {
         $("#emailText")
           .text("이메일 형식을 확인하세요. 골뱅이표시(@)을 포함해야 합니다.")
           .css("color", "red");
         email.focus();
+        false;
       } else {
         $("#emailText").text("사용 가능한 이메일입니다.").css("color", "green");
       }
@@ -129,11 +133,13 @@ $("#resident").keyup(() => {
         $("#residentText")
           .text("사용 불가한 주민번호입니다.")
           .css("color", "red");
+
       } else if (!expResidentText.test(resident.value)) {
         $("#residentText")
           .text("주민등록번호을 확인하세요.")
           .css("color", "red");
         resident.focus();
+
       } else {
         $("#residentText")
           .text("사용 가능한 주민번호입니다.")
@@ -158,11 +164,13 @@ $("#phone").keyup(() => {
           .text("휴대폰 번호 형식을 확인하세요. 하이픈(-)을 포함해야 합니다.")
           .css("color", "red");
         phone.focus();
+
       } else if (phone.value == "") {
         $("#phoneText")
           .text("휴대폰 번호을 형식에 맞게 입력하세요.")
           .css("color", "red");
         phone.focus();
+
       } else {
         $("#phoneText")
           .text("사용 가능한 전화번호입니다.")
@@ -170,6 +178,42 @@ $("#phone").keyup(() => {
       }
     },
   });
+});
+
+
+$("#register").click(() => {
+  if (id.value == "") {
+    id.focus();
+    alert("아이디를 입력하세요!");
+    return false;
+  } else if (password.value == "") {
+    password.focus();
+    alert("비밀번호를 입력하세요!");
+    return false;
+  } else if (name.value == "") {
+    name.focus();
+    alert("이름을 입력하세요!");
+    return false;
+  } else if (nickname.value == "") {
+    nickname.focus();
+    alert("닉네임를 입력하세요!");
+    return false;
+  } else if (resident.value == "") {
+    resident.focus();
+    alert("주민등록번호를 입력하세요!");
+    return false;
+  } else if (phone.value == "") {
+    phone.focus;
+    alert("전화번호를 입력하세요!");
+    return false;
+  } else if (email.value == "") {
+    email.focus;
+    alert("이메일를 입력하세요!");
+    return false;
+  } else {
+    return true;
+  }
+  true;
 });
 
 function sample6_execDaumPostcode() {

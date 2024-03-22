@@ -9,18 +9,21 @@
 <meta charset="UTF-8">
 <title>login</title>
 <link rel="stylesheet" href="resources/css/loginpage.css">
-
 <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.0/kakao.min.js"
-  integrity="sha384-l+xbElFSnPZ2rOaPrU//2FF5B4LB8FiX5q4fXYTlfcG4PGpMkE1vcL7kNXI6Cci0" crossorigin="anonymous"></script>
+	integrity="sha384-l+xbElFSnPZ2rOaPrU//2FF5B4LB8FiX5q4fXYTlfcG4PGpMkE1vcL7kNXI6Cci0"
+	crossorigin="anonymous"></script>
 <script>
-  Kakao.init('a0203ccdffa21fc7096cfaca29b6fa24'); // 사용하려는 앱의 JavaScript 키 입력
-  console.log(Kakao.isInitialized());
+	Kakao.init('a0203ccdffa21fc7096cfaca29b6fa24'); // 사용하려는 앱의 JavaScript 키 입력
+	console.log(Kakao.isInitialized());
 </script>
 <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 <script type="text/javascript" src="/js/apikey.js"></script>
 </head>
 <body>
-	<a href="/"><img src="resources/image/logobackclear.png" id="imglogo">
+	<div class="loading">
+		<a href="/"><img src="http://a.top4top.net/p_1990j031.gif" alt="Loading"></a>
+	</div>
+	<a href="/">
 		<div class="container" id="container">
 			<div class="form-container sign-up-container">
 				<form action="#">
@@ -41,10 +44,10 @@
 						<a id="kakao-login-btn" href="javascript:loginWithKakao()"
 							class="social"> <img
 							src="https://k.kakaocdn.net/14/dn/btroDszwNrM/I6efHub1SN5KCJqLm1Ovx1/o.jpg"
-							width="222" alt="카카오 로그인 버튼" 
-							onclick="loginFormWithKakao()"/> <i class="fab fa-google-plus-g"></i>
+							width="222" alt="카카오 로그인 버튼" onclick="loginFormWithKakao()" /> <i
+							class="fab fa-google-plus-g"></i>
 						</a>
-						<p id="token-result" ></p>
+						<p id="token-result"></p>
 					</div>
 					<span>or use your account</span> <input type="text" name="username"
 						placeholder="id" /> <input type="password" name="password"
@@ -73,7 +76,6 @@
 					</div>
 				</div>
 			</div>
-		</div> 
-<script src="/resources/js/login.js"></script>
+		</div> <script src="/resources/js/login.js"></script>
 </body>
 </html>

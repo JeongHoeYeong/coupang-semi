@@ -190,7 +190,7 @@
 							</div>
 
 							<!-- 6. 가입하기 버튼 -->
-							<input type="submit" value="탈퇴하기" />
+							<input type="submit" value="탈퇴하기" id="register"/>
 						</div>
 				</form>
 			</div>
