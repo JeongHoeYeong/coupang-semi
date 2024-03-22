@@ -77,7 +77,6 @@ public class TourplaceService {
 			if (!tourplaceImgMap.containsKey(tourplaceName)) {
 				tourplaceImgMap.put(tourplaceName, imgTagValue);
 			}
-
 		}
 
 		return tourplaceImgMap;
