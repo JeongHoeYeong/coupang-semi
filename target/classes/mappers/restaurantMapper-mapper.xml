@@ -1,0 +1,33 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="restaurantMapper">
+
+	<!-- <insert id="insertRestaurant" parameterType="Restaurant">
+		INSERT restaurant
+		(restaurantName, restaurantAddress, restaurantPhone)
+		VALUES (#{restaurantName},
+		#{restaurantAddress}, #{restaurantPhone})
+	</insert>
+
+	<select id="showRestaurant" resultType="Restaurant">
+		SELECT * FROM restaurant
+	</select>
+    
+    <select id="searchRestaurant" resultMap="RestaurantMap" parameterType="com.semi.gold.model.dto.RestaurantSearchDTO">
+		SELECT * FROM restaurant
+		<where>
+			<if test="keyword != null and keyword != ''">
+				touristName LIlKE '%${keyword}%'
+				
+			</if>
+		</where>
+		<if test="!createPageIndex">
+		limit ${pageRowStartIdx}, ${showPageCount}
+		</if>
+	</select> -->
+	
+	<!-- SELECT touristcode, touristname, touristaddress, look
+	FROM gold_semi.tourist
+	order by touristname
+	limit 0, 20; -->
+
+</mapper>
