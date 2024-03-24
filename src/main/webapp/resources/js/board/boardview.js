@@ -1,13 +1,13 @@
 $(".bcEdit").click((e) => {
-  $(e.target).siblings(".editContent").css("display", "block");
-  $(e.target).siblings(".bcContent1").css("display", "none");
+  $(e.target).parent().siblings(".editContent").css("display", "block");
+  $(e.target).parent().parent().siblings(".bcContent1").css("display", "none");
   $(e.target).css("display", "none");
 });
 
 $(".editCan").click((e) => {
   $(e.target).parent().css("display", "none");
-  $(e.target).parent().siblings(".bcContent1").css("display", "block");
-  $(e.target).parent().siblings(".bcEdit").css("display", "block");
+  $(e.target).parent().parent().siblings(".bcContent1").css("display", "block");
+  $(e.target).parent().siblings("div").children(".bcEdit").css("display", "inline");
 });
 
 $(".editCon").click((e) => {
@@ -21,20 +21,20 @@ $(".editCon").click((e) => {
   });
 });
 
-$(".bcDelete").click((e) => {
-  $.ajax({
+function bcDelete(bcNo) {
+	$.ajax({
     type: "get",
     url: "/deleteBC",
     data:
       "bcNo=" +
-      $(e.target).siblings(".bcNo").val() +
+      bcNo +
       "&boardNo=" +
       $("#boardNo").val(),
     success: function (data) {
       location.reload();
     },
   });
-});
+}
 
 $("#bcWrite").click((e) => {
   if (document.querySelector("#id").value == "") {

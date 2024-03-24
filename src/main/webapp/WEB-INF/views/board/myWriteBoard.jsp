@@ -25,7 +25,6 @@
             <i class="fa-solid fa-sort-down fa-xm"
             style="<c:if test="${sort ne 'board_like' && sort ne 'board_views'}">color: orangered;</c:if>"></i></a></th>
             <th>제목</th>
-            <th>작성자</th>
             <th>작성일</th>
             
             <th><a href="/boardlist?sort=board_views&category=${category}">조회수
@@ -40,7 +39,7 @@
 			<tbody>
 				<!--  현재 주소에 있는 거 긁어서 같이 넘기고,거기서 계속 넘기면 다시 유지해서 올 수 있음 -->
 				<c:forEach items="${list}" var="board" varStatus="status">
-					<tr>
+					<tr onclick="locationView(${board.boardNo})">
 						<td>${board.boardNo}</td>
 						<td>
                  			<span class="category">[${board.category}]</span> &nbsp&nbsp${board.boardTitle}

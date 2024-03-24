@@ -52,3 +52,12 @@
 	height: 40px;
 	margin-top: 60px;
 }
+
+.bcDiv {
+	display: flex;
+}
+
+.bcDate {
+	display: inline;
+	margin-left: 25px;
+}
