@@ -13,7 +13,7 @@
 	integrity="sha384-l+xbElFSnPZ2rOaPrU//2FF5B4LB8FiX5q4fXYTlfcG4PGpMkE1vcL7kNXI6Cci0"
 	crossorigin="anonymous"></script>
 <script>
-	Kakao.init('a0203ccdffa21fc7096cfaca29b6fa24'); // 사용하려는 앱의 JavaScript 키 입력
+	Kakao.init('cd5709788cac6dd681f79ab70e0458d9'); // 사용하려는 앱의 JavaScript 키 입력
 	console.log(Kakao.isInitialized());
 </script>
 <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
@@ -76,6 +76,6 @@
 					</div>
 				</div>
 			</div>
-		</div> <script src="/resources/js/login.js"></script>
+		</div> <script src="/resources/js/kakaologin.js"></script>
 </body>
 </html>

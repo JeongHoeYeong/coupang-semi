@@ -88,8 +88,7 @@
 								<!-- 로그인 -->
 							</c:when>
 							<c:otherwise>
-								<a class="nav-link" href="/member"><i
-									class="fa-solid fa-house fa-2x"></i></a>
+								<a class="nav-link" href="/member"><i class="fa-solid fa-house fa-2x"></i></a>
 								<!-- 마이페이지 -->
 								<a class="nav-link" href="/logout"><i
 									class="fa-solid fa-right-from-bracket fa-2x"></i></a>

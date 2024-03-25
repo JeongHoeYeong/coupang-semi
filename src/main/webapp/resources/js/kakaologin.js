@@ -1,3 +1,4 @@
+
 function loginWithKakao() {
   Kakao.Auth.authorize({
     redirectUri: "http://localhost:8080/kakaoLogin",
@@ -31,5 +32,3 @@ function getCookie(name) {
     return parts[1].split(";")[0];
   }
 }
-
-
