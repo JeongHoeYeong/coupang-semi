@@ -22,8 +22,8 @@
 	href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
 	rel="stylesheet">
 
-<link href="resources/css/admin1.css" rel="stylesheet">
-<link href="resources/css/calender.css" rel="stylesheet">
+<link href="/resources/css/admin1.css" rel="stylesheet">
+<link href="/resources/css/calender.css" rel="stylesheet">
 
 <script src="https://kit.fontawesome.com/cbb1359000.js"
 	crossorigin="anonymous"></script>
@@ -68,7 +68,7 @@
 			<!-- Nav Item - Utilities Collapse Menu -->
 			<li class="nav-item"><a class="nav-link collapsed"
 				href="/userout"></i> <span>회원탈퇴</span> </a></li>
-
+			
 			<!-- Divider -->
 			<hr class="sidebar-divider">
 
@@ -101,7 +101,7 @@
 								aria-describedby="basic-addon2">
 							<div class="input-group-append">
 								<button class="btn btn-primary" type="button">
-									<i class="fas fa-search fa-sm"></i>
+									<i class="bi bi-pen"></i>
 								</button>
 							</div>
 						</div>
@@ -303,39 +303,6 @@
 		</div>
 	</div>
 
-	<!-- Footer -->
-	<!-- End of Footer -->
-
-
-	<!-- Scroll to Top Button-->
-	<a class="scroll-to-top rounded" href="#page-top"> <i
-		class="fas fa-angle-up"></i>
-	</a>
-
-	<!-- Logout Modal-->
-	<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog"
-		aria-labelledby="exampleModalLabel" aria-hidden="true">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-					<button class="close" type="button" data-dismiss="modal"
-						aria-label="Close">
-						<span aria-hidden="true">×</span>
-					</button>
-				</div>
-				<div class="modal-body">Select "Logout" below if you are ready
-					to end your current session.</div>
-				<div class="modal-footer">
-					<button class="btn btn-secondary" type="button"
-						data-dismiss="modal">Cancel</button>
-					<a class="btn btn-primary" href="login.html">Logout</a>
-				</div>
-			</div>
-		</div>
-	</div>
-
-
 	<!-- Bootstrap core JavaScript-->
 	<script src="vendor/jquery/jquery.min.js"></script>
 	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -348,6 +315,6 @@
 	<!-- Page level custom scripts -->
 	<script src="js/demo/chart-area-demo.js"></script>
 	<script src="js/demo/chart-pie-demo.js"></script>
-	<script src="resources/js/calender.js"></script>
+	<script src="/resources/js/calender.js"></script>
 </body>
 </html>

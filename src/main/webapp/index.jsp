@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
+<%@ taglib prefix="sec"
+	uri="http://www.springframework.org/security/tags"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +13,8 @@
 <script src="/resources/js/bootstrap.bundle.min.js"></script>
 
 <script src="/resources/js/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 
 
 <!-- Load Tempalte CSS -->
@@ -31,12 +33,15 @@
 <!-- boot cdn -->
 <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
 	rel="stylesheet" />
-	<!-- SCRIPT -->
-<script src="https://kit.fontawesome.com/cbb1359000.js" crossorigin="anonymous"></script>
+<!-- SCRIPT -->
+<script src="https://kit.fontawesome.com/cbb1359000.js"
+	crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
 <script src="/resources/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 
 <!-- STYLE -->
 <style>
@@ -47,67 +52,67 @@
 </style>
 </head>
 <sec:authentication property="principal" var="member" />
-	<!-- Header -->
-	<nav id="main_nav"
-		class="navbar navbar-expand-lg navbar-light bg-white shadow">
-		<div
-			class="container d-flex justify-content-between align-items-center">
-			<a class="navbar-brand h1" href="/"> <img
-				src="resources/image/로고 (2).jpg" alt="" />
-				<div class="main">
-					<div class="animation">
-						<span class="one_text">전국을 만나는 순간</span><span class="two_text">전
-							만 순</span>
-					</div>
-				</div>
-			</a>
-			<button class="navbar-toggler border-0" type="button"
-				data-bs-toggle="collapse" data-bs-target="#navbar-toggler-success"
-				aria-controls="navbarSupportedContent" aria-expanded="false"
-				aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-
-			<div
-				class="align-self-center collapse navbar-collapse flex-fill d-lg-flex justify-content-lg-between"
-				id="navbar-toggler-success">
-				<div class="flex-fill mx-xl-5 mb-2">
-					<ul
-						class="nav navbar-nav d-flex justify-content-between mx-xl-5 text-center text-dark">
-						<li class="nav-item">
-						<a class="nav-link btn-outline-warning rounded-pill px-3"
-							href="tourplace/search">여행을 만나는 순간</a></li>
-						<li class="nav-item">
-						<a class="nav-link btn-outline-warning rounded-pill px-3"
-						href="restaurant/search">맛집를 만나는 순간</a></li>
-						<li class="nav-item">
-						<a class="nav-link btn-outline-warning rounded-pill px-3" href="/boardlist">사람을
-								만나는 순간</a></li>
-						<li class="nav-item">
-						<a class="nav-link btn-outline-warning rounded-pill px-3">축제를
-								만나는 순간</a></li>
-					</ul>
-				</div>
-				<div class="navbar align-self-center d-flex">
-					<c:choose>
-						<c:when test="${member == 'anonymousUser'}">
-							<a class="nav-link" href="/login"><i
-								class="fa-solid fa-right-to-bracket fa-2x"></i></a>
-							<!-- 로그인 -->
-						</c:when>
-						<c:otherwise>
-							<a class="nav-link" href="/member"><i
-								class="fa-solid fa-house fa-2x"></i></a>
-							<!-- 마이페이지 -->
-							<a class="nav-link" href="/logout"><i
-								class="fa-solid fa-right-from-bracket fa-2x"></i></a>
-							<!-- 로그아웃 -->
-						</c:otherwise>
-					</c:choose>
+<!-- Header -->
+<nav id="main_nav"
+	class="navbar navbar-expand-lg navbar-light bg-white shadow">
+	<div
+		class="container d-flex justify-content-between align-items-center">
+		<a class="navbar-brand h1" href="/"> <img
+			src="resources/image/로고 (2).jpg" alt="" />
+			<div class="main">
+				<div class="animation">
+					<span class="one_text">전국을 만나는 순간</span><span class="two_text">전
+						만 순</span>
 				</div>
 			</div>
+		</a>
+		<button class="navbar-toggler border-0" type="button"
+			data-bs-toggle="collapse" data-bs-target="#navbar-toggler-success"
+			aria-controls="navbarSupportedContent" aria-expanded="false"
+			aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div
+			class="align-self-center collapse navbar-collapse flex-fill d-lg-flex justify-content-lg-between"
+			id="navbar-toggler-success">
+			<div class="flex-fill mx-xl-5 mb-2">
+				<ul
+					class="nav navbar-nav d-flex justify-content-between mx-xl-5 text-center text-dark">
+					<li class="nav-item"><a
+						class="nav-link btn-outline-warning rounded-pill px-3"
+						href="tourplace/search">여행을 만나는 순간</a></li>
+					<li class="nav-item"><a
+						class="nav-link btn-outline-warning rounded-pill px-3"
+						href="restaurant/search">맛집를 만나는 순간</a></li>
+					<li class="nav-item"><a
+						class="nav-link btn-outline-warning rounded-pill px-3"
+						href="/boardlist">사람을 만나는 순간</a></li>
+					<li class="nav-item"><a
+						class="nav-link btn-outline-warning rounded-pill px-3">축제를 만나는
+							순간</a></li>
+				</ul>
+			</div>
+			<div class="navbar align-self-center d-flex">
+				<c:choose>
+					<c:when test="${member == 'anonymousUser'}">
+						<a class="nav-link" href="/login"><i
+							class="fa-solid fa-right-to-bracket fa-2x"></i></a>
+						<!-- 로그인 -->
+					</c:when>
+					<c:otherwise>
+						<a class="nav-link" href="/member"><i
+							class="fa-solid fa-house fa-2x"></i></a>
+						<!-- 마이페이지 -->
+						<a class="nav-link" href="/logout"><i
+							class="fa-solid fa-right-from-bracket fa-2x"></i></a>
+						<!-- 로그아웃 -->
+					</c:otherwise>
+				</c:choose>
+			</div>
 		</div>
-	</nav>
+	</div>
+</nav>
 
 <!-- careousel -->
 <div id="carouselExampleCaptions" class="carousel slide"
@@ -222,14 +227,12 @@
 			<option value="tourist">관광</option>
 			<option value="food">맛집</option>
 			<option value="stay">숙박</option>
-		</select> 
-		<input class="form-control py-2 text-center" id="dosi"
-			onchange="changeFn()" placeholder="검색어를 입력하세요"/>
-		</input>
+		</select> <input class="form-control py-2 text-center" id="dosi"
+			onchange="changeFn()" placeholder="검색어를 입력하세요"
+			style="margin-left: 20px;" /> </input>
 		<div class="col-md-2 px-5">
 			<button class="btn btn-warning px-5" id="btn">Click!</button>
 		</div>
-		<span id="text"></span>
 	</div>
 </div>
 <!-- Start Recent Work -->
@@ -340,9 +343,10 @@
 
 <!--버튼-->
 <div class="return-top">
-	<a href="https://www.instagram.com/jeonmansoon_trip?igsh=MTQ5czhxOTBseXBuOA%3D%3D"><span class="element1">Insta</span></a>  
-	<a href="#"><span class="element2">Review</span></a>  
-	<a href="#"> <span class="element3">Top</span></a> 
+	<a
+		href="https://www.instagram.com/jeonmansoon_trip?igsh=MTQ5czhxOTBseXBuOA%3D%3D"><span
+		class="element1">Insta</span></a> <a href="#"><span class="element2">Review</span></a>
+	<a href="#"> <span class="element3">Top</span></a>
 </div>
 <!--footer 언덕-->
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
@@ -365,22 +369,20 @@
 						href="https://github.com/JeongHoeYeong">Jeong Hoe Yeong</a></li>
 					<li class="pb-2"><i class='bx-fw bx bxs-chevron-right bx-xs'></i><a
 						class="text-decoration-none text-light py-1"
-						href="https://github.com/mutual99">Lee
-							Sang ho</a></li>
+						href="https://github.com/mutual99">Lee Sang ho</a></li>
 					<li class="pb-2"><i class='bx-fw bx bxs-chevron-right bx-xs'></i><a
 						class="text-decoration-none text-light py-1"
 						href="https://github.com/wjdtpdud00">jeong se yeong</a>
 					<li class="pb-2"><i class='bx-fw bx bxs-chevron-right bx-xs'></i><a
 						class="text-decoration-none text-light py-1"
 						href="https://github.com/as8285">yoon min yeong</a></li>
-
 				</ul>
-
 			</div>
 
 			<div class="col-lg-3 col-md-4 my-sm-0 mt-4 pt-5">
 				<h2 class="h4 pb-lg-3 text-light light-300">For Client</h2>
 				<ul class="list-unstyled text-light light-300">
+					<li><img src="resources/image/1kPPx.jpg" id="qrcode"></li>
 					<li class="pb-2"><i class='bx bxl-instagram-alt bx-xs'></i><a
 						class="text-decoration-none text-light py-1"
 						href="https://www.instagram.com/jeonmansoon_trip?igsh=MTQ5czhxOTBseXBuOA%3D%3D">
