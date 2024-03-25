@@ -28,7 +28,6 @@ public class BoardDAO {
 	}
 	
 	public List<Board> cateSelect(Map<String, Object> map) {
-		System.out.println(map);
 		return session.selectList("board.cateSelect", map);
 	}
 	
@@ -97,7 +96,8 @@ public class BoardDAO {
 		return session.selectOne("board.searchCount", map);
 	}
 	
-	public List<Board> writeSelect(Map map) {
+	public List<Board> writeSelect(Map<String, Object> map) {
+		System.out.println(map);
 		return session.selectList("board.writeSelect", map);
 	}
 	

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> 
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,12 +25,15 @@
 				<textarea class="form-control" rows="20" name="boardContent" 
 				id="boardContent" placeholder="내용을 입력하세요.">${board.boardContent}</textarea>
 			</div>
-			<select name="category" id="category" class="form-select form-select-md mb-3">
-          <option value="none" selected="selected" disabled="disabled" hidden>카테고리 선택</option>
-          <option value="관광지">관광지</option>
-          <option value="음식점">음식점</option>
-          <option value="동행">동행</option>
-          <option value="기타">기타</option>
+		<select name="category" id="category" class="form-select form-select-md mb-3">
+          <option value="관광지" 
+          <c:if test="${board.category=='관광지'}"> selected </c:if>>관광지</option>
+          <option value="음식점"
+          <c:if test="${board.category=='음식점'}"> selected </c:if>>음식점</option>
+          <option value="동행"
+          <c:if test="${board.category=='동행'}"> selected </c:if>>동행</option>
+          <option value="기타"
+          <c:if test="${board.category=='기타'}"> selected </c:if>>기타</option>
        	 </select>
 			<button type="submit" class="btn btn-outline-warning" id="baordSubmit">수정</button>
 			<a href="/boardview?no=${board.boardNo}" class="btn btn-outline-secondary" id="bwcan">취소</a>

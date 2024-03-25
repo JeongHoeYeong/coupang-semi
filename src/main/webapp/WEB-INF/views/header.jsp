@@ -21,8 +21,7 @@
 <link href="/resources/css/review.css" rel="stylesheet" />
 
 <!-- Font CSS -->
-<script src="https://kit.fontawesome.com/4602e82315.js"
-	crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/cbb1359000.js" crossorigin="anonymous"></script>
 <link href="/resources/css/boxicon.min.css" rel="stylesheet" />
 <link
 	href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap"

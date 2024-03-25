@@ -22,17 +22,17 @@
 		<table class="table">
 			<thead>
 				<tr>
-					<th><a href="/boardSearch?category=${category}&select=${select}&keyword=${keyword}">#번호
+					<th><a href="/boardsearch?category=${category}&select=${select}&keyword=${keyword}">#번호
 					 <i class="fa-solid fa-sort-down fa-xm"
             style="<c:if test="${sort ne 'board_like' && sort ne 'board_views'}">color: orangered;</c:if>"></i></a>
 					</th>
 					<th>제목</th>
 					<th>작성자</th>
 					<th>작성일</th>
-					<th><a href="/boardSearch?category=${category}&select=${select}&keyword=${keyword}&sort=board_views">조회수
+					<th><a href="/boardsearch?category=${category}&select=${select}&keyword=${keyword}&sort=board_views">조회수
 					<i class="fa-solid fa-sort-down fa-xm"
             style="<c:if test="${sort eq 'board_views'}">color: orangered;</c:if>"></i></a></th>
-					<th><a href="/boardSearch?category=${category}&select=${select}&keyword=${keyword}&sort=board_like">추천수
+					<th><a href="/boardsearch?category=${category}&select=${select}&keyword=${keyword}&sort=board_like">추천수
 					<i class="fa-solid fa-sort-down fa-xm"
             style="<c:if test="${sort eq 'board_like'}">color: orangered;</c:if>"></i></a></th>
 				</tr>
@@ -64,22 +64,22 @@
        	 >내 글 보기</button>
       	  </c:when>
       	  <c:otherwise>
-     		 <a href="myWriteBoard" class="btn btn-outline-warning" style="float: left;"
+     		 <a href="mywriteboard" class="btn btn-outline-warning" style="float: left;"
               >내 글 보기</a>
               </c:otherwise>
               </c:choose>
 			<ul class="pagination" style="display:inline-flex;">
 				<li class="page-item ${boardPaging.prev ? '' : 'disabled'}">
 				<a class="page-link" 
-				href="/boardSearch?category=${category}&select=${select}&keyword=${keyword}&sort=${sort}&page=${boardPaging.startPage - 1}">Previous</a></li>
+				href="/boardsearch?category=${category}&select=${select}&keyword=${keyword}&sort=${sort}&page=${boardPaging.startPage - 1}">Previous</a></li>
 				
 				<c:forEach begin="${boardPaging.startPage}" end="${boardPaging.endPage}" var="page">
 					<li class="page-item"><a class="page-link ${boardPaging.page == page ? 'active' : ''}"
-					 href="/boardSearch?category=${category}&select=${select}&keyword=${keyword}&sort=${sort}&page=${page}">${page}</a></li>
+					 href="/boardsearch?category=${category}&select=${select}&keyword=${keyword}&sort=${sort}&page=${page}">${page}</a></li>
 				</c:forEach>
 				
 				<li class="page-item ${boardPaging.next ? '' : 'disabled'}"><a class="page-link"
-				 href="/boardSearch?category=${category}&select=${select}&keyword=${keyword}&sort=${sort}&page=${boardPaging.endPage + 1}">Next</a></li>
+				 href="/boardsearch?category=${category}&select=${select}&keyword=${keyword}&sort=${sort}&page=${boardPaging.endPage + 1}">Next</a></li>
 			</ul>
 			 <c:choose>
 			<c:when test="${member == 'anonymousUser'}">
@@ -94,7 +94,7 @@
 		</nav>
 	</div>
 	<form
-      action="/boardSearch"
+      action="/boardsearch"
       id="findBoard"
       onsubmit="return searchBoard();"
     >
@@ -119,11 +119,11 @@
       </div>
       <br />
       태그선택 &nbsp: &nbsp
-      <a href="/boardSearch?sort=${sort}&select=${select}&keyword=${keyword}" class="btn btn-secondary">전체</a> 
-      <a href="/boardSearch?sort=${sort}&category=관광지&select=${select}&keyword=${keyword}" class="btn btn-secondary">관광지</a>  
-      <a href="/boardSearch?sort=${sort}&category=음식점&select=${select}&keyword=${keyword}" class="btn btn-secondary">음식점</a> 
-      <a href="/boardSearch?sort=${sort}&category=동행&select=${select}&keyword=${keyword}" class="btn btn-secondary">동행</a> 
-      <a href="/boardSearch?sort=${sort}&category=기타&select=${select}&keyword=${keyword}" class="btn btn-secondary">기타</a> 
+      <a href="/boardsearch?sort=${sort}&select=${select}&keyword=${keyword}" class="btn btn-secondary">전체</a> 
+      <a href="/boardsearch?sort=${sort}&category=관광지&select=${select}&keyword=${keyword}" class="btn btn-secondary">관광지</a>  
+      <a href="/boardsearch?sort=${sort}&category=음식점&select=${select}&keyword=${keyword}" class="btn btn-secondary">음식점</a> 
+      <a href="/boardsearch?sort=${sort}&category=동행&select=${select}&keyword=${keyword}" class="btn btn-secondary">동행</a> 
+      <a href="/boardsearch?sort=${sort}&category=기타&select=${select}&keyword=${keyword}" class="btn btn-secondary">기타</a> 
       </form>
 	<script src="/resources/js/board/boardlist.js"></script>
 </body>

@@ -71,7 +71,7 @@ pageEncoding="UTF-8"%>
         >내 글 보기</button>
         </c:when>
         <c:otherwise>
-      <a href="myWriteBoard" class="btn btn-outline-warning" style="float: left;"
+      <a href="/mywriteboard" class="btn btn-outline-warning" style="float: left;"
               >내 글 보기</a>
               </c:otherwise>
               </c:choose>
@@ -120,7 +120,7 @@ pageEncoding="UTF-8"%>
       </nav>
     </div>
     <form
-      action="/boardSearch"
+      action="/boardsearch"
       id="findBoard"
       onsubmit="return searchBoard();"
     >

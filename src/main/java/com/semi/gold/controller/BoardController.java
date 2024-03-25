@@ -69,7 +69,7 @@ public class BoardController {
 	}
 	
 	// 글 검색
-	@GetMapping("/boardSearch")
+	@GetMapping("/boardsearch")
 	private String boardSearch(Model model, BoardPaging paging, Principal principal, String sort,
 			String select, String keyword, String category) {
 		if(principal !=null) {
@@ -83,7 +83,7 @@ public class BoardController {
 		model.addAttribute("keyword", keyword.trim());
 		model.addAttribute("select", select);
 		model.addAttribute("category", category);
-		return "/board/boardSearch";
+		return "/board/boardsearch";
 	}
 	
 	@GetMapping("/boardwrite")
@@ -91,11 +91,11 @@ public class BoardController {
 		return "/board/boardwrite";
 	}
 	
-	@GetMapping("/boardEdit")
+	@GetMapping("/boardedit")
 	private String selectBoard(String no, Model model) {
 		int num = Integer.parseInt(no);
 		model.addAttribute("board", service.selectBoard(num));
-		return "/board/boardEdit";
+		return "/board/boardedit";
 	}
 	
 	// 글 등록
@@ -162,14 +162,14 @@ public class BoardController {
 		res.addCookie(cookie);
 	}
 	
-	@GetMapping("/myWriteBoard") 
-	private String writeSelect(BoardPaging paging, Model model, Principal principal) {
+	@GetMapping("/mywriteboard") 
+	private String writeSelect(BoardPaging paging, String sort, Model model, Principal principal) {
+		paging.setSort(sort);
 		List<Board> list = service.writeSelect(principal.getName(), paging);
-		model.addAttribute("id", principal.getName());
-		System.out.println(model);
 		model.addAttribute("list", list);
 		model.addAttribute("paging", new BoardPaging(paging.getPage(), service.writeTotal(principal.getName())));
-		return "board/myWriteBoard";
+		model.addAttribute("sort", paging.getSort());
+		return "board/mywriteboard";
 	}
 	
 	// 글 삭제

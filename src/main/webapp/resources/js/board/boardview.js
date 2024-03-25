@@ -1,39 +1,60 @@
 $(".bcEdit").click((e) => {
-  $(e.target).parent().siblings(".editContent").css("display", "block");
-  $(e.target).parent().parent().siblings(".bcContent1").css("display", "none");
+  e.stopPropagation();
+  $(e.target).siblings(".editContent").css("display", "block");
+  $(e.target).siblings(".bcContent1").css("display", "none");
   $(e.target).css("display", "none");
 });
 
 $(".editCan").click((e) => {
+  e.stopPropagation();
   $(e.target).parent().css("display", "none");
-  $(e.target).parent().parent().siblings(".bcContent1").css("display", "block");
-  $(e.target).parent().siblings("div").children(".bcEdit").css("display", "inline");
+  $(e.target).parent().siblings(".bcContent1").css("display", "block");
+  $(e.target).parent().siblings(".bcEdit").css("display", "inline");
 });
 
 $(".editCon").click((e) => {
+if (confirm("댓글을 수정 하시겠습니까?")) {
   $.ajax({
     type: "get",
     url: "editBC",
     data: $(e.target).parent().serialize(),
     success: function (data) {
       location.reload();
+      alert("댓글 수정 완료되었습니다.");
     },
   });
+  }
 });
 
+$(".editContent").click((e) => {
+	e.stopPropagation();
+});
+
+$(".editBtn").click((e)=> {
+	e.stopPropagation();
+});
+
+function checkDelete(e) {
+	if (confirm("게시물을 삭제 하시겠습니까?")) {
+		location.href = "/boarddelete?no=" + $("#boardNo").val();
+		alert("삭제 완료되었습니다.");
+	} else {
+	return false;
+	}
+}
+
 function bcDelete(bcNo) {
-	$.ajax({
+	if(confirm("댓글을 삭제 하시겠습니까?")) {
+  $.ajax({
     type: "get",
     url: "/deleteBC",
-    data:
-      "bcNo=" +
-      bcNo +
-      "&boardNo=" +
-      $("#boardNo").val(),
+    data: "bcNo=" + bcNo + "&boardNo=" + $("#boardNo").val(),
     success: function (data) {
       location.reload();
+      alert("삭제 완료되었습니다.");
     },
   });
+  }
 }
 
 $("#bcWrite").click((e) => {
@@ -73,14 +94,14 @@ $(".brWrite").click((e) => {
   });
 });
 
-$(".liClick").click((e) => {
-  if ($(e.target).next().css("display") === "none") {
-    $(".bcDiv").css("display", "none");
-    $(e.target).next().css("display", "block");
-  } else {
-    $(".bcDiv").css("display", "none");
-  }
-});
+function liDivBlock(no) {
+    if ($("#bcDiv" + no).css("display") === "none") {
+      $(".bcDiv").css("display", "none");
+      $("#bcDiv" + no).css("display", "block");
+    } else {
+      $(".bcDiv").css("display", "none");
+    }
+}
 
 $("#like").click(() => {
   if ($("#id").val() == "") {

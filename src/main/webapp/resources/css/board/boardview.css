@@ -3,7 +3,10 @@
 }
 .liClick {
   cursor: pointer;
-}
+  padding: 16px 0px;
+  margin: -16px 0px;
+  color: black;
+  }
 #disLike, #like {
   color: red;
   cursor: pointer;
@@ -11,7 +14,7 @@
 
 #like {
 	color: gray;
-}
+}	
 
 .countText {
 	display: inline;
@@ -60,4 +63,13 @@
 .bcDate {
 	display: inline;
 	margin-left: 25px;
+}
+
+.bcContent1 {
+	margin: 0px;
+}
+
+.editBtn {
+	float: right;
+	margin-top: -10px;
 }

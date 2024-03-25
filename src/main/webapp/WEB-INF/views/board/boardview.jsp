@@ -23,7 +23,7 @@ pageEncoding="UTF-8"%>
 	<div class="header">
       <h2 class="boardlog">게시물 정보</h2>
       </div>
-      <form action="/boardEdit" method="get">
+      <form action="/boardedit" method="get">
         <input type="hidden" name="boardNo" id="boardNo" value="${vo.boardNo}" />
         <div class="form-group">
           <input
@@ -69,10 +69,11 @@ ${vo.boardContent}</textarea
         <div>
         <c:if test ="${!empty id}">
 			<c:if test="${id eq vo.id}">
-			<a class="btn btn-outline-danger boardBtnDiv" href="/boarddelete?no=${vo.boardNo}"
+			<a class="btn btn-outline-danger boardBtnDiv" href="javascript:void(0);"
+			onclick="checkDelete();"
           >삭제</a
         >
-			<a href="/boardEdit?no=${vo.boardNo}" class="btn btn-outline-warning boardBtnDiv">수정</a>
+			<a href="/boardedit?no=${vo.boardNo}" class="btn btn-outline-warning boardBtnDiv">수정</a>
 		</c:if>
 		</c:if>
         <a class="btn btn-outline-warning boardBtnDiv" class="listMove" href="/boardlist">게시판</a>
@@ -92,34 +93,38 @@ ${vo.boardContent}</textarea
       <c:forEach items="${boardComment}" var="boardComment" varStatus="status">
       	<c:choose>
       	<c:when test="${boardComment.parentNo==0}">
-      		<li class="liClick">
+      		<li class="liClick" 
+      		onclick="liDivBlock(${status.count})"
+      		style="<c:if test="${boardComment.bcDelete eq 'y'}"> color:gray; </c:if>">
       		<c:if test="${boardComment.bcDelete eq 'n'}">
       			작성자 : ${boardComment.member.nickname}
       			<p class="bcDate">날짜 : <fmt:formatDate value="${boardComment.bcDate}"
       					pattern="yyyy-MM-dd HH:mm" />
       					</p>
+      			<c:if test="${boardComment.id eq id}">
+      			<input type="button" value="수정하기" 
+      			class="bcEdit btn btn-outline-warning btn-sm editBtn" 
+      			style="margin-left: 10px;">
+      			</c:if>
+      			<c:if test="${boardComment.id eq id || vo.id eq id}">
+      			<input type="button" value="삭제하기" onclick="bcDelete(${boardComment.bcNo})" class="btn btn-outline-danger btn-sm editBtn">
+      			</c:if>
       			<br>
       			<p class="bcContent1">${boardComment.bcContent}</p>
-      			<c:if test="${boardComment.id eq id}">
-      			<div>
+      			
       			<form action="/editBC" class="editContent" style="display: none;">		
       				<input type="hidden" value="${boardComment.bcNo}" name="bcNo">
       				<textarea name="bcContent" rows="4" cols="50" class="form-control" style="height: 100px !important">${boardComment.bcContent}</textarea>
       				<input type="submit" value="수정완료" class="editCon btn btn-outline-warning">
       				<input type="button" value="수정취소" class="editCan btn btn-outline-secondary">
       			</form>
-      			<div style="margin-top: 10px;">
-      			<input type="button" value="수정하기" class="bcEdit btn btn-outline-warning">
-      			<input type="button" value="삭제하기" onclick="bcDelete(${boardComment.bcNo})" class="btn btn-outline-danger">
-      			</div>
-      			</div>
-      			</c:if>
       			</c:if>
       			<c:if test="${boardComment.bcDelete eq 'y'}">
       			삭제된 댓글입니다
       			</c:if>
-      			</li>    			
-				<div class="bcDiv" style="display: none;">
+      			</li>    	
+      					
+				<div class="bcDiv" style="display: none;" id="bcDiv${status.count}">
 				<hr>
 					<form>
 						<input type="hidden" name="boardNo"
@@ -134,27 +139,30 @@ ${vo.boardContent}</textarea
 				<hr>
 			</c:when>
       		<c:otherwise>
-      			<li style="padding-left:50px;">
+      			<li style="padding-left:50px; color:black 
+      			<c:if test="${boardComment.bcDelete eq 'y'}"> color:gray </c:if>;">
+      			
       			<c:if test="${boardComment.bcDelete eq 'n'}">
       			작성자 : ${boardComment.member.nickname}
       			<p class="bcDate"> 날짜 : <fmt:formatDate value="${boardComment.bcDate}"
       					pattern="yyyy-MM-dd HH:mm" />
       					</p>
-      			<br>
-      			<p class="bcContent1">${boardComment.bcContent}</p>
       			<c:if test="${boardComment.id eq id}">
-      			<div>
+      			<input type="button" value="수정하기" class="bcEdit btn btn-outline-warning btn-sm editBtn" style="margin-left: 10px;">
+      			</c:if>
+      			<c:if test="${boardComment.id eq id || vo.id eq id}">
+      			<input type="button" value="삭제하기" onclick="bcDelete(${boardComment.bcNo})" class="btn btn-outline-danger btn-sm editBtn">
+      			</c:if>
+      			<br>
+      			<p class="bcContent1" style="word-break: break-all">${boardComment.bcContent}</p>
+      			<c:if test="${boardComment.id eq id}">
+      			
       			<form action="/editBC" class="editContent" style="display: none;">		
       				<input type="hidden" value="${boardComment.bcNo}" name="bcNo">
       				<textarea name="bcContent" rows="4" cols="50" class="form-control" style="height: 100px !important">${boardComment.bcContent}</textarea>
       				<input type="submit" value="수정완료" class="editCon btn btn-outline-warning">
       				<input type="button" value="수정취소" class="editCan btn btn-outline-secondary">
       			</form>
-      			<div style="margin-top: 10px;">
-      				<input type="button" value="수정하기" class="bcEdit btn btn-outline-warning">
-      				<input type="button" value="삭제하기" onclick="bcDelete(${boardComment.bcNo})" class="btn btn-outline-danger">
-      			</div>
-      			</div>
       			</c:if>
       			</c:if>
       			<c:if test="${boardComment.bcDelete eq 'y'}">

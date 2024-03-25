@@ -36,7 +36,7 @@
 		SELECT * FROM board
 		join member using (id)
 		<choose>
-		<when test="sort=='board_like' or sort=='board_views' or sort=='bc_count'">
+		<when test="sort=='board_like' or sort=='board_views'">
 		ORDER BY ${sort} DESC
 		LIMIT #{offset}, #{limit}
 		</when>
@@ -54,7 +54,7 @@
 		WHERE category = #{category}
 		</if> 
 		<choose>
-		<when test="paging.sort=='board_like' or paging.sort=='board_views' or paging.sort=='bc_count'">
+		<when test="paging.sort=='board_like' or paging.sort=='board_views'">
 		ORDER BY #{paging.sort} DESC
 		LIMIT #{paging.offset}, #{paging.limit}
 		</when>
@@ -68,8 +68,16 @@
 	<select id="writeSelect" parameterType="hashmap" resultMap="boardMap">
 		SELECT * FROM board
 		WHERE id=#{id}
+		<choose>
+		<when test="paging.sort=='board_like' or paging.sort=='board_views'">
+		ORDER BY ${paging.sort} DESC
+		LIMIT #{paging.offset}, #{paging.limit}
+		</when>
+		<otherwise>
 		ORDER BY board_date DESC
 		LIMIT #{paging.offset}, #{paging.limit}
+		</otherwise>
+		</choose>
 	</select>
 	
 	<select id="searchBoard" parameterType="hashmap" resultMap="boardMap">
@@ -96,7 +104,7 @@
 		</if>
 		</where>
 		<choose>
-			<when test="paging.sort == 'board_like' or paging.sort == 'board_views' or paging.sort == 'bc_count'">
+			<when test="paging.sort == 'board_like' or paging.sort == 'board_views'">
 			ORDER BY ${paging.sort} DESC
 			LIMIT #{paging.offset}, #{paging.limit}
 			</when>

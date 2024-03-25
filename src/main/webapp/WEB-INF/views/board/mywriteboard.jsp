@@ -16,22 +16,22 @@
 	<jsp:include page="/WEB-INF/views/header.jsp" />
 	<div class="container">
 		<div class="header">
-		<a href="/myWriteBoard" class="boardlog">내가 쓴 글</a>
+		<a href="/mywriteboard" class="boardlog">내가 쓴 글</a>
 		</div>
 		<table class="table">
 			<thead>
           <tr>
-            <th><a href="/boardlist?category=${category}">#번호
+            <th><a href="/mywriteboard">#번호
             <i class="fa-solid fa-sort-down fa-xm"
             style="<c:if test="${sort ne 'board_like' && sort ne 'board_views'}">color: orangered;</c:if>"></i></a></th>
             <th>제목</th>
             <th>작성일</th>
             
-            <th><a href="/boardlist?sort=board_views&category=${category}">조회수
+            <th><a href="/mywriteboard?category=${category}&sort=board_views">조회수
             <i class="fa-solid fa-sort-down fa-xm"
             style="<c:if test="${sort eq 'board_views'}">color: orangered;</c:if>"></i></a></th>
            
-            <th><a href="/boardlist?sort=board_like&category=${category}">추천수
+            <th><a href="/mywriteboard?category=${category}&sort=board_like">추천수
             <i class="fa-solid fa-sort-down fa-xm"
             style="<c:if test="${sort eq 'board_like'}">color: orangered;</c:if>"></i></a></th>
           </tr>
@@ -59,15 +59,16 @@
 		<a href="/boardlist" class="btn btn-outline-warning" style="float:left;"
         >돌아가기</a>
 			<ul class="pagination" style="display:inline-flex;">
-				<li class="page-item ${paging.prev ? '' : 'disabled'}"><a class="page-link" href="/myWriteBoard?page=${boardPaging.startPage - 1}">Previous</a></li>
+				<li class="page-item ${paging.prev ? '' : 'disabled'}"><a class="page-link"
+				href="/mywriteboard?sort=${sort}&page=${boardPaging.startPage - 1}">Previous</a></li>
 				
 				<c:forEach begin="${paging.startPage}" end="${paging.endPage}" var="page">
 					<li class="page-item"><a class="page-link ${paging.page == page ? 'active' : ''}"
-					 href="/myWriteBoard?page=${page}">${page}</a></li>
+					 href="/mywriteboard?sort=${sort}&page=${page}">${page}</a></li>
 				</c:forEach>
 				
 				<li class="page-item ${paging.next ? '' : 'disabled'}">
-				<a class="page-link" href="/myWriteBoard?page=${paging.endPage + 1}">Next</a></li>
+				<a class="page-link" href="/mywriteboard?sort=${sort}&page=${paging.endPage + 1}">Next</a></li>
 			</ul>
 			<a href="/boardwrite" class="btn btn-outline-warning" style="float:right;">게시글 등록</a>
 		</nav>
