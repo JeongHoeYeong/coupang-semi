@@ -1,0 +1,35 @@
+#boardContent {
+	height: 500px !important;
+}
+
+#category {
+	display: inline;
+	width: 250px;
+}
+
+#bwcan {
+	float: right;
+	margin-right: 20px;
+}
+
+#baordSubmit {
+	float: right;
+}
+	
+.boardlog {
+	font-size: 1.8rem;
+	padding-top: 4px;
+}
+
+div.header {
+	margin-top: 20px;
+	height: 43px;
+}
+
+.noneCate {
+	color: grey;
+}
+
+.form-group {
+    margin: 20px 0;
+}
