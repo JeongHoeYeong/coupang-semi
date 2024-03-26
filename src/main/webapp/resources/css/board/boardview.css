@@ -7,6 +7,12 @@
   margin: -16px 0px;
   color: black;
   }
+  
+.liClick:hover {
+	background-color: aliceblue;
+}
+ 
+ 
 #disLike, #like {
   color: red;
   cursor: pointer;
@@ -73,3 +79,4 @@
 	float: right;
 	margin-top: -10px;
 }
+
