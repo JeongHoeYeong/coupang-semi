@@ -249,7 +249,7 @@
 
 							<!-- 6. 가입하기 버튼 -->
 							<div>
-								<input type="submit" value="변경하기" />
+								<input type="submit" value="변경하기" id="register"/>
 							</div>
 						</div>
 					</div>

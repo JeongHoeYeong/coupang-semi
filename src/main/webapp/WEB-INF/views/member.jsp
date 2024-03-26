@@ -1,13 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@page import="java.util.Calendar"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="sec"
 	uri="http://www.springframework.org/security/tags"%>
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="ko">
 <head>
-
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport"
@@ -18,13 +17,17 @@
 <title>전만순</title>
 
 <!-- Custom fonts for this template-->
-<link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet"
-	type="text/css">
+
 <link
 	href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
 	rel="stylesheet">
 
-<link href="resources/css/admin1.css" rel="stylesheet">
+<link href="/resources/css/admin1.css" rel="stylesheet">
+<link href="/resources/css/calender.css" rel="stylesheet">
+
+<script src="https://kit.fontawesome.com/cbb1359000.js"
+	crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
 </head>
 <!--=====================================================================================-->
@@ -36,21 +39,20 @@
 		<!-- Sidebar -->
 		<ul
 			class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
-			id="accordionSidebar" >
+			id="accordionSidebar">
 
 			<!-- Sidebar - Brand -->
 			<a
 				class="sidebar-brand d-flex align-items-center justify-content-center"
-				href="/" >
-				<div class="sidebar-brand-icon rotate-n-15" >
+				href="/">
+				<div class="sidebar-brand-icon rotate-n-15">
 					<i class="fas fa-laugh-wink"></i>
-				</div>
-				<img src="resources/image/logobackclear.png" style="width: 50px;">
+				</div> <img src="resources/image/logobackclear.png" style="width: 50px;">
 			</a>
 
 			<!-- Nav Item - Dashboard -->
-			<li class="nav-item active" ><a class="nav-link" href="/member">
-					<i class="fas fa-fw fa-tachometer-alt" ></i> <span>나의 정보</span>
+			<li class="nav-item active"><a class="nav-link" href="/member">
+					<span>나의 정보</span>
 			</a></li>
 
 			<!-- Divider -->
@@ -60,16 +62,13 @@
 			<div class="sidebar-heading">정보 관리</div>
 
 			<!-- Nav Item - Pages Collapse Menu -->
-			<li class="nav-item"><a class="nav-link collapsed" href="/update"> 
-			<i class="fas fa-fw fa-cog"></i><span>회원 정보 변경</span>
-			</a>
-			</li>
+			<li class="nav-item"><a class="nav-link collapsed"
+				href="/update"><span>회원 정보 변경</span> </a></li>
 
 			<!-- Nav Item - Utilities Collapse Menu -->
-			<li class="nav-item"><a class="nav-link collapsed" href="/userout"></i>
-			<span>회원탈퇴</span>
-			</a></li>
-
+			<li class="nav-item"><a class="nav-link collapsed"
+				href="/userout"></i> <span>회원탈퇴</span> </a></li>
+			
 			<!-- Divider -->
 			<hr class="sidebar-divider">
 
@@ -82,7 +81,7 @@
 
 			<!-- Main Content -->
 			<div id="content">
-				
+
 				<!-- Topbar -->
 				<nav
 					class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
@@ -102,7 +101,7 @@
 								aria-describedby="basic-addon2">
 							<div class="input-group-append">
 								<button class="btn btn-primary" type="button">
-									<i class="fas fa-search fa-sm"></i>
+									<i class="bi bi-pen"></i>
 								</button>
 							</div>
 						</div>
@@ -136,12 +135,9 @@
 							</div></li>
 
 
-
-
-						<div class="topbar-divider d-none d-sm-block"></div>
-
 						<!-- Nav Item - User Information -->
-						<li class="nav-item dropdown no-arrow"> <!-- Dropdown - User Information -->
+						<li class="nav-item dropdown no-arrow">
+							<!-- Dropdown - User Information -->
 							<div
 								class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
 								aria-labelledby="userDropdown">
@@ -160,7 +156,8 @@
 									class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
 									Logout
 								</a>
-							</div></li>
+							</div>
+						</li>
 
 					</ul>
 
@@ -192,9 +189,6 @@
 												<sec:authentication property="principal.name" />
 											</div>
 										</div>
-										<div class="col-auto">
-											<i class="fas fa-calendar fa-2x text-gray-300"></i>
-										</div>
 									</div>
 								</div>
 							</div>
@@ -212,9 +206,6 @@
 											<div class="h5 mb-0 font-weight-bold text-gray-800">
 												<sec:authentication property="principal.nickname" />
 											</div>
-										</div>
-										<div class="col-auto">
-											<i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
 										</div>
 									</div>
 								</div>
@@ -239,9 +230,6 @@
 												<div class="col"></div>
 											</div>
 										</div>
-										<div class="col-auto">
-											<i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
-										</div>
 									</div>
 								</div>
 							</div>
@@ -260,9 +248,6 @@
 												<sec:authentication property="principal.phone" />
 											</div>
 										</div>
-										<div class="col-auto">
-											<i class="fas fa-comments fa-2x text-gray-300"></i>
-										</div>
 									</div>
 								</div>
 							</div>
@@ -270,125 +255,49 @@
 					</div>
 
 					<!-- Content Row -->
+					<div class="form-cal">
+						<div class="row">
+							<!-- Calendar Body -->
+							<div class="calendar">
+								<div class="header">
+									<div class="year-month"></div>
+									<div class="nav">
 
-					<div class="row">
-
-						<!-- Area Chart -->
-						<div class="col-xl-8 col-lg-7">
-							<div class="card shadow mb-4">
-								<!-- Card Header - Dropdown -->
-								<div
-									class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-									<h6 class="m-0 font-weight-bold text-primary">Earnings
-										Overview</h6>
-									<div class="dropdown no-arrow">
-										<a class="dropdown-toggle" href="#" role="button"
-											id="dropdownMenuLink" data-toggle="dropdown"
-											aria-haspopup="true" aria-expanded="false"> <i
-											class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-										</a>
+										<button class="nav-btn go-prev" onclick="prevMonth()">
+											<svg xmlns="http://www.w3.org/2000/svg" width="16"
+												height="16" fill="currentColor" class="bi bi-chevron-left"
+												viewBox="0 0 16 16">
+  <path fill-rule="evenodd"
+													d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0" />
+</svg>
+										</button>
+										<button class="nav-btn go-today" onclick="goToday()">Today</button>
+										<button class="nav-btn go-next" onclick="nextMonth()">
+											<svg xmlns="http://www.w3.org/2000/svg" width="16"
+												height="16" fill="currentColor" class="bi bi-chevron-right"
+												viewBox="0 0 16 16">
+  <path fill-rule="evenodd"
+													d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708" />
+</svg>
+										</button>
 									</div>
 								</div>
-								<!-- Card Body -->
-								<div class="card-body">
-									<div class="chart-area">
-										<canvas id="myAreaChart"></canvas>
+								<div class="main">
+									<div class="days">
+										<div class="day">일</div>
+										<div class="day">월</div>
+										<div class="day">화</div>
+										<div class="day">수</div>
+										<div class="day">목</div>
+										<div class="day">금</div>
+										<div class="day">토</div>
 									</div>
+									<div class="dates"></div>
 								</div>
 							</div>
-						</div>
-
-						<!-- Pie Chart -->
-						<div class="col-xl-4 col-lg-5">
-							<div class="card shadow mb-4">
-								<!-- Card Header - Dropdown -->
-								<div
-									class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-									<h6 class="m-0 font-weight-bold text-primary">Revenue
-										Sources</h6>
-									<div class="dropdown no-arrow">
-										<a class="dropdown-toggle" href="#" role="button"
-											id="dropdownMenuLink" data-toggle="dropdown"
-											aria-haspopup="true" aria-expanded="false"> <i
-											class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-										</a>
-										<div
-											class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-											aria-labelledby="dropdownMenuLink">
-											<div class="dropdown-header">Dropdown Header:</div>
-											<a class="dropdown-item" href="#">Action</a> <a
-												class="dropdown-item" href="#">Another action</a>
-											<div class="dropdown-divider"></div>
-											<a class="dropdown-item" href="#">Something else here</a>
-										</div>
-									</div>
-								</div>
-								<!-- Card Body -->
-								<div class="card-body">
-									<div class="chart-pie pt-4 pb-2">
-										<canvas id="myPieChart"></canvas>
-									</div>
-									<div class="mt-4 text-center small">
-										<span class="mr-2"> <i
-											class="fas fa-circle text-primary"></i> Direct
-										</span> <span class="mr-2"> <i
-											class="fas fa-circle text-success"></i> Social
-										</span> <span class="mr-2"> <i class="fas fa-circle text-info"></i>
-											Referral
-										</span>
-									</div>
-								</div>
-							</div>
+							<div class="chart-area"></div>
 						</div>
 					</div>
-				</div>
-			</div>
-
-		</div>
-		<!-- /.container-fluid -->
-
-	</div>
-	<!-- End of Main Content -->
-
-	<!-- Footer -->
-<!-- <footer class="sticky-footer bg-white">
-		<div class="container my-auto">
-			<div class="copyright text-center my-auto">
-				<span>Copyright &copy; Your Website 2021</span>
-			</div>
-		</div>
-	</footer> -->	
-	<!-- End of Footer -->
-
-	</div>
-	<!-- End of Content Wrapper -->
-
-	</div>
-	<!-- End of Page Wrapper -->
-
-	<!-- Scroll to Top Button-->
-	<a class="scroll-to-top rounded" href="#page-top"> <i
-		class="fas fa-angle-up"></i>
-	</a>
-
-	<!-- Logout Modal-->
-	<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog"
-		aria-labelledby="exampleModalLabel" aria-hidden="true">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-					<button class="close" type="button" data-dismiss="modal"
-						aria-label="Close">
-						<span aria-hidden="true">×</span>
-					</button>
-				</div>
-				<div class="modal-body">Select "Logout" below if you are ready
-					to end your current session.</div>
-				<div class="modal-footer">
-					<button class="btn btn-secondary" type="button"
-						data-dismiss="modal">Cancel</button>
-					<a class="btn btn-primary" href="login.html">Logout</a>
 				</div>
 			</div>
 		</div>
@@ -400,17 +309,12 @@
 
 	<!-- Core plugin JavaScript-->
 	<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
-	<!-- Custom scripts for all pages-->
-	<script src="js/sb-admin-2.min.js"></script>
-
 	<!-- Page level plugins -->
 	<script src="vendor/chart.js/Chart.min.js"></script>
 
 	<!-- Page level custom scripts -->
 	<script src="js/demo/chart-area-demo.js"></script>
 	<script src="js/demo/chart-pie-demo.js"></script>
-
+	<script src="/resources/js/calender.js"></script>
 </body>
-
 </html>

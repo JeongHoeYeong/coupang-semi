@@ -1,12 +1,12 @@
-h1 {
-  margin-top: 70px;
-}
 .form-group {
   margin: 20px 0;
 }
 .liClick {
   cursor: pointer;
-}
+  padding: 16px 0px;
+  margin: -16px 0px;
+  color: black;
+  }
 #disLike, #like {
   color: red;
   cursor: pointer;
@@ -14,4 +14,62 @@ h1 {
 
 #like {
 	color: gray;
+}	
+
+.countText {
+	display: inline;
+	font-size: 1.5rem;
+}
+
+#boardInpo td:nth-child(1) {
+}
+#boardInpo td:nth-child(2) {
+	width: 150px;
+	text-align: right;
+}
+#boardInpo td:nth-child(3) {
+	text-align: right;
+	width: 200px;
+}
+
+.boardBtnDiv {
+	display: flex;
+	justify-content: space-between;
+}
+
+.boardBtnDiv {
+	margin-left: 10px;
+}
+
+#bcForm {
+	display: flex;
+	height: 100px !important;
+	margin-bottom: 30px;
+}
+
+#bcContent {
+	height: 100px !important;
+}
+
+#bcWrite {
+	height: 40px;
+	margin-top: 60px;
+}
+
+.bcDiv {
+	display: flex;
+}
+
+.bcDate {
+	display: inline;
+	margin-left: 25px;
+}
+
+.bcContent1 {
+	margin: 0px;
+}
+
+.editBtn {
+	float: right;
+	margin-top: -10px;
 }

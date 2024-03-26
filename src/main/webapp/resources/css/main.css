@@ -14317,6 +14317,13 @@ fieldset:disabled .btn {
   justify-content: center;
 }
 
+#qrcode {
+	width: 150px;
+	height: 150px;
+	border-radius: 40px;
+	margin-bottom: 10px;
+	margin-top: 0px;
+}
 .element3:hover {
   border: 2px solid hotpink;
   background-color: pink;
