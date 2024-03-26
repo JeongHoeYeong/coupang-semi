@@ -16,7 +16,7 @@
 	<div class="header">
 		<h2 class="boardlog">게시물 수정</h2>
 		</div>
-		<form action="/boardUpdate" method="get" onsubmit="return checkBoard();">
+		<form action="/boardUpdate" method="get" onsubmit="return editBoard();">
 		<input type="hidden" value="${board.boardNo}" name="boardNo">
 			<div class="form-group">
 				<input class="form-control" name="boardTitle" id="boardTitle" placeholder="제목" value="${board.boardTitle}">

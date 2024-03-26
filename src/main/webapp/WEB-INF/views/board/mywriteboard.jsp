@@ -10,7 +10,7 @@
 <title>Insert title here</title>
 	<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 	<link href="/resources/css/board/boardlist.css" rel="stylesheet" />
-	<link href="/resources/css/board/myWriteBoard.css" rel="stylesheet" />
+	<link href="/resources/css/board/mywriteboard.css" rel="stylesheet" />
 </head>
 <body>	
 	<jsp:include page="/WEB-INF/views/header.jsp" />
@@ -73,6 +73,6 @@
 			<a href="/boardwrite" class="btn btn-outline-warning" style="float:right;">게시글 등록</a>
 		</nav>
 	</div>
-	<script src="/resources/js/board/myWriteBoard.js"></script>
+	<script src="/resources/js/board/mywriteboard.js"></script>
 </body>
 </html>

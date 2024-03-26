@@ -15,7 +15,7 @@ uri="http://www.springframework.org/security/tags"%>
       <div class="header">
       <h2 class="boardlog">게시물 등록</h2>
       </div>
-      <form action="/boardwrite" method="post" onsubmit="return checkBoard();">
+      <form action="/boardwrite" method="post" onsubmit="return writeBoard()">
         <div class="form-group">
           <input class="form-control" name="boardTitle" id="boardTitle" placeholder="제목"/>
         </div>

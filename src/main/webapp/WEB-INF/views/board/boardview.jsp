@@ -110,7 +110,7 @@ ${vo.boardContent}</textarea
       			<input type="button" value="삭제하기" onclick="bcDelete(${boardComment.bcNo})" class="btn btn-outline-danger btn-sm editBtn">
       			</c:if>
       			<br>
-      			<p class="bcContent1">${boardComment.bcContent}</p>
+      			<p class="bcContent1" style="margin-left:20px; word-break: break-all;" >${boardComment.bcContent}</p>
       			
       			<form action="/editBC" class="editContent" style="display: none;">		
       				<input type="hidden" value="${boardComment.bcNo}" name="bcNo">
@@ -154,7 +154,7 @@ ${vo.boardContent}</textarea
       			<input type="button" value="삭제하기" onclick="bcDelete(${boardComment.bcNo})" class="btn btn-outline-danger btn-sm editBtn">
       			</c:if>
       			<br>
-      			<p class="bcContent1" style="word-break: break-all">${boardComment.bcContent}</p>
+      			<p class="bcContent1" style="word-break: break-all; margin-left:20px;">${boardComment.bcContent}</p>
       			<c:if test="${boardComment.id eq id}">
       			
       			<form action="/editBC" class="editContent" style="display: none;">		

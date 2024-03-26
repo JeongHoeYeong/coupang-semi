@@ -40,7 +40,6 @@
 		<select id="count" parameterType="int" resultType="int">
 		SELECT count(*) FROM board_comment
 		WHERE board_no = #{no}
-		AND bc_delete = "n"
 	</select>
 	<update id="deleteBC" parameterType="int">
 		UPDATE board_comment SET bc_delete = "y"

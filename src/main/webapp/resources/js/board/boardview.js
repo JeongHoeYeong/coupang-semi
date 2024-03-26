@@ -20,7 +20,6 @@ if (confirm("댓글을 수정 하시겠습니까?")) {
     data: $(e.target).parent().serialize(),
     success: function (data) {
       location.reload();
-      alert("댓글 수정 완료되었습니다.");
     },
   });
   }
@@ -37,7 +36,6 @@ $(".editBtn").click((e)=> {
 function checkDelete(e) {
 	if (confirm("게시물을 삭제 하시겠습니까?")) {
 		location.href = "/boarddelete?no=" + $("#boardNo").val();
-		alert("삭제 완료되었습니다.");
 	} else {
 	return false;
 	}
@@ -51,14 +49,13 @@ function bcDelete(bcNo) {
     data: "bcNo=" + bcNo + "&boardNo=" + $("#boardNo").val(),
     success: function (data) {
       location.reload();
-      alert("삭제 완료되었습니다.");
     },
   });
   }
 }
 
 $("#bcWrite").click((e) => {
-  if (document.querySelector("#id").value == "") {
+  if ($("#id").val() == "") {
     alert("로그인 후 이용 가능합니다");
     return false;
   } else if ($(e.target).siblings("textarea").val().trim().length == 0) {
@@ -114,7 +111,6 @@ $("#like").click(() => {
     data: "id=" + $("#id").val() + "&boardNo=" + $("#boardNo").val(),
     success: function (data) {
       location.reload();
-      alert("추천 성공");
     },
   });
 });
@@ -130,7 +126,6 @@ $("#disLike").click(() => {
     data: "id=" + $("#id").val() + "&boardNo=" + $("#boardNo").val(),
     success: function (data) {
       location.reload();
-      alert("추천 취소");
     },
   });
 });

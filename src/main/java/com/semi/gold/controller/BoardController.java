@@ -86,11 +86,13 @@ public class BoardController {
 		return "/board/boardsearch";
 	}
 	
+	// 글 작성 페이지
 	@GetMapping("/boardwrite")
 	private String write() {
 		return "/board/boardwrite";
 	}
 	
+	// 글 수정 페이지
 	@GetMapping("/boardedit")
 	private String selectBoard(String no, Model model) {
 		int num = Integer.parseInt(no);
@@ -126,7 +128,6 @@ public class BoardController {
 		model.addAttribute("boardComment", list);
 		model.addAttribute("paging", new BoardCommentPaging(paging.getPage(), bcService.total(num)));
 		model.addAttribute("vo", service.select(num));
-		System.out.println(model);
 		if(principal!=null) {
 			String id = principal.getName();
 			vo.setId(id);
@@ -162,6 +163,7 @@ public class BoardController {
 		res.addCookie(cookie);
 	}
 	
+	// 내 글 보기 페이지
 	@GetMapping("/mywriteboard") 
 	private String writeSelect(BoardPaging paging, String sort, Model model, Principal principal) {
 		paging.setSort(sort);
@@ -185,6 +187,8 @@ public class BoardController {
 	// 글 수정
 	@GetMapping("/boardUpdate")
 	public String update(Board b, Principal principal) {
+		b.setBoardTitle(b.getBoardTitle().trim());
+		b.setBoardContent(b.getBoardContent().trim());
 		b.setId(principal.getName());
 		service.update(b);
 		
