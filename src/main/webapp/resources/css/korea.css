@@ -1,0 +1,28 @@
+.title {
+  font-weight: bolder;
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+.titlewrap {
+  padding: 0 15px;
+  font-weight: 700px;
+  box-shadow: inset 0 -12px 0 rgb(255, 254, 170);
+  text-align: center;
+}
+
+li strong {
+  float: left;
+  width: 30%;
+  font-size: 15px;
+  font-weight: 400;
+}
+.row h3 {
+  text-align: center;
+  padding: 20px;
+  border-bottom: solid black;
+}
+
+.btn_open {
+  cursor: pointer;
+}
