@@ -5339,7 +5339,7 @@ fieldset:disabled .btn {
 /* line 61, src/assets/scss/_nav.scss */
 .nav-tabs .nav-link.active,
 .nav-tabs .nav-item.show .nav-link {
-  font-weight: border!important;
+  font-weight: border !important;
   color: black;
   background-color: #fff;
   border-color: #dee2e6 #dee2e6 #fff;
@@ -5485,7 +5485,7 @@ fieldset:disabled .btn {
 /* line 119, src/assets/scss/_navbar.scss */
 .navbar-toggler {
   padding: 0.25rem 0.75rem;
-  font-style:border;
+  font-style: border;
   font-size: 2rem;
   line-height: 1;
   background-color: transparent;
