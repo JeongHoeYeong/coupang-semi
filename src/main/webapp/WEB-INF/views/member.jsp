@@ -256,51 +256,50 @@
 					<div class="form-cal">
 						<div class="row">
 							<!-- Calendar Body -->
-							<div class="calendar">
-								<div class="header">
-									<div class="year-month"></div>
-									<div class="nav">
+								<div class="calendar">
+									<div class="header">
+										<div class="year-month"></div>
+										<div class="nav">
 
-										<button class="nav-btn go-prev" onclick="prevMonth()">
-											<svg xmlns="http://www.w3.org/2000/svg" width="16"
-												height="16" fill="currentColor" class="bi bi-chevron-left"
-												viewBox="0 0 16 16">
+											<button class="nav-btn go-prev" onclick="prevMonth()">
+												<svg xmlns="http://www.w3.org/2000/svg" width="16"
+													height="16" fill="currentColor" class="bi bi-chevron-left"
+													viewBox="0 0 16 16">
   <path fill-rule="evenodd"
-													d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0" />
+														d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0" />
 </svg>
-										</button>
-										<button class="nav-btn go-today" onclick="goToday()">Today</button>
-										<button class="nav-btn go-next" onclick="nextMonth()">
-											<svg xmlns="http://www.w3.org/2000/svg" width="16"
-												height="16" fill="currentColor" class="bi bi-chevron-right"
-												viewBox="0 0 16 16">
+											</button>
+											<button class="nav-btn go-today" onclick="goToday()">Today</button>
+											<button class="nav-btn go-next" onclick="nextMonth()">
+												<svg xmlns="http://www.w3.org/2000/svg" width="16"
+													height="16" fill="currentColor" class="bi bi-chevron-right"
+													viewBox="0 0 16 16">
   <path fill-rule="evenodd"
-													d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708" />
+														d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708" />
 </svg>
-										</button>
+											</button>
+										</div>
 									</div>
-								</div>
-								<div class="main">
-									<div class="days">
-										<div class="day">일</div>
-										<div class="day">월</div>
-										<div class="day">화</div>
-										<div class="day">수</div>
-										<div class="day">목</div>
-										<div class="day">금</div>
-										<div class="day">토</div>
+									<div class="main">
+										<div class="days">
+											<div class="day">일</div>
+											<div class="day">월</div>
+											<div class="day">화</div>
+											<div class="day">수</div>
+											<div class="day">목</div>
+											<div class="day">금</div>
+											<div class="day">토</div>
+										</div>
+										<div class="dates"></div>
 									</div>
-									<div class="dates"></div>
+									<div class="chart-area"></div>
 								</div>
 							</div>
-							<div class="chart-area"></div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-
 	<!-- Bootstrap core JavaScript-->
 	<script src="vendor/jquery/jquery.min.js"></script>
 	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -314,6 +313,5 @@
 	<script src="js/demo/chart-area-demo.js"></script>
 	<script src="js/demo/chart-pie-demo.js"></script>
 	<script src="/resources/js/calender.js"></script>
-
 </body>
 </html>
