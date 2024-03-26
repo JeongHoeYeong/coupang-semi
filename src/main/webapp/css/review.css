@@ -2114,7 +2114,6 @@ progress {
   --bs-table-accent-bg: var(--bs-table-hover-bg);
   color: var(--bs-table-hover-color);
 }
-
 .table-primary {
   --bs-table-bg: #ccd2db;
   --bs-table-striped-bg: #c2c8d0;
