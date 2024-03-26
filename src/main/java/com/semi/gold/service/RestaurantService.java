@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.semi.gold.model.dao.RestaurantDAO;
+import com.semi.gold.model.dto.RestaurantDetailSearchDTO;
 import com.semi.gold.model.dto.RestaurantSearchDTO;
 import com.semi.gold.model.vo.Restaurant;
 
@@ -18,8 +19,11 @@ public class RestaurantService {
 	public List<Restaurant> searchRestaurant(RestaurantSearchDTO dto) { 
 
 		List<Restaurant> returnList = dao.searchRestaurant(dto);
-
 		return returnList;
+	}
+	
+	public Restaurant searchRestaurantDetail(RestaurantDetailSearchDTO dto) {
+		return dao.searchRestaurantDetail(dto); 
 	}
 
 

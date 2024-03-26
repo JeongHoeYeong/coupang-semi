@@ -97,9 +97,6 @@ function tourplaceToBoard(dataList){
 		
 		newTd.appendChild(newDivCode);
 		newTd.appendChild(newDivName);
-		newTd.setAttribute("onclick", "location.href='http://localhost:8080/restaurant/detail?contentId="+item.contentId+"'");
-		
-		//previousBundle.setAttribute("onclick", "clickPreviousBundle()");
 		
 		newRow.appendChild(newTd);
 		
@@ -199,71 +196,49 @@ function clickPreviousBundle(){
 
 <body>
 	<jsp:include page="/WEB-INF/views/header.jsp" />
-	<div class="tourlist_board">
-		<table class="search_table">
+	<div class="tourlist_detail">
+		<table border="1" style="width: 1000px;">
+			<colgroup>
+				<col width="30%"/>
+				<col width="70%"/>
+			</colgroup>
 			<tr>
-				<td class="search_header">관광타입</td>
-				<td class="search_content">맛집</td>
+				<td>
+					식당 이름
+				</td>
+				<td>
+					${restaurant.restaurantName}
+				</td>
+			</tr>
+			<!-- Restaurant(contentId=2851196, restaurantName=친봉산장, restaurantAddress=제주특별자치도 서귀포시 하신상로 417, imgTag=http://tong.visitkorea.or.kr/cms/resource/65/2851165_image2_1.jpg, imgTag2=http://tong.visitkorea.or.kr/cms/resource/65/2851165_image3_1.jpg, areaCode=39, sigunguCode=3, cat1=A05, cat2=A0502, cat3=A05020900, addr1=null, addr2=null, zipCode=63602, overview=친) -->
+			<tr>
+				<td>
+					식당 주소
+				</td>
+				<td>
+					${restaurant.restaurantAddress}
+				</td>
 			</tr>
 			<tr>
-				<td class="search_header">검색어</td>
-				<td class="search_content input_form">
-				<input style="float: left;" type="text" id="search_keyword" value=""/> 
-				<input style="width: 100px; margin-left: 5px;" type="button"
-					id="searchButton" value="검색"/></td>
+				<td>
+					대표 이미지
+				</td>
+				<td>
+					<img src="${restaurant.imgTag}" style="width: 100%;">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					상세 설명
+				</td>
+				<td>
+					${restaurant.overview}
+				</td>
 			</tr>
 		</table>
 	</div>
-
-<!-- 	<h1>관광지 목록</h1> -->
-<br>
-	<%-- <table class="listTilte">
-		<tr>
-			<th>번호</th>
-			<th>관광지명</th>
-			<th>관광지 주소</th>
-			<th>조회수</th>
-		</tr>
-		<c:forEach items="${list}" var="item">
-			<tr>
-				<td>${item.touristCode}</td>
-				<td>${item.touristName}</td>
-				<td>${item.touristAddress}</td>
-				<td>${item.look}</td>
-				<td>${item.imgTag}</td>
-			</tr>
-		</c:forEach>
-	</table>  --%>
-	
-	<!-- 페이징 뿌리기  -->
-	<%-- <c:set var="pageIdx" value="0"/>
-	<c:forEach begin="1" end="${maxPage}">
-		<c:set var="pageIdx" value="${pageIdx+1}"/>
-		<a href="/tourplace/search?pageIdx=${pageIdx}">${pageIdx}</a>
-	</c:forEach> --%>
-	
-<div class="photoList">
-	<div class="photoList_div">
 	
 	
-		<div id="searchResultPageIndex">
-		</div>
-		<table id="searchResultTable">
-		</table>
-		
-		<%-- <c:forEach items="${list}" var="item">
-			<div class="box">
-				${item.imgTag}
-				<div>
-					${item.touristCode}
-				</div>	
-				<div>
-					${item.touristName}
-				</div>
-			</div>
-		</c:forEach> --%>
-	</div> 
-</div>
 <div class="return-top">
 <a href="#"> <span class="element3">Top</span></a>
 </div>
@@ -272,7 +247,7 @@ function clickPreviousBundle(){
 			<div class="container">
 				<div class="row pt-2">
 					<div class="col-lg-5 col-sm-12">
-						<p class="text-center text-light light-300">© 전국을 만나는 순간 2024
+						<p class="text-center text-light light-300">© 전국을 만난는 순간 2024
 							| 금쪽같은 코딩</p>
 					</div>
 				</div>
