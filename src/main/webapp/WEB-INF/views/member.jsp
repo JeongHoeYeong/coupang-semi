@@ -24,7 +24,6 @@
 
 <link href="/resources/css/admin1.css" rel="stylesheet">
 <link href="/resources/css/calender.css" rel="stylesheet">
-
 <script src="https://kit.fontawesome.com/cbb1359000.js"
 	crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
@@ -32,7 +31,6 @@
 </head>
 <!--=====================================================================================-->
 <body id="page-top">
-
 	<!-- Page Wrapper -->
 	<div id="wrapper">
 
@@ -68,7 +66,7 @@
 			<!-- Nav Item - Utilities Collapse Menu -->
 			<li class="nav-item"><a class="nav-link collapsed"
 				href="/userout"></i> <span>회원탈퇴</span> </a></li>
-			
+
 			<!-- Divider -->
 			<hr class="sidebar-divider">
 
@@ -316,5 +314,6 @@
 	<script src="js/demo/chart-area-demo.js"></script>
 	<script src="js/demo/chart-pie-demo.js"></script>
 	<script src="/resources/js/calender.js"></script>
+
 </body>
 </html>
