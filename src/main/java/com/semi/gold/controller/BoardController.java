@@ -111,8 +111,6 @@ public class BoardController {
 		return "redirect:/boardview?no=" + b.getBoardNo();
 	}
 	
-	
-	
 	// 글 정보
 	@GetMapping("/boardview")
 	private String view(Principal principal, BoardCommentPaging paging, String no, Model model,

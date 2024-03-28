@@ -35,6 +35,7 @@ $(".editBtn").click((e)=> {
 
 function checkDelete(e) {
 	if (confirm("게시물을 삭제 하시겠습니까?")) {
+		alert("삭제 완료되었습니다.");
 		location.href = "/boarddelete?no=" + $("#boardNo").val();
 	} else {
 	return false;
@@ -43,6 +44,7 @@ function checkDelete(e) {
 
 function bcDelete(bcNo) {
 	if(confirm("댓글을 삭제 하시겠습니까?")) {
+	alert("삭제 완료되었습니다.");
   $.ajax({
     type: "get",
     url: "/deleteBC",
